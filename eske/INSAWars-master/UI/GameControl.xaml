@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="UI.GameControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="768" d:DesignWidth="1024">
+    <UserControl.Resources>
+        <BitmapImage x:Key="Plain" UriSource="./Resources/textures/plain.png" />
+        <BitmapImage x:Key="Water" UriSource="./Resources/textures/water.png" />
+        <BitmapImage x:Key="Desert" UriSource="./Resources/textures/desert.png" />
+        <BitmapImage x:Key="Mountain" UriSource="./Resources/textures/mountain.png" />
+
+        <BitmapImage x:Key="FoodSmall" UriSource="./Resources/icons/16x16/food.png" />
+        <BitmapImage x:Key="IronSmall" UriSource="./Resources/icons/16x16/iron.png" />
+        
+        <BitmapImage x:Key="CitySmall" UriSource="./Resources/icons/16x16/city.png" />
+        <BitmapImage x:Key="CityBig" UriSource="./Resources/textures/city.png" />
+        <BitmapImage x:Key="FieldSmall" UriSource="./Resources/icons/16x16/field.png" />
+        <BitmapImage x:Key="FieldBig" UriSource="./Resources/textures/field.png" />
+
+        <BitmapImage x:Key="HeadSmall" UriSource="./Resources/icons/16x16/head.png" />
+        <BitmapImage x:Key="HeadBig" UriSource="./Resources/textures/head.png" />
+        <BitmapImage x:Key="StudentSmall" UriSource="./Resources/icons/16x16/student.png" />
+        <BitmapImage x:Key="StudentBig" UriSource="./Resources/textures/student.png" />
+        <BitmapImage x:Key="TeacherSmall" UriSource="./Resources/icons/16x16/teacher.png" />
+        <BitmapImage x:Key="TeacherBig" UriSource="./Resources/textures/teacher.png" />
+
+    </UserControl.Resources>
+</UserControl>

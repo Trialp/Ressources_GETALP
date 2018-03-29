@@ -1,0 +1,34 @@
+﻿<Page x:Class="UI.InGameMenuSavePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="InGameMenuHomePage">
+    <Page.Background>
+        <ImageBrush ImageSource=".\Resources\ui\ingame-menu-background.png" Viewport="0,0,300,300"
+        ViewportUnits="Absolute"
+        TileMode="Tile"
+        Stretch="None"
+        AlignmentX="Left"
+        AlignmentY="Top" ViewboxUnits="RelativeToBoundingBox"/>
+    </Page.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="88*"/>
+            <RowDefinition Height="163*"/>
+            <RowDefinition Height="49*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1" Grid.RowSpan="2">
+            <Label Content="Save game" HorizontalAlignment="Center" FontSize="24" Foreground="#FF9C9C8F" FontFamily="Charlemagne Std"/>
+            <StackPanel>
+                <TextBox Name="_gameName" TextWrapping="Wrap" FontSize="10" FontFamily="Charlemagne STD" Text="Please enter the name of your game..." Padding="4" BorderThickness="0" BorderBrush="#FF2c2210" Background="#FFceceb3" Foreground="#FF2B2B2B" VerticalAlignment="Top" Width="250" />
+            </StackPanel>
+        </StackPanel>
+        <DockPanel LastChildFill="False" Grid.Row="2">
+            <Button Content="Back" Margin="10" DockPanel.Dock="Left" Style="{StaticResource menuStyle}" FontSize="18" Click="BackClicked"/>
+            <Button Content="Save" Margin="10" DockPanel.Dock="Right" Style="{StaticResource menuStyle}" FontSize="18" Click="SaveClicked"/>
+        </DockPanel>
+    </Grid>
+</Page>

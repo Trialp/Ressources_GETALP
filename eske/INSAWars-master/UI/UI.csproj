@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9C054967-11B5-4658-83D1-67E89833FA1C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UI</RootNamespace>
+    <AssemblyName>UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>UI.App</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="CaseClickedEventArgs.cs" />
+    <Compile Include="CaseSelectedEventArgs.cs" />
+    <Compile Include="Commands\AttackCommand.cs" />
+    <Compile Include="Commands\BasicCommand.cs" />
+    <Compile Include="Commands\CaseCommand.cs" />
+    <Compile Include="Commands\MakeHeadCommand.cs" />
+    <Compile Include="Commands\MakeStudentCommand.cs" />
+    <Compile Include="Commands\MakeTeacherCommand.cs" />
+    <Compile Include="Commands\MoveUnitCommand.cs" />
+    <Compile Include="Commands\SelectCaseCommand.cs" />
+    <Compile Include="GameOverWindow.xaml.cs">
+      <DependentUpon>GameOverWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InGameMenuErrorPage.xaml.cs">
+      <DependentUpon>InGameMenuErrorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InGameMenuHomePage.xaml.cs">
+      <DependentUpon>InGameMenuHomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InGameMenuSavePage.xaml.cs">
+      <DependentUpon>InGameMenuSavePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoadErrorWindow.xaml.cs">
+      <DependentUpon>LoadErrorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoadGamePage.xaml.cs">
+      <DependentUpon>LoadGamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CaseView.cs" />
+    <Compile Include="Views\CityView.cs" />
+    <Compile Include="Views\GameView.cs" />
+    <Compile Include="Views\PlayerView.cs" />
+    <Compile Include="Views\UnitView.cs" />
+    <Page Include="ChooseMapSizePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChoosePlayersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameOverWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InGameMenuErrorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InGameMenuHomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InGameMenuSavePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InGameMenuWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoadErrorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoadGamePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ChooseMapSizePage.xaml.cs">
+      <DependentUpon>ChooseMapSizePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChoosePlayersPage.xaml.cs">
+      <DependentUpon>ChoosePlayersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Drawing\CaseDrawer.cs" />
+    <Compile Include="GameControl.xaml.cs">
+      <DependentUpon>GameControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameWindow.xaml.cs">
+      <DependentUpon>GameWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InGameMenuWindow.xaml.cs">
+      <DependentUpon>InGameMenuWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="ChoosePlayerCountPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ChoosePlayerCountPage.xaml.cs">
+      <DependentUpon>ChoosePlayerCountPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\INSAWars.csproj">
+      <Project>{760bfa8f-5773-417b-b9c0-00951b4085fd}</Project>
+      <Name>INSAWars</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\INSAWrapper\INSAWrapper.vcxproj">
+      <Project>{0d427f1f-3e94-4fbe-bd99-3badab15cb5f}</Project>
+      <Name>INSAWrapper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ui\background.png" />
+    <SplashScreen Include="Resources\ui\splash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ui\top-menu-background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ui\bot-menu-background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ui\ingame-menu-background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\icons\16x16\city.png" />
+    <Resource Include="Resources\icons\16x16\field.png" />
+    <Resource Include="Resources\icons\16x16\food.png" />
+    <Resource Include="Resources\icons\16x16\head.png" />
+    <Resource Include="Resources\icons\16x16\heart.png" />
+    <Resource Include="Resources\icons\16x16\iron.png" />
+    <Resource Include="Resources\icons\16x16\shield.png" />
+    <Resource Include="Resources\icons\16x16\shoe.png" />
+    <Resource Include="Resources\icons\16x16\student.png" />
+    <Resource Include="Resources\icons\16x16\sword.png" />
+    <Resource Include="Resources\icons\16x16\teacher.png" />
+    <Resource Include="Resources\textures\city.png" />
+    <Resource Include="Resources\textures\desert.png" />
+    <Resource Include="Resources\textures\field.png" />
+    <Resource Include="Resources\textures\head.png" />
+    <Resource Include="Resources\textures\mountain.png" />
+    <Resource Include="Resources\textures\plain.png" />
+    <Resource Include="Resources\textures\student.png" />
+    <Resource Include="Resources\textures\teacher.png" />
+    <Resource Include="Resources\textures\water.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\cursors\attack.cur" />
+    <Resource Include="Resources\cursors\move.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ui\gameover-menu-background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ui\error-menu-background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\icons\32x32\boot.png" />
+    <Resource Include="Resources\icons\32x32\hammer.png" />
+    <Resource Include="Resources\icons\32x32\sword.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

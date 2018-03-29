@@ -1,0 +1,65 @@
+﻿<Page x:Class="UI.ChoosePlayersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="768" d:DesignWidth="1024"
+	Title="ChoosePlayersPage">
+    <Page.Background>
+        <ImageBrush ImageSource="Resources\ui\background.png" Viewport="0,0,1024,768"
+        ViewportUnits="Absolute"
+        TileMode="Tile"
+        Stretch="None"
+        AlignmentX="Left"
+        AlignmentY="Top" ViewboxUnits="RelativeToBoundingBox"></ImageBrush>
+    </Page.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="87*"/>
+            <RowDefinition Height="123*"/>
+            <RowDefinition Height="46*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="41*"/>
+                <RowDefinition Height="41*"/>
+                <RowDefinition Height="41*"/>
+                <RowDefinition Height="41*"/>
+            </Grid.RowDefinitions>       
+            
+            <StackPanel Name="_playerOne">
+                <TextBox Name="_playerOneName" Margin="5" Text="Player 1"  MaxLength="6" TextWrapping="Wrap" FontSize="10" FontFamily="Charlemagne STD" Padding="4" BorderThickness="0" BorderBrush="#FF2c2210" Background="#FFceceb3" Foreground="#FF2B2B2B" VerticalAlignment="Top" Width="240" />
+                <ComboBox Name="_playerOneCivilization" Style="{StaticResource CustomComboBox}" VerticalAlignment="Top" Width="240" >
+                    <ComboBoxItem Content="INFO" HorizontalAlignment="Left" Width="238" IsSelected="True"/>
+                    <ComboBoxItem Content="EII" HorizontalAlignment="Left" Width="238"/>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Name="_playerTwo" Grid.Row="1">
+                <TextBox Name="_playerTwoName" Margin="5" Text="Player 2"  MaxLength="6" TextWrapping="Wrap" FontSize="10" FontFamily="Charlemagne STD" Padding="4" BorderThickness="0" BorderBrush="#FF2c2210" Background="#FFceceb3" Foreground="#FF2B2B2B" VerticalAlignment="Top" Width="240" />
+                <ComboBox Name="_playerTwoCivilization" Style="{StaticResource CustomComboBox}" VerticalAlignment="Top" Width="240" >
+                    <ComboBoxItem Content="INFO" HorizontalAlignment="Left" Width="238" IsSelected="True"/>
+                    <ComboBoxItem Content="EII" HorizontalAlignment="Left" Width="238"/>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Name="_playerThree" Grid.Row="2">
+                <TextBox Name="_playerThreeName" Margin="5" Text="Player 3"  MaxLength="6" TextWrapping="Wrap" FontSize="10" FontFamily="Charlemagne STD" Padding="4" BorderThickness="0" BorderBrush="#FF2c2210" Background="#FFceceb3" Foreground="#FF2B2B2B" VerticalAlignment="Top" Width="240" />
+                <ComboBox Name="_playerThreeCivilization" Style="{StaticResource CustomComboBox}" VerticalAlignment="Top" Width="240" >
+                    <ComboBoxItem Content="INFO" HorizontalAlignment="Left" Width="238" IsSelected="True"/>
+                    <ComboBoxItem Content="EII" HorizontalAlignment="Left" Width="238"/>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Name="_playerFour" Grid.Row="3">
+                <TextBox Name="_playerFourName" Margin="5" Text="Player 4"  MaxLength="6" TextWrapping="Wrap" FontSize="10" FontFamily="Charlemagne STD" Padding="4" BorderThickness="0" BorderBrush="#FF2c2210" Background="#FFceceb3" Foreground="#FF2B2B2B" VerticalAlignment="Top" Width="240" />
+                <ComboBox Name="_playerFourCivilization" Style="{StaticResource CustomComboBox}" VerticalAlignment="Top" Width="240" >
+                    <ComboBoxItem Content="INFO" HorizontalAlignment="Left" Width="238" IsSelected="True"/>
+                    <ComboBoxItem Content="EII" HorizontalAlignment="Left" Width="238"/>
+                </ComboBox>
+            </StackPanel>
+        </Grid>
+        <DockPanel LastChildFill="False" Grid.Row="2">
+            <Button Content="Back" Margin="40" DockPanel.Dock="Left" Style="{StaticResource menuStyle}" Click="BackButtonClick"/>
+            <Button Content="Next" Margin="40" DockPanel.Dock="Right" Style="{StaticResource menuStyle}" Click="NextButtonClick"/>
+        </DockPanel>
+    </Grid>
+</Page>

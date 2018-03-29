@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="creer_partie">
+  <useCaseModelRootMoniker Id="4514358b-191c-4e8a-86be-976d3c285187" />
+  <nestedChildShapes>
+    <actorShape Id="0aa31c50-69fa-4614-b5a3-4af6eaf80cef" absoluteBounds="0.5, 2, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="efe1ec50-9a63-4ae9-b64f-d3fc4b3b41db" LastKnownName="Joueur 1" />
+      <relativeChildShapes />
+    </actorShape>
+    <actorShape Id="65b6f3e4-b479-4c99-b764-68084e881882" absoluteBounds="6.25, 2.875, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="6e49baf0-380c-46a2-8b41-17c49b7ccd2b" LastKnownName="Joueur 2" />
+      <relativeChildShapes />
+    </actorShape>
+    <useCaseShape Id="07d7ce19-97a3-4433-8867-5c93caf9db59" absoluteBounds="2.125, 0.75, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="004a496c-6dff-404a-b4dc-af113b54c473" LastKnownName="Créer une partie" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(1 : 2.08333333333333); (2.325 : 1.2)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="3fcb65a7-35ec-4439-9083-f5e7af0db27f" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="0aa31c50-69fa-4614-b5a3-4af6eaf80cef" />
+        <useCaseShapeMoniker Id="07d7ce19-97a3-4433-8867-5c93caf9db59" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="4a818a61-2dcc-48d1-8a6b-0a7888a3f14a" absoluteBounds="2.125, 2, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="1296d9de-4dbe-49f7-8a5c-5267112f41d1" LastKnownName="Configurer la partie" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseDependencyConnector edgePoints="[(2.625 : 2); (2.625 : 1.25)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black">
+      <dependencyMoniker Id="86c5ebcc-9d44-4e50-9c0e-9d5dfb626271" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="4a818a61-2dcc-48d1-8a6b-0a7888a3f14a" />
+        <useCaseShapeMoniker Id="07d7ce19-97a3-4433-8867-5c93caf9db59" />
+      </nodes>
+    </useCaseDependencyConnector>
+    <useCaseAssociationConnector edgePoints="[(1 : 2.25); (2.125 : 2.25)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="8d4726b6-714a-45e2-8b92-1caecfd8d5c9" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="0aa31c50-69fa-4614-b5a3-4af6eaf80cef" />
+        <useCaseShapeMoniker Id="4a818a61-2dcc-48d1-8a6b-0a7888a3f14a" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="0796adc8-a8c8-4859-94cb-35aead46af48" absoluteBounds="4.75, 1.5, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="be2b9c39-66de-4139-bdaf-34ba5c192ce6" LastKnownName="Choisir une civilisation" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(3.09224386746448 : 2.161001168102); (4.78275613253552 : 1.838998831898)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«inclure»">
+      <includeMoniker Id="5e72d4e2-fa4d-4b32-93ab-567362c5d587" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallyPlaced="true" absoluteBounds="3.432364878338297, 2.1197582389091383, 0.50236904621124268, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="4a818a61-2dcc-48d1-8a6b-0a7888a3f14a" />
+        <useCaseShapeMoniker Id="0796adc8-a8c8-4859-94cb-35aead46af48" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="4aebe408-1775-4326-a5d9-3acc6415dbbf" absoluteBounds="3.375, 3.5, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="1b0b45f9-7ec4-4bd9-b28a-22a51488f0e3" LastKnownName="Choisir la carte" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(2.81730769230769 : 2.48076923076923); (3.68269230769231 : 3.51923076923077)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«inclure»">
+      <includeMoniker Id="04571e7d-472b-492e-a70b-c70289c65226" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallyPlaced="true" absoluteBounds="2.611833067668754, 2.803195157120804, 0.50236904621124268, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="4a818a61-2dcc-48d1-8a6b-0a7888a3f14a" />
+        <useCaseShapeMoniker Id="4aebe408-1775-4326-a5d9-3acc6415dbbf" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="1694da93-f223-41e6-b27e-f279e0bbb934" absoluteBounds="1.5, 3.875, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="cff4686c-fe43-485b-b06d-87aa53591529" LastKnownName="Lancer la partie" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseDependencyConnector edgePoints="[(2.08219949365268 : 3.87840151904196); (2.54280050634732 : 2.49659848095804)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black">
+      <dependencyMoniker Id="ca31ad8a-22f1-4e19-901b-8d2650c8f6d4" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="1694da93-f223-41e6-b27e-f279e0bbb934" />
+        <useCaseShapeMoniker Id="4a818a61-2dcc-48d1-8a6b-0a7888a3f14a" />
+      </nodes>
+    </useCaseDependencyConnector>
+    <useCaseAssociationConnector edgePoints="[(0.916666666666667 : 2.5); (1.84188611699158 : 3.88782917548737)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="2df96275-e7a1-45d6-811c-e34475814023" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="0aa31c50-69fa-4614-b5a3-4af6eaf80cef" />
+        <useCaseShapeMoniker Id="1694da93-f223-41e6-b27e-f279e0bbb934" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="e69d03ad-4073-4305-aba4-a25b15ef2e21" absoluteBounds="4.5, 2.625, 1, 0.875" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="c45f6c3e-62cd-4f5b-a1be-e4e9318bf23a" LastKnownName="Choisir une civilisation pour le joueur 2" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(6.25 : 3.11458333333333); (5.4994340688622 : 3.08330975286926)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="fa834c3c-8ff4-41b6-ac78-f93f09bd7602" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="65b6f3e4-b479-4c99-b764-68084e881882" />
+        <useCaseShapeMoniker Id="e69d03ad-4073-4305-aba4-a25b15ef2e21" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <includeConnector edgePoints="[(3.03765363062492 : 2.391170978898); (4.53432697032324 : 2.9031908056369)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«inclure»">
+      <includeMoniker Id="08ddb139-ca7f-4e4b-8e59-aabb7b2c58e8" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="4a818a61-2dcc-48d1-8a6b-0a7888a3f14a" />
+        <useCaseShapeMoniker Id="e69d03ad-4073-4305-aba4-a25b15ef2e21" />
+      </nodes>
+    </includeConnector>
+  </nestedChildShapes>
+</useCaseDiagram>

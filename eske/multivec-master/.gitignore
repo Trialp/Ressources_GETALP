@@ -1,0 +1,41 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Project specific (binaries, data, and models)
+data/
+models/
+build/
+bin/
+callgrind*
+.idea/
+tags
+rcv-from-binod/
+*.class
+cython/multivec.cpp
+cython/multivec.c

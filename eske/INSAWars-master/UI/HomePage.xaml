@@ -1,0 +1,28 @@
+﻿<Page x:Class="UI.HomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="768" d:DesignWidth="1024"
+	Title="INSAWars" FocusManager.FocusedElement="{Binding ElementName=_createGame}">
+    <Page.Background>
+        <ImageBrush ImageSource="Resources\ui\background.png" Viewport="0,0,1024,768"
+        ViewportUnits="Absolute"
+        TileMode="Tile"
+        Stretch="None"
+        AlignmentX="Left"
+        AlignmentY="Top" ViewboxUnits="RelativeToBoundingBox"></ImageBrush>
+    </Page.Background>
+    <Grid Name="_grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="77*"/>
+            <RowDefinition Height="179*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1">
+            <Button Name="_createGame" Content="New game" Style="{StaticResource menuStyle}" Click="CreateGameClicked" />
+            <Button Content="Load Game" Click="LoadGameClicked" Style="{StaticResource menuStyle}"/>
+            <Button Content="Exit" Click="ExitClicked" Style="{StaticResource menuStyle}"/>
+        </StackPanel>
+    </Grid>
+</Page>

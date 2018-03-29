@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="72de2919-8f36-435e-8fc2-017d9967089d" name="Tiles" linkedPackageId="f4fe4de4-c0bc-4dab-b85a-261307e8a2d2" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <ownedCommentsInternal>
+    <comment Id="d6f18331-a6f5-495c-a8f7-1a0f6a0aebf6">
+      <elementDefinition Id="5cc53cb2-5958-4ff8-b151-eed7e2449b2e" />
+      <body>Singleton &amp; Flyweight</body>
+      <annotatedElements>
+        <classMoniker Id="ef7c674a-61a3-4859-9dcf-945f9f9f025c" LastKnownName="TextureFactory" />
+      </annotatedElements>
+    </comment>
+    <comment Id="dd40cf3d-30ab-48b7-8c01-b53156613998">
+      <elementDefinition Id="a7b6515c-e390-4a71-8166-267ac75972fa" />
+      <body>Contient l'image associée</body>
+      <annotatedElements>
+        <classMoniker Id="763eccfe-c6d7-46f5-a969-1dffd4c9e587" LastKnownName="Texture" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="ef7c674a-61a3-4859-9dcf-945f9f9f025c" name="TextureFactory" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="dfa9ba1a-4b96-49ba-9de7-e4e052c02f22" />
+        <targetEnds>
+          <association Id="e91ca0f8-02de-4c06-9cb3-a93886f9effc" isDerived="false" sourceEndRoleName="TextureFactory" targetEndRoleName="Texture" isLeaf="false" isAbstract="false">
+            <classMoniker Id="763eccfe-c6d7-46f5-a969-1dffd4c9e587" LastKnownName="Texture" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bfdd5855-61e0-43f6-8dc1-1e2ecdb8148d" name="TextureFactory" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="8f571792-43b7-4cae-8153-20d06521a7e7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4d576cea-f473-40c4-a6f1-2b8e56c77b37" name="Texture" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="b14f9412-af8b-4ea7-b29b-5519eb0a809e" name="Lower" value="*">
+                      <elementDefinition Id="0b7c8637-8a70-4636-99f4-f463ebad30b0" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="2dc43616-b018-4c48-8743-1d58fb83ca2c" name="Upper" value="*">
+                      <elementDefinition Id="9df2ae46-badd-4420-b8fb-863c166d087c" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="7803dd85-9ef7-44c5-8cf0-49da53d2249c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="b8d04abb-d2be-45f7-82a1-6aa7c5f980f7" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="c545e0c5-952f-4b07-ad89-70a32c73114a" name="textures" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="3f2556c5-8e50-4fb7-a026-50e802314356" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="08afddf2-6b30-4928-ac80-2c30db3781d6" LastKnownName="Dictionary&lt;String, Texture&gt;" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="f13d428e-04c7-4136-9854-21811a9e8235" name="GetTexture" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="fa930f80-4280-4915-a7aa-f892c270ccf0" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3dd22c3e-2de2-40ec-b58f-58028a83fae9" direction="Return" isUnique="false">
+                  <elementDefinition Id="bf1c6b11-0ad8-4d70-bd1c-6149a8c0ff6c" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="972688f0-8c38-4972-9200-7014eb197f29" LastKnownName="Texture" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4c70a879-5a54-419a-8289-f9f4e21011d4" name="String name" direction="In" isUnique="false">
+                  <elementDefinition Id="6b385d81-7410-4d60-8cd1-308a9a9784d2" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="763eccfe-c6d7-46f5-a969-1dffd4c9e587" name="Texture" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="fb38201d-120f-4c92-914e-f9108c25c702" />
+        <ownedOperationsInternal>
+          <operation Id="baa729e4-40a7-4926-93e4-4959bb2b8b39" name="Draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f4414a41-d8b1-4bd7-8e71-f35070bdbdea" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="12856d73-fead-4172-a62a-db39d5d00a92" name="x" direction="In" isUnique="false">
+                  <elementDefinition Id="29d9f6da-895d-45dc-be61-346adb5bdb4e" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ee1c964a-802c-46a7-987f-5e7f76115663" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="562cdb6e-fe19-4bd9-980a-01d501d0e95e" name="y" direction="In" isUnique="false">
+                  <elementDefinition Id="e9d7163f-8892-4fa7-b1d7-cd3c342e3c06" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ee1c964a-802c-46a7-987f-5e7f76115663" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7ff2095d-4c80-45cf-a5bd-93446ada0c0a" name="width" direction="In" isUnique="false">
+                  <elementDefinition Id="cb6b51df-b951-44d6-a82b-0a8d204cc1a1" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ee1c964a-802c-46a7-987f-5e7f76115663" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="cab8640b-c7e1-4ca2-a5e7-d28cfc00b1a3" name="height" direction="In" isUnique="false">
+                  <elementDefinition Id="08a31b1e-92d8-4161-b3ad-b4b01e1bce9f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ee1c964a-802c-46a7-987f-5e7f76115663" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="08afddf2-6b30-4928-ac80-2c30db3781d6" name="Dictionary&lt;String, Texture&gt;" isAbstract="false" isLeaf="false" cachedFullName="Dictionary&lt;String, Texture&gt;">
+        <elementDefinition Id="8b407b7d-e7f2-4a7c-94d0-d8d229d4eb59" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="972688f0-8c38-4972-9200-7014eb197f29" name="Texture" isAbstract="false" isLeaf="false" cachedFullName="Modelisation::Texture">
+        <elementDefinition Id="cdd23e82-d15d-423c-99d6-66041dc996ba" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="ee1c964a-802c-46a7-987f-5e7f76115663" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
+        <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
+      </referencedType>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="f4fe4de4-c0bc-4dab-b85a-261307e8a2d2" name="Modelisation">
+    <elementDefinition Id="8f9f8eeb-a106-4eea-9842-eb00d4c7d21d" />
+    <profileInstances>
+      <packageHasProfileInstances Id="86ea43e3-1601-4e4d-9944-40383e4a3325">
+        <profileInstance Id="9a0ffc0c-01f1-43db-88d2-64b47f40b27a" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="410be6b6-3f69-4463-a207-04e1ff65d8f1">
+        <profileInstance Id="cbb39eb9-88dd-49db-8a6d-a46cfe758e14" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>
