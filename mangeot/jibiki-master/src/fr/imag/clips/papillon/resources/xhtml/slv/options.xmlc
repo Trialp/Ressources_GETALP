@@ -1,0 +1,6 @@
+-html:encoding utf-8
+-urlmapping "index.html" "Home.po"
+-info
+-generate both
+-create-get-tag-methods
+-methods

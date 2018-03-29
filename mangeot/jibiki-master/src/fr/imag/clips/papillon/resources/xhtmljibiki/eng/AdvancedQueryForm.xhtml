@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Menu</title>
+    <script type="text/javascript">
+    
+        //
+        function addOrRemoveCriterion(caller, action) {
+            document.getElementById('Action').value = action + caller;
+            document.getElementById("SearchForm").submit();
+        }
+
+    </script>
+  </head>
+  <body>
+    <div id="AdvancedSearchForm" lang="en" xml:lang="en">
+        <select id='selectdefault' title="default" style="display:none;">
+            <option value="0">is exactly</option>
+            <option value="6">begins with</option>
+            <option value="5">ends with</option>
+        </select>
+        <select id='selectexact' title="exact" style="display:none;">
+            <option value="0">is exactly</option>
+        </select>
+        <select id='selectcontains' title="contains" style="display:none;">
+            <option value="4">contains</option>
+        </select>
+        <select id="cdm-domain" name="cdm-domain" title="cdm-domain" style="display:none;">
+            <option value="algèbre">algèbre</option>
+            <option value="anatomie">anatomie</option>
+            <option value="architecture">architecture</option>
+            <option value="astronomie">astronomie</option>
+            <option value="astrologie">astrologie</option>
+            <option value="bourse">bourse</option>
+            <option value="biologie">biologie</option>
+            <option value="botanique">botanique</option>
+            <option value="bouddhisme">bouddhisme</option>
+            <option value="catholicisme">catholicisme</option>
+            <option value="chemin de fer">chemin de fer</option>
+            <option value="chimie">chimie</option>
+            <option value="commerce">commerce</option>
+            <option value="comptabilité">comptabilité</option>
+            <option value="conchyologie">conchyologie</option>
+            <option value="construction">construction</option>
+            <option value="contraction">contraction</option>
+            <option value="corruption">corruption</option>
+            <option value="électricité">électricité</option>
+            <option value="entomologie">entomologie</option>
+            <option value="féodalité">féodalité</option>
+            <option value="finance">finance</option>
+            <option value="fortification">fortification</option>
+            <option value="géologie">géologie</option>
+            <option value="géométrie">géométrie</option>
+            <option value="grammaire">grammaire</option>
+            <option value="hippologie">hippologie</option>
+            <option value="ichtyologie">ichtyologie</option>
+            <option value="jurisprudence">jurisprudence</option>
+            <option value="logique">logique</option>
+            <option value="marine">marine</option>
+            <option value="mathématiques">mathématiques</option>
+            <option value="mécanique">mécanique</option>
+            <option value="médecine">médecine</option>
+            <option value="métallurgie">métallurgie</option>
+            <option value="terme militaire">terme militaire</option>
+            <option value="minéralogie">minéralogie</option>
+            <option value="musique">musique</option>
+            <option value="ornithologie">ornithologie</option>
+            <option value="paléontologie">paléontologie</option>
+            <option value="pharmacie">pharmacie</option>
+            <option value="philosophie">philosophie</option>
+            <option value="photographie">photographie</option>
+            <option value="physique">physique</option>
+            <option value="physiologie">physiologie</option>
+            <option value="sériciculture">sériciculture</option>
+            <option value="shintoïsme">shintoïsme</option>
+            <option value="technique">technique</option>
+            <option value="théâtre">théâtre</option>
+            <option value="typographie">typographie</option>
+            <option value="science vétérinaire">science vétérinaire</option>
+            <option value="zoologie">zoologie</option>
+        </select>
+        <select id="cdm-pos" name="cdm-pos" title="cdm-pos" style="display:none;">
+            <option value="形 adjectif">形 adjectif</option>
+            <option value="副 adverbe">副 adverbe</option>
+            <option value="助数 compteur">助数 compteur</option>
+            <option value="接続 conjonction">接続 conjonction</option>
+            <option value="contraction">contraction</option>
+            <option value="成語 expression">成語 expression</option>
+            <option value="感動 interjection">感動 interjection</option>
+            <option value="連語 locution adverbiale">連語 locution adverbiale</option>
+            <option value="連語 locution conjonctive">連語 locution conjonctive</option>
+            <option value="連語 locution postpositive">連語 locution postpositive</option>
+            <option value="名 nom">名 nom</option>
+            <option value="副 onomatopée">副 onomatopée</option>
+            <option value="particule">particule</option>
+            <option value="postposition">postposition</option>
+           <option value="接頭 préfixe">接頭 préfixe</option>
+            <option value="代 pronom">代 pronom</option>
+            <option value="接尾 suffixe">接尾 suffixe</option>
+            <option value="接尾 suffixe conjonctif">接尾 suffixe conjonctif</option>
+            <option value="verbe auxiliaire">助動 verbe auxiliaire</option>
+            <option value="動 verbe intransitif">動 verbe intransitif</option>
+            <option value="動 verbe transitif">動 verbe transitif</option>
+        </select>
+        <select id="cdm-contribution-status" name="cdm-contribution-status" title="cdm-contribution-status" style="display:none;">
+            <option value="finished">fini</option>
+            <option value="classified">classifié</option>
+            <option value="not finished">en cours d'édition</option>
+            <option value="draft">brouillon</option>
+        </select>
+        <select id="cesselin-relecture" name="cesselin-relecture" title="cesselin-relecture" style="display:none;">
+            <option value="fraOK">français vérifié sur le PDF</option>
+            <option value="jpnOK">japonais vérifié sur le PDF</option>
+            <option value="frajpnOK">français et japonais vérifiés</option>
+            <option value="fusion">à fusionner avec l'entrée précédente</option>
+            <option value="scission">à séparer en 2 entrées</option>
+            <option value="restructure">à restructurer</option>
+          <option value="ssentrée">sous-entrée à restructurer</option>
+        </select>
+      <form id="SearchForm" action="">
+        <div style="display:block; padding:5px;">
+		<input type="hidden" name="action" id="actionJS" value="advancedLookup" />
+          <table border="0" cellpadding="0" cellspacing="0" summary="Search Form" width="100%">
+            <tr valign="top">
+              <td  style="vertical-align: middle;">
+                <div id="DictionarySelection" style="padding:5px; ">
+                  <b>Find entries in</b>
+                  <br/>
+                  <!-- MULTIPLE VALUES: TARGETS, DICTIONARIES -->
+                  <select id="Dictionaries" name="DICTIONARIES" multiple="multiple">
+                    <option id="dictionaryTmpl" label="All dictionaries" value="*All*">All dictionaries</option>
+                  </select>
+				   <select style="display:none;" id="Volumes" name="VOLUMES" multiple="multiple">
+                    <option id="volumeTmpl" label="All volumes" value="*All*">All volumes</option>
+                  </select>
+                </div>
+              </td>
+              <td  style="vertical-align: middle;">
+                <div id="CriteriaZone" style=" padding:5px;">
+                <!-- ADVANCEDQUERYFORM SCRIPT  -->
+                <script src="javascript/AdvancedQueryFormAjax.js" type="text/javascript"><!-- // --></script>
+                <script type="text/javascript">
+                    <!--
+                     function adjustAdvancedSearchForm(select) {
+                     var criteriaNumber='';
+                     if (select.name.lastIndexOf(".") != -1) {
+                     criteriaNumber = select.name.substring(select.name.lastIndexOf("."));
+                     }
+                     var selvalue = select.value;
+                     var operator = document.getElementById('Operator'+criteriaNumber);
+                     var textbox = document.getElementById('ValueField'+criteriaNumber);
+                     
+                     var select2 = null;
+                     //   operator.options.length = 0;
+                     if (selvalue == 'cdm-translation' || selvalue == 'cdm-example' || selvalue == 'cesselin-example-romaji' || selvalue == 'cesselin-example-hiragana') {
+                     select2 = document.getElementById("selectcontains");
+                     }
+                     else if (selvalue == 'cdm-domain' || selvalue == 'cesselin-page' || selvalue == 'cesselin-relecture' || selvalue == 'cdm-pos') {
+                     select2 = document.getElementById("selectexact");
+                     }
+                     else {
+                     select2 = document.getElementById("selectdefault");
+                     }
+                     if (operator.title != select2.title) {
+                     var value = operator.value;
+                     operator.innerHTML = select2.innerHTML;
+                     operator.title = select2.title;
+                     operator.value = value;
+                     }
+                     // on vire le select précédent s'il y en avait un
+                     var selectFacetValue = document.getElementById('select-facet-value'+ criteriaNumber);
+                     if (selectFacetValue == null || (selectFacetValue != null && selectFacetValue.title != selvalue)) {
+                     if (selectFacetValue != null) {
+                     textbox.parentNode.removeChild(selectFacetValue);
+                     }
+                     if (selvalue == 'cdm-domain' || selvalue == 'cdm-pos' || selvalue == 'cdm-contribution-status' || selvalue == 'cesselin-relecture') {
+                     textbox.setAttribute('name', 'toto');
+                     textbox.setAttribute('style', 'display:none;');
+                     selectFacetValue = document.getElementById(selvalue).cloneNode(true);
+                     selectFacetValue.setAttribute('name', 'FACETVALUE'+criteriaNumber);
+                     selectFacetValue.setAttribute('id', 'select-facet-value' + criteriaNumber);
+                     selectFacetValue.setAttribute('style', '');
+                     selectFacetValue.title = selvalue;
+                     selectFacetValue.value = textbox.value;
+                     
+                     var parent = textbox.parentNode;
+                     parent.insertBefore(selectFacetValue,textbox);
+                     }
+                     else {
+                     textbox.setAttribute('style', '');
+                     textbox.setAttribute('name', 'FACETVALUE'+criteriaNumber);
+                     }
+                     }
+                     }
+                     // -->
+                </script>
+                  <b>where</b>
+                  <br/>
+                    <table id="tableShowHideElement" style="display: none;" >
+                        <tr id="rowShowHideTemplate" ><td>cdm-headword</td></tr>
+                    </table>
+                  <input type="hidden" id="NumberOfCriteria" name="CRITERIA_NB"/>
+                  <div id="criterion" style="display:block; margin-left: 10px;">
+                    <img id="minus" onclick='addOrRemoveCriterion(this.id, "-");' src="media/minus.jpg" alt="-" width="15"/>
+                    <img id="plus" onclick='addOrRemoveCriterion(this.id, "+");' src="media/plus.jpg" alt="+" width="15"/>
+                    <select id="Facet" name="FACET" onchange="adjustAdvancedSearchForm(this)" >
+                      <option value="cdm-headword">headword</option>
+                      <option value="cdm-reading">hiragana</option>
+                      <option value="cdm-writing">romaji</option>
+                      <option value="cdm-pos">POS</option>
+                      <option value="cdm-domain">domain</option>
+                       <option value="cdm-translation">translation</option>
+                       <option value="cesselin-example-hiragana">example (hiragana)</option>
+                       <option value="cesselin-example-romaji">example (romaji)</option>
+                       <option value="cdm-example">example translation</option>
+                      <option value="cdm-entry-id">entry id</option>
+                      <option value="cdm-contribution-id">contribution id</option>
+                      <option value="cdm-original-contribution-id">original contribution id</option>
+                      <option value="cdm-contribution-status">contribution status</option>
+                     <option value="cdm-modification-author">contributor</option>
+                      <option value="cdm-modification-date">contribution date</option>
+                      <option value="cesselin-page">page (Cesselin)</option>
+                      <option value="cesselin-relecture">review (Cesselin)</option>
+                   </select>
+                    <select id="Operator" name="OPERATOR" >
+                      <option value="0">is</option>
+                      <option value="2">like</option>
+                      <option value="6">starts with</option>
+                      <option value="5">ends with</option>
+                      <option value="10">greater than</option>
+                      <option value="11">lower than</option>
+                      <option value="4">contains</option>
+                    </select>
+                    <input type="text" id="ValueField" name="FACETVALUE" size="14" maxlength="128"/>
+                  </div>
+                </div>
+              </td>
+              <td  style="vertical-align: middle;">
+                <div id="TargetLanguagesSelection" style="display: none;">
+                  <b>with targets</b><br/>
+                  <select id="Targets" name="TARGETS" multiple="multiple">
+                    <option id="TargetTmpl" label="All languages" value="*All*" selected="selected">All</option>
+                  </select>
+                </div>
+				<input type="submit" value="➡" />
+				<input type="hidden" id="LIMIT" name="LIMIT" value="400" />
+              </td>
+                <td>
+                    <div id="QuickLink" class="quick_search">
+                        <b>Quick search</b><br/>
+                        <a id="MyFinishedContributions" class="quick_link" href="">My finished contributions</a><br/>
+                        <a id="MyNotFinishedContributions" class="quick_link" href="">My not finished contributions</a>
+                    </div>
+                </td>
+            </tr>
+          </table>
+          </div>
+          <div style="display:none; padding: 5px;">
+            <b>Display </b>
+            <select id="LIMITSelect" name="">
+              <option label="10" value="10">10</option>
+              <option label="20" value="20">20</option>
+              <option label="50" value="50">50</option>
+              <option label="100" value="100">100</option>
+              <option label="all" value="0">all</option>
+            </select>
+            <b>results per page using form</b>
+            <select id="Xsl" name="XSL">
+              <option label="Default" value="">Default</option>
+              <option id="XslTmpl" label="Default" value="">Default</option>
+            </select>
+            <input type="hidden" id="Action" name="ACTION" value=""/>
+            <input type="submit" value="Go" />
+          </div>
+      </form>
+      <span style="display:none;"><span style="display:none;">
+          <!--
+           <label id="SourceLangLabel" for="SourceLang" accesskey="i" >
+           <span class="accesskey">I</span>n:</label>
+           -->
+          <select id="SourceLang" name="">
+              <option id="SourceOptionTemplate" value="NONE" label="NONE">NONE</option>
+              <option value="All" label="All">All</option>
+          </select>
+      </span></span>
+      <script type="text/javascript">
+          <!--
+           function adjustAllAdvancedSearchForm() {
+           var form = document.getElementById('SearchForm');
+           var nbcrit = form.CRITERIA_NB.value;
+           nbcrit = parseInt(nbcrit) - 1;
+           for (var i=0; i<=nbcrit; i++) {
+           var select  = form.elements['FACET.'+i];
+           adjustAdvancedSearchForm(select);
+           }
+           return true;
+           }
+           
+           addLoadEvent(adjustAllAdvancedSearchForm);
+           // -->
+      </script>
+    </div>
+  </body>
+</html>

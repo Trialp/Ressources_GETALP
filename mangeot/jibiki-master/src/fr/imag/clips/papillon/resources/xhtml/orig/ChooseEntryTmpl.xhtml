@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="en">
+
+   <h1 style="text-align:center">Choose an entry</h1>
+
+
+<!-- formulaire de voir mot-->
+
+<form action="ChooseEntry.po" method="get">
+<div>
+<input type="hidden" name="Redirection" id="Redirection" />
+</div>
+<table width="600" border="0" cellspacing="0" cellpadding="10" summary="Formulaire">
+  <thead>
+	<tr>
+		<th>Choose</th>
+		<th>Entry</th>
+	</tr>
+  </thead>
+  <tfoot>
+	<tr>
+		<td colspan="2"><input name="Choose" type="submit" value="Choose" /></td>
+	</tr>
+  </tfoot>
+  <tbody>
+    <tr id="EntryListRow">
+	 <td><input id="EntryListButton" type="radio" name="EntryId"/></td>
+	 <td><span id="EntryListCell"/></td>
+    </tr>
+  </tbody>
+</table>
+</form>
+</div>
+</body>
+</html>

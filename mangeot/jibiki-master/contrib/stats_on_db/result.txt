@@ -1,0 +1,260 @@
+ value |                                      value                                       | entryid  
+-------+----------------------------------------------------------------------------------+----------
+ 2.3   | Luftverkehr                                                                      | 1019469
+ 2.3   | Luftverkehr                                                                      | 1019469
+ 2.3   | Luftverkehr                                                                      | 1019469
+ 2.3   | Luftverkehr                                                                      | 1019469
+ 6     | Kartoffel                                                                        | 1030119
+ 6     | Kartoffel                                                                        | 1030119
+ 6     | Kartoffel                                                                        | 1030119
+ 6     | Kartoffel                                                                        | 1030119
+ 2.2   | Autobahn                                                                         | 1037209
+ 2.2   | Autobahn                                                                         | 1037209
+ 2.2   | Autobahn                                                                         | 1037209
+ 2.2   | Autobahn                                                                         | 1037209
+ 2.1   | Eisenbahnkapazität                                                               | 5719707
+ 2.1   | Eisenbahnkapazität                                                               | 5719707
+ 2.1   | Eisenbahnkapazität                                                               | 5719707
+ 2.1   | Eisenbahnkapazität                                                               | 5719707
+ 1.5.2 | Abfallwirtschaft                                                                 | 5969964
+ 1.5.2 | Abfallwirtschaft                                                                 | 5969964
+ 1.5.2 | Abfallwirtschaft                                                                 | 5969964
+ 1.5.2 | Abfallwirtschaft                                                                 | 5969964
+ 2.2   | Autobahn                                                                         | 7641225
+ 2.2   | Autobahn                                                                         | 7641225
+ 2.2   | Autobahn                                                                         | 7641225
+ 2.2   | Autobahn                                                                         | 7641225
+ 1.5.0 | ganzheitliche Politik zum Schutz und zur nachhaltigen Entwicklung des Alpenraums | 8923779
+ 1.5.0 | ganzheitliche Politik zum Schutz und zur nachhaltigen Entwicklung des Alpenraums | 8923779
+ 1.5.0 | ganzheitliche Politik zum Schutz und zur nachhaltigen Entwicklung des Alpenraums | 8923779
+ 1.5.0 | ganzheitliche Politik zum Schutz und zur nachhaltigen Entwicklung des Alpenraums | 8923779
+ 4.1   | Bodenverbesserung                                                                | 9712227
+ 4.1   | Bodenverbesserung                                                                | 9712227
+ 4.1   | Bodenverbesserung                                                                | 9712227
+ 4.1   | Bodenverbesserung                                                                | 9712227
+ 1.7   | räumliche Auswirkungen                                                           | 10667359
+ 1.7   | räumliche Auswirkungen                                                           | 10667359
+ 1.7   | räumliche Auswirkungen                                                           | 10667359
+ 1.7   | räumliche Auswirkungen                                                           | 10667359
+ 1.1   | nachhaltige Nutzung                                                              | 10664799
+ 1.1   | nachhaltige Nutzung                                                              | 10664799
+ 1.1   | nachhaltige Nutzung                                                              | 10664799
+ 1.1   | nachhaltige Nutzung                                                              | 10664799
+ 3.5   | Tourismustätigkeiten                                                             | 12123115
+ 3.5   | Tourismustätigkeiten                                                             | 12123115
+ 3.5   | Tourismustätigkeiten                                                             | 12123115
+ 3.5   | Tourismustätigkeiten                                                             | 12123115
+ 2.3   | Luftverkehr                                                                      | 1019469
+ 2.3   | Luftverkehr                                                                      | 1019469
+ 2.3   | Luftverkehr                                                                      | 1019469
+ 2.3   | Luftverkehr                                                                      | 1019469
+ 6     | Kartoffel                                                                        | 1030119
+ 6     | Kartoffel                                                                        | 1030119
+ 6     | Kartoffel                                                                        | 1030119
+ 6     | Kartoffel                                                                        | 1030119
+ 2.2   | Autobahn                                                                         | 1037209
+ 2.2   | Autobahn                                                                         | 1037209
+ 2.2   | Autobahn                                                                         | 1037209
+ 2.2   | Autobahn                                                                         | 1037209
+ 2.1   | Eisenbahnkapazität                                                               | 5719707
+ 2.1   | Eisenbahnkapazität                                                               | 5719707
+ 2.1   | Eisenbahnkapazität                                                               | 5719707
+ 2.1   | Eisenbahnkapazität                                                               | 5719707
+ 1.5.2 | Abfallwirtschaft                                                                 | 5969964
+ 1.5.2 | Abfallwirtschaft                                                                 | 5969964
+ 1.5.2 | Abfallwirtschaft                                                                 | 5969964
+ 1.5.2 | Abfallwirtschaft                                                                 | 5969964
+ 2.2   | Autobahn                                                                         | 7641225
+ 2.2   | Autobahn                                                                         | 7641225
+ 2.2   | Autobahn                                                                         | 7641225
+ 2.2   | Autobahn                                                                         | 7641225
+ 1.5.0 | ganzheitliche Politik zum Schutz und zur nachhaltigen Entwicklung des Alpenraums | 8923779
+ 1.5.0 | ganzheitliche Politik zum Schutz und zur nachhaltigen Entwicklung des Alpenraums | 8923779
+ 1.5.0 | ganzheitliche Politik zum Schutz und zur nachhaltigen Entwicklung des Alpenraums | 8923779
+ 1.5.0 | ganzheitliche Politik zum Schutz und zur nachhaltigen Entwicklung des Alpenraums | 8923779
+ 4.1   | Bodenverbesserung                                                                | 9712227
+ 4.1   | Bodenverbesserung                                                                | 9712227
+ 4.1   | Bodenverbesserung                                                                | 9712227
+ 4.1   | Bodenverbesserung                                                                | 9712227
+ 1.1   | nachhaltige Nutzung                                                              | 10664799
+ 1.1   | nachhaltige Nutzung                                                              | 10664799
+ 1.1   | nachhaltige Nutzung                                                              | 10664799
+ 1.1   | nachhaltige Nutzung                                                              | 10664799
+ 1.7   | räumliche Auswirkungen                                                           | 10667359
+ 1.7   | räumliche Auswirkungen                                                           | 10667359
+ 1.7   | räumliche Auswirkungen                                                           | 10667359
+ 1.7   | räumliche Auswirkungen                                                           | 10667359
+ 3.5   | Tourismustätigkeiten                                                             | 12123115
+ 3.5   | Tourismustätigkeiten                                                             | 12123115
+ 3.5   | Tourismustätigkeiten                                                             | 12123115
+ 3.5   | Tourismustätigkeiten                                                             | 12123115
+(88 rows)
+
+ value |         value         | entryid  
+-------+-----------------------+----------
+ 1.3   | biotope naturel       | 1126995
+ 1.3   | biotope naturel       | 1126995
+ 1.3   | biotope naturel       | 1126995
+ 1.3   | biotope naturel       | 1126995
+ 1.3   | écosystème            | 1127148
+ 1.3   | écosystème            | 1127148
+ 1.3   | écosystème            | 1127148
+ 1.3   | écosystème            | 1127148
+ 1.3   | écosystème sensible   | 1127184
+ 1.3   | écosystème sensible   | 1127184
+ 1.3   | écosystème sensible   | 1127184
+ 1.3   | écosystème sensible   | 1127184
+ 3.5   | tourisme alpin        | 1132746
+ 3.5   | tourisme alpin        | 1132746
+ 3.5   | tourisme alpin        | 1132746
+ 3.5   | tourisme alpin        | 1132746
+ 1.4   | peuplement            | 1200927
+ 1.4   | peuplement            | 1200927
+ 1.4   | peuplement            | 1200927
+ 1.4   | peuplement            | 1200927
+ 1.1   | action collective     | 10899445
+ 1.1   | action collective     | 10899445
+ 1.1   | action collective     | 10899445
+ 1.1   | action collective     | 10899445
+ 1.4   | aire de répartition   | 1088008
+ 1.4   | aire de répartition   | 1088008
+ 1.4   | aire de répartition   | 1088008
+ 1.4   | aire de répartition   | 1088008
+ 1.1   | aire protégée         | 1076099
+ 1.1   | aire protégée         | 1076099
+ 1.1   | aire protégée         | 1076099
+ 1.1   | aire protégée         | 1076099
+ 1.4   | aire protégée         | 1076099
+ 1.4   | aire protégée         | 1076099
+ 1.4   | aire protégée         | 1076099
+ 1.4   | aire protégée         | 1076099
+ 1.3   | autres aires protégée | 1623473
+ 1.3   | autres aires protégée | 1623473
+ 1.3   | autres aires protégée | 1623473
+ 1.3   | autres aires protégée | 1623473
+ 1.1   | aire protégée         | 1076099
+ 1.1   | aire protégée         | 1076099
+ 1.1   | aire protégée         | 1076099
+ 1.1   | aire protégée         | 1076099
+ 1.4   | aire protégée         | 1076099
+ 1.4   | aire protégée         | 1076099
+ 1.4   | aire protégée         | 1076099
+ 1.4   | aire protégée         | 1076099
+ 1.4   | aire de répartition   | 1088008
+ 1.4   | aire de répartition   | 1088008
+ 1.4   | aire de répartition   | 1088008
+ 1.4   | aire de répartition   | 1088008
+ 1.3   | biotope naturel       | 1126995
+ 1.3   | biotope naturel       | 1126995
+ 1.3   | biotope naturel       | 1126995
+ 1.3   | biotope naturel       | 1126995
+ 1.3   | écosystème            | 1127148
+ 1.3   | écosystème            | 1127148
+ 1.3   | écosystème            | 1127148
+ 1.3   | écosystème            | 1127148
+ 1.3   | écosystème sensible   | 1127184
+ 1.3   | écosystème sensible   | 1127184
+ 1.3   | écosystème sensible   | 1127184
+ 1.3   | écosystème sensible   | 1127184
+ 3.5   | tourisme alpin        | 1132746
+ 3.5   | tourisme alpin        | 1132746
+ 3.5   | tourisme alpin        | 1132746
+ 3.5   | tourisme alpin        | 1132746
+ 1.4   | peuplement            | 1200927
+ 1.4   | peuplement            | 1200927
+ 1.4   | peuplement            | 1200927
+ 1.4   | peuplement            | 1200927
+ 1.3   | autres aires protégée | 1623473
+ 1.3   | autres aires protégée | 1623473
+ 1.3   | autres aires protégée | 1623473
+ 1.3   | autres aires protégée | 1623473
+ 1.1   | action collective     | 10899445
+ 1.1   | action collective     | 10899445
+ 1.1   | action collective     | 10899445
+ 1.1   | action collective     | 10899445
+(80 rows)
+
+ value |                 value                  | entryid 
+-------+----------------------------------------+---------
+ 2.1   | trasferimento su rotaia dei trasporti  | 5008521
+ 2.1   | trasferimento su rotaia dei trasporti  | 5008521
+ 2.1   | trasferimento su rotaia dei trasporti  | 5008521
+ 2.1   | trasferimento su rotaia dei trasporti  | 5008521
+ 2.9   | trasporto regionale                    | 5135179
+ 2.9   | trasporto regionale                    | 5135179
+ 2.9   | trasporto regionale                    | 5135179
+ 2.9   | trasporto regionale                    | 5135179
+ 1.5.3 | equilibrio climatico                   | 5925588
+ 1.5.3 | equilibrio climatico                   | 5925588
+ 1.5.3 | equilibrio climatico                   | 5925588
+ 1.5.3 | equilibrio climatico                   | 5925588
+ 4.2   | rischio d'incendio boschivo            | 8628337
+ 4.2   | rischio d'incendio boschivo            | 8628337
+ 4.2   | rischio d'incendio boschivo            | 8628337
+ 4.2   | rischio d'incendio boschivo            | 8628337
+ 1.1   | danno                                  | 8981128
+ 1.1   | danno                                  | 8981128
+ 1.1   | danno                                  | 8981128
+ 1.1   | danno                                  | 8981128
+ 2.3   | aviolancio all'esterno degli aerodromi | 4973020
+ 2.3   | aviolancio all'esterno degli aerodromi | 4973020
+ 2.3   | aviolancio all'esterno degli aerodromi | 4973020
+ 2.3   | aviolancio all'esterno degli aerodromi | 4973020
+ 2.3   | aviolancio all'esterno degli aerodromi | 4973020
+ 2.3   | aviolancio all'esterno degli aerodromi | 4973020
+ 2.3   | aviolancio all'esterno degli aerodromi | 4973020
+ 2.3   | aviolancio all'esterno degli aerodromi | 4973020
+ 2.1   | trasferimento su rotaia dei trasporti  | 5008521
+ 2.1   | trasferimento su rotaia dei trasporti  | 5008521
+ 2.1   | trasferimento su rotaia dei trasporti  | 5008521
+ 2.1   | trasferimento su rotaia dei trasporti  | 5008521
+ 2.9   | trasporto regionale                    | 5135179
+ 2.9   | trasporto regionale                    | 5135179
+ 2.9   | trasporto regionale                    | 5135179
+ 2.9   | trasporto regionale                    | 5135179
+ 1.5.3 | equilibrio climatico                   | 5925588
+ 1.5.3 | equilibrio climatico                   | 5925588
+ 1.5.3 | equilibrio climatico                   | 5925588
+ 1.5.3 | equilibrio climatico                   | 5925588
+ 4.2   | rischio d'incendio boschivo            | 8628337
+ 4.2   | rischio d'incendio boschivo            | 8628337
+ 4.2   | rischio d'incendio boschivo            | 8628337
+ 4.2   | rischio d'incendio boschivo            | 8628337
+ 1.1   | danno                                  | 8981128
+ 1.1   | danno                                  | 8981128
+ 1.1   | danno                                  | 8981128
+ 1.1   | danno                                  | 8981128
+(48 rows)
+
+ value |           value           | entryid 
+-------+---------------------------+---------
+ 1.1   | poseg v naravo in krajino | 9143803
+ 1.1   | poseg v naravo in krajino | 9143803
+ 1.1   | poseg v naravo in krajino | 9143803
+ 1.1   | poseg v naravo in krajino | 9143803
+ 1.2   | poseg v naravo in krajino | 9143803
+ 1.2   | poseg v naravo in krajino | 9143803
+ 1.2   | poseg v naravo in krajino | 9143803
+ 1.2   | poseg v naravo in krajino | 9143803
+ 4.2   | gozdarska organizacija    | 7623312
+ 4.2   | gozdarska organizacija    | 7623312
+ 4.2   | gozdarska organizacija    | 7623312
+ 4.2   | gozdarska organizacija    | 7623312
+ 4.2   | gozdarska organizacija    | 7623312
+ 4.2   | gozdarska organizacija    | 7623312
+ 4.2   | gozdarska organizacija    | 7623312
+ 4.2   | gozdarska organizacija    | 7623312
+ 1.1   | poseg v naravo in krajino | 9143803
+ 1.1   | poseg v naravo in krajino | 9143803
+ 1.1   | poseg v naravo in krajino | 9143803
+ 1.1   | poseg v naravo in krajino | 9143803
+ 1.2   | poseg v naravo in krajino | 9143803
+ 1.2   | poseg v naravo in krajino | 9143803
+ 1.2   | poseg v naravo in krajino | 9143803
+ 1.2   | poseg v naravo in krajino | 9143803
+(24 rows)
+
+ value | value | entryid 
+-------+-------+---------
+(0 rows)
+

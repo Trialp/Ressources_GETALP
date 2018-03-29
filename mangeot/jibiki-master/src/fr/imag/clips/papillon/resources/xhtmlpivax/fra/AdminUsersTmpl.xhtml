@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="fr">
+
+<h1>Administration des utilisateurs</h1>
+
+
+<span id="LoggedUsers">0</span> utilisateur(s) actuellement en ligne:
+<table summary="Logged users">
+<tr>
+	<th>Nom</th>
+	<th>Login</th>
+	<th>Courriel</th>
+</tr>
+<tr id="LoggedTemplateRow">
+	<td><b><span id="LoggedName">nom</span></b></td>
+	<td><span id="LoggedLogin">login</span></td>
+	<td><span id="LoggedEmail">courriel</span></td>
+</tr>
+</table>
+
+<span id="ExistingUsers">0</span> utilisateurs actuellement dans la base:
+<table summary="Existing Users">
+<tr>
+	<th><a href="AdminUsers.po?SortBy=name">Nom</a></th>
+	<th><a href="AdminUsers.po?SortBy=login">Login</a></th>
+	<th><a href="AdminUsers.po?SortBy=email">Courriel</a></th>
+	<th>Groups</th>
+    <th>faire admin</th>
+    <th>réinitialiser mdp</th>
+	<th>faire specialiste</th>
+	<th>voir</th>
+	<th>supprimer</th>
+</tr>
+<tr id="TemplateRow">
+	<td><b><span id="Name">nom</span></b></td>
+	<td><span id="Login">login</span></td>
+	<td><span id="Email">courriel</span></td>
+	<td><span id="Groups">groupes</span></td>
+    <td><span id="CreationDate">date création</span></td>
+    <td><span id="ModificationDate">date modif</span></td>
+	<td><a href="" id="MakeAdminAnchor">faire admin</a></td>
+	<td><a href="" id="ResetPasswordAnchor">réinitialiser mdp</a></td>
+	<td><a href="" id="MakeSpecialistAnchor">faire specialiste</a></td>
+	<td><a href="" id="SeeAnchor">Voir</a></td>
+	<td><a href="" id="RemoveAnchor" onclick="return confirm('Etes-vous sûr de vouloir supprimer l'utilisateur?')">rm</a></td>
+</tr>
+</table>
+<p>Note: la commande "réinitialiser mdp" affecte la valeur du login comme mot de passe. Elle pourra être utile à un utilisateur qui a oublié son mot de passe.</p>
+</div>
+</body>
+</html>

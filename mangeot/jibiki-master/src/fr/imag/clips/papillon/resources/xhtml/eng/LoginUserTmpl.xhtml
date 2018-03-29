@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="en">
+<h1>Login page</h1>
+<p id="LoginOKMessage" style="display:none;padding: 5px; background-color: yellow;">Login succeeded!</p>
+<p id="WrongPasswordMessage" style="display:none;padding: 5px; background-color: yellow;">Wrong password!</p>
+<p id="UserUnknownMessage" style="display:none;padding: 5px; background-color: yellow;">User unknown!</p>
+<p id="UserLoggedOutMessage" style="display:none;padding: 5px; background-color: yellow;">User logged out!</p>
+<form action="LoginUser.po" method="post">
+<div><input name="Destination" type="hidden" value="" id="Destination"/></div>
+<!-- login user -->
+<table width="100%" border="0" cellspacing="0" cellpadding="10" summary="Formulaire">
+<tr valign="top">	
+	<td><b><label for="Login" accesskey="o">L<span class="accesskey">o</span>gin:</label></b></td>
+	<td><input id="Login" name="Login" type="text" size="10" value=""/></td>
+</tr>
+<tr>
+	<td><b><label for="Password" accesskey="p"><span class="accesskey">P</span>assword:</label></b></td>
+    <td><input id="Password" name="Password" type="password" size="10" value=""/></td>
+</tr>
+<tr>
+    <td><label for="RememberLogin">Remember my login with a one year cookie</label></td>     
+    <td><input id="RememberLogin" name="RememberLogin" type="checkbox" value="on"/></td>
+</tr>
+<tr>
+	<td colspan="2"><input name="Submit" type="submit" value="Login"/></td>
+</tr>
+</table>
+</form>
+    <div style="text-align:center">You are a new user? <a href="Register.po">Register now!</a></div>
+    <div style="text-align:center">Forgot login or password, <a href="RetrieveAccount.po">click here!</a></div>
+</div>
+</body>
+</html>

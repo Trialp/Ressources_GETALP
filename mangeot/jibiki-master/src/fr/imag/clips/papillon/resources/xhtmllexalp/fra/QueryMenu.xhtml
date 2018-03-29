@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Menu</title>
+  </head>
+  <body>
+    <div id="QueryMenu" lang="fr" xml:lang="fr" class="menuBlock">
+      <h2 class="menuTitle">
+      	<a title="Traduction d&rsquo;un mot" href="javascript:void(0)">Consultation&nbsp;:</a>
+      </h2>
+      <form  id="ConsultForm" method="get" action="Home.po" >
+        <div>
+                <div>
+                    <div class="menuColumnSize">
+                        <div class="menuVariableName">
+                            <label for="ValueField" accesskey="t" ><span class="accesskey">T</span>erme&nbsp;:</label>
+                        </div>
+                        <div class="menuVariableValue" >
+                            <input type="hidden" id="Facet" name="FACET.0" value="cdm-headword"/>
+                            <input type="hidden" id="Operator" name="OPERATOR.0" value="2"/>
+                            <input id="ValueField" name="FACETVALUE.0" type="text" class="menuVariableValueWidth" />
+                        </div>
+                    </div>
+                    <div class="menuColumnSize">
+                        <div class="menuVariableName">
+                            <label for="SourceLang" accesskey="s"><span class="accesskey">S</span>ource&nbsp;:</label>
+                        </div>
+                        <div class="menuVariableValue" >
+                            <select id="SourceLang" name="SOURCE.0" class="menuVariableValueWidth" >
+                                <option id="SourceOptionTemplate" value="NONE" label="NONE">NONE</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="menuColumnSize">
+                        <div class="menuVariableName">
+                            <label for="QMTargets" accesskey="c"><span class="accesskey">C</span>ible&nbsp;:</label>
+                         </div>
+                        <div class="menuVariableValue" >
+                            <select id="QMTargets" name="TARGETS" class="menuVariableValueWidth">
+                                <option id="QMAllTargetsOption" label="All languages" value="*ALL*">toutes les langues</option>
+                                <option id="TargetTmpl" label="NONE" value="NONE">NONE</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div>
+ 					<div id="VolumesDiv">
+						<div id="VolumesLang">
+							<input type="hidden" id="VolumesInput" name="VOLUMES" value="*ALL*"/>
+						</div>
+					</div>
+                    <input type="hidden" name="XSL" value="Default"/>
+                    <input type="hidden" name="LIMIT" value="5" />
+                    <input type="hidden" name="OFFSET"/>
+                    <input type="hidden" name="action" value="rechercher" />
+                    <input type="submit" value="Go" class="menuGo" />
+                </div>
+                </div>
+            </form>
+
+      <br/>
+      <a title="Fonction de recherche avancée d'un mot" href="AdvancedSearch.po">Recherche avancée</a>
+      <br />
+      <a title="Liste des dictionnaires" href="ViewDictionaries.po">Liste des dictionnaires</a>
+    </div>
+  </body>
+</html>

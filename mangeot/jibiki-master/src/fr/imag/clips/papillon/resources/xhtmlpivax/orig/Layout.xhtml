@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <link href="css/papillon-home.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="Mathieu MANGEOT" />
+    <meta name="keywords" content="multilingual lexical database, Jibiki platform, dictionary" />  
+    <meta name="description" content="Jibiki is a generic lexical resources management platform. Its code is available for free and
+	distributed with a LGPL license." />
+    <meta name="robots" content="index, follow" />
+    <title>Jibiki lexical database management platform</title>
+    <link rel="stylesheet" href="css/autocomplete.css" type="text/css" media="screen"/>
+    <script src="javascript/jquery-1.8.0.min.js" type="text/javascript"><!-- // --></script>
+    <script src="javascript/jquery.dimensions.js" type="text/javascript"><!-- // --></script>
+    <script src="javascript/autocomplete.js" type="text/javascript"><!-- // --></script>
+	<script src="javascript/functions.js" type="text/javascript"><!-- // --></script>
+    <script src="javascript/lookupVolume.js" type="text/javascript"><!-- // --></script>
+    <script src="javascript/pivax.js" type="text/javascript"><!-- // --></script>
+  <script type="text/javascript">
+	<!--
+        //
+            $(document).ready(function(){
+	    setAutoComplete('ValueField', 'SourceLang', 'results', 
+                'JSONHeadwordList.po', 'headword=', 'lang=');
+	});
+    //-->
+    </script>
+    <script id="Script" type="text/javascript">
+       <!--
+        //
+        function init() {
+        
+            //// Launch ajax function to get select elements depending on cdm elements
+            
+            // Get all select elements
+            var selectCollection = document.getElementsByTagName('select');
+            for(var i=0; i < selectCollection.length; i++){
+                
+                // Launch ajax function only for select cdm element (name=FACET.*)
+                if (selectCollection[i].name.match(/FACET\./)) {
+                    getSelector(selectCollection[i].value, selectCollection[i].name);
+                }
+            }
+            
+        }
+        //-->
+    </script>
+  </head>
+  <body onload="javascript:init();">
+    <script src="javascript/AdvancedQueryFormAjax.js" type="text/javascript"><!-- // --></script>
+    <div class="headerBlock">
+	 <div class="headerMenu" id="headerMenu">
+  <table style="margin:auto; border-spacing: 0px;width:90%">
+    <tbody>
+    	<tr><td class="popupMenu homeMenu"><a href="Home.po">Home</a></td>
+    	<td class="popupMenu projectMenu"><a href="Project.po">Project</a><ul class="second-level-menu"><li><a href="Project.po#Objectif">Presentation</a></li><li><a href="Project.po#Historique">History</a></li><li><a href="Project.po#Financement">Financement</a></li><li><a href="Project.po#Partenaires">Partenaires</a></li><li><a href="Project.po#Publications">Publications</a></li></ul></td>
+		<td class="popupMenu dataMenu"><a href="Download.po">Data</a></td>
+		<td class="popupMenu contactMenu"><a href="Contacts.po">Contacts</a></td>
+    	<td class="popupMenu helpMenu"><a href="Help.po">Help</a></td>
+    	<td class="popupMenu userProfileMenu"><div id="UserMenuHolder" style="display: inline;" />
+			<ul class="second-level-menu">
+		<li><div id="LexiesManagementHolder" style="display: inline;"/></li>
+		<li><div id="ReviewerMenuHolder"  style="display: inline;" /></li>
+     <li><div id="ValidatorMenuHolder"  style="display: inline;"/></li>
+    <li><div id="AdministrationMenuHolder"  style="display: inline;"/></li></ul>
+   </td>
+   <td class="popupMenu popupMenuEnd"><div id="LangFormHolder" style="display:inline;" /></td>
+   
+   </tr></tbody></table>
+    </div>
+
+
+		<div id="BannerPlaceHolder" style="display:block;">
+		<div id="BannerContent">
+		     <div id="projectTitle">
+        The <span class="projectName">Jibiki</span> platform
+      </div>
+	  <div id="QueryMenuHolder"></div>
+	  <div class="cellVolumeLookup"><a href="ConsultPage.po">Volume Lookup</a></div>
+	  <div class="cellAdvancedLookup"><a href="AdvancedLookup.po">Advanced Lookup</a></div>
+		</div>
+	</div>
+    </div>
+    <div id="MenuColumn"></div>
+    <div id="MainColumn" class="mainColumn"></div>
+    <!--div id="NewsColumn" class="menuColumn" /-->
+    <div class="copyright">
+        Last update: 24 nov. 2013. 
+        Platform: © 2001-2013, GETA-CLIPS, GETALP-LIG. LGPL license. 
+        Data: <a rel="licence" href="http://creativecommons.org/licenses/by-sa/2.0/">
+		<img alt="Creative Commons License" style="border-width:0" src="http://creativecommons.org/images/public/somerights20.png" />
+		Creative Commons licence (Attribution-Share Alike 2.0 France)</a> 2013.
+		</div>
+<!-- Piwik -->
+<script type="text/javascript" src="http://papillon.imag.fr/piwik/piwik.js"></script>
+<script type="text/javascript">
+<!--
+try {
+	var piwikTracker = Piwik.getTracker('http://papillon.imag.fr/piwik/piwik.php', 1);
+	piwikTracker.trackPageView();
+	piwikTracker.enableLinkTracking();
+} 
+catch( err ) {}
+// -->
+</script><noscript><p><img src="http://papillon.imag.fr/piwik/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
+<!-- End Piwik Tag -->
+  </body>
+</html>

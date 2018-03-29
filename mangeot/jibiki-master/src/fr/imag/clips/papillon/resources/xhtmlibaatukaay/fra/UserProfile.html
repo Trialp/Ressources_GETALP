@@ -1,0 +1,112 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.0 TRANSITIONAL//EN">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="fr">
+<h1 align="center">Profil de <span id="UserName">Name</span></h1>
+<FORM NAME="ChangePassword" ACTION="UserProfile.po" METHOD="POST">
+<!-- change password -->
+<table WIDTH="600" BORDER="0" CELLSPACING="0" CELLPADDING="10" Summary="ChangePassword">
+<TR>	
+	<TH COLSPAN="2"><h3>Changer le mot de passe</h3></TH>
+</TR>
+<TR>
+    <TD><B>Login&nbsp;:</B></TD>     
+    <TD><SPAN ID="CPLogin">Login</SPAN></TD>
+</TR>
+<TR>
+    <TD><B><label for="CPPassword">Mot de passe actuel&nbsp;:</label></B></TD>     
+    <TD><INPUT ID="CPPassword" NAME="CPPassword" TYPE="password" SIZE="10" VALUE=""></TD>
+</TR>
+<TR>
+    <TD><B><label for="NewPassword">Nouveau mot de passe&nbsp;:</label></B></TD>     
+    <TD><INPUT ID="NewPassword" NAME="NewPassword" TYPE="password" SIZE="10" VALUE=""></TD>
+</TR>
+<TR>
+    <TD><B><label for="NewPassword2">Retaper le nouveau mot de passe&nbsp;:</label></B></TD>     
+    <TD><INPUT ID="NewPassword2" NAME="NewPassword2" TYPE="password" SIZE="10" VALUE=""></TD>
+</TR>
+<TR>
+	<TD COLSPAN="2"><INPUT NAME="ChangePassword" TYPE="submit" VALUE="Changer"></TD>
+</TR>
+</TABLE>
+</FORM>
+<HR>
+<BR>
+<!-- change mail addresse -->
+<FORM name="ChangeEmail" ACTION="UserProfile.po" METHOD="POST">
+<table WIDTH="600" BORDER="0" CELLSPACING="0" CELLPADDING="10" Summary="ChangeMailAddresse">
+<TR>	
+	<TH COLSPAN="2"><h3>Editer votre nom et courriel</h3></TH>
+</TR>
+<TR>
+    <TD><B>Login&nbsp;:</B></TD>     
+    <TD><SPAN ID="CELogin">Login</SPAN></TD>
+</TR>
+<TR>
+    <TD><B><label for="NameInput">Nom&nbsp;:</label></B></TD>     
+    <TD><INPUT NAME="Name" ID="NameInput" TYPE="text" SIZE="30" VALUE="Name"></TD>
+</TR>
+<TR>
+    <TD><B><label for="EmailInput">Courriel&nbsp;:</label></B></TD>     
+    <TD><INPUT NAME="Email" ID="EmailInput" TYPE="text" SIZE="30" VALUE="Email"></TD>
+</TR>
+<TR>
+	<TD COLSPAN="2"><INPUT NAME="ChangeEmail" TYPE="submit" VALUE="Changer"></TD>
+</TR>
+</TABLE>
+</FORM>
+<HR>
+<!-- add user in group -->
+<FORM name="AddInGroup" ACTION="UserProfile.po" METHOD="POST">
+<table WIDTH="600" BORDER="0" CELLSPACING="0" CELLPADDING="10" Summary="AddGroup">
+<TR>	
+	<TH colspan="2">Joindre ou quitter un groupe</TH>
+</TR>
+<TR>	
+    <TD><B>Login&nbsp;:</B></TD>
+    <TD><SPAN ID="AGLogin">Login</SPAN></TD>
+</TR>
+<TR>
+    <TD><B><label for="Group">Groupe&nbsp;:</label></B></TD>     
+    <TD><INPUT ID="Group" NAME="Group" TYPE="text" SIZE="10" VALUE=""></TD>
+</TR>
+<TR>
+    <TD><B><label for="GroupPassword">Mot de passe du groupe&nbsp;:</label></B></TD>     
+    <TD><INPUT ID="GroupPassword" NAME="GroupPassword" TYPE="password" SIZE="10" VALUE=""></TD>
+</TR>
+<TR>
+	<TD><INPUT NAME="AddGroup" TYPE="submit" VALUE="Joindre"></TD>
+	<TD><INPUT NAME="DelGroup" TYPE="submit" VALUE="Quitter"></TD>
+</TR>
+</TABLE>
+</FORM>
+<HR>
+<!-- delete existing user -->
+<FORM name="DeleteUser" ACTION="UserProfile.po" METHOD="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer l&quot;utilisateur ?')">
+<table WIDTH="600" BORDER="0" CELLSPACING="0" CELLPADDING="10" Summary="DeleteUser">
+<TR>	
+	<TH  colspan="2">Détruire son profil</TH>
+</TR>
+<TR>	
+    <TD><B>Login&nbsp;:</B></TD>
+    <TD><SPAN ID="DLogin">Login</SPAN></TD>
+</TR>
+<TR>
+    <TD><B><label for="DPassword">Mot de passe&nbsp;:</label></B></TD>     
+    <TD><INPUT ID="DPassword" NAME="DPassword" TYPE="password" SIZE="10" VALUE=""></TD>
+</TR>
+<TR>
+	<TD COLSPAN="2"><INPUT NAME="Delete" TYPE="submit" VALUE="Détruire"></TD>
+</TR>
+</TABLE>
+</FORM>
+</div>
+</body>
+</html>
+
+
+

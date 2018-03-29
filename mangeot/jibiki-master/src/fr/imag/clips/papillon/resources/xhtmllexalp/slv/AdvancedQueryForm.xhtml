@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Menu</title>
+    <script type="text/javascript">
+    
+        //
+        function addOrRemoveCriterion(caller, action) {
+            document.getElementById('Action').value = action + caller;
+            document.getElementById("SearchForm").submit();
+        }
+
+    </script>
+  </head>
+  <body>
+    <script type="text/javascript">
+    </script>
+    <div id="AdvancedSearchForm" lang="slv" xml:lang="slv">
+        <form id="SearchForm" action="">
+            <div style="display:block; padding:5px;">
+		<input type="hidden" name="action" id="actionJS" value="advancedLookup" />
+            <table border="0" cellpadding="0" cellspacing="0" summary="Search Form" width="100%">
+            <tr valign="top">
+              <td>
+                <div id="DictionarySelection" style="padding:5px; display: none;">
+                  <b>najdi vnose v: </b>
+                  <br/>
+                  <!-- MULTIPLE VALUES: TARGETS, DICTIONARIES -->
+                  <select id="Dictionaries" name="DICTIONARIES" multiple="multiple">
+                    <option id="dictionaryTmpl" label="All dictionaries" value="*All*">Tous les dictionnaires</option>
+                  </select>
+				  <select style="display:none;" id="Volumes" name="VOLUMES" multiple="multiple">
+                    <option id="volumeTmpl" label="All volumes" value="*All*">All volumes</option>
+                  </select>
+                </div>
+              </td>
+              <td>
+                <div id="CriteriaZone" style=" padding:5px;">
+                <!-- HIDDEN ELEMENTS  -->
+                  <input type="hidden" id="Action" name="ACTION" value=""/>
+                    <table id="tableShowHideElement" style="display: none;" >
+                        <tr id="rowShowHideTemplate" ><td>cdm-vedette</td></tr>
+                    </table>
+                    <div id="tmp" style="display: none;" >
+                    </div>
+                  <input type="hidden" id="NumberOfCriteria" name="CRITERIA_NB"/>
+                  <div id="criterion" style="display:block; margin-left: 0px;">
+                    <img id="minus" onclick="addOrRemoveCriterion(this.id, '-');" src="media/minus.jpg" alt="-" width="15"/>
+                    <img id="plus" onclick="addOrRemoveCriterion(this.id, '+');" src="media/plus.jpg" alt="+" width="15"/>
+                    <select id="Facet" name="FACET" onchange="hideOrNotSourceLang(value, name); getSelector(value, name);" >
+                      <option value="cdm-headword" label="Headword">Termin</option>
+                      <option value="cdm-definition" label="Definition">Définition</option>
+                      <option value="cdm-pos" label="Grammar">Grammaire</option>
+                      <option value="lexalp-phraseological-unit">PHRASEOLOGICAL UNIT</option>
+                      <option value="cdm-context" label="Context">Contexte</option>
+                      <option value="cdm-note" label="Note">Note</option>
+                      <option value="lexalp-source" label="Source">Source</option>
+                      <option value="lexalp-legal-system" label="Legal system">Système juridique</option>
+                      <option value="lexalp-domain" label="Domain number">Numéro de domaine</option>
+                      <option value="lexalp-usage" label="Geographical usage">Zone géographique d'emploi</option>
+                      <option value="axi-reflexie" label="Axie">Axie</option>
+                      <option value="cdm-modification-author" label="Modified by">Modifié par</option>
+                      <option value="cdm-contribution-author" label="Created by">Crée par</option>
+                      <option value="cdm-modification-date" label="Date">Date</option>
+                      <option value="lexalp-harmonising-status" label="Harmonising status">Statut de l'harmonisation</option>
+                      <option value="cdm-entry-id" label="Entry Id">Id de l'entrée</option>
+                      <!--<option value="cdm-contribution-id" label="Entry Id">Id de la contribution</option>-->
+                    </select>
+                    <select id="Operator" name="OPERATOR" >
+                        <option value="4" label="contains">vsebuje</option>
+                        <option value="2" label="is">je</option>
+                        <option value="6" label="starts with">se začne z</option>
+                        <option value="5" label="ends with">se konča z</option>
+                        <option value="10" label="greater than">večji kot</option>
+                        <option value="11" label="lower than">manj&scaron;i kot</option>
+                    </select>
+                     <span>
+                        <input type="text" id="ValueField" name="FACETVALUE" size="20" maxlength="128"/>   
+                    </span>
+                    <span style="visibility: visible;">
+                        <!--
+                        <label id="SourceLangLabel" for="SourceLang" accesskey="i" >
+                        <span class="accesskey">I</span>n:</label>
+                        -->
+                        <label style="padding-left: 1em;">izvirni jezik:</label>
+                        <select id="SourceLang" name="SOURCE">
+                            <option value="All" label="All">vsi jeziki</option>
+                            <option id="SourceOptionTemplate" value="NONE" label="NONE">NONE</option>
+                        </select>
+                    </span>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div id="TargetLanguagesSelection" class="quick_search">
+                  <b>Sélectionner les langues cibles :</b><br/>
+                  <select id="Targets" name="TARGETS" multiple="multiple" style="width: 120px;" >
+                    <option id="TargetTmpl" label="All languages" value="*All*">vsi jeziki</option>
+                  </select>
+                </div>
+				<input type="hidden" id="LIMIT" name="LIMIT" value="" />
+              </td>
+               <td>
+                    <div id="QuickLink" class="quick_search">
+                        <b>Hitro iskanje :</b><br/>
+                        <a id="MyFinishedContributions" class="quick_link" href="">Moji končani vnosi</a><br/>
+                        <a id="MyNotFinishedContributions" class="quick_link" href="">Moji nedokončani vnosi</a>
+                    </div>
+                </td>
+            </tr>
+          </table>
+          </div>
+          <div style="display:block; padding: 5px;">
+            <b>Pokaži </b>
+            <select id="LIMITSelect" name="LIMIT">
+              <option label="10" value="5">5</option>
+              <option label="10" value="10">10</option>
+              <option label="20" value="20">20</option>
+              <option label="50" value="50">50</option>
+              <option label="100" value="100">100</option>
+              <option label="all" value="0">vsi</option>
+            </select>
+            <b>zadetkov na stran v obliki:</b>
+            <select id="Xsl" name="XSL">
+              <option label="Default" value="">Privzeto</option>
+              <option id="XslTmpl" label="Default" value="">Privzeto</option>
+            </select>
+            <input type="hidden" id="Offset" name="OFFSET" />
+            <input type="hidden" name="action" value="lookup" />
+            <input type="submit" value="iskanje" />
+          </div>
+      </form>
+    </div>
+  </body>
+</html>

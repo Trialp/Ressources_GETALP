@@ -1,0 +1,74 @@
+<HTML>
+<HEAD>
+	<META http-equiv="content-type" content="text/html; charset=utf-8">
+	<TITLE>Abfragen der Papillon-Wörterbuch-Datenbank</TITLE>
+</HEAD>
+<BODY>
+<DIV id="EditEntryInitContent" lang="en"> 
+<h1 align="center"><span id="UserName">Name</span> Edition interface</h1>
+<div>
+<table name="EntryListTable" id="EntryListTable" width="100%" frame="hsides"  border="0" summary="Entries"  bgcolor="#faecc9">
+<thead bgcolor="#e4c690" id="EntryListTableHead">
+     <tr>
+	  <th>Stichwort</th>
+		<th>Eintrags-ID</th>
+		<th>Beitrag?</th>
+		<th>Wortart</th>
+		<th>Edit</th>
+		<th>View</th>
+     </tr>
+    </thead>
+    <tfoot id="EntryListTableFoot">
+     <tr>
+     <td colspan="4"><br></td>
+     </tr>
+    </tfoot>
+    <tbody>
+  <tr id="EntryListRow" bgcolor="#eeeecc">
+    <td><SPAN id="HeadwordList">Headword</SPAN></td>
+    <td><A HREF="" id="ViewEntryAnchor"><SPAN id="EntryIdList">EntryId</SPAN></A></td>
+    <td><A HREF="" id="ContribAnchor"><SPAN id="Contribution">Contribution</SPAN></A></td>
+    <td><SPAN id="PosList">pos</SPAN></td>
+    <td><A HREF="" id="EditEntryAnchor">Edit</A></td>
+    <td><A HREF="" id="ViewXmlEntryAnchor">XML</A></td>
+  </tr>
+    <tr id="FormulaRow">
+  <td colspan="5">&nbsp;&nbsp;&nbsp;&nbsp;<span id="Formula">Formula</span></td>
+  </tr>
+    </tbody>
+</table>
+</div>
+<form name="LookupForm" id="LookupForm" action="EditEntryInit.po">
+<table WIDTH="100%" border="0" name="HeadwordLookupTable" summary="HeadwordLookupTable" id="HeadwordLookupTable" cellpadding="0">
+<thead>
+     <tr>
+	  <td><hr></td>
+     </tr>
+    </thead>
+<tr id="HeadwordLookupRow" valign="top">
+	<TD>
+	<b><label for="Headword">Stichwort:</label></b> 
+	<input id="Headword" name="Headword" size="15" type="text" value="">
+	<INPUT id="PartialMatch" name="PartialMatch" type="checkbox" value="PartialMatch"><font size="2"><label for="PartialMatch">substring</label></font>
+	</td>
+</tr>
+<tr valign="top" id="VolumeLookupRow">
+	<td>
+	<b><label for="VOLUME">Volume:</label></b>           
+	 <SELECT ID="VOLUME" NAME="VOLUME">
+            <OPTION ID="VolumeOptionTemplate" VALUE="NONE" LABEL="NONE">NONE</OPTION>
+        </SELECT>
+	</td>
+</tr>
+<tr valign="top" id="ButtonsLookupRow">
+	<td>
+		<input name="LookupEdit" id="LookupEditButton" type="Submit" value="Lookup">
+		<input name="CreateAnyway" id="CreateAnywayButton" type="Submit" value="Create anyway">
+	</td>
+</tr>
+</table>
+</form>
+</DIV>
+</BODY>
+</HTML>
+

@@ -1,0 +1,20 @@
+Pages à traduire en arabe :
+
+- AdvancedSearch.xhtml
+- Layout.xhtml
+- Header.xhtml
+- ContactsContent.xhtml (mettre en contact samir.guemri@imag.fr)
+- LangAndUser.xhtml
+- QueryMenu.xhtml
+- ViewDictionaries.xhtml
+- ViewQueryResult.xhtml
+- LoginUserTmpl.xhtml
+- HomeContent.xhtml (ajouter un paragraphe de description du projet Papillon en arabe)
+
+Pages à ècrire en arabe :
+
+- ArabicContent.xhtml = description courte de ton projet
+- InformationTmpl.xhtml = description longue de ton projet (reprendre éventuellement du sujet de stage)
+
+Est-ce que tu peux ajouter dans les descriptions du projet un lien vers JeuxDeMots en arabe stp ?
+

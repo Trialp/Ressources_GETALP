@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="en" xml:lang="en">
+
+<h1><span id="UserName">Name</span>'s Contributions Review Interface</h1>
+
+<!-- formulaire de voir mot-->
+<form  action="ReviewContributions.po" method="get">
+<table width="600" border="0" cellspacing="0" cellpadding="10" summary="Formulaire">
+	<tr>
+        <td><b><label for="VOLUME">Volume:</label></b>
+            <select id="VOLUME" name="VOLUME" onchange="document.MainForm.submit()">
+            <option id="VolumeOptionTemplate" value="NONE" label="NONE">NONE</option>
+        </select>
+	</td>
+	<td>&nbsp;</td>
+	<td><label for="STATUS">Status:</label><br/>
+	<select id="STATUS" name="STATUS">
+		<option value="*ALL*" label="tous">all</option>
+		<option value="not finished" label="not finished">not finished</option>
+		<option value="finished" label="finished">finished</option>
+		<option value="revised" label="revised">revised</option>
+    </select>
+     </td>
+	</tr>
+		  <tr>
+			<td><label for="AUTHOR">Author:</label>
+				<input id="AUTHOR" name="AUTHOR" size="12" type="text"/>
+			</td>
+			<td>&nbsp;</td>
+			<td><label for="REVIEWER">Reviewer:</label><br/>
+				<input id="REVIEWER" name="REVIEWER" size="12" type="text"/>
+			</td>
+		   </tr>
+           <tr>
+            <td style="bgcolor:#4682b4;">
+              Creation date (aaaa/mm/dd) is
+              <select id="StrategyCreationDate" name="StrategyCreationDate">
+                <option value="14" label="≤">≤</option>
+                <option value="13" label="&lt;">&gt;</option>
+                <option value="0" label="=">=</option>
+                <option value="12" label="≥">≥</option>
+                <option value="11" label="&gt;">&gt;</option>
+              </select>
+              <input id="InputCreationDate" name="CreationDate" type="text" size="10" value="" />
+            </td>
+			<td>
+             &nbsp;
+			</td>
+            <td style="bgcolor:#4682b4;">
+              Review date (aaaa/mm/dd) is
+              <select id="StrategyReviewDate" name="StrategyReviewDate">
+                <option value="14" label="≤">≤</option>
+                <option value="13" label="&lt;">&gt;</option>
+                <option value="0" label="=">=</option>
+                <option value="12" label="≥">≥</option>
+                <option value="11" label="&gt;">&gt;</option>
+              </select>
+              <input id="InputReviewDate" name="ReviewDate" type="text" size="10" value="" />
+            </td>
+          </tr>
+         <tr>
+            <td style="bgcolor:#4682b4;">
+               <input id="search1text" name="search1text" type="text" size="15" value="" />
+			   is 
+              <select id="Strategy1" name="Strategy1">
+                <option value="0" label="exact match">exact match</option>
+                <option value="1" label="prefix">prefix</option>
+                <option value="2" label="suffix">suffix</option>
+                <option value="3" label="substring">substring</option>
+                <option value="4" label="case insensitive">case insensitive</option>
+                <option value="5" label="insensitive prefix">insensitive prefix</option>
+                <option value="6" label="insensitive suffix">insensitive suffix</option>
+                <option value="7" label="insensitive substring">insensitive substring</option>
+              </select>
+			  of
+             <select id="search1" name="search1">
+                <option value="cdm-headword" label="headword">headword</option>
+                <option value="cdm-pos" label="part-of-speech">part-of-speech</option>
+                <option value="cdm-translation" label="translation">translation</option>
+                <option value="cdm-example" label="examples">examples</option>
+                <option value="AnyContains" label="any part">any part</option>
+              </select>
+            </td>
+			<td>
+              and
+			</td>
+            <td style="bgcolor:#4682b4;">
+              <input id="search2text" name="search2text" type="text" size="15" value="" />
+			  is
+              <select id="Strategy2" name="Strategy2">
+                <option value="0" label="exact match">exact match</option>
+                <option value="1" label="prefix">prefix</option>
+                <option value="2" label="suffix">suffix</option>
+                <option value="3" label="substring">substring</option>
+                <option value="4" label="case insensitive">case insensitive</option>
+                <option value="5" label="insensitive prefix">insensitive prefix</option>
+                <option value="6" label="insensitive suffix">insensitive suffix</option>
+                <option value="7" label="insensitive substring">insensitive substring</option>
+              </select>
+			  of
+              <select id="search2" name="search2">
+                <option value="cdm-headword" label="headword">headword</option>
+                <option value="cdm-pos" label="part-of-speech">part-of-speech</option>
+                <option value="cdm-translation" label="translation">translation</option>
+                <option value="cdm-example" label="examples">examples</option>
+                <option value="AnyContains" label="any part">any part</option>
+              </select>
+            </td>
+            <td style="bgcolor:#4682b4;">
+				<input id="LOOKUP" name="LOOKUP" type="submit" value="Lookup"/>
+				<input name="RESET" type="submit" value="Reset" />
+            </td>
+          </tr>
+</table>
+</form>
+
+<h2>View the <span id="ContributionsCount">0</span> contributions</h2>
+<table id="ContribList" width="100%" frame="hsides" border="0" summary="entries" >
+ <thead>
+  <tr>
+   <th>Volume</th>
+   <th><a id="AuthorHeaderAnchor" href="ReviewContributions.po?SortBy=AUTHOR_SORT">Author</a></th>
+   <th><a id="HeadwordHeaderAnchor" href="ReviewContributions.po?SortBy=HEADWORD_SORT">View</a></th>
+   <th><a id="CreationdateHeaderAnchor" href="ReviewContributions.po?SortBy=CREATION_DATE_SORT">Creation</a></th>
+   <th><a id="StatusHeaderAnchor" href="ReviewContributions.po?SortBy=STATUS_SORT">Status</a></th>
+   <th>XML</th>
+   <th>Edit</th>
+   <th>Remove</th>
+   <th><a id="ReviewerHeaderAnchor" href="ReviewContributions.po?SortBy=REVIEWER_SORT">Reviewer</a></th>
+   <th><a id="ReviewdateHeaderAnchor" href="ReviewContributions.po?SortBy=REVIEW_DATE_SORT">Review</a></th>
+   <th>Action</th>
+  </tr>
+		  <tr>
+			<td colspan="11" align="center"><a href="" id="PreviousEntriesAnchor">&lt;&lt; Get previous entries &lt;&lt;</a></td>
+		  </tr>
+        </thead>
+	    <tfoot>
+		  <tr>
+			<td colspan="11" align="center"><a href="" id="NextEntriesAnchor">&gt;&gt; Get next entries &gt;&gt;</a></td>
+		  </tr>
+		  <tr>
+			<td colspan="11" align="left"><p>Note: Contributions with <span class="copyentry">this style</span> are copies of existing entries</p></td>
+		  </tr>
+	    </tfoot>
+ <tbody>
+  <tr id="EntryListRow">
+    <td><span id="VolumeName">Volume</span></td>
+    <td><span id="Author">Author</span></td>
+    <td><a href="" id="ViewContribAnchor"><span id="ViewContribText">Contrib</span></a></td>
+    <td><span id="CreationDate">date</span></td>
+    <td><span id="Status">Status</span></td>
+    <td><a href="" id="ViewXmlAnchor">View</a></td>
+    <td><a href="" id="EditContribAnchor"><span id="EditMessage">Edit</span></a></td>
+    <td><a href="" id="RemoveContribAnchor" onclick="return confirm('Are you sure you want to remove the contribution?')"><span id="RemoveMessage">Remove</span></a></td>
+    <td><span id="Reviewer">Reviewer</span></td>
+    <td><span id="ReviewDate">ReviewDate</span></td>
+    <td><a href="" class="hidden" id="ReviseContribAnchor">Review</a>
+		<a href="" class="hidden" id="ValidateContribAnchor">Validate</a>
+		<a href="" class="hidden" id="IntegrateContribAnchor">Integrate</a></td>
+  </tr>
+ </tbody>
+</table>
+<table id="Contributions" width="100%" frame="hsides" border="0" summary="dicocontent" >       
+<tr id="EntryRow">
+    <td id="EntryCell" valign="top" ></td>        
+</tr>
+</table>
+
+</div>
+</body>
+</html>

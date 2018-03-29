@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">Shishito</string>
+    <string name="search_hint">Rechercher un mot japonais&#8230;</string>
+    <string name="no_network">Pas de réseau :-(</string>
+    <string name="error">Une erreur est survenue, désolé!</string>
+    <string name="app_label">Shishito</string>
+    <string name="action_search">Recherche&#8230;</string>
+    <string name="no_result">Pas de résultat pour cette recherche</string>
+    <color name="green">#dac792</color>
+    <color name="light_green">#ffffff</color>
+    <string name="title_activity_login">Connexion</string>
+    <string name="edit_menu_item">Edition</string>
+    <string name="save">Sauvegarde</string>
+    <string name="romaji">"Rōmaji (hepburn)"</string>
+    <string name="romaji_search">"Rōmaji Recherche (hepburn)"</string>
+    <string name="hiragana">"Hiragana"</string>
+    <string name="kanji">"Japonais (kanji/kana)"</string>
+    <string name="example">"Exemples :"</string>
+    <string name="verif">"Entrée non vérifiée"</string>
+    <string name="edit_example">"Exemple %1$d :"</string>
+    <string name="edit_example_kanji">"Exemple Kanji :"</string>
+    <string name="edit_example_hiragana">"Exemple Hiragana :"</string>
+    <string name="edit_example_romaji">"Exemple Romaji :"</string>
+    <string name="edit_example_french">"Exemple Français :"</string>
+    <string name="in_bracket">"[%1$s]"</string>
+
+    <string name="empty_field">"(vide)"</string>
+
+    <string name="fast_edit_title">Édition du champ %1$s</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Nom d\'utilisateur</string>
+    <string name="prompt_password">Mot de passe</string>
+    <string name="action_sign_in_short">Connexion</string>
+    <string name="action_sign_out_short">Déconnexion</string>
+    <string name="error_incorrect_login">Identifiant ou mot de passe incorrect</string>
+
+    <!-- Strings related to help page -->
+    <string name="link_website">Le dictionnaire que vous pouvez consulter est un dictionnaire japonais-&gt;français tiré du Cesselin, du JMdict et de Wikipedia.\n\n
+        Vous pouvez rechercher un mot japonais en rōmaji, hiragana ou kanji. Le rōmaji est le hepburn moderne.
+        Il est possible d\'utiliser un accent circonflexe à la place du macron. Ex : dôzo\n\n
+        Cette application est dérivée du site http://jibiki.fr/ .
+        Visitez ce site pour vous inscrire et nous aider à corriger les informations du dictionnaire.\n\n
+        Une page d\'aide est disponible : http://jibiki.fr/help.php .
+        Pour plus d\'informations sur le projet : http://jibiki.fr/informations.php .\n\n
+        Des erreurs potentielles ont été automatiquement détectées dans les données : les mots-vedette japonais non validés ou les erreurs détectées sur des mots japonais sont affichés en violet;
+        les erreurs sur le français sont affichées en jaune. Une fois que vous êtes connecté (menu en haut à droite de l\'écran), vous pouvez corriger ces erreurs en cliquant sur le segment de texte concerné.
+        Une fenêtre d\'édition s\'ouvrira et le segment sera affiché dans une boite de texte. Vous pourrez le modifier puis appuyer sur le bouton "valider" afin de sauvegarder vos modifications. \n\n
+        Pour signaler un bogue, déclarez-le sur l\'interface suivante : https://forge.imag.fr/tracker/?atid=3655&amp;group_id=823 \n\n
+        Auteurs : Thibaut Le Guilly et Mathieu Mangeot-Nagata \n\n
+        Version : 0.1b
+    </string>
+    <string name="menu_help">"Aide"</string>
+    <string name="load_message">Chargement en cours…</string>
+    <string name="logo_contentdesc">Logo</string>
+</resources>

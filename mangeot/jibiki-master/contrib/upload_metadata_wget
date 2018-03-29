@@ -1,0 +1,35 @@
+WGET="wget --save-cookies=cookies.txt --load-cookies=cookies.txt --keep-session-cookies"
+SERVER=lexalp.eurac.edu
+#SERVER=217.199.4.152
+#SERVER=tokyo.imag.fr
+#SERVER=localhost
+#BASEURL=http://${SERVER}:8999/
+BASEURL=http://${SERVER}:8080/termbank/
+LOGIN_URL=${BASEURL}LoginUser.po
+POST_DATA=--post-data="Login=serasset&Password=sylvie38&Submit=Submit"
+#METADATA_DIR="file%3A%2Fhome%2Fserasset%2Fdevelopment%2FJibiki%2Flexalp%2Flexalp%2Fmetadata%2F"
+#METADATA_DIR="file%3A%2Fhome%2Fserasset%2Flexalp_newdisplay%2Flexalp%2Fmetadata%2F"
+#METADATA_DIR="file%3A%2FUsers%2Fserasset%2Fdev%2Flexalp_newdisplay%2Flexalp%2Fmetadata%2F"
+METADATA_DIR="file%3A%2Fhome%2Flexalp%2Fsrc%2Flexalp%2Flexalp%2Fmetadata%2F"
+
+$WGET $POST_DATA --output-document=/dev/null $LOGIN_URL
+for lg in fra deu ita slv eng
+do
+  # upload metadata
+  $WGET --output-document=/dev/null "${BASEURL}/AdminVolumes.po?Volume=LexALP_${lg}&Object=Metadata&URLObject=${METADATA_DIR}LexALP_${lg}-metadata.xml&Add=Upload"
+	# upload interface
+  $WGET --output-document=/dev/null "${BASEURL}/AdminVolumes.po?Volume=LexALP_${lg}&Object=Interface&URLObject=${METADATA_DIR}lexalp-interface_${lg}.xhtml&Add=Upload"
+done
+
+$WGET --output-document=/dev/null "${BASEURL}/AdminXsl.po?name=LexALP-axi-order&dictionaryName=LexALP&volumeName=LexALP_axi&description=&url=${METADATA_DIR}LexALP-view-axi-order.xsl&Add=Add"
+$WGET --output-document=/dev/null "${BASEURL}/AdminXsl.po?name=LexALP&dictionaryName=LexALP&volumeName=&description=&url=${METADATA_DIR}LexALP-view.xsl&defaultxsl=Default+StyleSheet&Add=Add"
+$WGET --output-document=/dev/null "${BASEURL}/AdminXsl.po?name=LexALP&dictionaryName=LexALP&volumeName=LexALP_axi&description=&url=${METADATA_DIR}LexALP-view-axi.xsl&defaultxsl=Default+StyleSheet&Add=Add"
+
+# Reindex des bases ?
+# Vraisemblablement nécessaire
+
+# Modification des procédures de tri de la BD:
+echo << END
+Ne pas oublier de recharger les nouvelles procédures de tri dan la base:
+psql -U lexalp lexalp < src/sql/multilingual-sort.sql
+END

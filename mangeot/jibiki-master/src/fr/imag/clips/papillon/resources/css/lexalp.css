@@ -1,0 +1,997 @@
+/* 
+ * Stylesheet for Papillon Web site
+ * Style sheet for the xhtml Papillon pages
+ * $Id$
+ *------
+ * $Log$
+ * Revision 1.14.2.3  2007/10/29 15:11:03  serasset
+ * NEW: lexalp css now defines different forms for HARMONISED/REJECTED entries
+ * NEW: added new db url/user/password configuration keys in papillon.properties file
+ * BUG158: headwords are now harmonised at edition and search time, added a "normalise headword" admin action
+ *
+ * Revision 1.14.2.2  2007/09/05 15:24:13  serasset
+ * Created a page to browse the dictionary index
+ * Lexalp formatter now sorts entries correctly within a legal sysem/language group
+ *
+ * Revision 1.14.2.1  2007/07/23 14:23:50  serasset
+ * Commiting most changes done for the XALAN27_NEWDISPLAY on the branch
+ *  - Added XSL extensions callable during xsl transformations
+ *  - Implemented new display of query results as requested by EURAC team
+ *  - Modified edition interface generator to adapt it to xalan 2.7.0
+ *  - Added autocompletion feature to simple search fields
+ *  - Moved some old pages to "deprecated" folder (this will forbid direct use of this code for papillon/GDEF)
+ *
+ * Revision 1.14  2007/05/25 16:03:26  serasset
+ * Slightly reduced the size of notes/harmonisation notes.
+ * Removed the top margin of the flag/language/kwic link in entry display.
+ *
+ * Revision 1.13  2007/04/05 13:07:53  serasset
+ * *** empty log message ***
+ *
+ * Revision 1.12  2007/04/05 11:29:36  serasset
+ * Modified appearence of the Layout and Home of lexalp application.
+ * Added a download firefox link.
+ *
+ * Revision 1.11  2007/02/07 13:58:57  fbrunet
+ * added message before axies are merged and undo process if the merge is not correct.
+ *
+ * Revision 1.10  2007/01/08 15:13:42  fbrunet
+ * Correction of th xml attribut bug in ContributionHeader (VolumeEntry class)
+ *
+ * Revision 1.9  2006/09/18 12:24:54  fbrunet
+ * - add xsl cascading to lexalp formatter (in xsl view, add tag nextXsl with dictionaryName, volumeName and xslName attributes)
+ *
+ * Revision 1.8  2006/06/09 10:10:43  fbrunet
+ * Add generic components (AdvancedQueryForm, QueryRequest and ViewQueryResult) in Home.java
+ *
+ * Revision 1.7  2006/06/01 22:05:05  fbrunet
+ * New interface, quick search, new contribution management (the first edition not create new contribution. New contribution is created after add, remove element, update, save, etc. in the interface window)
+ *
+ * Revision 1.6  2006/05/22 22:45:54  fbrunet
+ * LexALP: add merge method in post-save processing (merge axies with same referenced lexies)
+ *
+ * Revision 1.5  2006/04/06 15:06:39  fbrunet
+ * New class 'creationEditInit' : create new entry
+ * Modify LexALPEditEntry : only edit entry
+ *
+ * Revision 1.4  2006/03/01 15:12:31  mangeot
+ * Merge between maintrunk and LEXALP_1_1 branch
+ *
+ * Revision 1.3.4.6  2006/02/24 13:59:56  fbrunet
+ * Postprocessing during update and save
+ *
+ * Revision 1.3.4.5  2006/02/17 10:41:49  fbrunet
+ * Change QueryCriteria parameters
+ * Add new windows when editing an entry
+ *
+ * Revision 1.3.4.4  2006/01/25 16:59:36  fbrunet
+ * *** empty log message ***
+ *
+ * Revision 1.3.4.3  2006/01/25 15:22:23  fbrunet
+ * Improvement of QueryRequest
+ * Add new search criteria
+ * Add modified status
+ *
+ * Revision 1.3.4.2  2006/01/24 13:39:49  fbrunet
+ * Modification view management
+ * Modification LexALP postprocessing
+ *
+ * Revision 1.3.4.1  2005/12/02 10:04:09  fbrunet
+ * Add Pre/Post edition processing
+ * Add index reconstruction
+ * Add new query request
+ * Add fuzzy search
+ * Add new contribution administration
+ * Add xsl transformation volume
+ *
+ * Revision 1.3  2005/07/08 08:22:46  serasset
+ * Reviewed the Abstract/BasePO hierarchy (moved some methods up in the tree).
+ * Added base classes to allow independant browsing window to establish links during edition.
+ *
+ * Revision 1.2  2005/05/25 14:26:59  serasset
+ * Added kwic link style in lexalp css.
+ *
+ * Revision 1.1  2005/05/24 12:39:54  serasset
+ * Added css file for LexALP application.
+ *
+ */
+
+/*<group=page layout>*/
+
+body {
+	background : white;
+	font: 10pt   'Lucida Grande', LucidaGrande, Lucida, Helvetica, Arial, sans-serif;
+}
+
+.titlePane {
+	color: #1cabed;
+	font-variant: small-caps;
+	text-align: left;
+	font-weight: bold;
+	font-style: italic;
+	display: block;
+	font-size: 1.7em;
+}
+
+.titlePane h1 {
+	text-align: left;
+}
+
+#logo {
+	vertical-align: middle;
+}
+
+/*<group=Quick Links>*/
+
+.quickLinks {
+	display: block;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	font-size: small;
+	font-style: normal;
+	font-weight: normal;
+	border-bottom: 1px dotted #3b63b5;
+	font-variant: normal;
+}
+
+.quickLinks a:link {
+    text-decoration: none; 
+    color: blue;
+}
+
+.quickLinks a:visited {
+    text-decoration: none; 
+    color: blue;
+}
+
+.quickLinks a:active {
+    text-decoration: none; 
+    color: blue;
+}
+
+.quickLinks a:hover {
+    text-decoration: none; 
+    color: #000070;
+}
+	
+/*</group>*/
+
+/*<group=Menus>*/
+
+.menuColumn {
+	float: left;
+	width: 150px;
+	/*margin-top: 0.3em;*/
+	font-size: 8pt;
+	background: transparent;
+}
+
+.menuColumnSize {
+	width: 150px;
+    display: table;
+}
+
+.menuVariableName {
+    float: left; 
+    width: 50px;
+    }
+    
+.menuVariableValue {
+    margin-right: 7px;
+    float: right; 
+    width: 90px;
+    }
+        
+.menuVariableValueWidth {
+    width: 100%;
+    }
+
+.menuGo {
+    width: 50px;
+    margin-left:auto; 
+    margin-right:auto;
+    margin-top: 5px;
+    }
+
+.menuBlock {
+    padding-bottom: 0.2em;
+    /*border: 1px solid #3b63b5;*/
+    border: 1px solid #898989;
+    margin-bottom: .5em;
+	/*background: #fffcd3;*/
+	background: #F0F0F0;
+}
+
+.menuBlock h2.menuTitle {
+   background: #3a66a7;
+   color: #fff;
+   border: none;
+   border-bottom : 1px solid grey;
+   width: 100%;
+   font-weight: bold;
+   font-size: 9pt;
+   text-indent: 0.5em;
+   margin-top: 0;
+   padding: 0.1em 0;
+   font-variant: normal;
+}
+
+.menuBlock a:link {
+    text-decoration: none; 
+    /*color: blue;*/
+}
+
+.menuBlock a:visited {
+    text-decoration: none; 
+    /*color: blue;*/
+    color: #000394;
+}
+
+.menuBlock a:active {
+    text-decoration: none; 
+    /*color: blue;*/
+    color: #000394;
+}
+
+.menuBlock a:hover {
+    text-decoration: none; 
+    color: #000070;
+}
+
+.menuBlock h2, .menuBlock div, .menuBlock p, .menuBlock ul {
+   color: #000;
+}
+
+.menuBlock div, .menuBlock p, .menuBlock ul {
+   margin-top: 0.2em;
+}
+
+.menuBlock li {
+   margin-left: 0;
+   color: #3b63b5;
+}
+
+.menuBlock p, .menuBlock div {
+   text-indent: 0.0em;
+}
+
+.menuBlock form {
+   margin-top: 0;
+   padding-left: 0.2em;
+   padding-right: 0.2em;
+}
+
+.menuBlock h2.menuTitle a {
+   /*color: #fff;*/
+   color: #F0F0F0;
+}
+
+.europaLogos {
+    padding-bottom: 0.2em;
+    border: transparent;
+    margin-bottom: .5em;
+	background: transparent;
+}
+
+.europaLogos a img {
+    border: 0;
+}
+
+.menuBlock h2.menuTitle a:hover {
+   text-decoration: none;
+}
+
+.menuBlock input, textarea, select { font-size: 8pt; color: #000000; background-color: white; border: 1px solid #808080; }
+	
+/*</group>*/
+
+/*<group=GetFirefox>*/
+
+div#firefox {
+   float:right;
+   background-color: #e0e0e0;
+   margin-right: 12px;
+   font-size: x-small;
+   padding-top: 3px;
+   padding-bottom: 3px;
+   padding-left: 3px;
+   padding-right:3px;
+   text-align: right;
+   width:300px;
+}
+
+div#firefox span {
+
+}
+
+div#firefox a {
+   float:right;
+   padding-left:5px;
+}
+
+div#firefox img {
+   border: none;
+}
+
+/*</group>*/
+
+.mainColumn {
+	margin-left: 170px;
+	margin-top: 0.3em;
+	/*background: #f2f2f2;*/
+	color: #000394;
+}
+
+.editEntry {
+   /*background: white url(/media/lexalp/logo2-small.jpg) top right no-repeat scroll;*/
+   background-color: white;
+}
+
+.editing {
+   color: #000;
+   margin-left: 10px;
+   margin-right: 10px;
+   margin-top:0.3em;
+}
+
+.center {
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+
+.editingResultTitle {
+    text-align: center; 
+    margin-top: 60px; 
+    margin-bottom: 60px;
+}
+
+.mergingResultTitle {
+    text-align: center; 
+    margin-top: 40px; 
+    margin-bottom: 40px;
+}
+
+.editingResultView {
+    text-align: left; 
+    color: #000;
+    background-color:#66CCFF;
+    border: 1pt solid #898989;
+    width: 70%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 20px;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.messageConfirm {
+    text-align: center;
+}
+	
+/*</group>*/
+
+/*<group=Special Classes>*/
+
+pre.adminMessage {
+    font-size: 1.5em;
+    color: #ff0000;
+    background: #DFDFDF;
+}
+
+pre.userMessage {
+    color: #ff0000;
+    background: #DFDFDF;
+}
+
+.hidden {
+	display: none;
+}
+	
+/*</group>*/
+
+/*<group=Details>*/
+
+h1 {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+}
+
+p.standard {
+    text-align: justify;
+}
+
+A:link {
+	text-decoration: none; 
+	color: blue;
+	}
+
+A:visited {
+	text-decoration: none; 
+	color: blue;
+	}
+
+A:active {
+	text-decoration: none; 
+	color: blue;
+	}
+
+A:hover {
+	text-decoration: underline; 
+	color: blue;
+	}
+
+.accesskey {text-decoration: underline; }
+
+.copyright {
+	font-size: xx-small;
+    margin-top: 20px;
+	margin-left: 170px;
+}
+	
+/*</group>*/
+
+/*<group=Langues>*/
+
+/* The lang attribute with CSS2 :lang function */
+:lang(ar)       {font-family: "Traditional Arabic", serif; font-size: 1.2em;}
+:lang(zh-Hant)  {font-family: PMingLiU,MingLiU, serif;}
+:lang(zh-Hans)  {font-family: SimSum-18030,SimHei, serif;}
+:lang(din)      {font-family: "Doulos SIL", serif;} 
+
+/* The lang attribute with lang|= selector */
+*[lang|="ar"]   {font-family: "Traditional Arabic", serif; font-size: 1.2em;}
+*[lang|="zh-Hant"]      {font-family: PMingLiU,MingLiU, serif;}
+*[lang|="zh-Hans"]      {font-family: SimSum-18030,SimHei, serif;}
+*[lang|="din"]  {font-family: "Doulos SIL", serif;} 
+
+/* The ISO-639-2/T 3 letter codes */
+
+.deu	{
+	font-family: Times New Roman, Times, serif;
+	color: #993399;
+	}
+	
+.eng	{
+	font-family: "Arial", sans-serif;
+	color: #006600;
+	}
+
+.esp	{
+	font-family: sans-serif;
+	color: #FF9900;
+	}
+
+.est	{
+	font-family: "Helvetica", sans-serif;
+	color: #DC143C;
+	}
+
+.fra	{
+	font-family: Arial, Helvetica, sans-serif;
+	color: #3366FF;
+	}
+
+.hun	{
+	font-family: sans-serif;
+	color: #660000;
+	}
+
+.ita	{
+	font-family: sans-serif;
+	color: #CC6600;
+	}
+
+.jpn	{
+	/*font-family: "Osaka", sans-serif; */
+	font-family: sans-serif;
+	color: #FF0000;
+	}
+
+.lao	{
+	font-family: sans-serif;
+	color: #FF0099;
+	}
+
+.msa	{
+	font-family: sans-serif;
+	color: #009900;
+	}
+        
+.rus	{
+	font-family: sans-serif;
+	color: #CC0000;
+	}
+
+.sin	{
+	color: black;
+	}
+
+.tha	{
+	font-family: sans-serif;
+	color: #6600FF;
+	}
+
+.vie	{
+	font-family: sans-serif;
+	color: #CC9900;
+	}
+	
+.zho	{
+	font-family: PMingLiU,MingLiU, serif;
+	color: #000080;
+	}
+
+	
+/*</group>*/
+
+/*<group=LexALP entries>*/
+
+.axie {
+    background-color:#E0E0E0;
+    border:1px solid #898989;
+    display:block;
+    margin-top:-1px;
+}
+
+.axieList {
+	margin-left: 10px;
+	display: block;
+}
+
+.axieTerm {
+	margin-right:10px;
+    margin-left:10px;
+    //display: block;
+}
+
+.axieSeparator {
+	margin-right:10px;
+}
+
+.axieTermInfo {
+    text-align: justify;
+	position: fixed;
+	right: 100px;
+	top: 104px;
+	width: 380px;
+	background-color: #FFFFCC;
+	layer-background-color: #FFFFFF;
+	color: black;
+	visibility: hidden;
+	border: 1px dashed #000000;
+	padding: 5px 5px 5px 5px;
+}
+
+/*  */
+
+.term {
+	font-weight: bold;
+    margin-right:20px;
+	//font-variant: small-caps;
+}
+
+.synonym {
+	//margin-left:10px;
+	//font-style: italic;
+	//font-variant: small-caps;
+}
+
+.status {
+	font-size: xx-small;
+}
+
+.idTerm {
+	font-size: xx-small;
+	margin-left:10px;
+	margin-right: 10px;
+}
+
+.phraseologicalUnit {
+	font-size: xx-small;
+}
+
+.grammar {
+}	
+
+.kwic {
+    float: right;
+    font-size: xx-small;
+    margin-right:10px;
+}
+
+.legal {
+float: right;
+/*background-color: #bbbbbb*/;
+margin-right:10px;
+/*padding-right:10px;*/
+/*margin-left:10px;*/
+/*padding-left:10px;*/
+}
+
+.lang {
+    float: right;
+    font-size: xx-small;
+    text-transform: uppercase;
+    margin-right:10px;
+    margin-left:10px;
+}
+
+
+.relatedTermView {
+    margin-left:10px;
+	//display: block;
+}
+
+.relatedFormView {
+    margin-left:10px;
+	//display: block;
+}
+
+.frequencyView {
+    text-align: justify;
+	margin-left: 10px;
+	//display: block;
+	//font-size: smaller;
+}
+
+.domainView {
+    text-align: justify;
+	margin-left: 10px;
+	//display: block;
+	//font-size: smaller;
+}
+
+.sourceView {
+    text-align: justify;
+    //font-size:xx-small;
+    margin-left: 5px;
+    //font-style: italic;
+	//display: block;
+}
+
+.definitionView {
+    text-align: justify;
+	margin-left: 10px;
+	//display: block;
+	//font-size: smaller;
+}
+
+
+.contextView {
+    text-align: justify;
+	margin-left: 10px;
+	//display: block;
+	//font-size: smaller;
+}
+
+.noteView {
+    text-align: justify;
+	margin-left: 10px;
+	//display: block;
+	//font-size: smaller;
+}
+
+.historyColumn {
+	width: 150px;
+    font-size: normal;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.quick_search {
+	border: 1px dashed #898989;
+    padding: 5px 5px 5px 5px;
+}
+
+.quick_link {
+	font-style: italic;
+	margin-left: 10px;
+}
+
+/* lexie status */
+
+.entry {
+/*	border: 1px solid #898989;*/
+/*	padding: 5px 5px 5px 5px; */
+	background: #F0F0F0;
+}
+
+.finishedEntry {
+	background: #F0F0F0;
+}
+
+.myFinishedEntry {
+	background: #66CCFF;
+}
+
+.modifiedEntry {
+	background: #F0F0F0;
+}
+
+.myNotFinishedEntry {
+	background: #99CCCC;
+}
+
+.notFinishedEntry {
+	background: #F0F0F0;
+}
+
+.HARMONISED {
+    background:#80FFA0;
+}
+
+.REJECTED {
+    background:#FFC0C0;
+    border-left:red;
+    border-left-width:2px;
+}
+
+.REJECTED .term {
+    border-bottom: 1px dotted red;
+}
+
+.lexalp-lsgroup {
+    border:1px dotted #898989;
+    margin-bottom:5px;
+    padding-bottom:2px;
+}
+
+.lexalp-entry {
+    border:1px solid #898989;
+    margin-bottom:5px;
+    padding-bottom:2px;
+    margin-top:-1px;
+    padding-right: 3px;
+}
+
+.translation {
+	/* border: 1px dashed #898989; */
+    margin-left:20px;
+    margin-right:2px;
+    margin-top:3px;
+    padding: 2px 2px 2px 2px;
+}
+
+.relatedAxie {
+	border: 1px dashed #898989;
+    margin-left:20px;
+    margin-right:20px;
+    margin-top:20px;
+    padding: 5px 5px 5px 5px;
+}
+
+/* container contribution */
+
+.jibiki_groups {
+    border-right: 1px solid #898989;
+    padding-right:5px;
+	padding-left:5px;
+	font-weight: bold;
+	color: #DD390E;
+}
+
+.jibiki_status {
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-left: 5px;
+}
+.jibiki_byAuthor {
+}
+
+.jibiki_author {
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-right: 5px;
+}
+
+
+.contribution {
+	margin-bottom: 10px;
+}
+
+.option1 {
+	margin-left: 20px;
+}
+
+.option2 {
+	margin-left: 5px;
+}
+
+
+.entry_information {
+	float: right;
+	font-size:xx-small;
+	text-transform: uppercase;
+    margin-left:5px;
+    margin-top:2px;
+}
+
+.entry_information_flag {
+	float: right;
+	//font-size:xx-small;
+	//text-transform: uppercase;
+    margin-left:5px;
+    margin-top:1px;
+    //border: 1px solid #898989;
+}
+
+.action_list {
+    text-align: right;
+}
+
+.entry_actions {
+	border-top: 1px solid #898989;
+	border-right: 1px solid #898989;
+	border-left: 1px solid #898989;
+	font-size:x-small;
+    background-color: #E0E0E0;
+}
+
+.action {
+    border-left: 1px solid #898989;
+    padding-right:5px;
+	padding-left:5px;
+}
+
+.action:hover {
+	/*font-style: italic;
+    font-weight: bold;*/
+    color: red;
+}
+
+
+.QueryForm {
+border: 1px solid #898989;
+	padding: 5px 5px 5px 5px;
+	background: #F0F0F0;
+}
+
+h1.title {
+   background: #3a66a7;
+   /*color: #fff;*/
+   color: #F0F0F0;
+   border: none;
+   border-bottom : 1px solid grey;
+   width: 100%;
+   padding-top: 5px;
+   padding-bottom: 5px;
+}
+
+#ProjectDescription a {
+    text-decoration: underline;
+}
+
+.pagination {
+	font-style: italic; 
+	display: inline;
+}
+
+.interface {
+    margin-left: auto; 
+    margin-right: auto;
+	background: #eeeeee; 
+	padding: 5px 5px 5px 5px; 
+	width: 80%; 
+	text-align: center;
+}
+
+ul.commaList {
+list-style-image:none;
+list-style-position:outside;
+list-style-type:none;
+margin:0pt;
+padding:0pt;
+}
+ul.commaList li {
+display:inline;
+}
+ul.commaList li:after {
+content:", ";
+}
+ul.commaList li:last-child:after {
+content:"";
+}
+
+/* CDM elements */
+div.contribution {
+	color:black;
+}
+
+.entry {
+	/*display: block;
+    margin-left: 12 pt; */
+}
+
+.sense {
+	display: block;
+}
+
+.headword {
+	font-weight: bold;
+}
+
+.writing {
+	font-style : normal;
+}
+
+.reading {
+	font-style : normal;
+	font-family: courier;
+}
+
+.pos {
+	font-weight: bold;
+	color: black;
+}
+.pronunciation {
+	font-family: courier;
+	color: black;
+}
+.label	{
+	font-family: sans-serif;
+	color: gray;
+	}
+
+.translations {
+        display: block;
+        margin-left: 3 px;
+}
+.translation {
+	font-style : normal;
+}
+
+.examples {
+	display: block;
+}
+
+.example {
+/*	font-style: italic; */
+}
+
+.idioms {
+	display: block;
+}
+
+.idiom {
+	font-style : normal;
+}
+
+
+/* styles for XML source */
+
+.xmlattribute {
+	color: red;
+	}
+.xmlcar {
+	color: blue;
+	}	
+.xmlcomment {
+	color: gray;
+	}
+.xmlelement {
+	color: maroon;
+	}
+.xmlheader {
+	color: teal;
+	}
+.xmlnsprefix {
+	font-weight: bold;
+	color:#CC9966;					
+        }
+.xmlnsuri {
+	color:#CC9966;					
+        }
+.xmltext {
+	color: black;
+	font-weight: bold;
+	}	
+.xmlvalue {
+	font-weight: bold;
+	color: black;
+	}

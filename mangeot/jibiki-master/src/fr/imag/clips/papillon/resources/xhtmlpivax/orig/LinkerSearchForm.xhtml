@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Menu</title>
+  </head>
+  <body>
+    <div id="AdvancedSearchForm" lang="en" xml:lang="en">
+      <form id="SearchForm" action="">
+        <div>
+        Find entries where:<br/>
+        <!-- MULTIPLE VALUES: VOLUMES, TARGETS, -->
+          <input type="hidden" name="idFieldName" id="idFieldName"/>
+          <input type="hidden" name="langFieldName" id="langFieldName"/>
+        <input type="hidden" name="VOLUMES" value="" id="Volumes"/>
+        <input type="hidden" id="Targets" name="TARGETS" value=""/>
+        <!-- multiple selection: dictionaries to search into -->
+        <input type="hidden" id="Dictionaries" name="DICTIONARIES"/>
+
+        <div id="criterion">
+        <select id="Facet" name="FACET">
+          <option value="cdm-headword" label="Headword">Headword</option>
+          <option value="cdm-entry-id" label="Entry Id">Entry Id</option>
+          <option value="cdm-definition" label="Definition">Definition</option>
+          <option value="cdm-example" label="Context">Context</option>
+          <option value="axi-reflexie" label="Axie">Axie</option>
+        </select> 
+        <select id="Operator" name="OPERATOR">
+            <option value="4" label="contains">contains</option>
+            <option value="2" label="is">is</option>
+            <option value="6" label="starts with">starts with</option>
+            <option value="5" label="ends with">ends with</option>
+        </select>
+        <input type="text" id="ValueField" name="FACETVALUE" size="14" maxlength="128" />
+        <label for="SourceLang" accesskey="i"><span class="accesskey">I</span>n:</label>
+        <select id="SourceLang" name="SOURCE">
+            <option id="AllSourcesOption" value="*ALL*" label="ALL">All languages</option>
+            <option id="SourceOptionTemplate" value="NONE" label="NONE">NONE</option>
+        </select>
+        </div>
+        <input type="hidden" name="XSL" value="Defaut" id="Xsl"/>
+        <input type="submit" name="lookup" value="Go" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

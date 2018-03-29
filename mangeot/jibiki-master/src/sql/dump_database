@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+
+use strict;
+
+my $date_cmd = "date ''+%d%m20%y";
+my $date = `$date_cmd`;
+chomp $date;
+my $filename = "papillon-$date.sql.gz";
+
+## pg_dump -h bushido.imag.fr -Fc papillon | gzip > papillon.sql.gz
+my $dump_cmd = "pg_dump -h localhost papillon | gzip > /Users/postgres/Sauvegardes/papillon-$date.sql.gz"; 
+my $tgz_cmd = "tar zcvf /Users/postgres/Sauvegardes/papillon-files-$date.tgz /Projects/enhydraApps/papillon/output/main"; 
+
+`$dump_cmd`;
+`$tgz_cmd`;

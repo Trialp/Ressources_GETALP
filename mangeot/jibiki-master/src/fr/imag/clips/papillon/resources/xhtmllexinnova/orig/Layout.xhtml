@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <link href="css/jibiki.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="Mathieu MANGEOT-NAGATA" />
+  <meta name="keywords" content="Projet Lexinnova"/>
+  <meta name="description" content="Projet Lexinnova" />
+  <title>Projet Lexinnova</title>
+    <script src="javascript/jquery-1.11.3.min.js" type="text/javascript"><!-- // --></script>
+    <script src="javascript/lookupVolume.js" type="text/javascript"><!-- // --></script>
+    <script src="javascript/jquery.xdomainrequest.min.js" type="text/javascript"><!-- // --></script>
+    <script src="javascript/jquery.jeditable.js" type="text/javascript"><!-- // --></script>
+   <script id="Script" type="text/javascript"><!-- // --></script>
+   <script type="text/javascript"><!--
+                                   /* fonction pour les editable*/
+                                   
+                                   function loadEditable () {
+                                   $('.editable').editable(function(value, settings) {
+                                   xpath = $(this).attr('xpath');
+                                   encodedValue = encodeURIComponent(value);
+                                   divcontrib = $(this).closest("div.contribution");
+                                   origcontribid = encodeURIComponent(divcontrib.attr("id"));
+                                   
+                                   // première requête AJAX pour modifier le texte
+                                   $.ajax({
+                                   url: scriptStartUrl + 'api/Lexinnova/esp/'+origcontribid+'/' + encodedValue,
+                                   type: 'PUT',
+                                   data: xpath,
+                                   success: function(result) {
+                                   var contribution = $(result).find('d\\:contribution, contribution')[ 0 ];
+                                   var contribid = contribution.getAttributeNS(DMLNamespace,'contribid');
+                                   divcontrib.attr('id',contribid);
+                                   
+                                   },
+                                   error: function (xhr, ajaxOptions, thrownError) {
+                                   alert('erreur call loadEditable, status: ' + xhr.status + ' error: ' + thrownError);
+                                   }
+                                   });
+                                   return(value);
+                                   }, {
+                                   data: function(value, settings) {
+                                   var retval = value.replace(/<\/?span[^>]*>/gi, '');
+                                   return retval;
+                                   },
+                                   submit  : 'ok',
+                                   tooltip   : 'Cliquer pour éditer...',
+                                   style   : 'display: inline;',
+                                   });
+                                   return 'ok';
+                                   }
+                                   // -->
+   </script>
+    </head>
+  <body>
+    <div class="headerBlock">
+	 <div class="headerMenu" id="headerMenu">
+  <table style="margin:auto; border-spacing: 0px;width:90%">
+    <tbody>
+    	<tr><td class="popupMenu homeMenu"><a href="Home.po">Accueil</a></td>
+       <!--td class="popupMenu contactMenu"><a href="/reading/">Active Reading</a></td>
+        <td class="popupMenu dataMenu"><a href="/data/">Data</a></td-->
+        <td class="popupMenu projectMenu"><a href="Information.po">Informations</a></td>
+    	<td class="popupMenu helpMenu"><a href="Help.po">Aide</a></td>
+    	<td class="popupMenu userProfileMenu popupMenuEnd" style="height:23px;"><div id="UserMenuHolder" style="display: inline;" />
+			<ul class="second-level-menu">
+		<li><div id="LexiesManagementHolder" style="display: inline;"/></li>
+		<li><div id="ReviewerMenuHolder"  style="display: inline;" /></li>
+     <li><div id="ValidatorMenuHolder"  style="display: inline;"/></li>
+    <li><div id="AdministrationMenuHolder"  style="display: inline;"/></li></ul>
+   </td>
+   <td style="display:none"><div id="LangFormHolder" style="display:none;" ><!-- // --></div>
+       <a class="lang" href="?lang=fra">français</a>
+       <a class="lang" href="?lang=jpn">日本語</a>
+   </td>
+   
+   </tr></tbody></table>
+    </div>
+
+
+		<div id="BannerPlaceHolder" style="display:block;">
+		<div id="BannerContent">
+		     <div id="projectTitle">
+        Le projet <span class="projectName">Lexinnova</span>
+      </div>
+      <div id="QueryMenuHolder" style="display:none;"><!-- // --></div>
+	  <form action="ConsultPage.po" class="cellVolumeLookup"><div style="display:inline;">
+		<input id="actionJS" name="action" type="hidden" value=""/>
+	    Consulter
+    		<!--input id="STATUS" name="STATUS" type="hidden" value="finished"/-->
+            <input id="STATUS" type="hidden" value=""/>
+
+			<!--label accesskey="v" for="VOLUME" id="VolumeLabel" style="display:inline;"><span class="accesskey">v</span>olume-->
+			<input  id="VOLUME" name="VOLUME" value="Lexinnova_esp_fra" type="hidden"/>
+    		<!--select id="VOLUME" name="VOLUME" title="sélectionner le volume [v]"><option label="JMdict_jpn_eng" value="JMdict_jpn_eng">JMdict_jpn_eng</option></select-->
+			<!--/label-->
+ 	     <input id="HEADWORD" name="HEADWORD" type="text"/>
+	     <input type="submit" value="→"/>
+	   </div></form>
+	  <div class="cellAdvancedLookup"><a href="AdvancedLookup.po">Consultation avancée</a></div>
+		</div>
+	</div>
+    </div>
+    
+    <div id="sectionPrincipale">
+    <div id="MenuColumn"><!-- // --></div>
+    <div id="MainColumn" class="mainColumn"></div>
+    </div>
+
+	<div id="footer">
+        <p>
+        <!-- pied de page -->
+        Mise à jour : 25 nov. 2015.
+        Plate-forme : © 2001-2015, GETA-CLIPS, GETALP-LIG. LGPL license.
+        Données : <a rel="licence" href="http://creativecommons.org/licenses/by-sa/2.0/">
+		<img alt="Creative Commons License" style="border-width:0" src="http://creativecommons.org/images/public/somerights20.png" />
+		Creative Commons licence (Attribution-Share Alike 2.0 France)</a> 2013.
+		</p>
+         </div>
+</body>
+</html>

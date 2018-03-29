@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *  © Mathieu Mangeot & Gilles Sérasset - GETA CLIPS IMAG
+ *  Projet Papillon
+ *
+ *  -----------------------------------------------
+ *  $Id$
+ *  -----------------------------------------------
+ *  $Log$
+ *  Revision 1.2  2005/01/15 17:43:19  mangeot
+ *  Added cvs Id and Log on the files
+ *
+ *
+ *  -----------------------------------------------
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+   <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+         Papillon project : schema of the archive description file info_doc.xml for archive import
+      </xsd:documentation>						     
+   </xsd:annotation>
+
+   <xsd:element name="document" type="DocumentType"/>
+
+   <xsd:complexType name="DocumentType">
+      <xsd:sequence>
+         <xsd:element name="title" type="TitleType"/>
+	 <xsd:element name="authors" type="xsd:string"/>
+<!-- The date type should be an xsd:date type ... 
+For the moment, date has the following format in digits: yyyy/mm/dd-->
+	 <xsd:element name="date" type="xsd:string"/>
+	 <xsd:element name="reference" type="xsd:string"/>
+      </xsd:sequence>
+      <xsd:attribute name="section" use="required" type="SectionType"/>
+   </xsd:complexType>
+
+   <xsd:complexType name="TitleType">
+      <xsd:all>
+         <xsd:element name="deu" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+	 <xsd:element name="eng" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+	 <xsd:element name="esp" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+	 <xsd:element name="fra" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+	 <xsd:element name="hun" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+	 <xsd:element name="ita" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+	 <xsd:element name="jpn" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+	 <xsd:element name="lao" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+	 <xsd:element name="msa" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+	 <xsd:element name="tha" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+	 <xsd:element name="vie" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+	 <xsd:element name="kor" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+	 <xsd:element name="zho" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+      </xsd:all>
+   </xsd:complexType>
+
+
+   <xsd:simpleType name="SectionType">
+      <xsd:restriction base="xsd:string">
+         <xsd:enumeration value="DEV"/> 
+	 <xsd:enumeration value="DICT"/> 
+	 <xsd:enumeration value="INFO"/> 
+	 <xsd:enumeration value="PUBLIS"/> 
+	 <xsd:enumeration value="PAPILLON01"/> 
+	 <xsd:enumeration value="PAPILLON02"/> 
+	 <xsd:enumeration value="PAPILLON03"/> 
+	 <xsd:enumeration value="PUBLI_PAP"/> 
+	 <xsd:enumeration value="HOWTO"/> 
+	 <xsd:enumeration value="MISC"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+
+</xsd:schema>

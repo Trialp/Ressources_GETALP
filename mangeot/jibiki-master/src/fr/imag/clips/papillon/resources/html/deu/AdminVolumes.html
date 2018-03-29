@@ -1,0 +1,98 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.0 TRANSITIONAL//EN">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="en">
+<h1 align="center">Manage the XML Volumes</h1>
+<HR>
+
+<FORM ACTION="AdminVolumes.po" METHOD="GET">
+<table WIDTH="600" BORDER="0" CELLSPACING="0" CELLPADDING="10" Summary="Upload Metadata">
+<TR>
+     <!-- Warning, make sure the option element contains a Text and only a Text (no other child) -->
+	<TD><b>Dictionary:</b></TD>
+        <TD>
+            <SELECT NAME="Dictionary">
+            <OPTION ID="DictionaryOptionTemplate" VALUE="NONE" LABEL="NONE">NONE</OPTION>
+        </SELECT></TD>
+</TR>
+<TR>	
+	<TD valign="top"><B>Url:&nbsp;</B></TD>
+	<TD><INPUT NAME="URL" TYPE="text" SIZE="64" VALUE=""></TD>
+</TR>
+<TR>
+    <TD><B>Load Also Entries: &nbsp;</B></TD>     
+    <TD><INPUT NAME="AddEntries" TYPE="checkbox" VALUE="Load Entries">&nbsp;&nbsp;<INPUT NAME="Add" TYPE="submit" VALUE="Upload"></TD>
+</TR>
+</TABLE>
+<p class="note">NB: The Volume Metadata file must be valid against the &lt;volume-metadata&gt; element of the DML schema. The latest version of the schema can be found at: <a href="http://www-clips.imag.fr/geta/services/dml/dml.xsd">www-clips.imag.fr/geta/services/dml/dml.xsd</a>.</p>
+</FORM>
+<HR>
+<FORM ACTION="AdminVolumes.po" METHOD="GET">
+<table WIDTH="600" BORDER="0" CELLSPACING="0" CELLPADDING="10" Summary="Upload XML File">
+<TR>
+	<TD><b>Volume:</b></TD>
+        <TD>
+            <SELECT NAME="Volume">
+            <OPTION ID="VolumeOptionTemplate" VALUE="NONE" LABEL="NONE">NONE</OPTION>
+        </SELECT></TD>
+	<TD><b>Object:</b></TD>
+        <TD>
+            <SELECT NAME="Object">
+            <OPTION VALUE="Metadata" LABEL="Metadata File">Metadata File</OPTION>
+            <OPTION VALUE="Schema" LABEL="XML Schema">XML Schema</OPTION>
+            <OPTION VALUE="Template" LABEL="Template Entry">Template Entry</OPTION>
+            <OPTION VALUE="Interface" LABEL="Interface">Interface File</OPTION>
+        </SELECT></TD>
+				</TR>
+<TR>	
+	<TD valign="top"><B>Url:&nbsp;</B></TD>
+	<TD colspan="3"><INPUT NAME="URLObject" TYPE="text" SIZE="64" VALUE=""></TD>
+</TR>
+<TR>
+<TD>
+<INPUT NAME="Add" TYPE="submit" VALUE="Upload">
+</TD>
+</TR>
+</table>
+</FORM>
+<HR>
+Volumes currently in the database:
+<TABLE Summary="Existing Volumes">
+<TR>
+	<TH>Dict</TH>
+	<TH>Volume</TH>
+	<TH>Db table</TH>
+	<TH>Src</TH>
+	<TH>Entries</TH>
+	<TH>Schema</TH>
+	<TH>Template</TH>
+	<TH>Interface</TH>
+	<TH>&nbsp;|&nbsp;</TH>
+	<TH>Metatada</TH>
+  <TH>All</TH>
+</TR>
+<TR id="TemplateRow">
+	<TD><span Id="Dictname">dict</span></TD>
+	<TD><A HREF="" id="SeeMetadataAnchor"><b><span Id="Name">name</span></b></A></TD>
+	<TD><span Id="Dbname">db table</span></TD>
+	<TD><span Id="Source">source lg</span></TD>
+	<TD align="right"><span Id="Entries">entries</span></TD>
+	<TD align="center"><A HREF="" id="SeeSchemaAnchor"><span id="SeeSchema">sehen</span></A></TD>
+	<TD align="center"><A HREF="" id="SeeTemplateAnchor"><span id="SeeTemplate">sehen</span></A></TD>
+	<TD align="center"><A HREF="" id="SeeInterfaceAnchor"><span id="SeeInterface">sehen</span></A></TD>
+	<TD>&nbsp;|&nbsp;</TD>
+	<TD align="center"><A HREF="" id="RemoveMetadataAnchor" onClick="return confirm('Are you sure you want to remove the metadata?')">rm</A></TD>
+	<TD align="center"><A HREF="" id="RemoveAllAnchor" onClick="return confirm('Are you sure you want to remove the metadata and the entries?')">rm</A></TD>
+</TR>
+</TABLE>
+<div>
+<div id="Xml">
+</div>
+</div>
+</div>
+</body>
+</html>

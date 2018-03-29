@@ -1,0 +1,207 @@
+package fr.imag.clips.papillon.presentation;
+
+//Enhydra SuperServlet imports
+import com.lutris.appserver.server.httpPresentation.HttpPresentation;
+import com.lutris.appserver.server.httpPresentation.HttpPresentationComms;
+import com.lutris.appserver.server.httpPresentation.HttpPresentationRequest;
+import com.lutris.appserver.server.httpPresentation.HttpPresentationException;
+import com.lutris.appserver.server.httpPresentation.HttpPresentationOutputStream;
+import com.lutris.appserver.server.httpPresentation.HttpPresentationResponse;
+// For the node
+import org.w3c.dom.*;
+//import org.w3c.dom.html.*;
+import org.enhydra.xml.xhtml.dom.*;
+
+import java.io.*;
+
+// For the user
+import fr.imag.clips.papillon.business.user.*;
+import fr.imag.clips.papillon.business.locales.*;
+import fr.imag.clips.papillon.business.dictionary.*;
+import fr.imag.clips.papillon.business.utility.StringNormalizer;
+import fr.imag.clips.papillon.business.utility.Utility;
+
+import fr.imag.clips.papillon.presentation.xhtml.orig.*;
+import fr.imag.clips.papillon.presentation.PapillonSessionData;
+//for debug
+import fr.imag.clips.papillon.business.PapillonLogger;
+import fr.imag.clips.papillon.business.PapillonBusinessException;
+
+// Standard imports
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Vector;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.text.DateFormat;
+
+public class AdvancedQueryFormTest extends PapillonBasePO {
+	    
+	    protected Node queryForm;
+	    
+	    public final static String ALL_TARGETS = "*ALL*";
+	    
+	    protected static final String actionPatternString = "^(\\+|\\-)([^\\.]+)\\.(\\d+)$";
+	    protected static Pattern actionPattern = Pattern.compile(actionPatternString);
+	    protected static Matcher actionMatcher = actionPattern.matcher("");
+	    
+	    QueryParameter qparams;     //FIXME: replace by qrequest
+	    QueryRequest qrequest;
+	    ArrayList criteriaList;
+	    
+	    String action;
+	    
+
+	   
+	    public String getRequestedHeadword (HttpServletRequest req) 
+        throws java.io.UnsupportedEncodingException,
+        com.lutris.appserver.server.httpPresentation.HttpPresentationException
+    {
+        //
+        String xsl = AbstractPO.myGetParameter(req, AdvancedQueryFormTestXHTML.NAME_VALUEWORD);
+        
+        //
+        if (xsl !=null && !xsl.equals("") && !xsl.equalsIgnoreCase("default")) {
+            
+            //
+            return xsl;
+            
+        } else {
+            
+            // Default xsl 
+            return new String("");
+        } 
+        
+        //return AbstractPO.myGetParameter(req, AdvancedQueryFormXHTML.NAME_XSL);
+    }
+	    
+	    public String getRequestedSource (HttpServletRequest req) 
+        throws java.io.UnsupportedEncodingException,
+        com.lutris.appserver.server.httpPresentation.HttpPresentationException
+    {
+        //
+        String xsl = AbstractPO.myGetParameter(req, AdvancedQueryFormTestXHTML.NAME_SOURCE);
+        
+        //
+        if (xsl !=null && !xsl.equals("") && !xsl.equalsIgnoreCase("default")) {
+            
+            //
+            return xsl;
+            
+        } else {
+            
+            // Default xsl 
+            return new String("");
+        } 
+        
+        //return AbstractPO.myGetParameter(req, AdvancedQueryFormXHTML.NAME_XSL);
+    }
+		
+		 public String getRequestedXsl(HttpServletRequest req) 
+	        throws java.io.UnsupportedEncodingException,
+	        com.lutris.appserver.server.httpPresentation.HttpPresentationException
+	    {
+	        //
+	        String xsl = AbstractPO.myGetParameter(req, AdvancedQueryFormTestXHTML.NAME_XSL);
+	        
+	        //
+	        if (xsl !=null && !xsl.equals("") && !xsl.equalsIgnoreCase("default")) {
+	            
+	            //
+	            return xsl;
+	            
+	        } else {
+	            
+	            // Default xsl 
+	            return new String("");
+	        } 
+	        
+	        //return AbstractPO.myGetParameter(req, AdvancedQueryFormXHTML.NAME_XSL);
+	    }
+
+	    public String getRequestedNumberOfResultsPerPageString(HttpServletRequest req) 
+	        throws java.io.UnsupportedEncodingException,
+	        com.lutris.appserver.server.httpPresentation.HttpPresentationException
+	    {
+	        String nbr = AbstractPO.myGetParameter(req, AdvancedQueryFormTestXHTML.NAME_NB_RESULT_PER_PAGE);
+	        if (null == nbr || nbr.equals("")) {
+	            nbr = "10";         // all (0)
+	        }
+	        //System.out.println("getRequestedNumberOfResultsPerPageString  limit = " + nbr);
+	        return nbr;
+	    }
+	    
+	    public List getRequestedCriteria(HttpServletRequest req) 
+        throws java.io.UnsupportedEncodingException,
+        com.lutris.appserver.server.httpPresentation.HttpPresentationException
+    {
+        String nbc = AbstractPO.myGetParameter(req, AdvancedQueryFormXHTML.NAME_CRITERIA_NB);
+        int nbCriteria = (null == nbc || nbc.equals("")) ? 1 : Integer.valueOf(nbc).intValue();
+        
+        Vector criteria = new Vector();
+        for(int i=0; i < nbCriteria; i++) {
+            String[] key = new String[4];
+            key[0] = AbstractPO.myGetParameter(req, AdvancedQueryFormXHTML.NAME_FACET + "." + Integer.toString(i));           
+            key[1] = AbstractPO.myGetParameter(req, AdvancedQueryFormXHTML.NAME_OPERATOR + "." + Integer.toString(i));
+            String facetValue = AbstractPO.myGetParameter(req, AdvancedQueryFormXHTML.NAME_FACETVALUE + "." + Integer.toString(i));
+            key[2] = (null == facetValue) ? "" : facetValue;
+     
+            
+            // Add the criterion to the set
+            if (null != key[0]) {
+                criteria.add(key);
+            }
+        }
+        return criteria;
+    }
+	    public List getRequestedCriteria2(HttpServletRequest req) 
+        throws java.io.UnsupportedEncodingException,
+        com.lutris.appserver.server.httpPresentation.HttpPresentationException
+    {
+        String nbc = AbstractPO.myGetParameter(req, AdvancedQueryFormXHTML.NAME_CRITERIA_NB);
+        int nbCriteria = (null == nbc || nbc.equals("")) ? 1 : Integer.valueOf(nbc).intValue();
+        
+        criteriaList = new ArrayList();
+        for(int i=0; i < nbCriteria; i++) {
+            String value = StringNormalizer.normalize(AbstractPO.myGetParameter(req, AdvancedQueryFormXHTML.NAME_VALUEWORD + "." + Integer.toString(i)));
+            QueryCriteria criteria = new QueryCriteria();
+            
+            //
+            if ( (null != value) && (!value.equals("")) ) {
+                
+                //
+                String key = AbstractPO.myGetParameter(req, AdvancedQueryFormXHTML.NAME_FACET + "." + Integer.toString(i));
+                String language = AbstractPO.myGetParameter(req, AdvancedQueryFormXHTML.NAME_SOURCE + "." + Integer.toString(i));
+                String strategy = AbstractPO.myGetParameter(req, AdvancedQueryFormXHTML.NAME_OPERATOR + "." + Integer.toString(i));
+                String valueField = AbstractPO.myGetParameter(req, AdvancedQueryFormXHTML.NAME_FACETVALUE + "." + Integer.toString(i));
+                
+                //
+				if (key != null && !key.equals("")) {
+					criteria.add("key", "=", key);
+				}
+				criteria.add("valueField", strategy, valueField);
+				if (language==null) {
+					if (Volume.isDefaultLangCDMElement(key)) {
+						language=Volume.DEFAULT_LANG;
+					}
+				}
+                if ( (language != null) && (!language.equals("")) && (!language.equals("All")) ) {
+					criteria.add("lang", "=", language);
+				}
+                
+                criteria.add("headword","=",value);
+                
+                //
+				if (key != null && !key.equals("") && valueField != null) {
+					criteriaList.add(criteria);
+				}
+            }
+        }
+        return criteriaList;
+    } 
+////ZHANG YING 继续写	
+}

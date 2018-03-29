@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Papillon</title>
+</head>
+
+<body>
+
+<div id="XMLSchemaContent" lang="en">
+
+<center>
+<h1>XML Schema for the archive description file</h1>
+</center>
+
+<p>
+<a href="ImportHelp.po">Back</a> to Addition Help page<br>
+<a href="AdminInformations.po">Back</a> to Information Documents administration page
+</p>
+
+<p>Here is the XML Schema that defines the description file format for an archive(info_doc.xml).<br>
+Download the schema:&nbsp;<a href="xsd/info_doc.xsd">info_doc.xsd</a><br></p>
+
+<table border="1" summary="XML schema">
+<caption>XML Schema info_doc.xsd</caption>
+<tr>
+<td align="left">
+<pre>
+  &lt;xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+
+     &lt;xsd:annotation&gt;
+        &lt;xsd:documentation xml:lang="en"&gt;
+           Papillon project : schema for info_doc.xml files in non-HTML Tar and Zip archives
+        &lt;/xsd:documentation&gt;						     
+     &lt;/xsd:annotation&gt;
+
+     &lt;xsd:element name="document" type="DocumentType"/&gt;
+
+     &lt;xsd:complexType name="DocumentType"&gt;
+        &lt;xsd:sequence&gt;
+           &lt;xsd:element name="title" type="TitleType"/&gt;
+	   &lt;xsd:element name="authors" type="xsd:string"/&gt;
+	   &lt;xsd:element name="date" type="xsd:string"/&gt;
+	   &lt;xsd:element name="reference" type="xsd:string"/&gt;
+        &lt;/xsd:sequence&gt;
+        &lt;xsd:attribute name="section" use="required" type="SectionType"/&gt;
+     &lt;/xsd:complexType&gt;
+
+     &lt;xsd:complexType name="TitleType"&gt;
+        &lt;xsd:all&gt;
+           &lt;xsd:element name="deu" minOccurs="0" maxOccurs="1" type="xsd:string"/&gt;
+	   &lt;xsd:element name="eng" minOccurs="0" maxOccurs="1" type="xsd:string"/&gt;
+   	   &lt;xsd:element name="esp" minOccurs="0" maxOccurs="1" type="xsd:string"/&gt;
+	   &lt;xsd:element name="fra" minOccurs="0" maxOccurs="1" type="xsd:string"/&gt;
+	   &lt;xsd:element name="hun" minOccurs="0" maxOccurs="1" type="xsd:string"/&gt;
+	   &lt;xsd:element name="ita" minOccurs="0" maxOccurs="1" type="xsd:string"/&gt;
+	   &lt;xsd:element name="jpn" minOccurs="0" maxOccurs="1" type="xsd:string"/&gt;
+	   &lt;xsd:element name="lao" minOccurs="0" maxOccurs="1" type="xsd:string"/&gt;
+	   &lt;xsd:element name="msa" minOccurs="0" maxOccurs="1" type="xsd:string"/&gt;
+	   &lt;xsd:element name="tha" minOccurs="0" maxOccurs="1" type="xsd:string"/&gt;
+	   &lt;xsd:element name="vie" minOccurs="0" maxOccurs="1" type="xsd:string"/&gt;
+        &lt;/xsd:all&gt;
+     &lt;/xsd:complexType&gt;
+
+
+     &lt;xsd:simpleType name="SectionType"&gt;
+        &lt;xsd:restriction base="xsd:string"&gt;
+	   &lt;xsd:enumeration value="DEV"/&gt; 
+	   &lt;xsd:enumeration value="DICT"/&gt; 
+	   &lt;xsd:enumeration value="INFO"/&gt; 
+	   &lt;xsd:enumeration value="PAPILLON01"/&gt; 
+	   &lt;xsd:enumeration value="PAPILLON02"/&gt; 
+	   &lt;xsd:enumeration value="PAPILLON03"/&gt; 
+	   &lt;xsd:enumeration value="PUBLIS"/&gt; 
+	   &lt;xsd:enumeration value="PUBLI_PAP"/&gt; 
+	   &lt;xsd:enumeration value="HOWTO"/&gt; 
+	   &lt;xsd:enumeration value="MISC"/&gt;
+        &lt;/xsd:restriction&gt;
+     &lt;/xsd:simpleType&gt;
+
+  &lt;/xsd:schema&gt;
+</pre>
+</td>
+</tr>
+</table>
+<p>The date type should be an xsd:date type ... 
+For the moment, date has the following format in digits: dd/mm/yyyy.
+The 15<sup>th</sup> of September 2002 is written like this:<br>
+15/09/2002</p>
+<p>An example of a valid description file:&nbsp;</p>
+
+<table border="1" summary="example">
+<tr>
+<td align="left">
+<pre>
+  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;document section="MISC"&gt;
+     &lt;title&gt;
+        &lt;deu&gt;Das Papillon projekt&lt;/deu&gt;
+        &lt;eng&gt;The Papillon project&lt;/eng&gt;
+        &lt;fra&gt;Le projet Papillon&lt;/fra&gt;
+     &lt;/title&gt;
+     &lt;authors&gt;Olivier Tache&lt;/authors&gt;
+     &lt;date&gt;15/09/2002&lt;/date&gt;
+     &lt;reference&gt;Master thesis&lt;/reference&gt;
+   &lt;/document&gt;
+</pre>
+</td>
+</tr>
+</table>
+
+<p>
+<a href="ImportHelp.po">Back</a> to Addition Help page<br>
+<a href="AdminInformations.po">Back</a> to Information Documents administration page
+</p>
+
+</div>
+</body>
+</html>

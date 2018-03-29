@@ -1,0 +1,49 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.0 TRANSITIONAL//EN">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+       <title>Papillon</title>   
+</head>
+<body>
+
+<!-- <div id="InformationsFilePlace">
+
+</div> -->
+<div id="InformationsFileListPlace" lang="fr">
+<h1 align"center">Consulter la documentation</h1>
+<p>Les membres du projet Papillon peuvent <a href="AdminInformations.po">ajouter des documents</a> à ces sections.</p>
+
+<FORM id="ConsultInformationsForm" ACTION="ConsultInformations.po">
+<TABLE Summary="Documents form" width="100%">
+<TR>
+<TD bgcolor="#4682b4"><font  color="#ffffff">Auteur(s)&nbsp;:</font>
+     <INPUT NAME="AuthorContains" TYPE="text" SIZE="15" VALUE=""></TD>
+<!-- TD bgcolor="#4682b4"><font  color="#ffffff">Date:</font><INPUT NAME="DateContains" TYPE="text" SIZE="15" VALUE=""></TD -->
+<TD bgcolor="#4682b4"><font  color="#ffffff">Titre&nbsp;:</font>
+     <INPUT NAME="TitleContains" TYPE="text" SIZE="15" VALUE=""></TD>
+<TD bgcolor="#4682b4"><font  color="#ffffff">Référence&nbsp;:</font>
+     <INPUT NAME="RefContains" TYPE="text" SIZE="15" VALUE=""></TD>
+<!-- The any  contains is not yet implemented because we need to query informationFile instead of informationDocument -->
+<!--TD bgcolor="#4682b4"><font  color="#ffffff">Any part:</font><INPUT NAME="AnyContains" TYPE="text" SIZE="14" VALUE=""></TD-->
+</TR>
+<TR>
+<TD COLSPAN="3">
+<INPUT VALUE="Go" TYPE="submit">
+</TD>
+</TR>
+</TABLE>
+<TABLE Summary="Documents index" width="100%">
+<TR id="SectionRowTemplate">
+    <TD class="headerRow" colspan="3"><SPAN id="SectionHeader">SECTION</SPAN></TD>
+</TR>
+<TR class="cellRow" id="documentRowTemplate">
+    <TD><b><SPAN id="DocumentAuthor">AUTHOR</SPAN>
+    (<SPAN id="CreationDate">DATE</SPAN>)</b>
+    <i><A id="DocumentAnchor" HREF="see"><SPAN id="DocumentTitle">TITLE</SPAN></A></i>
+    <SPAN id="Reference">Reference</SPAN><SPAN id="NBSpace">&nbsp;&nbsp;</SPAN></TD>
+</TR>
+</TABLE>
+</FORM>
+</div>
+</body>
+</html>

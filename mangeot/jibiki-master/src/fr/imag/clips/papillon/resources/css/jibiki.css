@@ -1,0 +1,945 @@
+/*
+ * Stylesheet for Jibiki Web site 
+ *
+ * Style sheet for the xhtml Papillon pages
+ * $Id: jibiki.css 1523 2014-11-09 05:43:14Z mangeot $
+ * ---------------------------------------------------
+ *
+ */
+ 
+@media aural { 
+	span.accesskey { pitch : high; }
+	code.markup-example { speak-punctuation : code; }
+	h1 { stress: 25; richness: 90; }
+	h2 { stress: 20; richness: 90; }
+}
+
+/*@media print {}*/
+
+/*@media screen {}*/
+
+/*--------------------------------------*/
+/* General */
+/*--------------------------------------*/
+
+* {
+   margin: 0px;
+   padding: 0px;
+}
+
+html, body { height: 100%;}
+  
+body {
+	margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+	background-color: white;
+}
+
+blockquote {
+	margin: 1.12em 0;
+	margin-left: 2em; margin-right: 2em;
+}
+
+h1 {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+}
+
+p.standard {
+    text-align: justify;
+}
+
+.accesskey {text-decoration: underline; }
+
+abbr[title] {
+		border-bottom: 1px dotted white;
+		cursor: help;
+	}
+
+.hidden {
+	display: none;
+}
+
+.note {
+	color:  red;
+}
+
+/* Links general */
+a:link {
+	text-decoration: none; 
+	color: blue;
+	}
+a:visited {
+	text-decoration: none; 
+	color: blue;
+	}
+a:active {
+	text-decoration: none; 
+	color: blue;
+	}
+a:hover {
+	text-decoration: underline; 
+	color: blue;
+	}
+/* for anchors we do not want to see */
+a.hide {text-decoration: none}
+
+
+
+/*-------------------------*/
+/* Header part of the page */
+/*-------------------------*/
+
+div#BannerContent {
+    display: table;
+	width: 100%;
+    border-spacing: 4px;
+	padding-top: 45px;
+	background: #E4E4E4;
+}
+
+#projectTitle {
+	display: table-cell;
+	text-align: left;
+	margin: 0em;
+	padding: 0.3em 0.3em 0em 0.3em;
+	color: black;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 2.5em;
+	font-weight: normal;
+	vertical-align:middle;
+}
+
+#projectTitle span.projectName {
+	font-weight: bold;
+	color: black;
+}
+
+
+#QueryMenuHolder {
+    display: table-cell;
+    padding: 0.5em;
+	border: 1px solid grey;
+	vertical-align:middle;
+}
+
+.cellVolumeLookup {
+    display: table-cell;
+    padding: 0.5em;
+	vertical-align:middle;
+}
+
+form.cellVolumeLookup {
+	border: 1px solid grey;
+	border-radius: 2px;
+}
+
+input {
+  	padding: 8px 10px 7px; 
+  	border: 1px solid rgba(0, 0, 0, 0.1); 
+  	border-radius: 2px;
+  	margin:0px;
+  	font-size: 1.1em;
+}
+input#submit {
+  	background-color: grey; 
+  	color: white; 
+  	padding: 8px 20px 7px;
+}
+
+#cellAdvancedLookup,.cellAdvancedLookup {
+    display: table-cell;
+    padding: 0.5em;
+	vertical-align:middle;
+}
+#cellLookup, .cellLookup {
+    display: table-cell;
+    padding: 0.5em;
+	vertical-align:middle;
+}
+
+
+/*-------------------------*/
+/* CSS only popup menus    */
+/*-------------------------*/
+
+.headerMenu {
+	position: fixed;
+	width: 100%;
+	background-color: black;
+	color: white;
+}
+
+#MenuBar {
+	height: 1.5em;
+	line-height: 1.2em;
+	z-index:10;
+	text-align: left;
+}
+
+.popupMenu {
+	width: 14%;
+	text-align: center;
+	padding: 0.1em 0em 0.1em 0em;
+	cursor: default;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+.popupMenuEnd {
+	border-right: 1px solid black;
+	background-color: grey; 
+	padding-left: 5px; 
+	padding-right: 5px;
+}
+
+.popupMenu:hover {
+   background: #887;
+   color:#fff;
+}
+
+.popupMenu  a {
+   padding: 0em 0.5em 0em 0.5em ;
+   text-decoration: none;
+}
+
+.popupMenu  a:link {
+   color:white;
+}
+
+.popupMenu  a:visited {
+   color:white;
+}
+
+.popupMenu  a:active {
+   color:white;
+}
+
+.popupMenu  a:hover {
+   background: #887;
+   color:#fff;
+   text-decoration: none;
+}
+
+.popupMenu ul.second-level-menu {
+	display: none;
+	position: absolute;
+	background: black;
+	
+	color: white;
+	list-style: none;
+}
+
+.popupMenu ul.second-level-menu > li {
+  position: relative;
+   padding: 0.2em .5em 0.2em .5em;
+}
+
+.popupMenu:hover ul.second-level-menu  {
+	text-align: left;
+    display: block;
+   margin: 0em;
+   margin-top: 4px;
+   padding: 0em;
+   padding-top: .5em;
+}
+
+.popupMenu ul.second-level-menu > li:hover {
+   background: #887;
+   color: #fff;
+}
+
+.popupMenu ul.second-level-menu > li:hover ul {
+	display: block;
+}
+
+.third-level-menu
+{
+    position: absolute;
+    top: 0;
+    right: -150px;
+    width: 150px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+}
+
+.third-level-menu > li
+{
+	background: black;
+	padding: .2em .5em .2em .5em;
+}
+.third-level-menu > li:hover {
+   background: #887;
+   color: #fff;
+}
+
+
+a.lang, a.lang:link, a.lang:visited {
+	color:black;
+	background-color:#D3D3D3;
+	border:1px solid black;
+	font-size:.8em;
+}
+
+a.lang:hover {
+	color:black;
+	background-color:#887;
+	
+}
+
+/*--------------------------------------*/
+/* Columns */
+/*--------------------------------------*/
+
+#sectionPrincipale {
+  	display: table;
+  	width: 100%;
+	padding-bottom: 30px;
+}
+
+article input {
+    font-size: .9em;
+    padding: 0px;
+}
+  
+#MenuColumn {
+  	display:table-cell;
+  	padding: 10px;
+}
+
+#lookupentries {
+  	margin-top: 0px;
+  	height: 620px;
+  	overflow:hidden;
+  	width:200px;
+}
+
+#lookupentries:hover, #entriesList:hover { 
+	overflow-y:auto; 
+}
+
+
+#MainColumn {
+  	display: table-cell;
+  	width: 100%;
+}
+
+#EditEntryForm, #ConfirmEntryContent {
+    border-spacing: 10px;
+    padding-top: 30px;
+    margin: 10px;
+}
+
+#lookupcontent {
+	min-height:600px;
+	padding: 10px;
+	margin-left: 0px;
+	border:1px solid grey;
+}
+.lookupentry {
+	border:1px solid grey;
+}
+
+#WelcomeMessage {
+    text-align: center;
+}
+
+#EmptyMessage, #PrefixLookupMessage {
+    padding: 0 5px 5px 5px;
+}
+.loadingMessageTop {
+	margin:0;
+}
+.loadingMessageBottom {
+	margin-top:0;
+	margin-bottom:0;
+	margin-left:205px;
+}
+
+/*--------------------------------------*/
+/* Footer of the page      */
+/*--------------------------------------*/
+
+footer, #footer {
+	clear:both;
+	text-align:center;
+	background: #E4E4E4;
+	font-size: .8em;		
+	padding: 5px;
+	width:100%;
+	position: fixed;
+	bottom: 0;
+}
+
+
+/*--------------------------------------*/
+/* For the api */
+/*--------------------------------------*/
+table.api {
+    margin: 10px 0;
+    caption-side: bottom;
+    border-collapse: collapse;
+    border: 2px solid #345;
+}
+table.api tbody td {
+    border: 1px solid #889;
+    padding: 2px 4px;
+    vertical-align: top;
+	color:black;
+}
+pre.api {
+  	margin:15px;
+  	padding:15px;
+    border: 1px dashed blue;
+    background-color:#E8E8E8;
+    font-size: 1.2em;
+}
+
+
+/*-------------------------*/
+/*  Entries */
+/*-------------------------*/
+
+.jibiki-entry {
+	clear:both;
+	padding: 20px;
+	font-size: 1.2em;
+    border:1px solid #898989;
+}
+
+.jibiki-entry p {
+	margin-bottom: 1em;
+}
+
+/* Styles for Motamot dict */
+.motamot-entry {
+    border:1px solid #898989;
+    margin-bottom:5px;
+    margin-top:-1px;
+    padding:7px;
+}
+
+.motamot-entry-selected {
+    border:2px solid black;
+    margin-bottom:4px;
+    margin-top:0px;
+    padding:7px;
+	background-color: red;
+}
+
+.motamot-sense {
+    border:1px solid #898989;
+    margin-bottom:5px;
+    margin-top:-1px;
+    margin-left:15px;
+    padding:7px;
+}
+
+.motamot-sense-selected {
+    border:2px solid black;
+    margin-bottom:4px;
+    margin-top:-2px;
+    margin-left:14px;
+    padding: 7px;
+	background-color: yellow;
+}
+
+.translation {
+    margin-left:20px;
+    margin-right:2px;
+    margin-top:3px;
+    padding: 2px 2px 2px 2px;
+}
+
+.level {
+	background-color: yellow; 
+	color: #DD390E; 
+	font-size:small; 
+	padding-top: 2px; 
+	border-top: 1px solid #898989;
+	border-right: 1px solid #898989;
+	border-bottom: 1px solid #898989;
+}
+
+/* container contribution */
+
+.jibiki_groups {
+    border-right: 1px solid #898989;
+    padding-right:5px;
+	padding-left:5px;
+	font-weight: bold;
+	color: #DD390E;
+}
+
+.jibiki_status {
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-left: 5px;
+}
+.jibiki_byAuthor {
+}
+
+.jibiki_author {
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-right: 5px;
+}
+
+.contribution {
+	margin-bottom: 10px;
+}
+
+.status {
+	font-size: xx-small;
+}
+
+.option1 {
+	margin-left: 20px;
+}
+
+.option2 {
+	margin-left: 5px;
+}
+
+.entry_information {
+	float: right;
+	font-size:.8em;
+	text-transform: uppercase;
+    margin-left:5px;
+    margin-top:2px;
+}
+
+.entry_information_flag {
+	float: right;
+    margin-left:5px;
+    margin-top:1px;
+}
+
+.entry_navigation {
+	background-color: #E0E0E0;
+	border: 1px solid #898989;
+	font-size: small;
+	font-weight: bold;
+}
+
+.action_list {
+    float: right;
+}
+
+.entry_actions {
+    background-color: #E0E0E0;
+	border: 1px solid #898989;
+	font-size:.8em;
+	padding-top:2px;
+}
+
+.action {
+    border-left: 1px solid #898989;
+    padding-right:5px;
+	padding-left:5px;
+}
+
+.action:hover {
+    color: red;
+}
+
+.finishedEntry {
+	background: #F0F0F0;
+}
+
+.myFinishedEntry {
+	background: #66CCFF;
+}
+
+.modifiedEntry {
+	background: #F0F0F0;
+}
+
+.myNotFinishedEntry {
+	background: #99CCCC;
+}
+
+.notFinishedEntry {
+	background: #F0F0F0;
+}
+
+/*--------------------------------------*/
+/* éléments du Cesselin */
+/*--------------------------------------*/
+
+
+.vedette-hiragana, .vedette-jpn, .vedette-jpn-editable, .jpn, .jpn-editable {
+    color: #BC002D;
+}
+
+.vedette-romaji, .romaji, .romaji-editable {
+    color: #D45455;
+}
+
+.vedette-romaji, .vedette-hiragana, .vedette-jpn, .vedette-jpn-editable {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.archaisme {
+    color: #BC002D;
+}
+
+.vr, .vj {
+    /*	color: black; */
+    font-weight: bold;
+}
+
+.étiquettes {
+    /* color: DarkGray;*/
+}
+
+.sens, .fra {
+    color: #002395;
+}
+
+article, .article {
+    display: block;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.forme {
+    /*	display: block;*/
+}
+
+.nonvalidejpn, .romaji .pb, .romaji-editable .pb, .editable .pb {
+    background-color: orange;
+}
+
+.nonverifiejpn {
+    background-color: #98E698;
+}
+
+.nonvalidefra, .sens .pb, .fra .pb, .texte-sens-editable .pb, .texte-sous-sens-editable .pb {
+    background-color: yellow;
+    margin-left:5px;
+}
+
+.fra .en {
+    color: black;
+    background-color: #BFFF00;
+}
+
+.vedette-romaji {
+    padding-right: 10px;
+}
+
+.vedette-jpn, .vedette-jpn-editable {
+    padding: 5px;
+}
+
+.gram {
+    color: black;
+}
+
+.domaine {
+    font-variant: small-caps;
+    color: DarkGray;
+    padding-right: 5px;
+}
+
+.etymologie {
+    padding-right: 5px;
+}
+
+.sens {
+    display: block;
+    margin: 20px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+ul {
+    margin: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.exemples {
+    /*	font-style: italic; */
+    list-style-type: square;
+}
+
+.exemple {
+    padding: 5px;
+}
+
+.romaji {
+    padding-right: 5px;
+}
+
+.jpn {
+    padding-right: 5px;
+}
+
+	
+/*--------------------------------------*/
+/* CDM elements */
+/*--------------------------------------*/
+.entry {
+	display: block;
+    margin-left: 12px;
+}
+
+span.sense {
+	display: block;
+}
+
+tr.sense {
+}
+
+
+.headword {
+	font-weight: bold;
+}
+
+.writing {
+	font-style : normal;
+}
+
+.reading {
+	font-style : normal;
+	font-family: courier;
+}
+
+.pos {
+	font-weight: bold;
+	color: black;
+}
+.pronunciation {
+	font-family: courier;
+	color: black;
+}
+.label	{
+	font-family: sans-serif;
+	color: gray;
+}
+
+.translations {
+        display: block;
+        margin-left: 30px;
+}
+.translation {
+	font-style : normal;
+}
+
+.examples {
+	display: block;
+}
+
+.example {
+	font-style: italic;
+}
+
+.idioms {
+	display: block;
+}
+
+.idiom {
+	font-style : normal;
+}
+
+/*--------------------------------------*/
+/* For DEC-like entries */
+/*--------------------------------------*/
+.actor {
+	color: #00C6FF;
+}
+
+.separator {
+	font-weight : bold;
+	color : #69FF69; 
+
+}
+.comment {
+	font-style : italic;
+	color :  #BEBEBE;
+}
+.space {
+	color: #faecc9;
+}
+
+/*--------------------------------------*/
+/* Editing Entries */
+/*--------------------------------------*/
+td.block {
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+}
+
+.blockTitle {
+	text-align: center; 
+	color:blue;
+}
+
+.editEntry {
+}
+
+.editing {
+   color: #000;
+   width: 70%;
+   margin-left: 170px;
+   margin-right: 170px;
+   margin-top:0.3em;
+}
+
+table.center {
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+
+/*--------------------------------------*/
+/* Language Styles */
+/*--------------------------------------*/
+
+/* The lang attribute with CSS2 :lang function */
+:lang(ar)       {font-family: "Traditional Arabic", serif;font-size:1.1em;}
+:lang(zh-Hant)  {font-family: PMingLiU,MingLiU, serif;}
+:lang(zh-Hans)  {font-family: SimSum-18030,SimHei, serif;}
+:lang(din)      {font-family: "Doulos SIL", serif;} 
+
+/* The lang attribute with lang|= selector */
+*[lang|="ar"]   {font-family: "Traditional Arabic", serif;font-size:1.1em;}
+*[lang|="zh-Hant"]      {font-family: PMingLiU,MingLiU, serif;}
+*[lang|="zh-Hans"]      {font-family: SimSum-18030,SimHei, serif;}
+*[lang|="din"]  {font-family: "Doulos SIL", serif;} 
+
+/* The ISO-639-2/T 3 letter codes */
+
+.ara	{
+	color: #007A3D;
+	}
+
+.deu	{
+	color: #993399;
+	}
+
+.eng	{
+	color: #006600;
+	}
+
+.esp	{
+	color: #FF9900;
+	}
+
+.est	{
+	color: #FF9911;
+	}
+
+.fra	{
+	color: #002395;
+	}
+
+.hun	{
+	color: #660000;
+	}
+
+.ita	{
+	color: #CC6600;
+	}
+
+.jpn	{
+	/*font-family: "Osaka", sans-serif; */
+	color: #BC002D;
+	}
+
+.lao	{
+	color: #FF0099;
+	}
+
+.khm {
+	color: #000099;
+	}
+
+.lat {
+    color:DarkRed;
+}
+
+.msa	{
+	color: #009900;
+	}
+        
+.rus	{
+	color: #CC0000;
+	}
+
+.tha	{
+	color: #6600FF;
+	}
+
+.unl	{
+	font-family: courier, sans-serif;
+	color: #1B1464;
+	}
+
+.sin	{
+	color: black;
+	}
+
+.vie	{
+	color: #CC9900;
+	}
+	
+.zho, .cmn	{
+	font-family: PMingLiU,MingLiU, serif;
+	color: #000080;
+	}
+	
+.meta	{
+	color: gray;
+	}
+
+/*--------------------------------------*/
+/* styles for XML source */
+/*--------------------------------------*/
+
+.xmlattribute {
+	color: red;
+	}
+.xmlcar {
+	color: blue;
+	}	
+.xmlcomment {
+	color: gray;
+	}
+.xmlelement {
+	color: maroon;
+	}
+.xmlheader {
+	color: teal;
+	}
+.xmlnsprefix {
+	font-weight: bold;
+	color:#CC9966;					
+        }
+.xmlnsuri {
+	color:#CC9966;					
+        }
+.xmltext {
+	color: black;
+	font-weight: bold;
+	}	
+.xmlvalue {
+	font-weight: bold;
+	color: black;
+	}
+	
+
+	

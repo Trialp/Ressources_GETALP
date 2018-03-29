@@ -1,0 +1,99 @@
+{\rtf1\mac\ansicpg10000\cocoartf102
+{\fonttbl\f0\fswiss\fcharset77 Helvetica-Bold;\f1\fswiss\fcharset77 Helvetica;\f2\fswiss\fcharset77 Helvetica-Oblique;
+}
+{\colortbl;\red255\green255\blue255;\red137\green19\blue21;}
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\qc
+
+\f0\b\fs24 \cf0 Papillon Application Release Notes\
+
+\f1\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural
+
+\f0\b \cf0 \
+ 22 Nov 2002 \
+ \
+ Dictionary loading\
+ 
+\f1\b0 Bug fixed when a null string is trimmed in VolumeHandler.java
+\f0\b \
+\
+AdminInformations\
+
+\f1\b0 Now registering the owner of the document. So everybody logged can add a document and only the admin can modify or delete any user document. The normal users can modify or delete only their document.\
+
+\f0\b  \
+EditLexie\
+
+\f1\b0 Work in progress.\
+
+\f0\b  \
+ 10 Oct 2002 Version 1.4 \
+\
+Login:\
+
+\f1\b0 When a user is logged, the text of the login link is changed with the login of the user. to logout, just click on this new login link.\
+\
+
+\f0\b Consultation:  \
+
+\f1\b0 There are now two consultation interfaces: Home.po for the basic interface and ConsultExpert.po for the expert interface.\
+
+\f0\b \
+
+\f1\b0 The entries are indexed with multiple keys. Thus, the lookup of an entry can be done with multiple keys. For example, a Japanese word can be searched with katakana or Kanji.\
+\
+The ConsultExpert.po interface can be used to look-up for an entry with multiple criteria: headword, pronunciation, part-of-speech, translation and any part.\
+The criteria can be combined for the search.\
+The lookup can be done using several strategies : exact match, prefix, suffix or substring.\
+\
+Thus, it is possible for example to lookup for all the French entries that have\
+the english word 
+\f2\i house
+\f1\i0  for translation in a French->english volume.\
+
+\f0\b \
+Contributions:\
+
+\f1\b0 A very beta version of the edition interface is available. \CocoaLigature0 the Online Edition Interface is for experiments only.\
+\pard\tx960\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\tx10560\tx11520\tx12480\tx13440\tx14400\tx15360\tx16320\tx17280\tx18240\tx19200\tx20160\tx21120\tx22080\tx23040\tx24000\tx24960\tx25920\tx26880\tx27840\tx28800\tx29760\tx30720\tx31680\tx32640\tx33600\tx34560\tx35520\tx36480\tx37440\tx38400\tx39360\tx40320\tx41280\tx42240\tx43200\tx44160\tx45120\tx46080\tx47040\tx48000\tx48960\tx49920\tx50880\tx51840\tx52800\tx53760\tx54720\tx55680\tx56640\tx57600\tx58560\tx59520\tx60480\tx61440\tx62400\tx63360\tx64320\tx65280\tx66240\tx67200\tx68160\tx69120\tx70080\tx71040\tx72000\tx72960\tx73920\tx74880\tx75840\tx76800\tx77760\tx78720\tx79680\tx80640\tx81600\tx82560\tx83520\tx84480\tx85440\tx86400\tx87360\tx88320\tx89280\tx90240\tx91200\tx92160\tx93120\tx94080\tx95040\tx96000\ql\qnatural
+\cf0 You can add entries and then look them up through the Consultation interface.\
+Nevertheless, these contributions will not be kept or integrated into the database because the interface is incomplete (for example, the list of parts-of-speech exists only for French and is not complete).\
+We are now woeking on building a generic and more complete interface.\
+You have to be registered and logged to access this page.\
+\CocoaLigature1 \
+\CocoaLigature0 You can manage your contributions online by accessing the Contribution Administration Interface\cf2  \cf0 . With this interface, you can see or delete your existing contributions.\
+
+\f0\b \CocoaLigature1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural
+\cf0 Informations:  \
+
+\f1\b0 A new interface is available for adding new information documents AdminInformations.po. It is now possible to add multilingua documents and archives.\
+To avoid entering all the metainformation on these archives, it is possible to write all this information on an XML file that must be placed on the root directory of the archive.\
+For more info, please read ImportHelp.po
+\f0\b \
+\
+Volumes:\
+
+\f1\b0  It is now possible to know how many entries a volume has. The info is shown on AdminVolumes.po and with the dictd commands SHOW  SERVER and SHOW INFO DB 
+\f2\i db.
+\f0\i0\b \
+\
+Passwords:\
+
+\f1\b0  The user passwords are now encrypted before storing them into the database.\
+\
+
+\f0\b DictD server:\
+
+\f1\b0 A dictd server has been implemented. It is listening to connections on the port 2629 of bushido.imag.fr. You can access directly to the server with a telnet connection. Type HELP for a help text.\
+\
+The results of the lookup are the raw XML entries without any formatting.\
+\
+For more info, please see the http://www.dict.org/ site.
+\f0\b \
+\
+Sherlock Plugin:\
+
+\f1\b0 There is a Sherlock plugin available to lookup directly the Papillon server. Unfortunately, it does not (and will probably never) work with the Jaguar version of Sherlock (3.5)
+\f0\b \
+}

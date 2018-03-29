@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>GDEF - suur eesti-prantsuse sõnaraamat</title>
+  </head>
+  <body>
+    <div id="AdvancedSearchForm" lang="et" xml:lang="et">
+      <form id="SearchForm" action="">
+        <div>
+        Otsingu parameetrid:<br/>
+        <!-- MULTIPLE VALUES: VOLUMES, TARGETS, -->
+          <input type="hidden" name="idFieldName" id="idFieldName"/>
+          <input type="hidden" name="langFieldName" id="langFieldName"/>
+        <input type="hidden" name="VOLUMES" value="" id="Volumes"/>
+        <input type="hidden" id="Targets" name="TARGETS" value=""/>
+        <!-- multiple selection: dictionaries to search into -->
+        <input type="hidden" id="Dictionaries" name="DICTIONARIES"/>
+
+        <div id="criterion">
+        <select id="Facet" name="FACET">
+          <option value="cdm-headword" label="märksõna">märksõna</option>
+          <option value="cdm-entry-id" label="märksõna ID">märksõna ID</option>
+          <option value="cdm-definition" label="definitsioon">definitsioon</option>
+          <option value="cdm-example" label="näitelause">näitelause</option>
+        </select> 
+        <select id="Operator" name="OPERATOR">
+          <option value="1" label="on">on</option>
+          <option value="2" label="algab tähejärjendiga">algab tähejärjendiga</option>
+          <option value="3" label="lõpeb tähejärjendiga">lõpeb tähejärjendiga</option>
+          <option value="4" label="sisaldab tähejärjendit">sisaldab tähejärjendit</option>
+        </select>
+        <input type="text" id="ValueField" name="FACETVALUE" size="14" maxlength="128" />
+        <input type="hidden" id="SourceLang" name="SOURCE" value="fra" />
+        </div>
+        <input type="hidden" name="XSL" value="short-list" id="Xsl"/>
+        <input type="submit" name="lookup" value="Go" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

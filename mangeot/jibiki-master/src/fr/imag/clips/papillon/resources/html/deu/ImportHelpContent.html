@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Papillon</title>
+</head>
+
+<body>
+
+<div id="ImportHelpContent" lang="de">
+
+<center>
+<h1>Hilfe zum Hinzufügen von Dokumenten</h1>
+</center>
+
+<p>
+<a href="AdminInformations.po">Zurück</a> zur Seite über die Verwaltung der Informations-Dokumente
+</p>
+
+<p>Es ist möglich dem Papillon-Server ein- und mehrsprachige Dokumente jeder Art hinzuzufügen. 
+Archiv-Dateien (TAR- or ZIP-Dateien) dürfen mehrsprachig sein, während einfache Dateien (HTML, PDF, RTF, GIF etc.) einsprachig sind.<br>
+Wenn eine GZippte Datei zum Hinzufügen geschickt wird, wird sie zuerst entpackt; die gesandte Datei wird nicht direkt hinzugefügt, sondern wird behandelt, als wäre sie in ungepackter Form geschickt worden.</p>
+
+<h2>1. Hinzufügen von Archiv-Dateien (.tar, .zip)</h2>
+<h3>1.1. Hinzufüge-Vorgang</h3>
+<p>Das Archiv wird entpackt; sein Inhalt wird analysiert, und dann hinzugefügt. Es kann ein einzelner komprimierter Ordner sein.
+In diesem Fall, weist der Begriff "root" auf seinen Inhalt hin. Sie können der Archiv-Root eine XML-Datei <b>info_doc.xml</b> hinzufügen, die es Ihnen erspart, das Import-Formular ausfüllen zu müssen. Die info_doc.xml-Beschreibungs-Datei führt auf:</p>
+<ul>
+  <li>die Sektion, in der Sie das Dokument ablegen wollen</li>
+  <li>den/die Namen des/der Autoren,</li>
+  <li>den Titel des Dokumentes in jeder verfügbaren Sprache,</li>
+  <li>das Erstellungssdatum des Dokumentes (optional),</li>
+  <li>Referenztext im Fall einer Veröffentlichung (optional).</li>
+</ul>
+<p>Wenn informationen im Formular eingegeben wurden, wird sie ignoriert und durch den Inhalt der info_doc.xml-Datei ersetzt.<br>
+Das Format von info_doc.xml ist durch das XML-Schema <a href="XMLSchema.po">info_doc.xsd</a> definiert.</p>
+<p>Beachten Sie: Für HTML Dateien, benutzen Sie keine Hexadecimal-Zeichenentitäten wie "&amp;#x8A93;", weil der Tidy-Parser sie nicht zu erkennen scheint.</p>
+<h3>1.2. Unterschiedliche Archiv-Typen</h3>
+<p>Es gibt drei Archivtypen, die unterschiedlich behandelt werden:</p>
+<ul>
+  <li>Ein mehrsprachiges HTML-Archiv besteht aus Mini-HTML-Seiten in verschiedenen Sprachen.</li>
+  <li>Ein mehrsprachiges Nicht-HTML-Archiv enthält verschiedene Versionen deselben Nicht-HTML-Dokuments (zum Beispiel ein PDF- or ein RTF-Dokument) in verschiedenen Sprachen.</li>
+  <li>Ein einsprachiges Archiv hat freien Inhalt (es sollte nicht dasselbe Format wie ein mehrsprachiges Archiv haben).</li>
+</ul>
+<p>Ein mehrsprachiges Archiv muss an seiner Root die info_doc.xml-Datei besitzen und dann für jede Sprache einen Ordner, der den ISO 639-2/T 3 Buchstaben-Code entsprechend der Sprache trägt. Die Sprachen sind gegenwärtig: <b>deu</b> (Deutsch), <b>eng</b> (Englisch), <b>esp</b> (Spanisch), <b>fra</b> (Französisch), <b>hun</b> (Ungarisch), <b>ita</b> (Italienisch), <b>jpn</b> (Japanisch), <b>lao</b> (Lao), 
+<b>msa</b> (Malayisch), <b>tha</b> (Thai), <b>vie</b> (Vietnamesisch), etc.<br>
+Keine andere Datei als info_doc.xml und kein anderer Ordner sollte auf der Archiv-Root existieren, anderenfalls wird das Archiv wie ein einsprachiges behandelt.</p>
+<h4>1 Mehrsprachige HTML-Archive</h4>
+<p>Jeder Ordner, der einen Sprachennamen trägt muss mindestens eine Datei namens index.htm(l) or default.htm(l) enthalten, die als Einstiegspunkt für diese Sprache dienen wird. Wenn es kein info_doc.xml-Datei gibt, können Sie das <b>Author-</b>Feld des Formulars ausfüllen; Der Dokument-Titel für jede Sprache wird aus dem &lt;title&gt;-Tag der Index-Datei ausgelesen.<br>
+<br>
+Beispiel:<br>
+<IMG SRC="media/html_archive.jpg" ALT="Multilingual HTML archive" BORDER=1></p>
+<h4>2 Mehrsprache Nicht-HTML-Archive</h4>
+<p>Jeder Ordner der einen Sprachennamen trägt muss genau eine Datei enthalten, die der Dokumentversion in dieser Sprache entspricht. Die Informationsdatei info_doc.xml ist erforderlich.<br>
+<br>
+Beispiel:<br>
+<IMG SRC="media/media_archive.jpg" ALT="Multilingual non-HTML archive" BORDER=1></p>
+<h4>3 Einsprachige Archive</h4>
+<p>Wenn das Archiv aus HTML-Seiten besteht, sind Dateien mit den Namen index.htm(l) oder default.htm(l) auf der Archiv-Wurzel notwendig.
+Wenn kein info_doc.xml vorhanden ist, müssen sie das <b>Titel</b>-Feld im Formulat ausfüllen und die Sprache des Dokumentes angeben.<br>
+<br>
+Beispiel:<br>
+<IMG SRC="media/mono_archive.jpg" ALT="Monolingual archive" BORDER=1></p><br>
+<h2>2. Hinzufügen einer Datei</h2>
+<p>Sie müssen den Titel des Dokuments eingeben und seine Sprache auswählen.</p>
+<p>
+<a href="AdminInformations.po">Zurück</a> zur Seite über die Verwaltung der Informations-Dokumente
+</p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="fr">
+
+   <h1 style="text-align:center">Verwaltung des XML-Eintr&auml;ge</h1>
+
+	<script type="text/javascript">
+    <!--
+            function updateField(idField, idFieldValue) {
+              if (idField != '') {
+                theIdField = document.getElementById(idField);
+                theIdField.value = idFieldValue;
+              }
+            }
+          
+            function openUploader(parentId) {
+              // Get the id of the elements to be modified
+              var targetUrl='UploadFile.po';
+              window.open(targetUrl, parentId,'height=200,width=300,resizable');
+            }
+          
+          // -->
+      </script>
+
+<!-- formulaire de voir mot-->
+
+<form action="AdminEntries.po" method="get">
+<table width="600" border="0" cellspacing="0" cellpadding="10" summary="Formulaire">
+<tr>
+     <!-- Warning, make sure the option element contains a Text and only a Text (no other child) -->
+	<td><b>Volume:</b></td>
+        <td colspan="2">
+            <select name="VOLUME">
+            <option id="VolumeOptionTemplate" value="NONE" label="NONE">NONE</option>
+        </select></td>
+</tr>
+<tr>	
+	<td><b>Datei oder Url:&nbsp;</b></td>
+	<td colspan="4">
+	<input type="button" name="upload" onclick="javascript:openUploader('URL')" value="hochladen"/> oder 
+	<input name="URL" id="URL" type="text" size="64" value=""/></td>
+</tr>
+<tr>	
+	<td><b>Beim Importieren der Beitr&auml;ge:</b></td>
+	<td>Remplacer l'existant</td>
+	<td>
+		<select name="ReplaceExistingContributions" id="ReplaceExistingContributions">
+            <option value="50" label="Do not import">Nicht importieren</option>
+            <option value="51" label="Replace anyway">In allen F&auml;llen austauschen</option>
+            <option value="52" label="Replace if same status">Ausstauschen, wenn gleicher Status</option>
+            <option value="53" label="Replace if finished">Ausstauschen, wenn fertig</option>
+		</select>
+	</td>
+</tr>
+<tr>	
+	<td><b>Beim Importieren der Eintr&auml;ge::</b></td>
+	<td>Remplacer l'existant</td>
+	<td>
+		<select name="ReplaceExistingEntries" id="ReplaceExistingEntries">
+            <option value="0" label="Do not import">Nicht importieren</option>
+            <option value="1" label="Replace anyway">In allen F&auml;llen austauschen</option>
+            <option value="2" label="Replace if same status">Ausstauschen, wenn gleicher Status</option>
+            <option value="3" label="Replace if finished">Ausstauschen, wenn fertig</option>
+            <option value="4" label="Copy anyway">In allen F&auml;llen kopieren</option>
+            <option value="5" label="Copy if same satus">Kopieren, wenn gleicher Status</option>
+            <option value="6" label="Copy if finished">Kopieren, wenn fertig</option>
+		</select>
+	</td>
+	<td>Standardstatus</td>
+	<td>
+		<select name="DefaultStatus" id="DefaultStatus">
+            <option value="finished" label="finished">fertig</option>
+            <option value="not finished" label="not finished">nicht fertig</option>
+            <!--option value="revised" label="revised">gegengelesen</option>
+            <option value="validated" label="validated">validiert</option-->
+		</select>
+	</td>
+</tr>
+<tr>	
+	<td><b>Log contributions:&nbsp;</b></td>
+	<td><input name="LogContributions" type="checkbox" value="LogContributions"/></td>
+</tr>
+
+<tr>
+	<td colspan="2"><input name="ADD" type="submit" value="hinzuf&uuml;gen"/></td>
+</tr>
+</table>
+</form>
+<div id="Xml">
+
+</div>
+
+</div>
+</body>
+</html>

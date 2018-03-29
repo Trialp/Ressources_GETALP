@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Projet GDEF</title>
+  </head>
+  <body>
+    <div id="HomeContent">
+        <div id="ProjectDescription" style="text-align:center;">
+        <div class="projectTitle">
+            <h1 class="projectAcronym">GDEF</h1>
+            <h2 class="projectName">Grand dictionnaire estonien-français</h2>
+        </div>
+            <form action="ConsultPage.po" class="cellVolumeLookup">
+                <div style="display:inline;">                    
+                    <input id="JAVASCRIPT" name="JAVASCRIPT" type="hidden" value=""/>
+                    <input id="LIMIT" name="LIMIT" type="hidden" value="100"/>
+                    <input id="STATUS" name="STATUS" type="hidden" value="finished"/>
+                    <!--label accesskey="v" for="VOLUME" id="VolumeLabel" style="display:inline;"><span class="accesskey">v</span>olume-->
+                    <input  id="VOLUME" name="VOLUME" value="GDEF_est_fra" type="hidden"/>
+                    <!--select id="VOLUME" name="VOLUME" title="sélectionner le volume [v]"><option label="JMdict_jpn_eng" value="JMdict_jpn_eng">JMdict_jpn_eng</option></select-->
+                    <!--/label-->
+                    <input  id="KEY" name="KEY" value="cdm-headword" type="hidden"/>
+                    <input id="HEADWORD" size="30" style="color:gray;" name="HEADWORD" type="text" value="Tapez ici un mot estonien" onclick="this.value='';this.style.color='black'"/>
+                    <input type="submit" value="Rechercher" onclick="this.form.elements['JAVASCRIPT'].value = 'on'; return true;"/>
+                </div></form>
+        <p style='margin-top:60px;margin-left:50px; margin-right:50px;color:navy; font-family: "garamond"'>Ce dictionnaire est en cours de réalisation. Sa version publique contient actuellement <span class="nbarticles">15651</span> articles.</p>
+        </div>
+
+        <div id="QueryResult">
+        <!--h1 class="title">Search result</h1-->
+        <div id="QueryResultForm"/>
+      </div>
+      <div id="QueryFuzzyResult">
+        <!--h1 class="title">Fuzzy search result</h1-->
+        <div id="QueryFuzzyResultForm"/>
+      </div>
+    </div>
+  </body>
+</html>

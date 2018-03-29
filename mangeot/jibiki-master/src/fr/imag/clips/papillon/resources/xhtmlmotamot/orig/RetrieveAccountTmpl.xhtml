@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="en">
+<h1>Page de recherche de compte</h1>
+<br/>
+<form action="RetrieveAccount.po" method="post">
+<!-- login user -->
+<p>Si vous avez oublié votre mot de passe, entrez votre login ici.
+Nous allons générer un nouveau mot de passe et vous l'envoyer par courriel.</p>
+<table width="100%" border="0" cellspacing="0" cellpadding="10" summary="Formulaire d'envoi de login">
+<tr>
+	<td><b><label for="Login" accesskey="l"><span class="accesskey">L</span>ogin :</label></b></td>
+    <td><input id="Login" name="Login" type="text" size="10" value=""/></td>
+</tr>
+<tr>
+	<td colspan="2"><input id="SubmitLogin" name="SubmitLogin" type="submit" value="Envoyer un nouveau mot de passe"/></td>
+</tr>
+</table>
+</form>
+<form action="RetrieveAccount.po" method="post">
+<!-- login user -->
+<p>Si vous avez oublié votre login, entrez votre adresse courriel ici. Nous vous enverrons un courriel avec votre login s'il existe.</p>
+<table width="100%" border="0" cellspacing="0" cellpadding="10" summary="Send Login Form">
+<tr>
+	<td><b><label for="Email" accesskey="c"><span class="accesskey">C</span>ourriel :</label></b></td>
+    <td><input id="Email" name="Email" type="text" size="20" value=""/></td>
+</tr>
+<tr>
+	<td colspan="2"><input id="SubmitEmail" name="SubmitEmail" type="submit" value="Envoyer le login"/></td>
+</tr>
+</table>
+</form>
+</div>
+</body>
+</html>

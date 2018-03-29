@@ -1,0 +1,147 @@
+<HTML>
+<HEAD>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>Abfrage der Papillon-Wörterbuch-Datenbank</TITLE>
+</HEAD>
+<BODY>
+<DIV id="ConsultContent" lang="de">
+<FORM id="ConsultForm" ACTION="ConsultExpert.po">
+<table WIDTH="100%" border="1" bordercolor="white" bgcolor="#eeeecc" summary="Search form">
+<TR>
+     <!-- Warning, make sure the option element contains a Text and only a Text (no other child) -->
+	<TD><b><label for="SOURCE">Ausgangssprache:</label></b>
+            <!-- SELECT NAME="SOURCE" onChange="UpdateList(document.ConsultForm);" -->
+            <SELECT ID="SOURCE" NAME="SOURCE">
+            <OPTION ID="SourceOptionTemplate" VALUE="NONE" LABEL="NONE">Keine</OPTION>
+        </SELECT><BR>
+		
+ <B><label for="Strategy">Strategie:</label></B>  
+	<SELECT id="Strategy" NAME="Strategy">
+         <OPTION VALUE="0" LABEL="exact match">exakte Übereinstimmung</OPTION>
+            <OPTION VALUE="1" LABEL="prefix">Präfix</OPTION>
+            <OPTION VALUE="2" LABEL="suffix">Suffix</OPTION>
+            <OPTION VALUE="3" LABEL="substring">Teilzeichenkette</OPTION>
+            <OPTION VALUE="4" LABEL="case insensitive">Groß- und Kleinschreibung beachten</OPTION>
+            <OPTION VALUE="5" LABEL="insensitive prefix">Präfix ohne Rücksicht auf Groß- und Kleinschreibung</OPTION>
+            <OPTION VALUE="6" LABEL="insensitive suffix">Suffix ohne Rücksicht auf Groß- und Kleinschreibung</OPTION>
+            <OPTION VALUE="7" LABEL="insensitive substring">Teilzeichenkette ohne Rücksicht auf Groß- und Kleinschreibung</OPTION>
+            <OPTION VALUE="8" LABEL="lemmatize">Lemmatisieren</OPTION>
+            <OPTION VALUE="9" LABEL="foks">FOKS-Japanisch</OPTION> 
+    </SELECT><br>
+				<a href="http://www.foks.info">Informationen zu FOKS</a>
+        </TD>
+
+
+<!-- Warning, do not modify the content of the TD element --> 
+<TD valign="center"><b><label for="Targets">Zielsprache:</label></b>
+    <SELECT id="Targets" NAME="TARGETS" size="3" multiple="yes">
+<!-- SELECTED="yes" -->
+            <OPTION VALUE="*ANY*" LABEL="ANY">Irgendeine</OPTION>
+            <OPTION ID="TargetOptionTemplate" VALUE="NONE" LABEL="NONE">Keine</OPTION>
+    </SELECT>
+</TD>
+<TD valign="center"><b><label for="Resources">Wörterbücher:</label></b>
+    <SELECT id="Resources" NAME="RESOURCES" size="3" multiple="yes">
+    <!-- SELECTED="yes" -->
+            <OPTION VALUE="*ANY*" LABEL="ANY">Irgendeines</OPTION>
+            <OPTION ID="ResourceOptionTemplate" VALUE="NONE" LABEL="NONE">Keines</OPTION>
+    </SELECT>
+</TD>
+</TR>
+<TR>
+<TD bgcolor="#4682b4"> <SELECT id="search1" NAME="search1">
+            <OPTION VALUE="VocContains" LABEL="Headword">Stichwort</OPTION>
+            <OPTION VALUE="PosContains" LABEL="Part-of-speech">Wortart</OPTION>
+            <OPTION VALUE="PronContains" LABEL="Pronunciation">Aussprache</OPTION>
+            <OPTION VALUE="ReadingContains" LABEL="Reading">Lesung</OPTION>
+            <OPTION VALUE="TransContains" LABEL="Translation">Übersetzung</OPTION>
+            <OPTION VALUE="AnyContains" LABEL="Any part">Irgendein Teil</OPTION>
+    </SELECT> 
+	<label for="search1text">enthält</label> 
+<INPUT id="search1text" NAME="search1text" TYPE="text" SIZE="15" VALUE=""></TD>
+<TD bgcolor="#4682b4"> <SELECT id="search2" NAME="search2">
+           <OPTION VALUE="VocContains" LABEL="Headword">Sitchwort</OPTION>
+            <OPTION VALUE="PosContains" LABEL="Part-of-speech">Wortart</OPTION>
+            <OPTION VALUE="PronContains" LABEL="Pronunciation">Aussprache</OPTION>
+			<OPTION VALUE="ReadingContains" LABEL="Reading">Lesung</OPTION>
+            <OPTION VALUE="TransContains" LABEL="Translation">Übersetzung</OPTION>
+            <OPTION VALUE="AnyContains" LABEL="Any part">Irgendein Teil</OPTION>
+    </SELECT>
+	<label for="search2text">enthält</label> 
+<INPUT id="search2text" NAME="search2text" TYPE="text" SIZE="15" VALUE=""></TD>
+<TD bgcolor="#4682b4"><INPUT name="Lookup" VALUE="Nachschlagen" TYPE="submit"></TD>
+</TR>
+</table>
+</FORM>
+<br>
+<div id="SorryMessage" align="center">Es tut uns leid, dieser Eintrag existiert noch nicht.  Sie können ihn beitragen, indem sie ihn dem Wörterbuch <a href="ConsultEdit.po?STEP=1&amp;InitType=create">hinzufügen</a>!</div>      
+<table id="EntryListTable" width="100%" frame="hsides"  border="0" summary="entries"  bgcolor="#faecc9">
+	<thead>
+	  <tr>
+		<th>Stichwort</th>
+		<th>Einttrags-Id</th>
+		<th>Beitrag</th>
+		<th>Wortart</th>
+		<th>Wörterbuch</th>
+	  </tr>
+	</thead>
+	<tfoot>
+		<tr>
+			<td colspan="5" align="center"><a href="" id="NextEntriesAnchor">Get next entries</a></td>
+		</tr>
+	</tfoot>
+	<tbody>
+  <tr id="EntryListRow"  bgcolor="#eeeecc">
+  <!-- resultItemStart -->
+    <td>
+    <span class="bodylink"><A HREF="" id="EntryAnchor"><SPAN id="Vocable">Vokalbel</SPAN></A></span></td>
+    <td><SPAN id="EntryIdList">Vokalbel</SPAN></td>
+    <td><A HREF="" id="ContribAnchor"><SPAN id="Contribution">Beitrag</SPAN></A></td>
+    <td><SPAN id="PosEntry">pos</SPAN></td>
+	<td><SPAN id="DictionaryName">DictName</SPAN></td>
+    <!-- resultItemEnd -->
+  </tr>
+  <tr id="FormulaRow">
+  <td  colspan="5">&nbsp;&nbsp;&nbsp;&nbsp;<span id="Formula">Formel</span></td>
+  </tr>
+  </tbody>
+</table>
+
+<div>
+<table  align="center"  summary="Foks Entries" id="FoksEntries" class="result" bgcolor="e6e6fa" cellpadding="1" cellspacing="1" border="0" width="90%">
+<thead>
+<tr><th class="result">Eintrag</th><th class="result">Schreiben</th><th class="result">Grad</th><th class="result">Link</th></tr>
+</thead>
+<tfoot>
+ <tr>
+  <td colspan="4" align="right"><hr>
+   <div class="copyright">¬© 2002-2003 <a href="mailto:sbilacATcl.cs.titech.ac.jp?subject=PapillonServer&amp;body=replace&nbsp;AT&nbsp;by&nbsp;@&nbsp;in&nbsp;the&nbsp;email&nbsp;address">Slaven Bilac</a>,  Tokyo Institute of Technology. Alle Rechte vorbehalten.</div></td>
+</tr>
+</tfoot>
+<tbody>
+<tr id="FoksRow">
+    <td class="result" align="center" nowrap="nowrap"><span id="FoksEntry">Eintrag</span></td>
+    <td class="result" align="center" nowrap="nowrap"><span id="FoksWriting">Schreiben</span></td>
+    <td class="result" align="center" nowrap="nowrap"><span id="FoksGrade">Grad</span></td>
+    <td class="result" align="center" nowrap="nowrap"><a id="FoksHref" href="EditLexie.po">Übersetzung</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<table width="100%" id="VolumeEntries" frame="hsides"  border="0" bordercolor="white" summary="dicocontent">       
+<tr id="StylesheetRow" bgcolor="#eeeecc">
+    <td id="StylesheetCell" ></td>
+</tr>
+<tr id="EntryRow">
+    <td valign="top">
+    <p align="right"><b><span id="resourceName">resource</span></b></p>
+    <p align="justify" id="EntryDiv"> </p>
+    <p align="right"><a href="#_top"><img src="media/top.gif" alt="top" height="16" width="16" border="0"></a></p><hr width="100%">
+    </td>        
+</tr>
+ </table>
+</DIV>
+</BODY>
+</HTML>
+

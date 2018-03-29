@@ -1,0 +1,62 @@
+NEXT RELEASE:
+		NEW FEATURES
+		- Display of query results now gathers entries by legal systems
+		- No more duplicate search results
+		- German localization is now included
+		- Added harmonization notes to the data categories (displayed and exported)
+		- New css for printing: the menus and other unused elements do not appear 
+		  anymore in printed version
+		BUG FIXES
+		- BUG ??
+
+
+MARCH 26 2007:
+		NEW FEATURES
+		- ADDED pull down menus to advanced search page (BUG 104 et 108)
+		- ADDED message before axies are MERGED and UNDO process if the merge is not
+		correct.
+		- ADDED undo process when you create a draft (update)
+		- ADDED axies ID to presentation
+		- ADDED data categories name to editing interface
+		- IMPROVED pdf export : make the pdfs "searchable" and allow the copy-pasting
+		
+		LOCALISATION
+		- For the English interface : Change WORD to TERM in the lookup mask.
+		
+		BUG FIX
+		- BUG 115
+		- BUG 103 : Terms with commas can be edited or deleted.
+		- BUG 107 : Added "zone géographique d'emploi" in the advanced search french page.
+		- BUG 105 : Hidden contact, search and site map links.
+		- BUG 110 : added new search criteria : grammar, legal system, harmonising
+		status, process status.
+		- BUG 104 : added possibility to search only EU - slovene for example
+		- BUG 30 : added possibility to search by "created by" and "modified by"
+
+NOVEMBER 22 2006:
+		New Export function (that works offline)
+		New presentation for axies
+		Bibliographic links are now obtained by interaction with the biblio server
+		BUUG FIXES:
+			- BUG 73: Multiple search criteria
+			- BUG 74: Added search by usage.
+			- BUG 79
+			- More minor bugs
+			
+Modifications since Papillon5.0 :
+  - Adapted Papillon source to compile with enhydra 5.1
+  - All entries are now stored as contributions, even original ones.
+  - Interface is now generated and should be modified by hand...
+  - Metadata now make use of XPath to indicate elements that should be indexed.
+  - Reverse lookup may be authorized for a dictionary by way of the d:reverse attribute.
+  - upload de dictionnaire/volume/etc. in a transaction + rollback if a pb occurs.
+  - The Layout is now configurable in the conf file.
+  - Volume whose source language is "axi" is now considered as the pivot volume in a pivot dictionary.
+
+  - MM: Added the possibility to export in PDF format. The conversion into PDF is done via the fop package that has to be installed (see ToolsForPapillon)
+  - MM: Corrected an important bug in the editor that forbidded to change a boolean value from true to false.
+Beware, you have to edit the existing interface templates by hands:
+ 1- duplicate all the input elements with name='boolean' and type='checkbox'.
+ - for each input element pair,    
+   2- change one input element name into name='booleantrue' 
+   3- change the other input element type to type='hidden'

@@ -1,0 +1,437 @@
+/*
+ * Stylesheet for Papillon Web site 
+ *
+ * Style sheet for the xhtml Papillon pages
+ * $Id$
+ * ---------------------------------------------------
+ *
+ * do not write .css at the top of the file
+ * do not write font-size : 12 pt; but : 1em or : 100%;
+ * do not write div.foo_one but div.foo-one even if _ is in the tag
+ *
+ * for font size, use pixels px instead of pt or em.
+ * 
+ * use span instead of div
+ */
+ 
+@media aural { 
+	span.accesskey { pitch : high; }
+	code.markup-example { speak-punctuation : code; }
+	h1 { stress: 25; richness: 90; }
+	h2 { stress: 20; richness: 90; }
+}
+
+/*@media print {}*/
+
+/*@media screen {}*/
+
+/* General */
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+	background: white;
+}
+
+/*--------------------------------------*/
+/* For the editor */
+/*--------------------------------------*/
+td.block {
+  /*  display: block; */
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+ /*   border-spacing: 5px; i*/
+    border-color: black;
+}
+
+.blockTitle {
+	text-align: center; 
+	color:blue;
+}
+
+/*--------------------------------------*/
+/* Columns */
+/*--------------------------------------*/
+
+.menuColumn {
+   float: left;
+   width: 150px;
+   margin-top:0.3em;
+}
+
+.mainColumn {
+   background: white;
+   color: #000;
+/*   position: absolute;
+   left: 0; 
+   width: 70%; */
+   margin-left: 160px;
+   margin-right: 0.3em;
+   margin-top:0.3em;
+}
+
+/*-------------------------*/
+/* Header part of the page */
+/*-------------------------*/
+
+/*-------------------------*/
+/* Title of the page */
+/*-------------------------*/
+
+.projectTitle {
+    text-align: center;
+    margin-top: 100px;
+    font-family: "Garamond";
+    color: navy;
+}
+
+h1.projectAcronym {
+    font-family: "Garamond";
+    font-weight: normal;
+}
+
+.projectTitle .projectAcronym {
+    margin-top: 100px;
+    font-size: 3em;
+}
+
+.projectTitle .projectName {
+    margin-bottom: 30px;
+    font-size: 1.8em;
+}
+
+/*-------------------------*/
+/* CSS only popup menus    */
+/*-------------------------*/
+
+#headerMenu {
+    font-size:0.8em;
+}
+
+.popupMenu {
+	width: auto;
+	padding: 0.1em 0em 0.1em 0em;
+}
+
+.popupMenu a {
+    text-decoration: underline;
+    color: blue;
+}
+
+
+/*--------------------------------------*/
+/* Main (central) part of the page      */
+/*--------------------------------------*/
+
+/* General */
+
+h1 {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+	color: navy;
+}
+
+h2 {
+   color: navy;
+   font-size: 1.2em;
+}
+
+p.standard {
+    text-align: justify;
+}
+
+.accesskey {text-decoration: underline; }
+
+#footer {
+    clear:both;
+    text-align:right;
+    font-size: 11px;
+    position: fixed;
+    bottom: 0;
+    width:100%;
+    background-color:white;
+}
+
+.gray {
+	color:  gray;
+}
+.comment {
+	color:  gray;
+}
+.hidden {
+	display: none;
+}
+
+.note {
+	color:  red;
+}
+
+/*--------------------------------------*/
+/* Columns */
+/*--------------------------------------*/
+
+#sectionPrincipale {
+    display: table;
+    width: 100%;
+    padding-bottom: 30px;
+}
+
+
+#MenuColumn {
+    display:table-cell;
+    padding: 10px;
+}
+
+#lookupentries {
+    margin-top: 0px;
+    height: 620px;
+    overflow:hidden;
+    width:200px;
+}
+
+#lookupentries:hover, #entriesList:hover {
+    overflow-y:auto;
+}
+
+
+#MainColumn {
+    display: table-cell;
+    width: 100%;
+}
+
+#lookupcontent {
+    min-height:600px;
+    padding: 10px;
+    margin-left: 0px;
+    border:1px solid grey;
+}
+.lookupentry {
+    border:1px solid grey;
+}
+
+#WelcomeMessage {
+    text-align: center;
+}
+.loadingMessageTop {
+    margin:0;
+}
+.loadingMessageBottom {
+    margin-top:0;
+    margin-bottom:0;
+    margin-left:205px;
+}
+
+
+/* Links general */
+A:link {
+	text-decoration: none; 
+	color: blue;
+	}
+A:visited {
+	text-decoration: none; 
+	color: blue;
+	}
+A:active {
+	text-decoration: none; 
+	color: blue;
+	}
+A:hover {
+	text-decoration: underline; 
+	color: blue;
+	}
+/* for anchors we do not want to see */
+A.hide {text-decoration: none}
+
+
+/* For DEC-like entries */
+.actor {
+	color: #00C6FF;
+}
+
+.separator {
+	font-weight : bold;
+	color : #69FF69; 
+
+}
+.space {
+	color: #faecc9;
+/*	background: white; */
+	}
+
+
+/* Language Styles */
+/* The ISO-639-2/T 3 letter codes */
+
+.est	{
+	font-family: "Helvetica", sans-serif;
+	color: #DC143C;
+	}
+
+.fra	{
+	font-family: "Helvetica", sans-serif;
+	color: #3366FF;
+	}
+
+.meta	{
+	font-family: sans-serif;
+	color: gray;
+	}
+
+/* CDM elements */
+.entry {
+	/*display: block;
+    margin-left: 12 pt; */
+}
+
+.sense {
+	display: block;
+}
+
+.headword {
+	font-weight: bold;
+}
+
+.writing {
+	font-style : normal;
+}
+
+.reading {
+	font-style : normal;
+	font-family: courier;
+}
+
+.pos {
+	/*font-weight: bold;
+	color: black;*/
+}
+.pronunciation {
+	/*font-family: courier;
+	color: black;*/
+}
+.label	{
+	font-family: sans-serif;
+	color: gray;
+	}
+
+.translations {
+        display: block;
+        margin-left: 3 px;
+}
+.translation {
+	font-style : normal;
+}
+
+.examples {
+	display: block;
+    margin-left: 1em;
+    margin-top: 1em;
+}
+
+.example {
+/*	font-style: italic; */
+}
+
+.idioms {
+	display: block;
+}
+
+.idiom {
+	font-style : normal;
+}
+
+/* styles special GDEF */
+.domaine {
+    font-family: sans-serif;
+    color: gray;
+    font-variant: small-caps;
+}
+
+.registre {
+    font-family: sans-serif;
+    color: gray;
+    font-variant: small-caps;
+}
+
+.sous-bloc-semantique {
+    display: block;
+    margin-left: 2em;
+}
+
+.bloc-morph {
+    /*font-size: 0.8em;*/
+    color:gray;
+}
+
+.explication {
+    font-style: italic;
+}
+
+.vedette {
+    font-size: larger;
+}
+
+/* styles for XML source */
+
+.xmlattribute {
+	color: red;
+	}
+.xmlcar {
+	color: blue;
+	}	
+.xmlcomment {
+	color: gray;
+	}
+.xmlelement {
+	color: maroon;
+	}
+.xmlheader {
+	color: teal;
+	}
+.xmlnsprefix {
+	font-weight: bold;
+	color:#CC9966;					
+        }
+.xmlnsuri {
+	color:#CC9966;					
+        }
+.xmltext {
+	color: black;
+	font-weight: bold;
+	}	
+.xmlvalue {
+	font-weight: bold;
+	color: black;
+	}
+
+/* Other styles */
+
+.copyentry {
+	/*color: red; */
+	font-weight: bold;
+	background-color: yellow;
+}
+
+/* Styles for body links */
+	
+.bodylink A:link {
+	font-weight: bold; 
+	text-decoration: none; 
+	color: blue;
+	}
+.bodylink A:visited {
+	font-weight: bold; 
+	text-decoration: none; 
+	color: blue;
+	}
+.bodylink A:active {
+	font-weight: bold; 
+	text-decoration: none; 
+	color: blue;
+	}
+.bodylink  A:hover {
+	font-weight: bold; 
+	text-decoration: underline; 
+	color: blue;
+	}

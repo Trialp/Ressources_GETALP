@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <link href="css/lexalp.css" rel="StyleSheet" type="text/css"/>
+    <link href="css/lexalp_print.css" rel="StyleSheet" type="text/css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="author" content="Gilles Sérasset"/>
+    <meta name="keywords" content="LexALP Alpine Space project"/>
+    <meta name="description"
+      content="LexALP: Legal Language Harmonisation System for Environment and Spatial Planning in the Multilingual Alps"/>
+    <meta name="generator" content="Enhydra"/>
+    <meta name="robots" content="index, follow"/>
+    <title>Plate-forme LexALP</title>
+    <script type="text/javascript" src="javascript/detect_firefox.js"><!-- // --></script>
+    <link rel="stylesheet" href="css/autocomplete.css" type="text/css" media="screen"/>
+    <script src="javascript/jquery-1.8.0.min.js" type="text/javascript"><!-- // --></script>
+    <script src="javascript/jquery.dimensions.js" type="text/javascript"><!-- // --></script>
+    <script src="javascript/autocomplete.js" type="text/javascript"><!-- // --></script>
+    <script type="text/javascript">
+	<!--
+        //
+            $(document).ready(function(){
+                setAutoComplete('ValueField', 'SourceLang', 'results',
+                        'JSONHeadwordList.po', 'headword=', 'lang=');
+	});
+    //-->
+    </script>
+    <script id="Script" type="text/javascript">
+        <!--
+        //
+        function init() {
+        
+            //// Launch ajax function to get select elements depending on cdm elements
+            
+            // Get all select elements
+            var selectCollection = document.getElementsByTagName('select');
+            for(var i=0; i < selectCollection.length; i++){
+                
+                // Launch ajax function only for select cdm element (name=FACET.*)
+                if (selectCollection[i].name.match(/FACET\./)) {
+                    getSelector(selectCollection[i].value, selectCollection[i].name);
+                }
+            }
+            
+        }
+        //-->
+    </script>
+  </head>
+  <body onload="javascript:init();">
+    <script src="javascript/AdvancedQueryFormAjax.js" type="text/javascript"><!-- // --></script>
+		<div id="BannerPlaceHolder" class="titlePane">
+      <h1 id="projectTitle" xml:lang="fr" lang="fr">
+        <a href="LexALP.po"><img id="logo" src="media/lexalp/logo2.jpg" alt="LexALP" width="170px" style="border: 0 none;"/></a> Banque de Termes </h1>
+      <span id="HeaderPlace" class="quickLinks">
+        <a href="Contacts.po" title="Contacts">Contacts</a><!-- | <a href="Search.po">Search</a> | <a href="SiteMap.po">Site Map</a>-->
+      </span>
+		<div id="BannerContent">
+		</div>
+    </div>
+
+	
+    <div id="MenuColumn" class="menuColumn">
+      <div id="menuBlockPlaceHolder"/>
+      <div class="europaLogos">
+        <a href="http://www.alpinespace.org" title="Page Web du Programme Espace Alpin">
+          <img src="media/lexalp/ALPIN_EU_hor_4c.jpg" alt="INTERREG IIIb Alpine Space Program" width="150px"/>
+        </a>
+      </div>
+    </div>
+    <div id="MainColumn" class="mainColumn" />
+    <!--div id="NewsColumn" class="newsColumn" /-->
+    <div id="firefox"><a href="http://www.mozilla-europe.org/fr/"><img alt="Firefox 2" title="Firefox 2" src="http://sfx-images.mozilla.org/affiliates/Buttons/firefox2/firefox-spread-btn-1b.png"/></a><span>La banque de termes LexALP est optimisée pour le navigateur gratuit : </span></div>
+    <div class="copyright">
+        Mis à jour le 06/02/2007.<br/>
+        Plate-forme: © 2001-2007, GETA-CLIPS, GETALP-LIG. Licence LGPL.<br/>
+        Données: © 2005-2007 projet LexALP Interreg IIIb.</div>
+    <script type="text/javascript">hideGetFirefoxIfAlreadyAvailable();</script>
+  </body>
+</html>

@@ -1,0 +1,91 @@
+#
+#  Papillon51
+#
+#  Servlet service configuration file.
+#
+
+Server.ConfDir = "@DEPLOY_PATH@/conf"
+
+Server.LogClassName = com.lutris.logging.Log4jLogger
+Server.Log4j = "@DEPLOY_PATH@/conf/log4j.xml"
+
+# ----------------------------------------------------------------------
+# Specifications of papillon application listening directly on
+# port 8999.
+#
+Application.@APPLICATION@.ConfFile = @APPLICATION@.conf
+Application.@APPLICATION@.Description = "The @APPLICATION@ Application"
+Application.@APPLICATION@.Running = yes
+Application.@APPLICATION@.defaultSessionTimeOut = 30
+
+# ----------------------------------------------------------------------
+# Specifications of papillon application listening via enhydradirector
+# on port 8998
+
+Channel.CM_0.channel_0.Enabled = yes
+Channel.CM_0.channel_0.Servlet = @APPLICATION@
+Channel.CM_0.channel_0.Url = "@APPLICATION_PREFIX@"
+
+Connection.CM_0.Type = EnhydraDirector
+Connection.CM_0.ThreadTimeout = 300
+Connection.CM_0.ClientTimeout = 30
+Connection.CM_0.SessionAffinity = true
+Connection.CM_0.QueueSize = 400
+Connection.CM_0.Port = 8998
+Connection.CM_0.NumThreads = 200
+Connection.CM_0.BindAddress = "(All Interfaces)"
+Connection.CM_0.AuthKey = "(Unauthenticated)"
+Connection.CM_0.PrefixHint = "(Not Configured)"
+
+#-----------------------------------------------------------------------------
+#            Serving static content via the FileServerServlet
+#    ---> In the future, we should use apache's mod_rewrite to serve static
+#    ---> content without enhydra.
+#-----------------------------------------------------------------------------
+#Servlet.Static.ClassName = org.enhydra.servlet.servlets.FileServerServlet
+#Servlet.Static.DocRoot = "/home/papillon/informations/main/presentation/info_media"
+#Servlet.Static.Description = "Static Pages"
+#Servlet.Static.InitArgs.index = index.html
+#Servlet.Static.Running = yes
+#
+#Channel.CM_1.channel_0.Enabled = yes
+#Channel.CM_1.channel_0.Servlet = Static
+#Channel.CM_1.channel_0.Url = "/info_media"
+#
+#Connection.CM_1.Type = EnhydraDirector
+#Connection.CM_1.ThreadTimeout = 300
+#Connection.CM_1.ClientTimeout = 30
+#Connection.CM_1.SessionAffinity = true
+#Connection.CM_1.QueueSize = 400
+#Connection.CM_1.Port = 8996
+#Connection.CM_1.NumThreads = 200
+#Connection.CM_1.BindAddress = "(All Interfaces)"
+#Connection.CM_1.AuthKey = "(Unauthenticated)"
+#Connection.CM_1.PrefixHint = "(Not Configured)"
+
+#-----------------------------------------------------------------------------
+#            Mime types
+MimeType.ico = image/x-icon
+
+
+#
+# Specify only one application (no graphical administration).
+#
+#Application.Papillon.ConfFile = Papillon.conf
+#Application.Papillon.Description = "Papillon"
+#Application.Papillon.Running = yes
+#Application.Papillon.defaultSessionTimeOut = 30
+
+#
+# Open up a port.
+#
+#Connection.http.Type = http
+#Connection.http.Port = 8002
+
+#
+# Connect the port to the application.
+#
+#Channel.http.channel.Servlet = Papillon
+#Channel.http.channel.Url = /
+#Channel.http.channel.Enabled = yes
+

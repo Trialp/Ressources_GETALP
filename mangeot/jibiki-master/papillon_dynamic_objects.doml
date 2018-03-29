@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--DOCTYPE doml SYSTEM "file:////Library/Java/Extensions/enhydra5.1/dods/build/dtd/doml.dtd"-->
+<!--
+ * © Mathieu Mangeot & Gilles Sérasset - GETA CLIPS IMAG
+ * Projet Papillon Project
+ *************************************************
+ * $Id$
+ *************************************************
+ * $Log$
+ * Revision 1.8 2012/3/26 17:00 zhang
+ * added a new table link for separating link & index from table index
+ *
+ * Revision 1.7.2.1  2007/10/29 15:11:03  serasset
+ * NEW: lexalp css now defines different forms for HARMONISED/REJECTED entries
+ * NEW: added new db url/user/password configuration keys in papillon.properties file
+ * BUG158: headwords are now harmonised at edition and search time, added a "normalise headword" admin action
+ *
+ * Revision 1.7  2007/01/05 13:57:25  serasset
+ * multiple code cleanup.
+ * separation of XMLServices from the Utility class
+ * added an xml parser pool to allow reuse of parser in a multithreaded context
+ * added a new field in the db to identify the db layer version
+ * added a new system property to know which db version is known by the current app
+ *
+ * Revision 1.6  2006/02/26 19:25:00  mangeot
+ * Added a new field in index table: msort=multilingual_sort(lang,value)
+ *
+ * Revision 1.5  2005/04/11 12:32:29  mangeot
+ * Merge between the XPathAndMultipleKeys branch and the trunk
+ *
+ * Revision 1.4.2.2  2005/03/29 09:41:32  serasset
+ * Added transaction support. Use CurrentDBTransaction class to define a transaction
+ * context in which all db commands will be executed.
+ *
+ * Revision 1.4.2.1  2005/01/25 13:54:54  mangeot
+ * changed the volume volumeEntry and index objects. Does not compile but need a backup...
+ *
+ * Revision 1.4  2005/01/15 16:36:35  mangeot
+ * Commented the link to the dtd because it is depdendent of the platform
+ *
+ * Revision 1.3  2004/12/24 11:04:55  mangeot
+ * synchronized the files with the last version of Papillon5.0
+ *
+ *
+-->
+<doml>
+  <database database="PostgreSQL" templateset="papillon_dynamic" dirtyDOs="Deprecate"> <!-- legal_values="Standard,InstantDB,Oracle,Informix,Msql,Sybase,PostgreSQL"-->
+    <package id="fr">
+    <package id="fr.imag">
+    <package id="fr.imag.clips">
+    <package id="fr.imag.clips.papillon">
+      <package id="fr.imag.clips.papillon.data">
+        <table dbTableName="volume" id="fr.imag.clips.papillon.data.VolumeEntry">
+          <column id="headword" usedForQuery="true">
+            <javadoc>/**
+ * the headword 
+ */</javadoc>
+            <type canBeNull="true" dbType="LONGVARCHAR" javaType="String"/>
+          </column>
+          <!--column id="dom">
+            <javadoc>/**
+ * the entry as a dom document node
+ */</javadoc>
+            <type dbType="LONGVARBINARY" javaType="byte[]"/>
+          </column-->
+          <column id="xmlCode" usedForQuery="true">
+            <javadoc>/**
+ * The XML code of the volume entry.
+ */</javadoc>
+            <type dbType="LONGVARCHAR" javaType="String"/>
+          </column>
+          <!--column id="htmldom">
+            <javadoc>/**
+ * the entry formatted in html as a dom document node
+ */</javadoc>
+            <type canBeNull="true" dbType="LONGVARBINARY" javaType="byte[]"/>
+          </column-->
+        </table>
+        <table id="fr.imag.clips.papillon.data.Index" dbTableName="index">
+          <column id="key" usedForQuery="true">
+            <javadoc>/**
+ * the name of the key
+ */</javadoc>
+            <type canBeNull="true" dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="lang" usedForQuery="true">
+            <javadoc>/**
+ * the language of the value of the key
+ */</javadoc>
+            <type canBeNull="true" dbType="VARCHAR" javaType="String" size="3"/>
+          </column>
+          <column id="value" usedForQuery="true">
+            <javadoc>/**
+ * the value of the key
+ */</javadoc>
+            <type canBeNull="true" dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="msort" usedForQuery="true">
+            <javadoc>/**
+ * plpsql function: multilingual_sort(lang,value)
+ */</javadoc>
+            <type canBeNull="true" dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="entryId" usedForQuery="true">
+            <javadoc>/**
+ * the entry id
+ */</javadoc>
+            <type dbType="DECIMAL (19,0)" javaType="int" canBeNull="false"/>
+          </column>
+		  <index id="key_idx">
+          	<indexColumn id="key"/>
+          	<indexColumn id="lang"/>
+          	<indexColumn id="value"/>
+          </index>
+		  <index id="entryid_idx">
+          	<indexColumn id="entryId"/>
+          </index>
+		  <index id="msort_idx">
+          	<indexColumn id="msort"/>
+          </index>
+        </table>        
+        <table id="fr.imag.clips.papillon.data.Link" dbTableName="link">
+        <column id="name" usedForQuery="true">
+            <javadoc>/**
+ * the name of the link (eg: cdm-translation-ref)
+ */</javadoc>
+            <type canBeNull="true" dbType="VARCHAR" javaType="String" size="255"/>
+          </column>        
+        <column id="elementId" usedForQuery="true">
+            <javadoc>/**
+ * the value of id of link element in the entry XML
+ */</javadoc>
+            <type canBeNull="true" dbType="VARCHAR" javaType="String" size="255"/>
+          </column>        
+        <column id="targetId" usedForQuery="true">
+            <javadoc>/**
+ * the value of the target entry id
+ */</javadoc>
+            <type canBeNull="true" dbType="VARCHAR" javaType="String" size="255"/>
+          </column>        
+          <column id="lang" usedForQuery="true">
+            <javadoc>/**
+ * the language of the value of the key
+ */</javadoc>
+            <type canBeNull="true" dbType="VARCHAR" javaType="String" size="3"/>
+          </column>
+          <column id="volumeTarget" usedForQuery="true">
+            <javadoc>/**
+ * the name of the volume
+ */</javadoc>
+            <type canBeNull="true" dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="weight" usedForQuery="true">
+            <javadoc>/**
+ * the value of the weight
+ */</javadoc>
+            <type canBeNull="true" dbType="DECIMAL (3,2)" javaType="double" />
+          </column>
+          <column id="type" usedForQuery="true">
+            <javadoc>/**
+ * the value of the type
+ */</javadoc>
+            <type canBeNull="true" dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="label" usedForQuery="true">
+            <javadoc>/**
+ * the value of the label
+ */</javadoc>
+            <type canBeNull="true" dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="entryId" usedForQuery="true">
+            <javadoc>/**
+ * the entry id
+ */</javadoc>
+            <type dbType="DECIMAL (19,0)" javaType="int" canBeNull="false"/>
+          </column>
+
+		  <index id="entryid_idx">
+          	<indexColumn id="entryId"/>
+          </index>
+		  <index id="targetid_idx">
+          	<indexColumn id="targetId"/>
+          </index>
+		  <index id="lang_idx">
+          	<indexColumn id="lang"/>
+          </index>
+		  <index id="volumeTarget_idx">
+          	<indexColumn id="volumeTarget"/>
+          </index>
+		  <index id="type_idx">
+          	<indexColumn id="type"/>
+          </index>
+		  <index id="name_idx">
+          	<indexColumn id="name"/>
+          </index>
+        </table>       
+    </package>
+    </package>
+    </package>
+    </package>
+    </package>
+  </database>
+</doml>

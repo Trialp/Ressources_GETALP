@@ -1,0 +1,31 @@
+# Copyright ©2002 Mathieu MANGEOT-Nagata & Papillon Project
+<search
+	name="Papillon Dictionary"
+#action="http://localhost:8999/Home.po"
+	action="http://www.papillon-dictionary.org/Home.po"
+	method="GET"
+#	update="http://si.info.apple.com/channels/us/reference/dictionary.src.hqx"
+# updateCheckDays="3"
+ description="Papillon Project Multilingual Dictionary (http://www.papillon-dictionary.org)."
+	>
+
+# variables that cannot be modified
+<input name="FORMNAME" value="sherlock" /> 
+<input name="lookup" value="on" /> 
+<input name="HEADWORD" user /> 
+
+# variables that you can modify
+<input name="SOURCE" value="fra" /> 
+<input name="RESOURCES" value="Papillon" /> 
+<input name="PartialMatch" value="on" /> 
+
+
+<interpret
+  resultListStart="<!-- resultListStart -->" 
+  resultListEnd="<!-- resultListEnd -->" 
+  resultItemStart='<span class="EntryStart">' 
+  resultItemEnd='<span class="EntryEnd">' 
+  nameStart='<span class="headword">'
+  nameEnd='</span>'
+	/>
+</search>

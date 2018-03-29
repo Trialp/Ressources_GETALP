@@ -1,0 +1,89 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.0 TRANSITIONAL//EN">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="en">
+
+<h1 align="center"><span id="UserName">Name</span>s Interface für das Bearbeiten von Beiträgen</h1>
+
+<!-- formulaire de voir mot-->
+<FORM NAME="MainForm" ACTION="ReviewContributions.po" METHOD="GET">
+<table WIDTH="600" BORDER="0" CELLSPACING="0" CELLPADDING="10" Summary="Formulaire">
+<TR>
+     <!-- Warning, make sure the option element contains a Text and only a Text (no other child) -->
+	<TD><b><label for="VOLUME">Volume:</label></b><br>
+	   <SELECT ID="VOLUME" NAME="VOLUME">
+            <OPTION ID="VolumeOptionTemplate" VALUE="NONE" LABEL="NONE">Nichts</OPTION>
+        </SELECT>
+	<br>
+		<input id="LOOKUP" name="LOOKUP" type="Submit" value="Nachschlagen">
+		</TD>
+	<TD><label for="AUTHOR">Autor-Login:</label><br>
+		<input ID="AUTHOR" name="AUTHOR" size="12" type="text">
+     </TD>
+	<TD><label for="HEADWORD">Stichwort:</label><br>
+	<input ID="HEADWORD" name="HEADWORD" size="12" type="text" value="">
+	<label for="PartialMatch">
+	<INPUT id="PartialMatch" name="PartialMatch" type="checkbox" value="PartialMatch">
+	<font size="2">Teilweise&nbsp;Übereinstimmung</font></label>
+     </TD>
+	 	<TD><label for="STATUS">Status:</label><br>
+	<select id="STATUS" name="STATUS">
+		<option value="*ALL*" label="tous">all</option>
+		<option value="not finished" label="not finished">not finished</option>
+		<option value="finished" label="finished">finished</option>
+		<option value="revised" label="revised">revised</option>
+		<!--option value="validated" label="validees">validées</option-->
+    </select>
+     </TD>
+	<TD><label for="REVISOR">Revisor:</label><br>
+		<input id="REVISOR" name="REVISOR" size="12" type="text">
+     </TD>
+</TR>
+</TABLE>
+</FORM>
+<hr>
+<h2>Betrachten der <span id="ContributionsCount">0</span> Beiträge</h2>
+<table id="ContribList" width="100%" frame="hsides"  border="0" summary="entries" bgcolor="#faecc9">
+  <tr>
+   <th><a id="VolumeHeaderAnchor" href="ReviewContributions.po?SortBy=volume">Volume</a></th>
+   <th><a id="AuthorHeaderAnchor" href="ReviewContributions.po?SortBy=author">Autor</a></th>
+   <th><a id="HeadwordHeaderAnchor" href="ReviewContributions.po?SortBy=headword">Ansicht</a></th>
+   <th><a id="CreationdateHeaderAnchor" href="ReviewContributions.po?SortBy=creationdate">Erstellungsdatum</a></th>
+   <th><a id="StatusHeaderAnchor" href="ReviewContributions.po?SortBy=status">Status</a></th>
+   <th>XML-Ansicht</th>
+   <th>Bearbeiten</th>
+   <th>Entfernen</th>
+   <th><a id="ReviewerHeaderAnchor" href="ReviewContributions.po?SortBy=reviewer">Reviewer</a></th>
+   <th><a id="ReviewdateHeaderAnchor" href="ReviewContributions.po?SortBy=reviewdate">Review</a></th>
+   <th>Bestätigen</th>
+
+  </tr>
+  <tr id="EntryListRow">
+    <td><span Id="VolumeName">Volume</span></td>
+    <td><span Id="Author">Autor</span></td>
+    <td><A HREF="" id="ViewContribAnchor"><SPAN id="ViewContribText">Beitrag</SPAN></A></td>
+    <td><span Id="CreationDate">date</span></td>
+    <td><span id="Status">Status</span></td>
+    <td><A HREF="" id="ViewXmlAnchor">XML-Ansicht</A></td>
+    <td><A HREF="" id="EditContribAnchor"><span id="EditMessage">Bearbeiten</span></A></td>
+    <td><A HREF="" id="RemoveContribAnchor"  onClick="return confirm('Wollen Sie den Beitrag wirklich entfernen?')"><span id="RemoveMessage">Entfernen</span></A></td>
+    <td><span id="Reviewer">Reviewer</span></td>
+    <td><span id="ReviewDate">ReviewDate</span></td>
+    <td><A HREF="" class="hidden" id="ReviseContribAnchor">Revise</A>
+		<A HREF="" class="hidden" id="ValidateContribAnchor">Validate</A>
+		<A HREF="" class="hidden" id="IntegrateContribAnchor">Integrate</A></td>
+  </tr>
+</table>
+<table id="Contributions" width="100%" frame="hsides"  border="0" summary="dicocontent"  bgcolor="#faecc9">       
+<tr id="EntryRow">
+    <td id="EntryCell" valign="top" width="100%"></td>        
+</tr>
+</table>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,792 @@
+/* 
+ * Stylesheet for Papillon Web site
+ * Style sheet for the xhtml Papillon pages
+ * $Id: motamot.css 882 2008-08-06 13:12:05Z mangeot $
+ *------
+ */
+
+/*<group=page layout>*/
+
+body {
+    background : #A3C354;
+    font-size: 1.2 em;
+    font-family: 'Geneva', Arial, sans-serif;
+    color: black;
+    margin: 0px;
+}
+
+h1,h2,h3,h4 {
+    color: #143625;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+.headerBlock {
+	 background-color: #C7EDFA;
+	 border-bottom: 2px solid #143625;
+}
+
+/*-------------------------*/
+/* CSS only popup menus    */
+/*-------------------------*/
+
+.popupMenu {
+    width: 20%;
+    text-align: center;
+    border-left: 2px solid #143625;
+}
+
+.popupMenu:hover {
+   background: #887;
+   color:#fff;
+}
+
+.popupMenu  a {
+   padding: 0em 0.5em 0em 0.5em ;
+   text-decoration: none;
+}
+
+.popupMenu  a:link {
+   color:#143625;
+}
+
+.popupMenu  a:visited {
+   color:#143625;
+}
+
+.popupMenu  a:active {
+   color:#143625;
+}
+
+.popupMenu  a:hover {
+   background: #887;
+   color:#fff;
+   text-decoration: none;
+}
+
+.popupMenu ul {
+	text-align:left;
+    display: none;
+    position: absolute;
+    background: #C7EDFA;
+    color: black;
+    list-style: none;
+    margin: 0em 0 0 0;
+   padding: 0;
+}
+
+.popupMenu ul li {
+   display: block;
+   padding: 0.1em 0.5em 0.1em 0.5em ;
+   font-size:0.9em;
+}
+
+.popupMenu:hover ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+
+}
+
+.popupMenu ul li:hover {
+   background: #887;
+   color: #fff;
+}
+
+/*-----------------------------------*/
+/* Banner part of the page */
+/*-----------------------------------*/
+
+div#BannerContent {
+    display: table;
+    border-spacing: 10px;
+}
+
+#projectTitle {
+    display: table-cell;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 50%;
+}
+
+.projectName h1,.projectName h2, .projectName h3  {
+    margin: 2px;
+}
+
+#caseRecherche  {
+    display: table-cell;
+    padding: 0.3em;
+    /*background-color: #FFFDDA;
+    border: 7px solid #689443;
+    border-radius: 20px;*/
+}
+
+#caseRechercheAvancee  {
+    display: table-cell;
+    padding: 0.3em;
+    /*background-color: #FFFDDA;
+    border: 7px solid #689443;
+    border-radius: 20px;*/
+}
+
+
+/*-----------------------------------*/
+/* MenuBlock (left) part of the page */
+/*-----------------------------------*/
+    
+#ContextualMenuContent {
+    float: left;
+    width: 200px;
+    margin-top: 0px;
+    height: 615px;
+}
+
+#lookupentries 
+{
+height:615px;
+width:200px;
+overflow-y: scroll;
+}
+
+.lookupentry {
+    border:1px solid grey;
+}
+
+
+/*--------------------------------------*/
+/* Main column */
+/*--------------------------------------*/
+    
+#partieCentrale {
+    background-color: #C7EDFA;
+}   
+    
+.menuColumn {
+    border-top: 2px solid #143625;
+ }   
+ 
+   
+.mainColumn {
+    margin-left: 220px;
+    margin-right: 220px;
+    margin-top: 15px;
+    min-height: 600px;
+}
+
+.dicos {
+    float:left;
+    width: 250px;
+    margin-left: -100px;
+}
+
+.dico {
+    font-size: 1.5em;
+    /*position: relative;*/
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 0.5em;
+    background: #C7EDFA;
+    border: 7px solid #689443;
+    border-radius: 15px;
+}
+
+.downloads {
+    padding-left: 200px;
+    padding-top: 10px;
+}
+
+.download {
+    font-size: 1.5em;
+    padding: 29px;
+}
+
+/*--------------------------------------*/
+/* For the api */
+/*--------------------------------------*/
+table.api {
+    margin: 10px 0;
+    caption-side: bottom;
+    border-collapse: collapse;
+    border: 2px solid #345;
+}
+table.api tbody td {
+    border: 1px solid #889;
+    padding: 2px 4px;
+    vertical-align: top;
+    color:black;
+}
+pre.api {
+    margin:15px;
+    padding:3px;
+    border: 1px dashed blue;
+    background-color:#E8E8E8;
+}
+
+.titlePane {
+    color: #1cabed;
+    font-variant: small-caps;
+    text-align: left;
+    font-weight: bold;
+    font-style: italic;
+    display: block;
+    font-size: 1.7em;
+}
+
+.titlePane h1 {
+    text-align: left;
+}
+
+#logo {
+    vertical-align: middle;
+}
+
+/*--------------------------------------*/
+/* Other */
+/*--------------------------------------*/
+    
+.editEntry {
+   /*background: white url(/media/lexalp/logo2-small.jpg) top right no-repeat scroll;*/
+   background-color: white;
+}
+
+.editing {
+   color: #000;
+   margin-left: 10px;
+   margin-right: 10px;
+   margin-top:0.3em;
+}
+
+.center {
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+
+.editingResultTitle {
+    text-align: center; 
+    margin-top: 60px; 
+    margin-bottom: 60px;
+}
+
+.mergingResultTitle {
+    text-align: center; 
+    margin-top: 40px; 
+    margin-bottom: 40px;
+}
+
+.editingResultView {
+    text-align: left; 
+    color: #000;
+    background-color:#66CCFF;
+    border: 1pt solid #898989;
+    width: 70%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 20px;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.messageConfirm {
+    text-align: center;
+}
+    
+/*</group>*/
+
+/*<group=Special Classes>*/
+
+pre.adminMessage {
+    font-size: 1.5em;
+    color: #ff0000;
+    background: #DFDFDF;
+}
+
+pre.userMessage {
+    color: #ff0000;
+    background: #DFDFDF;
+}
+
+.hidden {
+    display: none;
+}
+    
+/*</group>*/
+
+/*<group=Details>*/
+
+p.standard {
+    text-align: justify;
+}
+
+A:link {
+    text-decoration: none; 
+    color: blue;
+    }
+
+A:visited {
+    text-decoration: none; 
+    color: blue;
+    }
+
+A:active {
+    text-decoration: none; 
+    color: blue;
+    }
+
+A:hover {
+    text-decoration: underline; 
+    color: blue;
+    }
+
+.accesskey {text-decoration: underline; }
+
+.copyright {
+    clear: both;
+    font-size: .8em;
+    padding-top: 20px;
+    padding-left: 20px;
+    border-top: 2px solid #143625;
+	background-color: #A3C354;
+ }
+    
+/*</group>*/
+
+/*<group=Langues>*/
+
+/* The lang attribute with CSS2 :lang function */
+:lang(ar)       {font-family: "Traditional Arabic", serif; font-size: 1.2em;}
+:lang(zh-Hant)  {font-family: PMingLiU,MingLiU, serif;}
+:lang(zh-Hans)  {font-family: SimSum-18030,SimHei, serif;}
+:lang(din)      {font-family: "Doulos SIL", serif;} 
+
+/* The lang attribute with lang|= selector */
+*[lang|="ar"]   {font-family: "Traditional Arabic", serif; font-size: 1.2em;}
+*[lang|="zh-Hant"]      {font-family: PMingLiU,MingLiU, serif;}
+*[lang|="zh-Hans"]      {font-family: SimSum-18030,SimHei, serif;}
+*[lang|="din"]  {font-family: "Doulos SIL", serif;} 
+
+/* The ISO-639-2/T 3 letter codes */
+
+.deu    {
+    font-family: Times New Roman, Times, serif;
+    color: #993399;
+    }
+    
+.eng    {
+    font-family: "Arial", sans-serif;
+    color: #006600;
+    }
+
+.esp    {
+    font-family: sans-serif;
+    color: #FF9900;
+    }
+
+.est    {
+    font-family: "Helvetica", sans-serif;
+    color: #DC143C;
+    }
+
+.fra    {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #3366FF;
+    }
+
+.hun    {
+    font-family: sans-serif;
+    color: #660000;
+    }
+
+.ita    {
+    font-family: sans-serif;
+    color: #CC6600;
+    }
+
+.jpn    {
+    /*font-family: "Osaka", sans-serif; */
+    font-family: sans-serif;
+    color: #FF0000;
+    }
+
+.lao    {
+    font-family: sans-serif;
+    color: #FF0099;
+    }
+
+.msa    {
+    font-family: sans-serif;
+    color: #009900;
+    }
+        
+.rus    {
+    font-family: sans-serif;
+    color: #CC0000;
+    }
+
+.sin    {
+    color: black;
+    }
+
+.tha    {
+    font-family: sans-serif;
+    color: #6600FF;
+    }
+
+.vie    {
+    font-family: sans-serif;
+    color: #CC9900;
+    }
+    
+.zho    {
+    font-family: PMingLiU,MingLiU, serif;
+    color: #000080;
+    }
+
+    
+/* lexie status */
+
+
+.entry {
+/*  border: 1px solid #898989;*/
+/*  padding: 5px 5px 5px 5px; */
+    /*background: #F0F0F0;*/
+    font-size:1.2em;
+}
+
+.status {
+	color:grey;
+	font-size: small;
+}
+
+.finishedEntry {
+    background: #F0F0F0;
+}
+
+.myFinishedEntry {
+    background: #66CCFF;
+}
+
+.modifiedEntry {
+    background: #F0F0F0;
+}
+
+.myNotFinishedEntry {
+    background: #99CCCC;
+}
+
+.notFinishedEntry {
+    background: #F0F0F0;
+}
+
+.HARMONISED {
+    background:#80FFA0;
+}
+
+.REJECTED {
+    background:#FFC0C0;
+    border-left:red;
+    border-left-width:2px;
+}
+
+.REJECTED .term {
+    border-bottom: 1px dotted red;
+}
+
+.lexalp-lsgroup {
+    border:1px dotted #898989;
+    margin-bottom:5px;
+    padding-bottom:2px;
+}
+
+.motamot-entry {
+    /* clear: both; */
+    border:1px solid #898989;
+    margin-bottom:5px;
+    margin-top:-1px;
+    padding:7px;
+}
+
+.motamot-entry-selected {
+    border:2px solid black;
+    margin-bottom:4px;
+    margin-top:0px;
+    padding:7px;
+    background-color: red;
+}
+
+.motamot-sense {
+    border:1px solid #898989;
+    margin-bottom:5px;
+    margin-top:-1px;
+    margin-left:15px;
+    padding:7px;
+}
+
+.motamot-sense-selected {
+    border:2px solid black;
+    margin-bottom:4px;
+    margin-top:-2px;
+    margin-left:14px;
+    padding: 7px;
+    background-color: yellow;
+}
+
+
+.translation {
+    /* border: 1px dashed #898989; */
+    margin-left:20px;
+    margin-right:2px;
+    margin-top:3px;
+    padding: 2px 2px 2px 2px;
+}
+
+.relatedAxie {
+    border: 1px dashed #898989;
+    margin-left:20px;
+    margin-right:20px;
+    margin-top:20px;
+    padding: 5px 5px 5px 5px;
+}
+
+.level {
+    border:1px dashed #898989;
+    float:right;
+    background-color: yellow;
+    font-weight: bold;
+    font-size: 0.8em;
+    color: #DD390E;
+}
+
+/* container contribution */
+
+.jibiki_groups {
+    border-right: 1px solid #898989;
+    padding-right:5px;
+    padding-left:5px;
+    font-weight: bold;
+    color: #DD390E;
+}
+
+.jibiki_status {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-left: 5px;
+}
+.jibiki_byAuthor {
+}
+
+.jibiki_author {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+
+.contribution {
+    margin-bottom: 10px;
+}
+
+.option1 {
+    margin-left: 20px;
+}
+
+.option2 {
+    margin-left: 5px;
+}
+
+
+.entry_information {
+    float: right;
+    font-size:xx-small;
+    text-transform: uppercase;
+    margin-left:5px;
+    margin-top:2px;
+}
+
+.entry_information_flag {
+    float: right;
+    margin-left:5px;
+    margin-top:1px;
+}
+
+.action_list {
+    text-align: right;
+}
+
+.entry_navigation {
+    border-left: 1px solid #898989;
+    border-right: 1px solid #898989;
+    border-top: 1px solid #898989;
+    /*font-size: small;*/
+    font-weight: bold;
+}
+
+.entry_actions {
+    border-top: 1px solid #898989;
+    border-right: 1px solid #898989;
+    border-left: 1px solid #898989;
+    font-size:small;
+}
+
+.action {
+    border-left: 1px solid #898989;
+    padding-right:5px;
+    padding-left:5px;
+}
+
+.action:hover {
+    /*font-style: italic;
+    font-weight: bold;*/
+    color: red;
+}
+
+
+.QueryForm {
+border: 1px solid #898989;
+    padding: 5px 5px 5px 5px;
+    background: #F0F0F0;
+}
+
+#ProjectDescription a {
+    text-decoration: underline;
+}
+
+.pagination {
+    font-style: italic; 
+    display: inline;
+}
+
+.interface {
+    margin-left: auto; 
+    margin-right: auto;
+    background: #eeeeee; 
+    padding: 5px 5px 5px 5px; 
+    width: 80%; 
+    text-align: center;
+}
+
+ul.commaList {
+list-style-image:none;
+list-style-position:outside;
+list-style-type:none;
+margin:0pt;
+padding:0pt;
+}
+ul.commaList li {
+display:inline;
+}
+ul.commaList li:after {
+content:", ";
+}
+ul.commaList li:last-child:after {
+content:"";
+}
+
+/* CDM elements */
+div.contribution {
+    color:black;
+}
+
+.entry {
+    /*display: block;
+    margin-left: 12 pt; */
+}
+
+.sense {
+    display: block;
+}
+
+.headword {
+    font-weight: bold;
+}
+
+.writing {
+    font-style : normal;
+}
+
+.reading {
+    font-style : normal;
+    font-family: courier;
+}
+
+.pos {
+    font-weight: bold;
+    color: black;
+}
+.pronunciation {
+    font-family: courier;
+    color: black;
+}
+.label  {
+    font-family: sans-serif;
+    color: gray;
+    }
+
+.translations {
+        display: block;
+        margin-left: 3px;
+}
+.translation {
+    font-style : normal;
+}
+
+.examples {
+    display: block;
+}
+
+ul.examples {
+    list-style-type: square;
+    margin-left:15px;
+}
+
+.example {
+    font-style: italic;
+}
+
+.idioms {
+    display: block;
+}
+ul.idioms {
+    list-style-type: circle;
+}
+.idiom {
+    font-style : normal;
+}
+
+
+/* styles for XML source */
+
+.xmlattribute {
+    color: red;
+    }
+.xmlcar {
+    color: blue;
+    }   
+.xmlcomment {
+    color: gray;
+    }
+.xmlelement {
+    color: maroon;
+    }
+.xmlheader {
+    color: teal;
+    }
+.xmlnsprefix {
+    font-weight: bold;
+    color:#CC9966;                  
+        }
+.xmlnsuri {
+    color:#CC9966;                  
+        }
+.xmltext {
+    color: black;
+    font-weight: bold;
+    }   
+.xmlvalue {
+    font-weight: bold;
+    color: black;
+}

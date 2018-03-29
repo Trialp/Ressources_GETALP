@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Меню</title>
+    <script type="text/javascript">
+    
+        //
+        function addOrRemoveCriterion(caller, action) {
+            document.getElementById('Action').value = action + caller;
+            document.getElementById(&quot;SearchForm&quot;).submit();
+        }
+
+    </script>
+  </head>
+  <body>
+   <script type="text/javascript">
+                     </script>
+    <div id="AdvancedSearchForm" lang="ru" xml:lang="ru">
+      <form id="SearchForm" action="">
+        <div style="display:block; padding:5px;">
+		<input type="hidden" name="action" id="actionJS" value="advancedLookup" />
+          <table border="0" cellpadding="0" cellspacing="0" summary="Форма поиска" width="100%">
+            <tr valign="top">
+              <td>
+                <div id="DictionarySelection" style="padding:5px; ">
+                  <b>Искать в:</b>
+                  <br/>
+                  <!-- MULTIPLE VALUES: TARGETS, DICTIONARIES -->
+                  <select id="Dictionaries" name="DICTIONARIES" multiple="multiple">
+                    <option id="dictionaryTmpl" label="All dictionaries" value="*All*">Все словари</option>
+                  </select>
+				   <select style="display:none;" id="Volumes" name="VOLUMES" multiple="multiple">
+                    <option id="volumeTmpl" label="All volumes" value="*All*">Все тома</option>
+                  </select>
+                </div>
+              </td>
+              <td>
+                <div id="CriteriaZone" style=" padding:5px;">
+                <!-- ADVANCEDQUERYFORM SCRIPT  -->
+                <!-- script src="javascript/AdvancedQueryFormAjax.js" type="text/javascript"></script-->
+                  
+                  <b>где:</b>
+                  <br/>
+                    <table id="tableShowHideElement" style="display: none;">
+                        <tr id="rowShowHideTemplate"><td>cdm-headword</td></tr>
+                    </table>
+                  <input type="hidden" id="NumberOfCriteria" name="CRITERIA_NB"/>
+                  <div id="criterion" style="display:block; margin-left: 10px;">
+                    <img id="minus" onclick="addOrRemoveCriterion(this.id, '-');" src="media/minus.jpg" alt="-" width="15"/>
+                    <img id="plus" onclick="addOrRemoveCriterion(this.id, '+');" src="media/plus.jpg" alt="+" width="15"/>
+                    <select id="Facet" name="FACET" onchange="hideOrNotSourceLang(value, name);">
+                      <option value="cdm-headword" label="Headword">Заглавное слово</option>
+                      <option value="cdm-headword-variant" label="Variant">Вариант</option>
+                      <option value="cdm-writing" label="Writing">Написание</option>
+                      <option value="cdm-pos" label="POS">Часть речи</option>
+                      <option value="cdm-example" label="Example">Пример</option>
+                      <!--option value="cdm-definition" label="Definition">Definition</option-->
+                      <option value="cdm-contribution-author" label="Created by">Автор</option>
+                      <option value="cdm-contribution-creation-date" label="At (yyyy/mm/dd)">(гггг/мм/дд)</option>
+                      <option value="cdm-modification-author" label="Modified by">Редактор</option>
+
+                      <option value="cdm-modification-date" label="At (yyyy/mm/dd)">(гггг/мм/дд)</option>
+                      <option value="cdm-contribution-status" label="Status">Статус</option>
+                      <option value="cdm-entry-id" label="Entry id">ID статьи</option>
+                      <option value="cdm-contribution-id" label="Contrib id">ID изменения</option>
+                      <option value="cdm-contribution-group" label="Level">Уровень</option>
+                    </select>
+                    <select id="Operator" name="OPERATOR">
+                      <option value="0" label="is">соответствует</option>
+                      <option value="2" label="like">похоже на</option>
+                      <option value="6" label="starts with">начинается на</option>
+                      <!--option value="5" label="ends with">ends with</option>
+                      <option value="4" label="contains">contains</option-->
+                      <option value="10" label="greater than">больше чем</option>
+                      <option value="11" label="lower than">меньше чем</option>
+                    </select>
+                    <input type="text" id="ValueField" name="FACETVALUE" size="14" maxlength="128"/>
+                    <span style="visibility: visible;">
+                        <!--
+                        <label id="SourceLangLabel" for="SourceLang" accesskey="i" >
+                        <span class="accesskey">I</span>n:</label>
+                        -->
+                        <select id="SourceLang" name="SOURCE">
+                            <option id="SourceOptionTemplate" value="NONE" label="NONE">НЕ УКАЗАНО</option>
+                            <option value="All" label="All">Все</option>
+                        </select>
+                    </span>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div id="TargetLanguagesSelection" style="padding: 5px">
+                  <b>Языки перевода:</b><br/>
+                  <select id="Targets" name="TARGETS" multiple="multiple">
+                    <option id="TargetTmpl" label="All languages" value="*All*">Все</option>
+                  </select>
+                </div>
+				<input id="LIMIT" name="LIMIT" type="hidden" />
+              </td>
+                <td>
+                    <div id="QuickLink" class="quick_search">
+                        <b>Быстрый поиск:</b><br/> <a id="MyFinishedContributions" class="quick_link" href="">Мои готовые изменения</a><br/> <a id="MyNotFinishedContributions" class="quick_link" href="">Мои незавершенные изменения</a>
+                    </div>
+                </td>
+            </tr>
+          </table>
+          </div>
+          <div style="display:block; padding: 5px;">
+            <b>Показывать</b>
+            <select id="LIMITSelect" name="LIMIT">
+              <option label="10" value="10">10</option>
+              <option label="20" value="20">20</option>
+              <option label="50" value="50">50</option>
+              <option label="100" value="100">100</option>
+              <!--option label="all" value="0">all</option-->
+            </select>
+            <b>результатов на странице, используя форму:</b>
+            <select id="Xsl" name="XSL">
+              <option label="Default" value="">Стандарт</option>
+              <option id="XslTmpl" label="Default" value="">Стандарт</option>
+            </select>
+            <input type="hidden" id="Offset" name="OFFSET"/>
+            <input type="hidden" id="Action" name="ACTION" value=""/>
+            <input type="submit" value="Найти"/>
+          </div>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="fr" xml:lang="fr">
+<h1>Profil de <span id="UserName">Name</span></h1>
+<table width="600" border="0" cellspacing="0" cellpadding="10" summary="Credits">
+<tr>
+    <td><b>Crédits :</b></td>     
+    <td><span id="Credits">Credits</span></td>
+</tr>
+</table>
+<form  action="UserProfile.po" method="post">
+<!-- change password -->
+<table width="600" border="0" cellspacing="0" cellpadding="10" summary="ChangePassword">
+<tr>	
+	<th colspan="2"><h3>Liste des groupes</h3></th>
+</tr>
+<tr>
+    <td><b>Groupes :</b></td>     
+    <td><span id="GroupList">Groupes</span></td>
+</tr>
+<tr>	
+	<th colspan="2"><h3>Changer le mot de passe</h3></th>
+</tr>
+<tr>
+    <td><b>Login&nbsp;:</b></td>     
+    <td><span id="CPLogin">Login</span></td>
+</tr>
+<tr>
+    <td><b><label for="CPPassword">Mot de passe actuel&nbsp;:</label></b></td>     
+    <td><input id="CPPassword" name="CPPassword" type="password" size="10" value=""/></td>
+</tr>
+<tr>
+    <td><b><label for="NewPassword">Nouveau mot de passe&nbsp;:</label></b></td>     
+    <td><input id="NewPassword" name="NewPassword" type="password" size="10" value=""/></td>
+</tr>
+<tr>
+    <td><b><label for="NewPassword2">Retaper le nouveau mot de passe&nbsp;:</label></b></td>     
+    <td><input id="NewPassword2" name="NewPassword2" type="password" size="10" value=""/></td>
+</tr>
+<tr>
+	<td colspan="2"><input name="ChangePassword" type="submit" value="Changer"/></td>
+</tr>
+</table>
+</form>
+
+<br/>
+<!-- change mail addresse -->
+<form  action="UserProfile.po" method="post">
+<table width="600" border="0" cellspacing="0" cellpadding="10" summary="ChangeMailAddresse">
+<tr>	
+	<th colspan="2"><h3>Éditer votre nom et courriel</h3></th>
+</tr>
+<tr>
+    <td><b>Login&nbsp;:</b></td>     
+    <td><span id="CELogin">Login</span></td>
+</tr>
+<tr>
+    <td><b><label for="NameInput">Nom&nbsp;:</label></b></td>     
+    <td><input name="Name" id="NameInput" type="text" size="30" value="Nom"/></td>
+</tr>
+<tr>
+    <td><b><label for="EmailInput">Courriel&nbsp;:</label></b></td>     
+    <td><input name="Email" id="EmailInput" type="text" size="30" value="Email"/></td>
+</tr>
+<tr>
+	<td colspan="2"><input name="ChangeEmail" type="submit" value="Changer"/></td>
+</tr>
+</table>
+</form>
+
+<!-- add user in group -->
+<form  action="UserProfile.po" method="post">
+<table width="600" border="0" cellspacing="0" cellpadding="10" summary="AddGroup">
+<tr>	
+	<th colspan="2">Rejoindre ou quitter un groupe</th>
+</tr>
+<tr>	
+    <td><b>Login&nbsp;:</b></td>
+    <td><span id="AGLogin">Login</span></td>
+</tr>
+<tr>
+    <td><b><label for="Group">Groupe&nbsp;:</label></b></td>     
+    <td>
+	<select id="Group" name="Group">
+		<option id="GroupOptionTemplate" value="group name" label="group name">Nom du groupe</option>
+	</select>
+	</td>
+</tr>
+<tr>
+    <td><b><label for="GroupPassword">Mot de passe du groupe&nbsp;:</label></b></td>     
+    <td><input id="GroupPassword" name="GroupPassword" type="password" size="10" value=""/></td>
+</tr>
+<tr>
+	<td><input name="AddGroup" type="submit" value="Rejoindre"/></td>
+	<td><input name="DelGroup" type="submit" value="Quitter"/></td>
+</tr>
+</table>
+</form>
+
+<!-- delete existing user -->
+<form  action="UserProfile.po" method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer l&quot;utilisateur ?')">
+<table width="600" border="0" cellspacing="0" cellpadding="10" summary="DeleteUser">
+<tr>	
+	<th colspan="2">Détruire son profil</th>
+</tr>
+<tr>	
+    <td><b>Login&nbsp;:</b></td>
+    <td><span id="DLogin">Login</span></td>
+</tr>
+<tr>
+    <td><b><label for="DPassword">Mot de passe&nbsp;:</label></b></td>     
+    <td><input id="DPassword" name="DPassword" type="password" size="10" value=""/></td>
+</tr>
+<tr>
+	<td colspan="2"><input name="Delete" type="submit" value="Détruire"/></td>
+</tr>
+</table>
+</form>
+</div>
+</body>
+</html>
+
+
+

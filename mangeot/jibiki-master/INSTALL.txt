@@ -1,0 +1,78 @@
+#!/bin/sh
+
+## short install needs:
+#- jdk1.4 -> jdk1.8
+#- postgres8.1 -> postgres9.0
+#- postgresql-jdbc
+# see below for apt-get install
+#- toolsforjibiki
+svn checkout svn://svn.ligforge.imag.fr/var/lib/gforge/chroot/scmrepos/svn/toolsforjibiki/
+
+## for a longer version, see toolsforjibiki/INSTALL_Tools_For_Jibiki.html
+## for jdk1.5 version or newer:
+#Replace the xmlc.jar located in enhydra5.1/lib directory with the new xmlc.jar
+# located in xmlc-2.2.13/lib/ dir, see below.
+#Add the xalan.jar in the enhydra ant classpath (after the ./configure)
+# see below.
+cd toolsforjibiki
+#sudo apt-get install libpostgresql-jdbc-java
+installdir=$(pwd)
+for file in *.tar.gz; do tar -zxf $file; done
+cd enhydra5.1
+sudo ./configure -Djdk.dir=/usr
+## for jdk1.5 or newer:
+sudo chmod 755 bin/ant
+# vi bin/ant
+## add xalan-j_2_4_1/bin/xalan.jar before enhydra classpath 
+sed -i '' "s#CLASSPATH=#CLASSPATH=$installdir/xalan-j_2_4_1/bin/xalan.jar:#" bin/ant
+### if you install xalan-j_2_7_0/xalan.jar instead of 2_4_0
+### you will have problems in dods egen generation with messages like: [ejen] SystemId Unknown; Line #29; Column #42; Empty expression!
+### I could not locate the errors, probably in some XML files...
+## for jdk1.7 or newer on MacOs:
+## add the path to the tools.jar in the lib dir of the jdk before enhydra classpath 
+### mine is: /Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home/lib/tools.jar
+### tools=$(locate /tools.jar)
+### sed -i '' "s#CLASSPATH=#CLASSPATH=$tools:#" bin/ant
+sudo cp ../xmlc-2.2.13/lib/xmlc.jar lib/.
+chmod -R 777 dods/build/template/standard/*
+sudo chmod 777 dods/build/dods.properties
+cd ../..
+cp papillon.properties.in papillon.properties
+sed -i '' "s#%TOOLSFORJIBIKI_DIR%#$installdir#" papillon.properties
+# vi papillon.properties
+## for compiling with observateur tracing API
+# ./toolsforjibiki/enhydra5.1/bin/ant make -Dcompile.to.version=trace
+cp sites.conf.in sites.conf
+export LC_ALL=en_US.UTF-8
+./toolsforjibiki/enhydra5.1/bin/ant make
+sudo -u postgres psql template1 -f src/sql/create_papillon_user.sql
+sudo -u postgres psql template1 papillon -h localhost -f src/sql/create_papillon_database.sql
+sudo -u postgres psql papillon papillon -h localhost -f src/sql/multilingual-sort.sql
+sudo -u postgres psql papillon papillon -h localhost -f build/Dods_Generated_Sources/static/SQLcreate.sql
+# with postgres9.3 or superior, you may need to load twice the create script
+# because the table informationfile is not created the first time.
+# It seems that the tables are not loaded in the order they are written...
+sudo -u postgres psql papillon papillon -h localhost -f build/Dods_Generated_Sources/static/SQLcreate.sql
+cd output
+./run --debug --exec
+## for compiling only java classes
+# ./toolsforjibiki/enhydra5.1/bin/ant quick
+## for compiling with observateur tracing API
+# ./toolsforjibiki/enhydra5.1/bin/ant quick -Dcompile.to.version=trace
+
+open http://localhost:8999
+# register, login and add yourself in group admin (see admin password in papillon.properties)
+open http://localhost:8999/Register.po
+open http://localhost:8999/UserProfile.po
+
+# upload default stylesheets
+open http://localhost:8999/AdminXsl.po
+# load file:///{jibiki.dir}/src/fr/imag/clips/papillon/resources/xsl/XML-view.xsl
+# load file:///{jibiki.dir}/src/fr/imag/clips/papillon/resources/xsl/TEXT-view.xsl
+# load file:///{jibiki.dir}/src/fr/imag/clips/papillon/resources/xsl/FormatingObject-view.xsl
+
+#For http redirection on standard 80 port, add the following lines 
+# in the /etc/apache2/sites-enabled/default.conf file:
+#        ProxyPass /jibiki http://localhost:8999
+#        ProxyPassReverse /jibiki http://localhost:8999
+

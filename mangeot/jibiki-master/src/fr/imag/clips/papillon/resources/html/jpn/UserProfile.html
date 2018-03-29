@@ -1,0 +1,111 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.0 TRANSITIONAL//EN">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="ja">
+<h1 align="center"><span id="UserName">Name</span>プロファイル</h1>
+<FORM ACTION="UserProfile.po" METHOD="POST">
+<!-- change password -->
+<table WIDTH="600" BORDER="0" CELLSPACING="0" CELLPADDING="10" Summary="Changeパスワード">
+<TR>	
+	<TH COLSPAN="2"><h3>パスワードの変更</h3></TH>
+</TR>
+<TR>
+    <TD><B>ログイン：</B></TD>     
+    <TD><SPAN ID="CPLogin">ログイン</SPAN></TD>
+</TR>
+<TR>
+    <TD><B><label for="CPPassword">現在のパスワード：</label></B></TD>     
+    <TD><INPUT ID="CPPassword" NAME="CPPassword" TYPE="password" SIZE="10" VALUE=""></TD>
+</TR>
+<TR>
+    <TD><B><label for="NewPassword">新しいパスワード:</label></B></TD>     
+    <TD><INPUT ID="NewPassword" NAME="NewPassword" TYPE="password" SIZE="10" VALUE=""></TD>
+</TR>
+<TR>
+    <TD><B><label for="NewPassword2">新しいパスワードの確認：</label></B></TD>     
+    <TD><INPUT ID="NewPassword2" NAME="NewPassword2" TYPE="password" SIZE="10" VALUE=""></TD>
+</TR>
+<TR>
+	<TD COLSPAN="2"><INPUT NAME="ChangePassword" TYPE="submit" VALUE="変更"></TD>
+</TR>
+</TABLE>
+</FORM>
+<HR>
+<BR>
+<!-- change mail addresse -->
+<FORM name="ChangeEmail" ACTION="UserProfile.po" METHOD="POST">
+<table WIDTH="600" BORDER="0" CELLSPACING="0" CELLPADDING="10" Summary="ChangeMailAddresse">
+<TR>	
+	<TH COLSPAN="2"><h3>名前とメールの編集</h3></TH>
+</TR>
+<TR>
+    <TD><B>ログイン：</B></TD>     
+    <TD><SPAN ID="CELogin">ログイン</SPAN></TD>
+</TR>
+<TR>
+    <TD><B><label for="NameInput">名前：</label></B></TD>     
+    <TD><INPUT NAME="Name" ID="NameInput" TYPE="text" SIZE="30" VALUE="Name"></TD>
+</TR>
+<TR>
+    <TD><B><label for="EmailInput">メール：</label></B></TD>     
+    <TD><INPUT NAME="Email" ID="EmailInput" TYPE="text" SIZE="30" VALUE="Email"></TD>
+</TR>
+<TR>
+	<TD COLSPAN="2"><INPUT NAME="ChangeEmail" TYPE="submit" VALUE="変更"></TD>
+</TR>
+</TABLE>
+</FORM>
+<HR>
+<!-- add user in group -->
+<FORM name="AddInGroup" ACTION="UserProfile.po" METHOD="POST">
+<table WIDTH="600" BORDER="0" CELLSPACING="0" CELLPADDING="10" Summary="AddGroup">
+<TR>	
+	<TH colspan="2">グループでのユーザ加入</TH>
+</TR>
+<TR>	
+    <TD><B>ログイン：</B></TD>
+    <TD><SPAN ID="AGLogin">ログイン</SPAN></TD>
+</TR>
+<TR>
+    <TD><B><label for="Group">グループ：</label></B></TD>     
+    <TD><INPUT ID="Group" NAME="Group" TYPE="text" SIZE="10" VALUE=""></TD>
+</TR>
+<TR>
+    <TD><B><label for="GroupPassword">グループパスワード：</label></B></TD>     
+    <TD><INPUT ID="GroupPassword" NAME="GroupPassword" TYPE="password" SIZE="10" VALUE=""></TD>
+</TR>
+<TR>
+	<TD COLSPAN="2"><INPUT NAME="AddGroup" TYPE="submit" VALUE="加入"></TD>
+</TR>
+</TABLE>
+</FORM>
+<HR>
+<!-- delete existing user -->
+<FORM name="DeleteUser" ACTION="UserProfile.po" METHOD="POST" onsubmit="return confirm('Are you sure you want to delete the user?')">
+<table WIDTH="600" BORDER="0" CELLSPACING="0" CELLPADDING="10" Summary="DeleteUser">
+<TR>	
+	<TH  colspan="2">現在のユーザのデリート</TH>
+</TR>
+<TR>	
+    <TD><B>ログイン：</B></TD>
+    <TD><SPAN ID="DLogin">ログイン</SPAN></TD>
+</TR>
+<TR>
+    <TD><B><label for="DPassword">パスワード：</label></B></TD>     
+    <TD><INPUT ID="DPassword" NAME="DPassword" TYPE="password" SIZE="10" VALUE=""></TD>
+</TR>
+<TR>
+	<TD COLSPAN="2"><INPUT NAME="Delete" TYPE="submit" VALUE="デリート"></TD>
+</TR>
+</TABLE>
+</FORM>
+</div>
+</body>
+</html>
+
+
+

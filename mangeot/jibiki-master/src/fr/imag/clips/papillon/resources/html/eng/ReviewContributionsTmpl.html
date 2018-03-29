@@ -1,0 +1,88 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.0 TRANSITIONAL//EN">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="en">
+
+<h1 align="center"><span id="UserName">Name</span>'s Contributions Review Interface</h1>
+
+<!-- formulaire de voir mot-->
+<FORM NAME="MainForm" ACTION="ReviewContributions.po" METHOD="GET">
+<table WIDTH="600" BORDER="0" CELLSPACING="0" CELLPADDING="10" Summary="Formulaire">
+<TR>
+     <!-- Warning, make sure the option element contains a Text and only a Text (no other child) -->
+	<TD><b><label for="VOLUME">Volume:</label></b><br>
+	   <SELECT ID="VOLUME" NAME="VOLUME">
+            <OPTION ID="VolumeOptionTemplate" VALUE="NONE" LABEL="NONE">NONE</OPTION>
+        </SELECT>
+	<br>
+		<input id="LOOKUP" name="LOOKUP" type="Submit" value="Lookup">
+		</TD>
+	<TD><label for="AUTHOR">Author:</label><br>
+		<input ID="AUTHOR" name="AUTHOR" size="12" type="text">
+     </TD>
+	<TD><label for="HEADWORD">Headword:</label><br>
+	<input id="HEADWORD" name="HEADWORD" size="12" type="text" value="">
+	<label for="PartialMatch">
+	<INPUT id="PartialMatch" name="PartialMatch" type="checkbox" value="PartialMatch">
+	<font size="2">Substring</font></label>
+     </TD>
+	<TD><label for="STATUS">Status:</label><br>
+	<select id="STATUS" name="STATUS">
+		<option value="*ALL*" label="tous">all</option>
+		<option value="not finished" label="not finished">not finished</option>
+		<option value="finished" label="finished">finished</option>
+		<option value="revised" label="revised">revised</option>
+		<!--option value="validated" label="validees">validées</option-->
+    </select>
+     </TD>
+	<TD><label for="REVISOR">Revisor:</label><br>
+		<input id="REVISOR" name="REVISOR" size="12" type="text">
+     </TD>
+</TR>
+</TABLE>
+</FORM>
+<hr>
+<h2>View the <span id="ContributionsCount">0</span> contributions</h2>
+<table id="ContribList" width="100%" frame="hsides"  border="0" summary="entries" bgcolor="#faecc9">
+  <tr>
+   <th><a id="VolumeHeaderAnchor" href="ReviewContributions.po?SortBy=volume">Volume</a></th>
+   <th><a id="AuthorHeaderAnchor" href="ReviewContributions.po?SortBy=author">Author</a></th>
+   <th><a id="HeadwordHeaderAnchor" href="ReviewContributions.po?SortBy=headword">View</a></th>
+   <th><a id="CreationdateHeaderAnchor" href="ReviewContributions.po?SortBy=creationdate">Creation</a></th>
+   <th><a id="StatusHeaderAnchor" href="ReviewContributions.po?SortBy=status">Status</a></th>
+   <th>XML</th>
+   <th>Edit</th>
+   <th>Remove</th>
+   <th><a id="ReviewerHeaderAnchor" href="ReviewContributions.po?SortBy=reviewer">Reviewer</a></th>
+   <th><a id="ReviewdateHeaderAnchor" href="ReviewContributions.po?SortBy=reviewdate">Review</a></th>
+   <th>Action</th>
+  </tr>
+  <tr id="EntryListRow">
+    <td><span Id="VolumeName">Volume</span></td>
+    <td><span Id="Author">Author</span></td>
+    <td><A HREF="" id="ViewContribAnchor"><SPAN id="ViewContribText">Contrib</SPAN></A></td>
+    <td><span Id="CreationDate">date</span></td>
+    <td><span id="Status">Status</span></td>
+    <td><A HREF="" id="ViewXmlAnchor">View</A></td>
+    <td><A HREF="" id="EditContribAnchor"><span id="EditMessage">Edit</span></A></td>
+    <td><A HREF="" id="RemoveContribAnchor"  onClick="return confirm('Are you sure you want to remove the contribution?')"><span id="RemoveMessage">Remove</span></A></td>
+    <td><span id="Reviewer">Reviewer</span></td>
+    <td><span id="ReviewDate">ReviewDate</span></td>
+    <td><A HREF="" class="hidden" id="ReviseContribAnchor">Revise</A>
+		<A HREF="" class="hidden" id="ValidateContribAnchor">Validate</A>
+		<A HREF="" class="hidden" id="IntegrateContribAnchor">Integrate</A></td>
+  </tr>
+</table>
+<table id="Contributions" width="100%" frame="hsides"  border="0" summary="dicocontent"  bgcolor="#faecc9">       
+<tr id="EntryRow">
+    <td id="EntryCell" valign="top" width="100%"></td>        
+</tr>
+</table>
+
+</div>
+</body>
+</html>

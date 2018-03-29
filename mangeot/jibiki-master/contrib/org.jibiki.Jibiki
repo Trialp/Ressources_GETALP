@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>org.jibiki.Jibiki</string>
+  <key>UserName</key>
+  <string>jibiki</string>
+  <key>Program</key>
+  <string>/Users/jibiki/jibiki1.7/output/run</string>
+  <key>ProgramArguments</key>
+  <array>
+	<string>run</string>
+	<string>--debug</string>
+	<string>--exec</string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>Debug</key>
+  <false/>
+  <key>AbandonProcessGroup</key>
+  <false/>
+  <key>StandardErrorPath</key>
+  <string>/Users/jibiki/jibiki1.7/output/jibikierror.log</string>
+  <key>StandardOutPath</key>
+  <string>/Users/jibiki/jibiki1.7/output/jibikiout.log</string>
+</dict>
+</plist>

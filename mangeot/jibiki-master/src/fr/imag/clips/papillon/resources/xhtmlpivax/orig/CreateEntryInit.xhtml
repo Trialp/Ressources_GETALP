@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title>Edition of Papillon Lexical Database</title>
+</head>
+<body>
+    <div id="EditEntryInitContent" xml:lang="en" lang="en"> 
+        <h1 class="title"><span id="UserName">Name</span> creation interface</h1>
+         <script id="InitJavascript" type="text/javascript">
+            <!-- 
+                // Open a new interface window to create the new entry 
+                function init() {
+                    if (document.getElementById('GO').value == 'go') {
+                        var volumeanyway = document.getElementById('VOLUME_ANYWAY');
+                        var headwordanyway = document.getElementById('HEADWORD_ANYWAY');
+                        var href = 'CreateEntryInit.po?action=createAnyway&volumeanyway=' + encodeURI(volumeanyway.value) + '&headwordanyway=' +  encodeURI(headwordanyway.value);
+                        window.open(href,'EditEntry');
+                    }
+                }
+                
+                 // Open a new interface window to create the new entry 
+                function createAnyway() {
+                    var volumeanyway = document.getElementById('VOLUME_ANYWAY');
+                    var headwordanyway = document.getElementById('HEADWORD_ANYWAY');
+                    var href = 'CreateEntryInit.po?action=showAndCreate&volumeanyway=' + encodeURI(volumeanyway.value) + '&headwordanyway=' +  encodeURI(headwordanyway.value);
+                    location.replace(href,'CreateEntry');
+                }
+
+                function create() {
+                    var actionElement = document.getElementById('action');
+                    var formElement = document.getElementById('LookupForm');
+                    actionElement.value='create';
+                    formElement.submit()
+                }
+            //-->
+        </script>
+        <div style="text-align:center;">
+            <span>ATTENTION: To create an entry, your browser must allow popup windows.</span>
+        </div>
+        
+        <div id="QueryCreateForm" >
+        </div>
+        
+         <div class="hidden">
+            <input id="VOLUME_ANYWAY" name="VOLUME_ANYWAY" type="hidden" value="" />
+            <input id="HEADWORD_ANYWAY" name="HEADWORD_ANYWAY" type="hidden" value="" />
+            <input id="GO" name="GO" type="hidden" value="" />
+        </div>
+        
+         <div id="ShowCreation" style="text-align:center; width:100%; padding: 10px 0px;">
+            <h2>New entry "<span id="HEADWORD_FINAL">HeadwordFinal</span>" create in <span id="VOLUME_FINAL">VolumeFinal</span> volume.</h2>
+        </div>
+        
+        <div class="QueryForm">
+            <div id="CreateAnywayForm" style="text-align:center; width:100%; padding: 10px 0px;">
+                <span>This entry exists. Would you like to create it anyway?<br/></span>
+                <b><label for="VOLUME">Volume:</label></b> 
+                <input id="VOLUME_DISABLED" name="VOLUME_DISABLED" style="width:99px" type="text" disabled="disabled" value="" />
+                <b><label for="ValueField">Term:</label></b> 
+                <input id="HEADWORD_DISABLED" name="HEADWORD_DISABLED" type="text" disabled="disabled" style="width:30%" value="" />
+                <input name="action" id="CreateAnywayButton" type="submit" style="width:110px" value="create anyway" onclick="createAnyway()" />
+            </div>
+            <form  id="LookupForm" method="get" action="CreateEntryInit.po" >
+                <div style="text-align:center; width:100%; padding: 10px 0px;">
+                    <b><label for="VOLUME">Volume:</label></b>           
+                    <select id="VOLUME" name="VOLUME" style="width:100px" >
+                        <option id="VolumeOptionTemplate" value="NONE" label="NONE">NONE</option>
+                    </select>
+                    <b><label for="ValueField">Term:</label></b> 
+                    <input type="hidden" id="Facet" name="FACET.0" value="cdm-headword" />
+                    <input type="hidden" id="Operator" name="OPERATOR.0" value="2" />
+                    <input id="ValueField" name="FACETVALUE.0" type="text" style="width:30%" value="" />
+                    <input type="hidden" id="SourceLang" name="SOURCE.0" value="All" />
+                    <input type="hidden" id="Targets" name="TARGETS" value="*All*" />
+                    <input type="hidden" id="Xsl" name="XSL" value="Default" />
+                    <input type="hidden" id="Limit" name="LIMIT" value="5" />
+                    <input type="hidden" id="Offset" name="OFFSET" />
+                    <input type="hidden" id="action" name="action" />                    
+                    <input id="CreateButton" type="submit" style="width:110px" value="create" onclick="create()"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+

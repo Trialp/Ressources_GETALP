@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="build/Dods_Generated_Sources/dynamic"/>
+	<classpathentry kind="src" path="build/Dods_Generated_Sources/static"/>
+	<classpathentry kind="src" path="build/Generated_Source"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="AntContrib/antcontrib.jar"/>
+	<classpathentry kind="lib" path="output/lib/Papillon.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

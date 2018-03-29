@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <link href="css/motamot.css" rel="StyleSheet" type="text/css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="author" content="Mathieu MANGEOT"/>
+    <meta name="keywords" content="Projet Mot-à-Mot"/>
+    <meta name="description"
+      content="Projet Mot-à-Mot"/>
+    <meta name="generator" content="Enhydra"/>
+    <meta name="robots" content="index, follow"/>
+    <title>Error in jibiki</title>
+    <script type="text/javascript" src="javascript/detect_firefox.js"><!-- // --></script>
+    <link rel="stylesheet" href="css/autocomplete.css" type="text/css" media="screen"/>
+    <script src="javascript/jquery-1.8.0.min.js" type="text/javascript"><!-- // --></script>
+    <script src="javascript/jquery.dimensions.js" type="text/javascript"><!-- // --></script>
+    <script src="javascript/autocomplete.js" type="text/javascript"><!-- // --></script>
+    <script src="javascript/functions.js" type="text/javascript"><!-- // --></script>
+    <script type="text/javascript">
+	<!--
+        //
+            $(document).ready(function(){
+	    setAutoComplete('ValueField', 'SourceLang', 'results', 
+                'JSONHeadwordList.po', 'headword=', 'lang=');
+	});
+    //-->
+    </script>
+    <script id="Script" type="text/javascript">
+       <!--
+        //
+        function init() {
+        
+            //// Launch ajax function to get select elements depending on cdm elements
+            
+            // Get all select elements
+            var selectCollection = document.getElementsByTagName('select');
+            for(var i=0; i < selectCollection.length; i++){
+                
+                // Launch ajax function only for select cdm element (name=FACET.*)
+                if (selectCollection[i].name.match(/FACET\./)) {
+                    getSelector(selectCollection[i].value, selectCollection[i].name);
+                }
+            }
+            
+        }
+        //-->
+    </script>
+  </head>
+  <body onload="javascript:init();">
+  <div id="Content">
+<h2>Error in Jibiki</h2>
+<p>This Presentation Object named ErrorHandler.po will catch any uncaught exceptions
+by default. This allows you to present a consistent user message on an HTML page
+when you catch an exception at run-time. This page chooses to show a stack trace for
+information. You could code a friendlier message if you desired.</p>
+<h2>Error Message:</h2>
+<p>
+<span id="ErrorMessage">Error Message Goes Here</span>
+</p>
+<h2>Stack Trace:</h2>
+<pre>
+<span id="StackTrace">Stack Trace Goes Here</span>
+</pre>
+<p>
+Go back to the <a href="Home.po">login page</a>
+</p>
+</div>
+</body>
+</html>

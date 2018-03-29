@@ -1,0 +1,68 @@
+<HTML>
+<HEAD>
+<TITLE>Papillon's mailing list</TITLE>
+</HEAD>
+<BODY>
+<DIV id="Discussion" lang="ja">
+<FORM ACTION="MailingList.po" METHOD="GET">
+<INPUT TYPE="HIDDEN" NAME="limit" VALUE="" ID="CurrentLimit">
+<INPUT TYPE="HIDDEN" NAME="offset" VALUE="" ID="CurrentOffset">
+<table WIDTH="100%" border="1" bordercolor="white" bgcolor="#eeeecc" summary="Search form">
+<TR>
+<TD bgcolor="#4682b4"><font  color="#ffffff">送り主</font></TD>
+<TD bgcolor="#4682b4"><font  color="#ffffff">件名</font></TD>
+<TD bgcolor="#4682b4"><font  color="#ffffff">メッセージ</font></TD>
+</TR>
+<TR>
+<TD><INPUT NAME="authorcontains" TYPE="text" SIZE="23" VALUE="" ID="AuthorContains"></TD>
+<TD><INPUT NAME="subjectcontains" TYPE="text" SIZE="23" VALUE="" ID="SubjectContains"></TD>
+<TD><INPUT NAME="messagecontains" TYPE="text" SIZE="23" VALUE="" ID="MessageContains"></TD>
+</TR>
+<TR><TD COLSPAN="3">が含まれているメールを見つけて下さい</TD></TR>
+<TR>
+<TD>
+<SELECT Name="sort">
+  <OPTION Label="date" Value="date" Id="SortByDate">日にち</OPTION>
+  <OPTION Label="author" Value="author" Id="SortByAuthor">送り主</OPTION>
+  <OPTION Label="subject" Value="subject" Id="SortBySubject">件名</OPTION></SELECT>
+	で分類する
+</TD>
+<TD COLSPAN="2">
+<INPUT VALUE="Go" TYPE="submit">
+</TD>
+</TR>
+</table>
+<table width="100%" summary=""><tr><td align="left">
+送り主のアドレスを調べるには<img alt="@" src="media/arobas.png" height="15">ボタンをクリックして下さい。
+</td>
+<td ALIGN="right">
+<INPUT ID="ButtonPrevious" VALUE="previous" TYPE="image" name="previous" src="media/previous.gif" alt="previous messages" height="15" VALIGN="MIDDLE">
+<SPAN id="messageRange">0-0</SPAN>
+<INPUT ID="ButtonNext" VALUE="next" TYPE="image" name="next" src="media/next.gif" alt="next messages" height="15" VALIGN="MIDDLE">
+</td></tr></table>
+</form>
+<table WIDTH="100%" frame="hsides"  border="0" bordercolor="white" summary="messages">
+  <tr height="35" class="headerRow">
+    <th><b>日にち</b></th>
+    <th colspan="2"><b>送り主</b></th>
+    <th><b>件名</b></th>
+    <th><b>答え</b></th>
+  </tr>
+  <tr id="TemplateRow" class="cellRow">
+    <td><span id="Date">date</span></td>
+    <td><SPAN id="Author">Author</SPAN></td>
+    <td>
+    <FORM method="POST">
+    <INPUT TYPE="image" SRC="media/arobas.png" height="15" id="AuthorInput" value="" name="" 
+           onClick="alert( this.name + '@' + this.value);return false;">
+    </FORM></td>
+    <td><A HREF="" id="SubjectAnchor"><SPAN id="Subject">Subject</SPAN></A></td>
+    <td><A HREF="" id="ThreadAnchor"><SPAN id="Threads">0</SPAN></A></td>
+  </tr>
+</table>
+
+</DIV>
+</BODY>
+
+</HTML>
+

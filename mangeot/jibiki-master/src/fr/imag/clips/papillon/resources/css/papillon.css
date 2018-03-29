@@ -1,0 +1,603 @@
+/*
+ * Stylesheet for Papillon Web site 
+ *
+ * Style sheet for the HTML 4.0 specification
+ * $Id$
+ * ---------------------------------------------------
+ * $Log$
+ * Revision 1.3  2005/04/11 08:01:02  fbrunet
+ * Passage en xhtml des ressources Papillon.
+ *
+ * Revision 1.2  2004/12/24 08:57:44  serasset
+ * Premiere version de l'interface avec fond papillon et transparence.
+ *
+ * Revision 1.1.1.1  2004/12/06 16:38:42  serasset
+ * Papillon for enhydra 5.1. This version compiles and starts with enhydra 5.1.
+ * There are still bugs in the code.
+ *
+ * Revision 1.19  2004/10/28 11:02:27  mangeot
+ * *** empty log message ***
+ *
+ * Revision 1.18  2004/02/16 08:52:45  mangeot
+ * expiration de session
+ *
+ * Revision 1.17  2004/02/10 05:27:16  mangeot
+ * The version UIGEN_V2 has been merged with the trunk by MM
+ * Be careful because the Volumes and contributions database tables have been modified.
+ * You have to drop and rebuild them unless you modify them by hands.
+ *
+ * Revision 1.16.2.2  2004/01/24 04:35:02  mangeot
+ * Added accesskey for the main lookup form. Beware, it can interfere with the built-in browser accesskeys!
+ *
+ * Revision 1.16.2.1  2004/01/13 05:17:07  mangeot
+ * *** empty log message ***
+ *
+ * Revision 1.16  2003/11/11 06:19:51  mangeot
+ * *** empty log message ***
+ *
+ * Revision 1.15  2003/09/16 08:45:11  mangeot
+ * *** empty log message ***
+ *
+ * Revision 1.14  2003/09/16 08:42:16  mangeot
+ * *** empty log message ***
+ *
+ * Revision 1.13  2003/08/30 02:52:18  mangeot
+ * Added the lang attribute
+ *
+ * Revision 1.12  2003/08/26 07:05:29  mangeot
+ * *** empty log message ***
+ *
+ * Revision 1.11  2003/08/23 07:44:32  mangeot
+ * *** empty log message ***
+ *
+ * Revision 1.10  2003/08/22 07:02:38  mangeot
+ * *** empty log message ***
+ *
+ * Revision 1.9  2003/08/20 08:15:39  mangeot
+ * *** empty log message ***
+ *
+ * Revision 1.8  2003/08/14 08:34:57  mangeot
+ * *** empty log message ***
+ *
+ *
+ * Revision 1.2  2002/01/30 14:54:59  serasset
+ * Home page does not use <center> anymore (not part of HTML 4.0), but uses a css with the same effect.
+ *
+ * Revision 1.1  2001/12/18 13:40:56  serasset
+ * Setting up a basic CSS style sheet for Papillon pages.
+ *
+ * ---------------------------------------------------
+ *
+ * do not write .css at the top of the file
+ * do not write font-size : 12 pt; but : 1em or : 100%;
+ * do not write div.foo_one but div.foo-one even if _ is in the tag
+ *
+ * for font size, use pixels px instead of pt or em.
+ * 
+ * use span instead of div
+ */
+ 
+@media aural { 
+	span.accesskey { pitch : high; }
+	code.markup-example { speak-punctuation : code; }
+	h1 { stress: 25; richness: 90; }
+	h2 { stress: 20; richness: 90; }
+}
+
+/*@media print {}*/
+
+/*@media screen {}*/
+
+/* Header part of the page */
+div.headerBlock {
+   text-align: center;
+   font-weight: bold;
+   font-size: 100%;
+}
+
+div.headerBlock a:link {
+   background: #fff;
+   color: #048;
+}
+
+div.headerBlock a:visited {
+   background: #fff;
+   color: #636;
+}
+
+div.headerBlock a:active {
+   background: #ffc;
+   color: #048;
+   text-decoration: none;
+}
+
+div.headerBlock a:hover {
+   background: #ffc;
+   color: #900;
+   text-decoration: none;
+}
+
+/* MenuBlock part of the page */
+div.menuBlock {
+   text-align: left;
+   font-size: 80%;
+}
+
+div.menuBlock a:link {
+   background: #fff;
+   color: #048;
+}
+
+div.menuBlock a:visited {
+   background: #fff;
+   color: #636;
+}
+
+div.menuBlock a:active {
+   background: #ffc;
+   color: #048;
+   text-decoration: none;
+}
+
+div.menuBlock a:hover {
+   background: #ffc;
+   color: #900;
+   text-decoration: none;
+}
+
+
+/* styles for table cells */
+.headerRow	{ background: #4682b4; 
+                  color: #ffffff; }
+.cellRow	{ background: #eeeecc; 
+                  color: #000000; }
+
+/* Message administratif aux utilisateurs... */
+pre.adminMessage {
+    font-size: 1.5em;
+    color: #ff0000;
+    background: #DFDFDF;
+}
+
+/* Message aux utilisateurs... */
+pre.userMessage {
+    color: #ff0000;
+    background: #DFDFDF;
+}
+
+/* General */
+body {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+h1 {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+}
+
+p.standard {
+    text-align: justify;
+}
+
+.accesskey {text-decoration: underline; }
+
+.copyright {text-align:right; font-size: 11px;}
+
+.gray {
+	color:  gray;
+}
+.hidden {
+	display: none;
+}
+
+.note {
+	color:  red;
+}
+
+
+/* Links general */
+A:link {
+	text-decoration: none; 
+	color: blue;
+	}
+A:visited {
+	text-decoration: none; 
+	color: blue;
+	}
+A:active {
+	text-decoration: none; 
+	color: blue;
+	}
+A:hover {
+	text-decoration: underline; 
+	color: blue;
+	}
+
+
+
+/* For DEC-like entries */
+.actor {
+	color: #00C6FF;
+}
+
+.separator {
+	font-wheight : bold;
+	color : #69FF69; 
+
+}
+.comment {
+	font-style : italic;
+	color :  #BEBEBE;
+}
+.space {
+	color: #faecc9;
+/*	background: white; */
+	}
+
+
+/* Language Styles */
+
+/* The lang attribute with CSS2 :lang function */
+:lang(ar)       {font-family: "Traditional Arabic", serif; font-size: 1.2em;}
+:lang(zh-Hant)  {font-family: PMingLiU,MingLiU, serif;}
+:lang(zh-Hans)  {font-family: SimSum-18030;SimHei, serif;}
+:lang(din)      {font-family: "Doulos SIL", serif;} 
+
+/* The lang attribute with lang|= selector */
+*[lang|="ar"]   {font-family: "Traditional Arabic", serif; font-size: 1.2em;}
+*[lang|="zh-Hant"]      {font-family: PMingLiU,MingLiU, serif;}
+*[lang|="zh-Hans"]      {font-family: SimSum-18030;SimHei, serif;}
+*[lang|="din"]  {font-family: "Doulos SIL", serif;} 
+
+/* The ISO-639-2/T 3 letter codes */
+
+.deu	{
+	font-family: sans-serif;
+	color: #993399;
+	}
+
+.eng	{
+	font-family: "Arial", sans-serif;
+	color: #006600;
+ 
+	}
+
+.esp	{
+	font-family: sans-serif;
+	color: #FF9900;
+	}
+
+.est	{
+	font-family: sans-serif;
+	color: #FF9911;
+	}
+
+
+.fra	{
+	font-family: "Helvetica", sans-serif;
+	color: #3366FF;
+	}
+
+.hun	{
+	font-family: sans-serif;
+	color: #660000;
+	}
+
+.ita	{
+	font-family: sans-serif;
+	color: #CC6600;
+	}
+
+.jpn	{
+	/*font-family: "Osaka", sans-serif; */
+	font-family: sans-serif;
+	color: #FF0000;
+	}
+
+.lao	{
+	font-family: sans-serif;
+	color: #FF0099;
+	}
+
+.msa	{
+	font-family: sans-serif;
+	color: #009900;
+	}
+
+.nru {
+    font-family: sans-serif;
+    color: #292D78;
+}
+        
+.rus	{
+	font-family: sans-serif;
+	color: #CC0000;
+	}
+
+.tha	{
+	font-family: sans-serif;
+	color: #6600FF;
+	}
+
+.vie	{
+	font-family: sans-serif;
+	color: #CC9900;
+	}
+	
+.zho, .cnm	{
+	font-family: PMingLiU,MingLiU, serif;
+	color: #000080;
+	}
+	
+.meta	{
+	font-family: sans-serif;
+	color: gray;
+	}
+	
+
+
+/* CDM elements */
+.entry {
+	display: block;
+    margin-left: 12 pt;
+}
+
+.sense {
+	display: block;
+}
+
+.headword {
+	font-weight: bold;
+}
+
+.writing {
+	font-style : normal;
+}
+
+.reading {
+	font-style : normal;
+	font-family: courier;
+}
+
+.pos {
+	font-weight: bold;
+	color: black;
+}
+.pronunciation {
+	font-family: courier;
+	color: black;
+}
+.label	{
+	font-family: sans-serif;
+	color: gray;
+	}
+
+.translations {
+        display: block;
+        margin-left: 30 pt;
+}
+.translation {
+	font-style : normal;
+}
+
+.examples {
+	display: block;
+}
+
+.example {
+	display: block;
+	font-style: italic;
+}
+
+.idioms {
+	display: block;
+}
+
+.idiom {
+	font-style : normal;
+}
+
+/* styles for XML source */
+
+.xmlattribute {
+	color: red;
+	}
+.xmlcar {
+	color: blue;
+	}	
+.xmlcomment {
+	color: gray;
+	}
+.xmlelement {
+	color: maroon;
+	}
+.xmlheader {
+	color: teal;
+	}
+.xmlnsprefix {
+	font-weight: bold;
+	color:#CC9966;					
+        }
+.xmlnsuri {
+	color:#CC9966;					
+        }
+.xmltext {
+	color: black;
+	font-weight: bold;
+	}	
+.xmlvalue {
+	font-weight: bold;
+	color: black;
+	}
+	
+	
+/* Styles for Header links */
+	
+.header A:link {
+	font-size: 13px; 
+	font-weight: bold; 
+	text-decoration: none; 
+	color: #663300;
+	}
+.header A:visited {
+	font-size: 13px; 
+	font-weight: bold; 
+	text-decoration: none; 
+	color: #663300;
+	}
+.header A:active {
+	font-size: 13px; 
+	font-weight: bold; 
+	text-decoration: none; 
+	color: #663300;
+	}
+.header  A:hover {
+	font-size: 13px; 
+	font-weight: bold; 
+	font-style: italic; 
+	text-decoration: underline overline; 
+	color: #663300;
+	}
+
+	
+/* Styles for Menu titles links */
+	
+.menutitle A:link {
+	font-size: 13px; 
+	font-weight: bold; 
+	text-decoration: none; 
+	color: #663300;
+	}
+.menutitle A:visited {
+	font-size: 13px; 
+	font-weight: bold; 
+	text-decoration: none; 
+	color: #663300;
+	}
+.menutitle A:active {
+	font-size: 13px; 
+	font-weight: bold; 
+	text-decoration: none; 
+	color: #663300;
+	}
+.menutitle  A:hover {
+	font-size: 13px; 
+	font-weight: bold; 
+	text-decoration: underline; 
+	color: #663300;
+	}
+
+	
+/* Styles for Menu link links */
+	
+.menulink A:link {
+	font-size: 13px; 
+	text-decoration: none; 
+	color: blue;
+	}
+.menulink A:visited {
+	font-size: 13px; 
+	text-decoration: none; 
+	color: blue;
+	}
+.menulink A:active {
+	font-size: 13px; 
+	text-decoration: none; 
+	color: blue;
+	}
+.menulink  A:hover {
+	font-size: 13px; 
+	text-decoration: underline; 
+	color: blue;
+	}
+
+/* Styles for body links */
+	
+.bodylink A:link {
+	font-weight: bold; 
+	text-decoration: none; 
+	color: blue;
+	}
+.bodylink A:visited {
+	font-weight: bold; 
+	text-decoration: none; 
+	color: blue;
+	}
+.bodylink A:active {
+	font-weight: bold; 
+	text-decoration: none; 
+	color: blue;
+	}
+.bodylink  A:hover {
+	font-weight: bold; 
+	text-decoration: underline; 
+	color: blue;
+	}
+
+	
+/* Styles for FOKS results */
+TD.result {background: #e6e6fa; font-size: 11px;}
+TH.result {background: #fdcfcf;font-family: Arial, sans-serif; font-size: 11px;} 
+
+/* Styles for Motamot dict */
+
+.motamot-entry {
+    border:1px solid #898989;
+    margin-bottom:5px;
+    margin-top:-1px;
+    padding:7px;
+}
+
+.motamot-entry-selected {
+    border:2px solid black;
+    margin-bottom:4px;
+    margin-top:0px;
+    padding:7px;
+	background-color: red;
+}
+
+.motamot-sense {
+    border:1px solid #898989;
+    margin-bottom:5px;
+    margin-top:-1px;
+    margin-left:15px;
+    padding:7px;
+}
+
+.motamot-sense-selected {
+    border:2px solid black;
+    margin-bottom:4px;
+    margin-top:-2px;
+    margin-left:14px;
+    padding: 7px;
+	background-color: yellow;
+}
+
+/* Styles from LexAlp project */
+.entry {
+	background: #F0F0F0;
+}
+
+.finishedEntry {
+	background: #F0F0F0;
+}
+
+.myFinishedEntry {
+	background: #66CCFF;
+}
+
+.modifiedEntry {
+	background: #F0F0F0;
+}
+
+.myNotFinishedEntry {
+	background: #99CCCC;
+}
+
+.notFinishedEntry {
+	background: #F0F0F0;
+}
+
+

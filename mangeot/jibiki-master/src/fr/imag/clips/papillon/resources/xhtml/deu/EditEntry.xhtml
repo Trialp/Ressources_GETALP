@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title></title>
+  <script id="Script" type="text/javascript">
+    <!--
+    //-->
+    </script>
+</head>
+<body>
+    <div id="EditEntryForm" class="editEntry" xml:lang="en" lang="en">
+        <form action="HandleEntryModifications.po" method="post" accept-charset="utf-8" enctype="application/x-www-form-urlencoded" id="default">
+            <div>
+                <script type="text/javascript">
+                  <!--
+                    function updateFields(idField, idFieldValue) {
+                      if (idField != '') {
+                        theIdField = document.getElementById(idField);
+                        theIdField.value = idFieldValue;
+                      }
+                    }
+					
+			function show_hide(anchor,id) {
+				if (el = document.getElementById(id)) {
+					var show = el.style.display=='none';
+					el.style.display = (show ? '' : 'none');
+					anchor.innerHTML = (show ? '-' : '+');
+					var hideBlocks = document.getElementById('HideBlocks');
+					var hideBlocksId = hideBlocks.getAttribute('value');
+					id = "," + id;
+					if (show) {
+						var idIndex = hideBlocksId.indexOf(id);
+						if (idIndex>=0) {
+							hideBlocks.setAttribute('value',hideBlocksId.substring(0,idIndex) + hideBlocksId.substring(idIndex + id.length));
+						}
+					}
+					else {
+						hideBlocks.setAttribute('value',hideBlocksId + id);
+					}
+				}
+			}
+
+                  
+                  // -->
+                </script>
+                <input name="VolumeName" id="VolumeName" type="hidden" value="" />
+                <input name="EntryHandle" id="EntryHandle" type="hidden" value="" />
+                <input name="Referrer" id="Referrer" type="hidden" value="" />
+                <input name="AddCall" type="hidden" value="" />
+                <input name="DelCall" type="hidden" value="" />
+                <input name="MoveUpCall" type="hidden" value="" />
+                <input name="MoveDownCall" type="hidden" value="" />
+                <input name="ChooseCall" type="hidden" value="" />
+				<input name="HideBlocks" id="HideBlocks" type="hidden" value="" />
+                
+                <!--Interface-->
+                <div id="EditEntryContent"></div>
+                
+                <br />
+                <br />
+                <div style="text-align:center" >
+                    <input name="Update" type="submit" value="Update" style="font-weight: bold;"/>
+                    <input name="Save" type="submit" value="Finish" style="font-weight: bold;"/>
+                    <input id="SaveAsDraft"  name="SaveAsDraft" type="submit" value="Save as draft" style="font-weight: bold;"/>
+                    <!--label for="SaveComment">Comment:</label> <input name="SaveComment" type="text" /-->
+               </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+/*
+ * Stylesheet for Papillon Web site 
+ *
+ * Style sheet for the xhtml Papillon pages
+ * $Id$
+ * ---------------------------------------------------
+ *
+ * $Log$
+ * Revision 1.2  2005/01/15 17:43:19  mangeot
+ * Added cvs Id and Log on the files
+ * 
+ *
+ * ---------------------------------------------------
+ * do not write .css at the top of the file
+ * do not write font-size : 12 pt; but : 1em or : 100%;
+ * do not write div.foo_one but div.foo-one even if _ is in the tag
+ *
+ * for font size, use pixels px instead of pt or em.
+ * 
+ * use span instead of div
+ */
+
+@page { 
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em 
+}
+
+body {
+  margin: 5pt;
+  background-color : white;
+  color: black;
+  text-align: justify;
+  font-family: "new century schoolbook";
+  font-size: 14pt;
+}
+ 
+h1,h2,h3,h4,h5,h6		{ 
+	
+	font-family: "Helvetica", sans-serif;
+    color: #990000;
+
+}
+
+
+
+h1		{ 
+	font-size: 2em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em 
+}
+h1:before {
+	content: counter(h1) ". ";
+        counter-increment: h1;  /* Add 1 to chapter */
+        counter-reset: h2;      /* Set section to 0 */
+}
+          
+h2		{ 
+	font-size: 1.6em;
+}
+h2:before {
+	content: counter(h1) "." counter(h2) " ";
+        counter-increment: h2;
+        counter-reset: h3;      /* Set section to 0 */
+}
+h3		{ 
+	font-size: 1.3em;
+}
+h3:before {
+	content: counter(h1) "." counter(h2) "." counter(h3) " ";
+        counter-increment: h3;
+}
+h4		{ 
+	font-size: 1em;
+}
+h5		{ 
+	font-size: 1em;
+}
+h6		{ 
+	font-size: 1em;
+	font-weight: normal;
+	font-style: italic;
+}
+
+p	{
+	text-align: left;
+}
+
+a:link		{ color: #990000; }
+a:visited 	{ color: #CC9966; }
+a:active	{ color: #FF9999; }
+
+table{
+   
+}	
+
+.name
+{
+color: #CC9966;; 
+font-weight: bold;
+
+}
+}

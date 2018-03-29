@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="ru">
+
+   <h1 style="text-align:center">Управление XML-статьями словарей</h1>
+
+	<script type="text/javascript">
+    <!--
+            function updateField(idField, idFieldValue) {
+              if (idField != '') {
+                theIdField = document.getElementById(idField);
+                theIdField.value = idFieldValue;
+              }
+            }
+          
+            function openUploader(parentId) {
+              // Get the id of the elements to be modified
+              var targetUrl='UploadFile.po';
+              window.open(targetUrl, parentId,'height=200,width=300,resizable');
+            }
+          
+          // -->
+      </script>
+
+<!-- formulaire de voir mot-->
+
+<form action="AdminEntries.po" method="get">
+<table width="600" border="0" cellspacing="0" cellpadding="10" summary="Форма">
+<tr>
+     <!-- Warning, make sure the option element contains a Text and only a Text (no other child) -->
+	<td><b>Том:</b></td>
+        <td colspan="2">
+            <select name="VOLUME">
+            <option id="VolumeOptionTemplate" value="NONE" label="NONE">НЕ УКАЗАНО</option>
+        </select></td>
+</tr>
+<tr>	
+	<td><b>Файл или URL: </b></td>
+	<td colspan="4">
+	<input type="button" name="upload" onclick="javascript:openUploader('URL')" value="Загрузить"/>или<input name="URL" id="URL" type="text" size="64" value=""/></td>
+</tr>
+<tr>	
+	<td><b>При загрузке изменений:</b></td>
+	<td>Существующие статьи</td>
+	<td>
+		<select name="ReplaceExistingContributions" id="ReplaceExistingContributions">
+            <option value="50" label="Do not import">Не импортировать</option>
+            <option value="51" label="Replace anyway">Заменять всегда</option>
+            <option value="52" label="Replace if same status">Заменять при одинаковом статусе</option>
+            <option value="53" label="Replace if finished">Заменять только завершенными</option>
+		</select>
+	</td>
+</tr>
+<tr>	
+	<td><b>При загрузке статей:</b></td>
+	<td>Существующие статьи</td>
+	<td>
+		<select name="ReplaceExistingEntries" id="ReplaceExistingEntries">
+            <option value="0" label="Do not import">Не импортировать</option>
+            <option value="1" label="Replace anyway">Заменять всегда</option>
+            <option value="2" label="Replace if same status">Заменять при одинаковом статусе</option>
+            <option value="3" label="Replace if finished">Заменять только завершенными</option>
+            <option value="4" label="Copy anyway">Копировать всегда</option>
+            <option value="5" label="Copy if same satus">Копировать при одинаковом статусе</option>
+            <option value="6" label="Copy if finished">Копировать только завершенные</option>
+		        <option value="7" label="Merge">Объединять в уникальные (только аксемы и акси)</option>
+		</select>
+	  <table id="tbJoin" style="display:yes">
+	    <tr>
+	      <td><input name="deleteOld" type="checkbox" value="deleteOld" checked="checked"/>Удалять старые </td>
+	      <td><input name="recursiveRelate" type="checkbox" value="recursiveRelate" checked="checked"/>Изменять связанные статьи </td>
+	    </tr>
+	  </table>
+	</td>
+	<td>Статус по умолчанию</td>
+	<td>
+		<select name="DefaultStatus" id="DefaultStatus">
+            <option value="not finished" label="not finished">не завершено</option>
+            <option value="finished" label="finished">завершено</option>
+            <option value="revised" label="revised">пересмотрено</option>
+            <option value="validated" label="validated">проверено</option>
+		</select>
+	</td>
+</tr>
+<tr>	
+	<td><b>Вести журнал изменений: </b></td>
+	<td><input name="LogContributions" type="checkbox" value="LogContributions"/></td>
+</tr>
+
+<tr>
+	<td colspan="2"><input name="ADD" type="submit" value="Добавить"/></td>
+</tr>
+</table>
+</form>
+<div id="Xml">
+
+</div>
+
+</div>
+</body>
+</html>

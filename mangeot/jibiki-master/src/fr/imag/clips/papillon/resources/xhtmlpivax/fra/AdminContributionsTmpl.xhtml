@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" xml:lang="fr" lang="fr">
+
+<h1 style="text-align:center">Gestion des contributions de <span id="UserName">Name</span></h1>
+
+
+<!-- formulaire de voir mot-->
+<form action="AdminContributions.po" method="get">
+<table width="600" border="0" cellspacing="0" cellpadding="10" summary="Formulaire">
+<tr>
+        <td><b><label for="VOLUME">Volume&nbsp;:</label></b>
+            <select id="VOLUME" name="VOLUME" onchange="document.MainForm.submit()">
+            <option id="VolumeOptionTemplate" value="NONE" label="NONE">NONE</option>
+        </select>
+	</td>
+	<td>&nbsp;</td>
+	<td><label for="STATUS">Statut&nbsp;:</label><br/>
+	<select id="STATUS" name="STATUS">
+		<option value="*ALL*" label="tous">tous</option>
+		<option value="not finished" label="non finie">non finie</option>
+		<option value="finished" label="finie">finie</option>
+		<option value="revised" label="revisee">révisée</option>
+    </select>
+     </td>
+</tr>
+           <tr>
+            <td style="bgcolor:#4682b4;">
+              La date de création (aaaa/mm/jj) est
+              <select id="StrategyCreationDate" name="StrategyCreationDate">
+                <option value="14" label="≤">≤</option>
+                <option value="13" label="&lt;">&gt;</option>
+                <option value="0" label="=">=</option>
+                <option value="12" label="≥">≥</option>
+                <option value="11" label="&gt;">&gt;</option>
+              </select>
+              <input id="InputCreationDate" name="CreationDate" type="text" size="10" value="" />
+            </td>
+			<td>
+             &nbsp;
+			</td>
+            <td style="bgcolor:#4682b4;">
+              La date de révision (aaaa/mm/jj) est
+              <select id="StrategyReviewDate" name="StrategyReviewDate">
+                <option value="14" label="≤">≤</option>
+                <option value="13" label="&lt;">&gt;</option>
+                <option value="0" label="=">=</option>
+                <option value="12" label="≥">≥</option>
+                <option value="11" label="&gt;">&gt;</option>
+              </select>
+              <input id="InputReviewDate" name="ReviewDate" type="text" size="10" value="" />
+            </td>
+          </tr>
+          <tr>
+            <td style="bgcolor:#4682b4;">
+              <input id="search1text" name="search1text" type="text" size="15" value="" />est
+               <select id="Strategy1" name="Strategy1">
+                <option value="0" label="exactement">exactement</option>
+                <option value="1" label="prefixe de">préfixe de</option>
+                <option value="2" label="suffixe de">suffixe de</option>
+                <option value="3" label="sous-chaine de">sous-chaîne de</option>
+                <option value="4" label="exact hors casse de">exact hors casse de</option>
+                <option value="5" label="prefix hors casse de">préfixe hors casse de</option>
+                <option value="6" label="suffixe hors casse de">suffixe hors casse de</option>
+                <option value="7" label="sous-chaine hors casse de">sous-chaîne hors casse de</option>
+              </select>
+              <select id="search1" name="search1">
+                <option value="cdm-headword" label="le mot-vedette">le mot-vedette</option>
+                <option value="cdm-pos" label="la categorie">la catégorie</option>
+				<option value="cdm-pronunciation" label="la prononciation">la prononciation</option>
+                <option value="cdm-reading" label="la transcription">la transcription</option>
+                <option value="cdm-translation" label="la traduction">la traduction</option>
+                <option value="cdm-example" label="les exemples">les exemples</option>
+                <option value="AnyContains" label="tout l'article">tout l'article</option>
+              </select>
+            </td>
+			<td> et </td>
+             <td style="bgcolor:#4682b4;">
+              <input id="search2text" name="search2text" type="text" size="15" value="" /> est
+               <select id="Strategy2" name="Strategy2">
+                <option value="0" label="exactement">exactement</option>
+                <option value="1" label="prefixe de">préfixe de</option>
+                <option value="2" label="suffixe de">suffixe de</option>
+                <option value="3" label="sous-chaine de">sous-chaîne de</option>
+                <option value="4" label="exact hors casse de">exact hors casse de</option>
+                <option value="5" label="prefix hors casse de">préfixe hors casse de</option>
+                <option value="6" label="suffixe hors casse de">suffixe hors casse de</option>
+                <option value="7" label="sous-chaine hors casse de">sous-chaîne hors casse de</option>
+              </select>
+              <select id="search2" name="search2">
+                <option value="cdm-headword" label="le mot-vedette">le mot-vedette</option>
+                <option value="cdm-pos" label="la categorie">la catégorie</option>
+				<option value="cdm-pronunciation" label="la prononciation">la prononciation</option>
+                <option value="cdm-reading" label="la transcription">la transcription</option>
+                <option value="cdm-translation" label="la traduction">la traduction</option>
+                <option value="cdm-example" label="les exemples">les exemples</option>
+                <option value="AnyContains" label="tout l'article">tout l'article</option>
+              </select>
+            </td>
+            <td style="bgcolor:#4682b4;">
+				<input id="LOOKUP" name="LOOKUP" type="submit" value="Chercher"/>
+				<input id="RESET" name="RESET" type="submit" value="Initialiser"/>
+            </td>
+          </tr>
+</table>
+</form>
+<h2>Voir les <span id="ContributionsCount">0</span> contributions</h2>
+<table id="ContribList" width="100%" frame="hsides" border="0" summary="entries" >
+  <tr>
+   <th><a id="HeadwordHeaderAnchor" href="AdminContributions.po?LOOKUP=LOOKUP&amp;SortBy=HEADWORD_SORT">Voir</a></th>
+   <th>Id</th>
+   <th><a id="CreationdateHeaderAnchor" href="AdminContributions.po?LOOKUP=LOOKUP&amp;SortBy=CREATION_DATE_SORT">Création</a></th>
+   <th><a id="NewentryHeaderAnchor" href="AdminContributions.po?LOOKUP=LOOKUP&amp;SortBy=ORIGINAL_CONTRIBUTION_ID_SORT">Nouv.</a></th>
+   <th><a id="StatusHeaderAnchor" href="AdminContributions.po?LOOKUP=LOOKUP&amp;SortBy=STATUS_SORT">Statut</a></th>
+   <th>Marquer</th>
+   <th>Voir</th>
+   <th>&nbsp;</th>
+   <th>&nbsp;</th>
+  </tr>
+  <tr id="EntryListRow">
+    <td><a href="" id="ViewContribAnchor"><span id="ViewContribText">Contrib</span></a></td>
+    <td><span id="EntryId">EntryId</span></td>
+    <td><span id="CreationDate">CreationDate</span></td>
+    <td><span id="IsNewEntry">IsNewEntry</span></td>
+    <td><span id="Status">Status</span></td>
+    <td><a href="" id="MarkFinishedAnchor">Finie</a></td>
+    <td><a href="" id="ViewXmlAnchor">XML</a></td>
+    <td><a href="" id="EditContribAnchor"><span id="EditContrib">éditer</span></a></td>
+    <td><a href="" id="RemoveContribAnchor" onclick="return confirm('êtes-vous sûr de vouloir supprimer la contribution ?')">Jeter</a></td>
+  </tr>
+</table>
+<table id="Contributions" width="100%" frame="hsides" border="0" summary="dicocontent" >       
+<tr id="EntryRow">
+    <td id="EntryCell" valign="top"></td>        
+</tr>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--DOCTYPE doml SYSTEM "file:////Library/Java/Extensions/enhydra5.1/dods/build/dtd/doml.dtd"-->
+<!--
+ * © Mathieu Mangeot & Gilles Sérasset - GETA CLIPS IMAG
+ * Projet Papillon Project
+ *************************************************
+ * $Id$
+ *************************************************
+ * $Log$
+ * Revision 1.10.2.1  2007/10/29 15:11:03  serasset
+ * NEW: lexalp css now defines different forms for HARMONISED/REJECTED entries
+ * NEW: added new db url/user/password configuration keys in papillon.properties file
+ * BUG158: headwords are now harmonised at edition and search time, added a "normalise headword" admin action
+ *
+ * Revision 1.10  2007/01/05 13:57:25  serasset
+ * multiple code cleanup.
+ * separation of XMLServices from the Utility class
+ * added an xml parser pool to allow reuse of parser in a multithreaded context
+ * added a new field in the db to identify the db layer version
+ * added a new system property to know which db version is known by the current app
+ *
+ * Revision 1.9  2006/08/10 22:17:12  fbrunet
+ * - Add caches to manage Dictionaries, Volumes and Xsl sheets (improve efficiency)
+ * - Add export contibutions to pdf file base on exportVolume class and, Saxon8b & FOP transformations (modify papillon.properties to specify XML to FO xsl)
+ * - Bug correction : +/- in advanced search
+ *
+ * Revision 1.8  2005/07/16 12:21:05  mangeot
+ * dictionaryname and volumename from xslsheets cannot be null any more
+ *
+ * Revision 1.7  2005/07/14 13:48:53  serasset
+ * Added columns dictionaryname and volumename to the xslsheets.
+ * Modified the XslSheet and XslSheetFactory accordingly.
+ * Modified AdminXsl interface accordingly.
+ * Modified DictionariesFactory and VolumesFactory to allow several xsl-sheets and to
+ * correctly provide dictionaryName/volumeName to XslSheetFactory.
+ * Cleanup of several errors in papillon_static doml file.
+ *
+ * Revision 1.6  2005/06/15 16:48:27  mangeot
+ * Merge between the ContribsInXml branch and the main trunk. It compiles but bugs remain..
+ *
+ * Revision 1.5.4.1  2005/04/29 14:50:25  mangeot
+ * New version with contribution infos embedded in the XML of the entries
+ *
+ * Revision 1.5  2005/04/15 11:59:18  mangeot
+ * Deleted column entryHandle from table contributions
+ *
+ * Revision 1.4  2005/04/11 12:32:29  mangeot
+ * Merge between the XPathAndMultipleKeys branch and the trunk
+ *
+ * Revision 1.3.2.7  2005/03/30 11:35:55  mangeot
+ * *** empty log message ***
+ *
+ * Revision 1.3.2.6  2005/03/29 09:41:32  serasset
+ * Added transaction support. Use CurrentDBTransaction class to define a transaction
+ * context in which all db commands will be executed.
+ *
+ * Revision 1.3.2.5  2005/03/16 13:24:31  serasset
+ * Modified all boolean fields in table to CHAR(1) in order to be more db independant.
+ * Suppressed ant.jar from class path, informationfiles (which rely on it) should be corrected.
+ * The version of Xerces is now displayed on application init.
+ *
+ * Revision 1.3.2.4  2005/02/06 22:39:30  mangeot
+ * Volume table modified: merged the CDM elements and XPath hashtables into one,
+ * added a boolean for reverse lookup
+ *
+ * Revision 1.3.2.3  2005/01/28 19:45:55  mangeot
+ * First version that runs basically.
+ * Should compile after an ant clean.
+ * XPath loading and virtual volumes for terminological lexicons are OK.
+ * Bugs remain, needs more testings like the editor for example.
+ *
+ * Revision 1.3.2.2  2005/01/27 18:09:28  mangeot
+ * Simple dictionary lookup is now working for GDEF.
+ * Does not compile yet but cvs commit for backup
+ *
+ * Revision 1.3.2.1  2005/01/25 13:54:54  mangeot
+ * changed the volume volumeEntry and index objects. Does not compile but need a backup...
+ *
+ * Revision 1.3  2005/01/15 16:36:35  mangeot
+ * Commented the link to the dtd because it is depdendent of the platform
+ *
+ * Revision 1.2  2004/12/24 11:04:55  mangeot
+ * synchronized the files with the last version of Papillon5.0
+ *
+ * Revision 1.13  2004/11/19 14:50:41  mangeot
+ * MM: added a new column called sourcelanguage in the contributions table.
+ * It indicates the source language of the contribution and it is mainly used for sorting the contributions.
+ * In order to update old papillon databases, you have to execute the following operations:
+ * alter table contributions add sourcelanguage varchar(255);
+ * update contributions set sourcelanguage=volumes.sourcelanguage where volumes.name=contributions.volume;
+ * alter table contributions alter sourcelanguage set not null;
+ *
+ *
+-->
+<doml>
+  <database database="PostgreSQL" templateset="standard" dirtyDOs="Deprecate"> <!-- legal_values="Standard,InstantDB,Oracle,Informix,Msql,Sybase,PostgreSQL"-->
+    <package id="fr">
+    <package id="fr.imag">
+    <package id="fr.imag.clips">
+    <package id="fr.imag.clips.papillon">
+      <package id="fr.imag.clips.papillon.data">
+        <table dbTableName="jibikiversion" id="fr.imag.clips.papillon.data.JibikiVersion">
+          <column id="number">
+            <type javaType="int" dbType="INTEGER" canBeNull="false"/>
+              <initialValue>1</initialValue>
+          </column>
+        </table>
+		       <!--table id="fr.imag.clips.papillon.data.PapillonAxi" dbTableName="papillonaxi">
+          <column id="id" usedForQuery="true">
+            <javadoc>/**
+ * the external id
+ */</javadoc>
+            <type canBeNull="true" dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="semanticCat" usedForQuery="true">
+            <javadoc>/**
+ * the semantic category
+ */</javadoc>
+            <type canBeNull="true" dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="dom">
+            <javadoc>/**
+ * the entry as a dom document node
+ */</javadoc>
+            <type dbType="LONGVARBINARY" javaType="byte[]"/>
+          </column>
+          <column id="htmldom">
+            <javadoc>/**
+ * the entry formatted in html as a dom document node
+ */</javadoc>
+            <type canBeNull="true" dbType="LONGVARBINARY" javaType="byte[]"/>
+          </column>
+          <column id="xmlCode" usedForQuery="true">
+            <javadoc>/**
+ * The XML code of the axi.
+ */</javadoc>
+            <type dbType="LONGVARCHAR" javaType="String"/>
+          </column>
+          <column id="lexies">
+            <javadoc>/**
+ * the lexies in a hashtable with the ISO 639-2 lang 3 letter code as access key
+ */</javadoc>
+            <type dbType="LONGVARBINARY" javaType="byte[]"/>
+          </column>
+          <column id="synonyms" usedForQuery="true">
+            <javadoc>/**
+ * The synonym axies
+ */</javadoc>
+            <type canBeNull="true" dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+		  <index id="id_idx">
+          <indexColumn id="id"/>
+        </index>
+        </table-->
+
+        <table dbTableName="messages" id="fr.imag.clips.papillon.data.Message">
+          <column id="date" usedForQuery="true">
+            <javadoc>/**
+ * The date of post of the message.
+ */</javadoc>
+            <type dbType="DATE" javaType="java.sql.Date"/>
+          </column>
+          <column id="msg" usedForQuery="true">
+            <type dbType="LONGVARCHAR" javaType="String"/>
+          </column>
+          <column id="msgid" usedForQuery="true">
+            <type dbType="VARCHAR" javaType="String" size="127"/>
+          </column>
+          <column id="subject" usedForQuery="true">
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="author" usedForQuery="true">
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="authorAddress" usedForQuery="true">
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="thread" usedForQuery="true">
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+		  <index id="msgid_idx" unique="true">
+          <indexColumn id="msgid"/>
+        </index>
+        </table>
+        <table dbTableName="xslsheets" id="fr.imag.clips.papillon.data.XslSheet">
+          <column id="name" usedForQuery="true">
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="dictionaryName" usedForQuery="true">
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+           <column id="volumeName" usedForQuery="true">
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="description">
+            <javadoc>/**
+ * A simple and short description of what this xsl sheet does.
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="code">
+            <javadoc>/**
+ * The actual code of the xsl sheet.
+ */</javadoc>
+            <type dbType="LONGVARCHAR" javaType="String"/>
+          </column>
+          <column id="defaultxsl" usedForQuery="true">
+            <type dbType="CHAR" javaType="String" size="1"/>
+          </column>
+          <column id="externalxsl" usedForQuery="true">
+            <type dbType="CHAR" javaType="String" size="1"/>
+          </column>
+        </table>
+        <table dbTableName="informationdocument" id="fr.imag.clips.papillon.data.InformationDocument">
+          <column id="author" usedForQuery="true">
+            <javadoc>/**
+ * The author or authors of the document
+ */</javadoc>
+            <type canBeNull="true" dbType="LONGVARCHAR" javaType="String"/>
+          </column>
+          <column id="owner" usedForQuery="true">
+            <javadoc>/**
+ * login of the owner of the document, who uploaded the document ot the database.
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="reference" usedForQuery="true">
+            <javadoc>/**
+ * The reference of the document if it is a publication, pages,number, conference, etc.
+ */</javadoc>
+            <type canBeNull="true" dbType="LONGVARCHAR" javaType="String"/>
+          </column>
+          <column id="creationDate" usedForQuery="true">
+            <type dbType="DATE" javaType="java.sql.Date"/>
+          </column>
+          <column id="section" usedForQuery="true">
+            <javadoc>/**
+ * The section in which the document will appear.
+ */</javadoc>
+            <type canBeNull="true" dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="title" usedForQuery="true">
+            <javadoc>/**
+ * The title of the document
+ */</javadoc>
+            <type canBeNull="true" dbType="LONGVARCHAR" javaType="String"/>
+          </column>
+        </table>
+        <table dbTableName="informationfiles" id="fr.imag.clips.papillon.data.InformationFile">
+          <column id="filename" usedForQuery="true">
+            <type dbType="LONGVARCHAR" javaType="String"/>
+          </column>
+          <column id="filetype" usedForQuery="true">
+            <type dbType="LONGVARCHAR" javaType="String"/>
+          </column>
+          <column id="document" usedForQuery="true">
+            <javadoc>/**
+ * The document this file belongs to.
+ */</javadoc>
+            <referenceObject constraint="true" reference="fr.imag.clips.papillon.data.InformationDocument"/>
+            <type dbType="none" javaType="fr.imag.clips.papillon.data.InformationDocumentDO"/>
+          </column>
+          <column id="filecode" usedForQuery="true">
+            <type canBeNull="true" dbType="LONGVARCHAR" javaType="String"/>
+          </column>
+          <column id="isIndexFile" usedForQuery="true">
+            <javadoc>/**
+ * States if the file is the index of its document
+ * Only one file per document should be the index file...
+ */</javadoc>
+            <type dbType="CHAR" javaType="String" size="1"/>
+          </column>
+          <column id="language" usedForQuery="true">
+            <javadoc>/**
+ * The language of the file
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="5"/>
+          </column>
+        </table>
+         <table dbTableName="contributionlog" id="fr.imag.clips.papillon.data.ContributionLog">
+          <column id="author" usedForQuery="true">
+            <javadoc>/**
+ * the login of the author of the contribution
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="groups" usedForQuery="true">
+            <javadoc>/**
+ * the groups allowed to view the contribution
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="volume" usedForQuery="true">
+            <javadoc>/**
+ * the volume where the contribution has to be inserted
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="sourceLanguage">
+            <javadoc>/**
+ * the source language of the contribution
+ * values taken from dml:lang type (mainly ISO 639-2/T)
+ * (eng, fra, jpn, etc.)
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+           <column id="headword" usedForQuery="true">
+            <javadoc>/**
+ * the headword
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="contributionId" usedForQuery="true">
+            <javadoc>/**
+ * the contribution id corresponding to the contribution
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="entryId" usedForQuery="true">
+            <javadoc>/**
+ * the entry id corresponding to the contribution
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+		<column id="date" usedForQuery="true">
+            <javadoc>/**
+ * the date of the action on the contribution
+ */</javadoc>
+            <type dbType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+          </column>
+		  <column id="status" usedForQuery="true">
+            <javadoc>/**
+ * the status of the contribution
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+		  <index id="author_idx">
+          <indexColumn id="author"/>
+        </index>
+		  <index id="volume_idx">
+          <indexColumn id="volume"/>
+        </index>
+		  <index id="headword_idx">
+          <indexColumn id="headword"/>
+        </index>
+		<index id="contributionid_idx">
+          <indexColumn id="contributionId"/>
+        </index>
+		  <index id="entryid_idx">
+          <indexColumn id="entryId"/>
+        </index>
+		  <index id="status_idx">
+          <indexColumn id="status"/>
+        </index>
+        </table>
+        
+        <table dbTableName="users" id="fr.imag.clips.papillon.data.User">
+          <column id="name" usedForQuery="true">
+            <javadoc>/**
+ * Name of the user
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="login" usedForQuery="true">
+            <javadoc>/**
+ * login of the user
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="password">
+            <javadoc>/**
+ * password of the user previously encrypted !
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="email" usedForQuery="true">
+            <javadoc>/**
+ * email of the user
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="lang">
+            <javadoc>/**
+ * preferred language for the interface
+ */</javadoc>
+            <type canBeNull="true" dbType="VARCHAR" javaType="String" size="3"/>
+          </column>
+          <column id="groups" usedForQuery="true">
+            <javadoc>/**
+ * groups of the user
+ */</javadoc>
+            <type canBeNull="true" dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+           <column id="credits" usedForQuery="true">
+            <javadoc>/**
+ * credits of the user
+ */</javadoc>
+            <type canBeNull="false" dbType="INTEGER" javaType="int"/>
+				<initialValue>0</initialValue>
+          </column>
+           <column id="xmlCode" usedForQuery="true">
+               <javadoc>/**
+                   * The XML code of the user.
+                   */</javadoc>
+               <type  canBeNull="true" dbType="LONGVARCHAR" javaType="String"/>
+           </column>
+           <column id="creationDate" usedForQuery="true">
+               <javadoc>/**
+                   * The user creation date.
+                   */</javadoc>
+               <type  canBeNull="true" dbType="DATE" javaType="java.sql.Date"/>
+           </column>
+           <column id="modificationDate" usedForQuery="true">
+               <javadoc>/**
+                   * The user creation date.
+                   */</javadoc>
+               <type  canBeNull="true" dbType="DATE" javaType="java.sql.Date"/>
+           </column>
+		<index id="name_idx" unique="true">
+          <indexColumn id="name"/>
+        </index>
+		<index id="login_idx" unique="true">
+          <indexColumn id="login"/>
+        </index>
+        </table>
+       <table id="fr.imag.clips.papillon.data.Group" dbTableName="groups">
+          <column id="name" usedForQuery="true">
+            <javadoc>/**
+ * Name of the group
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="password">
+            <javadoc>/**
+ * password of the group previously encrypted !
+ */</javadoc>
+            <type dbType="VARBINARY" javaType="byte[]"/>
+          </column>
+          <column id="users" usedForQuery="true">
+            <javadoc>/**
+ * users of the group
+ */</javadoc>
+            <type canBeNull="true" dbType="LONGVARCHAR" javaType="String" />
+          </column>
+          <column id="admins" usedForQuery="true">
+            <javadoc>/**
+ * admins of the group
+ */</javadoc>
+            <type canBeNull="true" dbType="LONGVARCHAR" javaType="String" />
+          </column>
+		<index id="name_idx" unique="true">
+          <indexColumn id="name"/>
+        </index>
+        </table>
+        <table dbTableName="dictionaries" id="fr.imag.clips.papillon.data.Dictionary">
+          <column id="fullName" usedForQuery="true">
+            <javadoc>/**
+ * Full Name of the dictionary
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="name" usedForQuery="true">
+            <javadoc>/**
+ * name of the dictionary (nickname)
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="category" usedForQuery="true">
+            <javadoc>/**
+ * category of the dictionary
+ * values taken from dml:categoryType type
+ * (monolingual, bilingual, multilingual)
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="type" usedForQuery="true">
+            <javadoc>/**
+ * type of the dictionary
+ * values taken from dml:dictType type
+ * (monodirectional, bidirectional, pivot, mixed)
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="domain" usedForQuery="true">
+            <javadoc>/**
+ * domain of the dictionary
+ * (general, medecine, etc.)
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="legal" usedForQuery="true">
+            <javadoc>/**
+ * legal rights associated with the dictionary
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="access" usedForQuery="true">
+              <javadoc>/**
+                  * dictionary access rights
+                  */</javadoc>
+              <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="sourceLanguages" usedForQuery="true">
+            <javadoc>/**
+ * source languages of the dictionary
+ * values taken from dml:lang type
+ * (eng, fra, jpn, etc.)
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="targetLanguages" usedForQuery="true">
+            <javadoc>/**
+ * target languages of the dictionary
+ * values taken from dml:lang type
+ * (eng, fra, jpn, etc.)
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="xmlCode" usedForQuery="true">
+            <javadoc>/**
+ * The XML code of the dictionary entry.
+ */</javadoc>
+            <type dbType="LONGVARCHAR" javaType="String"/>
+          </column>
+		  <index id="fullname_idx" unique="true">
+            <indexColumn id="fullname"/>
+          </index>
+		  <index id="name_idx" unique="true">
+            <indexColumn id="name"/>
+          </index>
+        </table>
+        <table dbTableName="volumes" id="fr.imag.clips.papillon.data.Volume">
+          <column id="name" usedForQuery="true">
+            <javadoc>/**
+ * Name of the volume
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="dictname" usedForQuery="true">
+            <javadoc>/**
+ * Name of the dictionary that contains this volume
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="dbname" usedForQuery="true">
+            <javadoc>/**
+ * Name of the database table where the volume entries are stored
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="location" usedForQuery="true">
+            <javadoc>/**
+ * Indicates if the volume is stored locally or remotely
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="sourceLanguage" usedForQuery="true">
+            <javadoc>/**
+ * source language of the volume
+ * values taken from dml:lang type
+ * (eng, fra, jpn, etc.)  (mainly ISO 639-2/T)
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="3"/>
+          </column>
+          <column id="targetLanguages" usedForQuery="true">
+            <javadoc>/**
+ * target languages of the volume
+ * values taken from dml:lang type
+ * (eng, fra, jpn, etc.)  (mainly ISO 639-2/T)
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="volumeRef" usedForQuery="true">
+            <javadoc>/**
+ * Href of the volume file where are stored the entries
+ */</javadoc>
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="xmlCode" usedForQuery="true">
+            <javadoc>/**
+ * The XML code of the volume metadata.
+ */</javadoc>
+            <type dbType="LONGVARCHAR" javaType="String"/>
+          </column>
+          <column id="xmlSchema">
+            <javadoc>/**
+ * The XML code of the XML schema representing the microstructure of the volume
+*/</javadoc>
+            <type canBeNull="true" dbType="LONGVARCHAR" javaType="String"/>
+          </column>
+          <column id="templateItf">
+            <javadoc>/**
+ * The XML code of the interface template used in the online Edition interface module
+*/</javadoc>
+            <type canBeNull="true" dbType="LONGVARCHAR" javaType="String"/>
+          </column>
+          <column id="templateEntry">
+            <javadoc>/**
+* The XML code of an empty entry used as a template
+*/</javadoc>
+            <type canBeNull="true" dbType="LONGVARCHAR" javaType="String"/>
+          </column>
+          <column id="reverse" usedForQuery="true">
+            <javadoc>/**
+* indicates if the volume can be reversed for lookup ie: target words searched as source words.
+*/</javadoc>
+            <type dbType="CHAR" javaType="String" size="1"/>
+          </column>
+		   <column id="entries" usedForQuery="true">
+            <javadoc>/**
+ * Numer of entries in the volume
+ */</javadoc>
+            <type canBeNull="false" dbType="INTEGER" javaType="int"/>
+			   <initialValue>1</initialValue>
+          </column>
+		  <index id="name_idx" unique="true">
+            <indexColumn id="name"/>
+          </index>
+		  <index id="dictname_idx">
+            <indexColumn id="dictname"/>
+          </index>
+		  <index id="dbname_idx">
+            <indexColumn id="dbname"/>
+          </index>
+        </table>
+        <table dbTableName="querylogs" id="fr.imag.clips.papillon.data.QueryLog">
+          <column id="date">
+            <type dbType="DATE" javaType="java.sql.Date"/>
+          </column>
+          <column id="login">
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="formName">
+            <type dbType="VARCHAR" javaType="String" size="50"/>
+          </column>
+          <column id="prefLang">
+            <type dbType="VARCHAR" javaType="String" size="3"/>
+          </column>
+          <column id="query">
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="results">
+            <type canBeNull="true" dbType="LONGVARCHAR" javaType="String"/>
+          </column>
+          <column id="srcLang">
+            <type dbType="VARCHAR" javaType="String" size="3"/>
+          </column>
+          <column id="trgLangs">
+            <type dbType="VARCHAR" javaType="String" size="512"/>
+          </column>
+          <column id="dicts">
+            <type dbType="VARCHAR" javaType="String" size="1024"/>
+          </column>
+          <column id="strategy" usedForQuery="true">
+            <type dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="queryString" usedForQuery="true">
+            <type dbType="LONGVARCHAR" javaType="String"/>
+          </column>
+		  <index id="login_idx">
+            <indexColumn id="login"/>
+          </index>
+		  <index id="formName_idx">
+            <indexColumn id="formName"/>
+          </index>
+		  <index id="query_idx">
+            <indexColumn id="query"/>
+          </index>
+		  <index id="queryString_idx">
+            <indexColumn id="queryString"/>
+          </index>
+        </table>
+          <table id="fr.imag.clips.papillon.data.FoksEntry" dbTableName="foksentry">
+          <column id="headword" usedForQuery="true">
+            <javadoc>/**
+ * the headword
+ */</javadoc>
+            <type canBeNull="true" dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="reading" usedForQuery="true">
+            <javadoc>/**
+ * the reading
+ */</javadoc>
+            <type canBeNull="true" dbType="VARCHAR" javaType="String" size="255"/>
+          </column>
+          <column id="id" usedForQuery="true">
+            <javadoc>/**
+ * the id
+ */</javadoc>
+            <type canBeNull="true" dbType="INTEGER" javaType="int"/>
+          </column>
+          <column id="score" usedForQuery="true">
+            <javadoc>/**
+ * the score
+ */</javadoc>
+            <type canBeNull="true" dbType="REAL" javaType="float"/>
+          </column>
+		 <index id="reading_idx">
+          <indexColumn id="reading"/>
+        </index>
+        </table>
+    </package>
+    </package>
+    </package>
+    </package>
+    </package>
+  </database>
+</doml>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="en">
+<h1><span id="UserName">Name</span> Profile</h1>
+<table width="600" border="0" cellspacing="0" cellpadding="10" summary="Credits">
+<tr>
+    <td><b>Credits :</b></td>     
+    <td><span id="Credits">Credits</span></td>
+</tr>
+</table>
+<form  action="UserProfile.po" method="post">
+<!-- change password -->
+<table width="600" border="0" cellspacing="0" cellpadding="10" summary="ChangePassword">
+<tr>	
+	<th colspan="2"><h3>Group list</h3></th>
+</tr>
+<tr>
+    <td><b>Groups:</b></td>     
+    <td><span id="GroupList">Groups</span></td>
+</tr>
+<tr>	
+	<th colspan="2"><h3>Change Your Password</h3></th>
+</tr>
+<tr>
+    <td><b>Login:</b></td>     
+    <td><span id="CPLogin">Login</span></td>
+</tr>
+<tr>
+    <td><b><label for="CPPassword">Current Password:</label></b></td>     
+    <td><input id="CPPassword" name="CPPassword" type="password" size="10" value=""/></td>
+</tr>
+<tr>
+    <td><b><label for="NewPassword">New Password:</label></b></td>     
+    <td><input id="NewPassword" name="NewPassword" type="password" size="10" value=""/></td>
+</tr>
+<tr>
+    <td><b><label for="NewPassword2">Retype New Password:</label></b></td>     
+    <td><input id="NewPassword2" name="NewPassword2" type="password" size="10" value=""/></td>
+</tr>
+<tr>
+	<td colspan="2"><input name="ChangePassword" type="submit" value="Change"/></td>
+</tr>
+</table>
+</form>
+
+<br/>
+<!-- change mail address -->
+<form  action="UserProfile.po" method="post">
+<table width="600" border="0" cellspacing="0" cellpadding="10" summary="ChangeMailAddress">
+<tr>	
+	<th colspan="2"><h3>Edit Your Name and Email</h3></th>
+</tr>
+<tr>
+    <td><b>Login:</b></td>     
+    <td><span id="CELogin">Login</span></td>
+</tr>
+<tr>
+    <td><b><label for="NameInput">Name:</label></b></td>     
+    <td><input name="Name" id="NameInput" type="text" size="30" value="Name"/></td>
+</tr>
+<tr>
+    <td><b><label for="EmailInput">Email:</label></b></td>     
+    <td><input name="Email" id="EmailInput" type="text" size="30" value="Email"/></td>
+</tr>
+<tr>
+	<td colspan="2"><input name="ChangeEmail" type="submit" value="Change"/></td>
+</tr>
+</table>
+</form>
+
+<!-- add user in group -->
+<form  action="UserProfile.po" method="post">
+<table width="600" border="0" cellspacing="0" cellpadding="10" summary="AddGroup">
+<tr>	
+	<th colspan="2">Join or Leave a Group</th>
+</tr>
+<tr>	
+    <td><b>Login:</b></td>
+    <td><span id="AGLogin">Login</span></td>
+</tr>
+<tr>
+    <td><b><label for="Group">Group:</label></b></td>     
+    <td>
+	<select id="Group" name="Group">
+		<option id="GroupOptionTemplate" value="group name" label="group name">group name</option>
+	</select>
+	</td>
+</tr>
+<tr>
+    <td><b><label for="GroupPassword">Group Password:</label></b></td>     
+    <td><input id="GroupPassword" name="GroupPassword" type="password" size="10" value=""/></td>
+</tr>
+<tr>
+	<td><input name="AddGroup" type="submit" value="Join"/></td>
+	<td><input name="DelGroup" type="submit" value="Leave"/></td>
+</tr>
+</table>
+</form>
+
+<!-- delete existing user -->
+<form  action="UserProfile.po" method="post" onsubmit="return confirm('Are you sure you want to delete the user?')">
+<table width="600" border="0" cellspacing="0" cellpadding="10" summary="DeleteUser">
+<tr>	
+	<th colspan="2">Delete Existing User</th>
+</tr>
+<tr>	
+    <td><b>Login:</b></td>
+    <td><span id="DLogin">Login</span></td>
+</tr>
+<tr>
+    <td><b><label for="DPassword">Password:</label></b></td>     
+    <td><input id="DPassword" name="DPassword" type="password" size="10" value=""/></td>
+</tr>
+<tr>
+	<td colspan="2"><input name="Delete" type="submit" value="Delete"/></td>
+</tr>
+</table>
+</form>
+</div>
+</body>
+</html>
+
+
+

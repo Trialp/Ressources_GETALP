@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+   <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+   <meta content="Mouhamadou KHOULE" name="author"/>
+   <meta content="Projet ibaatukaay" name="keywords"/>
+   <meta content="Projet ibaatukaay" name="description"/>
+   <meta content="Enhydra" name="generator"/>
+   <meta content="index, follow" name="robots"/>
+   <title>Projet Papillon</title>
+   <link href="css/ibaatukaay.css" rel="stylesheet" type="text/css" />
+   <script src="javascript/jquery-1.11.3.min.js" type="text/javascript"><!-- // --></script>
+   <script src="javascript/lookupVolume.js" type="text/javascript"><!-- // --></script>
+   <script src="javascript/jquery.xdomainrequest.min.js" type="text/javascript"><!-- // --></script>
+   <script src="javascript/jquery.jeditable.js" type="text/javascript"><!-- // --></script>
+   <script type="text/javascript"><!--
+                                   /* fonction pour les editable*/
+                                   
+                                   function loadEditable () {
+                                   $('.editable').editable(function(value, settings) {
+                                   xpath = $(this).attr('xpath');
+                                   encodedValue = encodeURIComponent(value);
+                                   divcontrib = $(this).closest("div.contribution");
+                                   origcontribid = encodeURIComponent(divcontrib.attr("id"));
+                                   
+                                   // première requête AJAX pour modifier le texte
+                                   $.ajax({
+                                   url: scriptStartUrl + 'api/Lexinnova/esp/'+origcontribid+'/' + encodedValue,
+                                   type: 'PUT',
+                                   data: xpath,
+                                   success: function(result) {
+                                   var contribution = $(result).find('d\\:contribution, contribution')[ 0 ];
+                                   var contribid = contribution.getAttributeNS(DMLNamespace,'contribid');
+                                   divcontrib.attr('id',contribid);
+                                   
+                                   },
+                                   error: function (xhr, ajaxOptions, thrownError) {
+                                   alert('erreur call loadEditable, status: ' + xhr.status + ' error: ' + thrownError);
+                                   }
+                                   });
+                                   return(value);
+                                   }, {
+                                   data: function(value, settings) {
+                                   var retval = value.replace(/<\/?span[^>]*>/gi, '');
+                                   return retval;
+                                   },
+                                   submit  : 'ok',
+                                   tooltip   : 'Cliquer pour éditer...',
+                                   style   : 'display: inline;',
+                                   });
+                                   return 'ok';
+                                   }
+                                   // -->
+   </script>
+  </head>
+  <body>
+  <div id="entete">
+  	<h1>Le projet ibaatukaay</h1>
+  </div>
+  <div id="BannerContent">
+  	<div id="projectTitle">
+        <div id="Description_Default">
+		<span class="projectName">The iBaatukaay Project</span>
+		</div>
+	</div>
+	<form class="cellVolumeLookup" onsubmit="queryPrefixVolume(this.HEADWORD.value, this.VOLUME.options[this.VOLUME.selectedIndex].value); queryOneEntry(this.HEADWORD.value, this.VOLUME.options[this.VOLUME.selectedIndex].value); return false;" action="LookupVolume.po">
+	  <div style="display:inline;">
+		<input type="hidden" name="action" id="actionJS" value="lookupVolume" />
+	    Chercher dans le
+   		<input id="LIMIT" name="LIMIT" type="hidden" value="100"/>
+    		<input id="STATUS" name="STATUS" type="hidden" value="finished"/>
+			<label id="VolumeLabel" style="display:inline;" accesskey="v" for="VOLUME"><span class="accesskey">v</span>olume
+    		<select name="VOLUME" title="sélectionner le volume [v]" id="VOLUME">
+    			<option id="VolumeOptionTemplate" label="tmpl" value="tmpl">tmpl</option>
+    		</select>
+			</label>
+ 	     <input id="HEADWORD" name="HEADWORD" type="text" />
+	     <input type="submit" value="→" />
+	   </div>
+	</form>
+	<div id="cellLookup">
+		<a href="Home.po">Volume Lookup</a>
+	</div>
+	<div id="cellAdvancedLookup">
+		<a href="AdvancedLookup.po">Advanced Loockup</a>
+	</div>
+ </div>
+ <div id="CentralContent">
+  <div id="ContextualMenuContent">
+ <div id="lookupentries">
+<!-- // --></div> 
+ </div>
+ <div id="MainContent">
+  <p class="loadingMessageTop">&#xA0;<span class="loadmore">Headwords are loading...</span>&#xA0;
+  <span class="loadcontent">Data is loading...</span></p>
+    <p id="EmptyMessage" style="display:none;">The word you are looking for is not in the dictionary. You can explore its alphabetical neighborhood thanks to the list on the left of the screen.</p>
+    <p id="PrefixLookupMessage" style="display:none;">The word you are looking for is not in the dictionary. You will find the first word beginning with the same letters.</p>
+    <div id="lookupcontent">
+  <p id="WelcomeMessage">After clicking on the arrow →, wait a little bit.</p>
+</div>
+  <p class="loadingMessageBottom">&#xA0;<span class="loadmore">Headwords are loading...</span>&#xA0;
+  <span class="loadcontent">Data is loading...</span></p>
+</div>
+</div>
+
+  <div id="copyright">© 2001-2016 <a href="mailto:mouhamadoukhouleATgmail.com?subject=Projet ibaatukaay&amp;body=replace AT by @ in the email address">Mouhamadou KHOULE</a>, GETA-CLIPS. All rights reserved.</div>
+ </body>
+</html>

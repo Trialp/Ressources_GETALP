@@ -1,0 +1,44 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.0 TRANSITIONAL//EN">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="en">
+
+<center><h1>Admin XML entries</h1></center>
+
+<HR>
+<!-- formulaire de voir mot-->
+
+<FORM ACTION="AdminEntries.po" METHOD="GET">
+<table WIDTH="600" BORDER="0" CELLSPACING="0" CELLPADDING="10" Summary="Formulaire">
+<TR>
+     <!-- Warning, make sure the option element contains a Text and only a Text (no other child) -->
+	<TD><b>Volume:</b></TD>
+        <TD>
+            <SELECT NAME="VOLUME">
+            <OPTION ID="VolumeOptionTemplate" VALUE="NONE" LABEL="NONE">NONE</OPTION>
+        </SELECT></TD>
+</TR>
+<TR>	
+	<TD><B>Url:&nbsp;</B></TD>
+	<TD><INPUT NAME="url" TYPE="text" SIZE="64" VALUE=""></TD>
+</TR>
+
+<TR>
+	<TD COLSPAN="2"><INPUT NAME="Add" TYPE="submit" VALUE="Add"></TD>
+</TR>
+<TR>
+	<TD COLSPAN="2"><INPUT NAME="Empty" TYPE="submit" VALUE="Empty"></TD>
+</TR>
+</TABLE>
+</FORM>
+<DIV id="Xml">
+
+</DIV>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+-html:encoding utf-8
+-info
+-generate both
+-create-get-tag-methods
+-methods

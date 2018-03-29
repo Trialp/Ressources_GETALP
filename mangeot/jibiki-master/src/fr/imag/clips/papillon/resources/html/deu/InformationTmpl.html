@@ -1,0 +1,87 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.0 TRANSITIONAL//EN">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title>Papillon</title>
+</head>
+<body>
+<DIV id="InfoContent" lang="de">
+<h1 align="center">Informationen über den Papillon-Web-Server</h1>
+
+<p align="center">
+<a href="#Presentation">Vorstellung des Papillon-Projekts</a>&nbsp;|&nbsp;
+<a href="#Access">Zugangsmethoden</a>&nbsp;|&nbsp;
+<a href="#Info">Weitere Informationen</a>&nbsp;|&nbsp;
+<a href="#Links">Nützliche Links</a>&nbsp;|&nbsp;
+<a href="#Credits">Liste der Mitarbeiter</a></p>
+
+<a name="Presentation"></a>
+<h2>Vorstellung des Papillon-Projekts</h2>
+
+<h3>Einleitung</h3>
+<p class="standard">Dieses Projekt hat die Erstellung einer mehrsprachigen Wörterbuch-Datenbank zum Ziel, welche unter anderem die Sprachen Englisch, Französisch, Japanisch, Lao, Thai und Chinesisch abdeckt. Der Zugang wird für den nicht kommerziellen Gebrauch kostenlos gewährt (Open Source Licenz). Unser Projekt,
+wurde von einigen Computer-Lingusiten initiert und hat zum Ziel, für alle, die an diesen Sprachen Interesse haben, nützlich und offen zu sein.</p>
+<h3>Makrostruktur</h3>
+<p class="standard">Die Struktur des Wörterbuches (Makrostruktur) ist eine Pivot-Struktur: Jeder Eintrag jedes einsprachigen Volumes ist über einen in der Pivot-Struktur gespeicherten interlingualen Link mit seinen Übersetzungen in den anderen Sprache verbunden. Diese Struktur ist besonders interessant, wenn eine neue Sprache hinzugefügt wird. Es entfällt die Notwendigkeit, einen neuen Eintrag mit allen seiner möglichen Übersetzungen zu verbinden.</p>
+
+<h3>Mikrostrukture</h3>
+<p class="standard">Die Struktur der einsprachigen Einträge (Mikrostrukture) basiert auf der Erklärenden und Kombinierenden Lexikographie, einem Teil der Bedeutungs-Text-Theorie. Diese Theorie wurde von Igor Mel'cuk und seinen Kollegen in den siebziger Jahren in Moskau geschaffen und bietet die notwendige information von einer abstrakten Bedeutung zu ihrer Realisierung in einer bestimmten Sprache. Diese Theorie ist sprachunabhängig; daher wird dieselbe Struktur für alle Sprachen angewendet. Sie ist sehr detailliert und passend für den Gebrauch durch Menschen und Maschinen.</p>
+
+<h3>Beiträge</h3>
+<p class="standard">Unser Ziel ist es, das kooperative Linux-Erstellungs-Paradigma auf die Erstellung eines mehrsprachigen Wörterbuches anzuwenden und die Anstrengungen bei der Schaffung von Wörterbuch-Ressourcen auf ein Prinzip der Gegenseitigkeit zu stellen. Alle können zu dem Projekt beitragen, indem sie ihre Resourcen zu Verfügung stellen oder indem sie online Korrekturen oder neu erstellte Einträge beitragen. Die Daten sind dann öffentlich zugänglich. Für mehr Information wie man zum Projekt beitragen kann, lesen Sie bitte in der <a href="Help.po">Hilfe-Sektion</a>.</p>
+
+<h3>Nachschlagen</h3>
+<p class="standard">Um zeitintensive Anstrengungen zu vermeiden, werden wir ein Skelett von Papillon-Enträgen erstellen, bei dem wir existierende Daten aufnehmen und in das Papillon-Wörterbuch integrieren. Diese Daten kommen aus <a href="ViewDictionaries.po">existierenden Wörterbüchern</a> die mit einer Standard-Nachschlage-Schnittstelle im linken Menü abgefragt weren können.</p>
+
+<h2><a name="Access"></a>Zugangsmethoden</h2>
+<h3>Web</h3>
+<p class="standard">Die umfassendste Methode, Zugang zum Papillon-Server zu haben, ist online mit dem Webbrowser; lesen Sie bitte die <a href="Help.po">Hilfe-Sektion</a>.</p>
+
+<h3>Mobiltelefone</h3>
+<p class="standard">Eine experimentale Schnittstelle exitiert für AU-Mobiltelefone: <a href="HomeAU.po">http://www.papillon-dictionary.org/HomeAU.po</a>. Sie ist in Tiny XHTML geschrieben. Sie können ein Wort und seine Übersetzung über das Handy auf dem Papillon-Server nachschlagen.</p>
+
+<h3>Dictd-Protokoll</h3>
+<p class="standard">Der Papillon-Server verwendet auch das <a href="http://www.dict.org">Dictd-Protokoll</a>. Sie können einen Dictd-Client wie <a href="http://www.omnigroup.com/applications/omnidictionary/">OmniDictionary</a> von Omnigroup oder irgeneinen anderen Dictd-Client verwenden. Eine Basismethode könnte eine Telnet-Verbindung zu www.papillon-dictionary.org über Port 2628 sein. Diese Modul befindet sich in der Experiment-Phase. Bitte kontaktieren Sie uns für Feedback.</p>
+
+
+<h2><a name="Info"></a>Mehr Information</h2>
+<h3>DoKumentation</h3>
+<p class="standard">Für mehr Information, können Sie zahlreiche Schriften lesen, die in der <a href="ConsultInformations.po">Dokumentationssektions</a> abgelegt sind.</p>
+
+<h3>Mailing-Liste</h3>
+<p>Sie können auch auf das  Archive der <A HREF="mailing-list/">Papillon-Mailing-Liste</A> zugreifen.</p>
+
+<a name="Links"></a>
+<h2>Nützliche Links</h2>
+
+<h3>Partner</h3>
+<ul>
+<li><A href="http://clips.imag.fr">GETA-CLIPS</A> Laboratorium in Grenoble, Frankreich</li>
+<li><A href="http://www.nii.ac.jp/">NII</A>, Nationales Institut für Informatik in Tokyo, Japan</li>	
+</ul>
+
+<h3>Sponsoren</h3>
+<ul>
+<li><A href="http://www.ambafrance-jp.org/">Französische Botschaft</A> in Japan</li>
+</ul>
+
+<h3>Verwandte Projekte</h3>
+<ul>
+<li><A href="http://dico.fj.free.fr/">DicoFJ</A>, ein japanisch-französisches Wörterbuch-Projekt;</li>	
+<li><A href="http://www.kecl.ntt.co.jp/icl/mtg/resources/engdic/">Engdict</A>, ein englisch-koreanisches Wörterbuch;</li>
+<li><A href="http://clips.imag.fr/geta/services/fem/">FeM</A> ein französische-englisch-malayisches Wörterbuch;</li>
+<li><A href="http://www.foks.info/">FOKS</A>,  die "Forgiving Online Kanji Search" (Fehlerverzeiende Online Kanji-Suche);</li>
+<li><A href="http://www.csse.monash.edu.au/~jwb/j_jmdict.html">JMdict</A>, Jim Breens japanisch-mehrsprachiges Wörterbuch und <A href="http://www.csse.monash.edu.au/~jwb/wwwjdic.html">WWWJDIC</a>, dessen Web-Schnittstelle;</li>
+<li><A href="http://saikam.nii.ac.jp/">SAIKAM</A>, ein japanisch-thai online-Wörterbuch;</li>
+<li><A href="http://www.informatik.uni-leipzig.de/~duc/Dict/index.html">VietDict</A>, ein vietnamesisch-französisch-englisches Wörterbuch;</li>
+<li><A href="http://isweb9.infoseek.co.jp/computer/wadoku/deutsch.html">WaDokuJT</A>, Ulrich Apels japanisch-deutsches Wörterbuch.</li>
+</ul>
+
+<a name="Credits"></a>
+<h2>Liste der Mitarbeiter</h2>
+<ul>
+<li><b>Mathieu MANGEOT-NAGATA</b> &amp; <b>Gilles SÉRASSET</b>: Hauptentwicklen.</li>
+</ul>
+</DIV>
+</body>
+</html>

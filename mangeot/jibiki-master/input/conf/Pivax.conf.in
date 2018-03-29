@@ -1,0 +1,355 @@
+#
+#  Papillon51
+#  Enhydra Application
+#
+#  Simple Enhydra application configuration file.
+#
+
+#
+# Comma separated CLASSPATH directories and files used by this application.
+# You must rebuild the jar after every change to the app.
+#
+Server.ClassPath[] = "@DEPLOY_PATH@/lib/Papillon.jar"
+#Server.ClassPath[] = "@DEPLOY_PATH@/output/../classes"
+
+#
+# The fully qualified name of the application class.
+#
+Server.AppClass = fr.imag.clips.papillon.Papillon
+
+#
+# Prefix used to derive presentation object class
+# names and paths from URLs.
+# Assumes run from the output directory for debugging.
+#
+Server.PresentationPrefix = "fr/imag/clips/papillon/presentation"
+
+#
+# Flag to indicate that application classes and resources should be reloaded
+# automatically if ANY file in the CLASSPATH changes.  NOTE:  This is a
+# debugging option and may slow down the performance of your application.
+# The CLASSPATH should NOT contain any directories (or underlying directories)
+# that contain constantly changing files, i.e. a log file.  For example, do
+# NOT include the application's output directory in the CLASSPATH because it
+# contains the application log files in the underlying log directory.
+#
+Server.AutoReload = false
+#Server.XMLC.DeferredParsing = true
+
+#
+# Maximum number of minutes a user session can last.
+#
+SessionManager.Lifetime = 720
+
+#
+# Maximum number of minutes a user may be idle before being logged off.
+#
+SessionManager.MaxIdleTime = 120
+
+#
+# Flag to indicate that SessionManager will be held in memory
+# during restart application (default is false).
+#
+#SessionManager.MemoryPersistence = true
+
+#
+# The session home implementation to use.  May
+# be one of {BASIC, PAGE_TO_DISK, PAGE_TO_DB, CUSTOM}.
+#
+#SessionManager.SessionHome.Mode = BASIC
+
+#
+# Maximum number of concurrent sessions.
+#
+#SessionManager.SessionHome.MaxSessions = 100
+
+#
+# PAGE_TO_* settings
+# ------------------
+# The following settings are required by all paged (DISK, DB) implementations.
+#
+
+# The maximum number of sessions that will be held in memory simultaneously.
+#SessionManager.SessionHome.PageThreshold = 50
+
+# The maximum amount of time that a session will remain in memory
+# in an inactive (passive) state.  If this amount of time is exceeded
+# then the session is paged out.  The value is in seconds.
+#SessionManager.SessionHome.PageTimeThreshold = 60
+
+# The maximum amout of time that a thread will wait for a
+# session to be paged back into memory.  In milliseconds.
+#SessionManager.SessionHome.PageWait = 5000
+
+#
+# Flag to indicate that sessions should be paged and reloaded
+# during application restart (default is false).
+# This parameter has no effect if use MemoryPersistence = true.
+# Important: Don't use same directory for pageDir key in 
+# PAGE_TO_DISK settings for different applications.
+#
+#SessionManager.SessionHome.SaveOnRestart = true
+
+#
+# PAGE_TO_DISK settings
+# ---------------------
+#
+# The directory where sessions will be paged.  This setting is required
+# when using PAGE_TO_DISK.
+#SessionManager.SessionHome.PageDir = /tmp/page
+
+#
+# PAGE_TO_DB session home settings
+# --------------------------------
+# NOTE: to use PAGE_TO_DB you'll need your database properly configured.
+#
+# If the following is not specified then sessions are paged to the default database.
+#SessionManager.SessionHome.DatabaseName = _enter_db_name_here
+
+# If the following is not specified then session data is written
+# to the table "PersistenSession"
+#SessionManager.SessionHome.DBTableName = PersistentSession
+
+#
+# CUSTOM session home settings
+# ----------------------------
+# The following settings are required when using custom session home interfaces.
+#
+#SessionManager.SessionUserTable.Class =
+#SessionManager.SessionHome.Class =
+
+
+
+
+#
+# If the URL "/" for this application is accessed, the user will be
+# redirected to this URL. This should be a relative URL.
+#
+Application.DefaultUrl = "Home.po"
+Application.Prefix = "@APPLICATION_PREFIX@"
+#
+PresentationManager.CacheFiles = true
+#
+
+#-----------------------------------------------------------------------------
+#                    Private Papillon Configuration
+#-----------------------------------------------------------------------------
+# INFORMATION FILES Admin section
+# The actions to be taken when a specific Content-Type is encountered during a file upload.
+# WARNING: content types should be noted with _ (underscore) instead of - (minus).
+# The value should be the name of a class deriving from InformationFileAction
+Papillon.Informations.contentTypeHandler.text.html       = "fr.imag.clips.papillon.business.informationfile.ImportHTMLFile"
+Papillon.Informations.contentTypeHandler.encoding.gzip   = "fr.imag.clips.papillon.business.informationfile.ImportGZippedFile"
+Papillon.Informations.contentTypeHandler.application.x_gzip   = "fr.imag.clips.papillon.business.informationfile.ImportGZippedFile"
+Papillon.Informations.contentTypeHandler.multipart.x_tar_gz   = "fr.imag.clips.papillon.business.informationfile.ImportGZippedFile"
+# not using the zip handler to avoid uncompression of embedded zip files into a bigger archive
+# eg, I upload a file .ppt.zip and I don't want to uncompress it
+Papillon.Informations.contentTypeHandler.application.zip = "fr.imag.clips.papillon.business.informationfile.ImportZipFile"
+Papillon.Informations.contentTypeHandler.encoding.bzip   = "fr.imag.clips.papillon.business.informationfile.ImportBZippedFile"
+Papillon.Informations.contentTypeHandler.application.x_bzip   = "fr.imag.clips.papillon.business.informationfile.ImportBZippedFile"
+Papillon.Informations.contentTypeHandler.application.pdf   = "fr.imag.clips.papillon.business.informationfile.ImportMediaFile"
+Papillon.Informations.contentTypeHandler.application.tar = "fr.imag.clips.papillon.business.informationfile.ImportTarFile"
+Papillon.Informations.contentTypeHandler.image.gif       = "fr.imag.clips.papillon.business.informationfile.ImportMediaFile"
+
+# The actions to be taken (same as above) when you don't know the content type, but only the file name.
+# The value should be the name of a class deriving from InformationFileAction
+# For HTML documents
+Papillon.Informations.fileExtensionHandler.html   = "fr.imag.clips.papillon.business.informationfile.ImportHTMLFile"
+Papillon.Informations.fileExtensionHandler.htm    = "fr.imag.clips.papillon.business.informationfile.ImportHTMLFile"
+# For tar, gzip & bzip2 documents
+Papillon.Informations.fileExtensionHandler.gzip   = "fr.imag.clips.papillon.business.informationfile.ImportGZippedFile"
+# tgz does not work !
+# Papillon.Informations.fileExtensionHandler.tgz   =  "fr.imag.clips.papillon.business.informationfile.ImportGZippedFile"
+Papillon.Informations.fileExtensionHandler.tar 	  = "fr.imag.clips.papillon.business.informationfile.ImportTarFile"
+Papillon.Informations.fileExtensionHandler.gz     = "fr.imag.clips.papillon.business.informationfile.ImportGZippedFile"
+Papillon.Informations.fileExtensionHandler.bz2     = "fr.imag.clips.papillon.business.informationfile.ImportBZippedFile"
+Papillon.Informations.fileExtensionHandler.bz     = "fr.imag.clips.papillon.business.informationfile.ImportBZippedFile"
+# For other documents
+Papillon.Informations.fileExtensionHandler.gif    = "fr.imag.clips.papillon.business.informationfile.ImportMediaFile"
+Papillon.Informations.fileExtensionHandler.jpg    = "fr.imag.clips.papillon.business.informationfile.ImportMediaFile"
+Papillon.Informations.fileExtensionHandler.jpeg   = "fr.imag.clips.papillon.business.informationfile.ImportMediaFile"
+Papillon.Informations.fileExtensionHandler.pdf    = "fr.imag.clips.papillon.business.informationfile.ImportMediaFile"
+# not using the zip handler to avoid uncompression of embedded zip files into a bigger archive
+# eg, I upload a file .ppt.zip and I don't want to uncompress it
+Papillon.Informations.fileExtensionHandler.zip     = "fr.imag.clips.papillon.business.informationfile.ImportZipFile"
+#Papillon.Informations.fileExtensionHandler.zip     = "fr.imag.clips.papillon.business.informationfile.ImportMediaFile"
+# importing other files as is.
+Papillon.Informations.fileExtensionHandler.ppt     = "fr.imag.clips.papillon.business.informationfile.ImportMediaFile"
+Papillon.Informations.fileExtensionHandler.doc     = "fr.imag.clips.papillon.business.informationfile.ImportMediaFile"
+Papillon.Informations.fileExtensionHandler.xml     = "fr.imag.clips.papillon.business.informationfile.ImportMediaFile"
+Papillon.Informations.fileExtensionHandler.xsd     = "fr.imag.clips.papillon.business.informationfile.ImportMediaFile"
+Papillon.Informations.fileExtensionHandler.xsl     = "fr.imag.clips.papillon.business.informationfile.ImportMediaFile"
+
+
+# The information files admin directories. 
+# CAUTION: WHEN YOU CHANGE THESE OPTIONS, IT APPLIES ONLY TO NEWLY IMPORTED FILES. Hence, older files 
+# will still refer to the old directory... Moreover, the change will only be taken into account after an 
+# application restart.
+# Absolute path to the temporary directory (where files are expanded and processed, then discarded)
+Papillon.Informations.tmpDir = "/tmp/"
+# Absolute path to the information section base dir.
+Papillon.Informations.baseDir = "/var/www/jibiki/"
+Papillon.Informations.relativeDir = "/jibiki/"
+# Relative path to the media directory (the directory that contains gifs, jpgs, etc. that are added 
+# while importing a file). This directory is relative to the server's information section base Dir. 
+Papillon.Informations.mediaDir = "info_media/"
+
+# The list of categories that are to be used for the informationn file section
+# The main list is to be used to identify sections in the database (this should not be changed in
+# production stage, You may add sections, but you'll lose some information if you remove some...). 
+# The other ones are used to present the list of sections to the user in
+# his own language (the order should be the same). 
+# This kind of configuration should not be kept here. Perhaps we should define a XML Schema to represent it
+# and put it in another place...
+Papillon.Informations.sections.default[] = "INFO", 
+                                           "DEV", 
+                                           "DICT", 
+                                           "PAPILLON01" , 
+                                           "PAPILLON02" ,
+                                           "PAPILLON03" ,
+                                           "PAPILLON04" ,
+                                           "PUBLI_PAP",
+                                           "PUBLIS", 
+                                           "HOWTO", 
+                                           "MISC"
+Papillon.Informations.sections.deu[] = "Allgemeine Informationen",
+                                       "Papillon-Entwicklung",
+                                       "Papillon-Wörterbücher",
+                                       "Papillon-Workshop 2001, Grenoble" ,
+                                       "Papillon-Workshop 2002, Tokyo" ,
+                                       "Papillon-Workshop 2003, Sapporo",
+                                       "Papillon-Workshop 2004, Grenoble",
+                                       "Publikationen zum Papillon-Projekt",
+                                       "Andere in Zusammenhang stehende Publikationen",
+                                       "How To",
+                                       "Verschiedenes"
+Papillon.Informations.sections.eng[] = "General Information", 
+                                       "Papillon Development", 
+                                       "Papillon Dictionaries", 
+                                       "Papillon 2001 Workshop, Grenoble" ,
+                                       "Papillon 2002 Workshop, Tokyo" ,
+                                       "Papillon 2003 Workshop, Sapporo",  
+                                       "Papillon 2004 Workshop, Grenoble",  
+                                       "Publications on Papillon Project",
+                                       "Other Related Publications", 
+                                       "How To", 
+                                       "Misc" 
+Papillon.Informations.sections.fra[] = "Information générale", 
+                                       "Développements sur Papillon", 
+                                       "Dictionnaires de Papillon", 
+                                       "Journées Papillon 2001, Grenoble",
+                                       "Journées Papillon 2002, Tokyo",
+                                       "Journées Papillon 2003, Sapporo",
+                                       "Journées Papillon 2004, Grenoble",
+                                       "Publications sur le projet Papillon",
+                                       "Autres Publications", 
+                                       "Recettes", 
+                                       "Divers"
+Papillon.Informations.sections.jpn[] = "一般情報", 
+                                       "パピヨン展開", 
+                                       "パピヨン辞書", 
+                                       "パピヨン２００１年ワークショップ、グルノーブル",
+                                       "パピヨン２００２年ワークショップ、東京",
+                                       "パピヨン２００３年ワークショップ、札幌",
+                                       "パピヨン２００４年ワークショップ、グルノーブル",
+                                       "パピヨンプロジェクトに関する論文",
+                                       "その他の論文", 
+                                       "ガイド", 
+                                       "その他"
+
+#####
+# Javamail
+#
+# in order to send emails with ssl, you must 
+# - 1 create an ssl-cert and import it:
+# > keytool -import -alias papillon-server -file papillon-server.cer
+# - 2 uncomment the following variables: 
+javax.net.ssl.trustStore = "/home/papillon/.keystore"
+javax.net.ssl.trustStorePassword = "@TRUSTSTORE_PASSWORD@"
+# - 3 set the following variables to true
+Papillon.javamail.mailhost.ssl = true
+Papillon.javamail.from = "papillon-server@papillon-dictionary.org"
+Papillon.javamail.mailhost.address = "@MAILHOST_ADDRESS@"
+# if the server needs auth, set the following variable to true and uncomment the following variables
+Papillon.javamail.mailhost.auth = true
+Papillon.javamail.mailhost.user = "@MAILHOST_USER@"
+Papillon.javamail.mailhost.password = "@MAILHOST_PASSWORD@"
+
+#####
+# Groups passwords
+#
+Papillon.Users.Groups.Password.admin = "@JIBIKI_ADMIN_PASSWORD@"
+Papillon.Users.Groups.Password.specialist = "@JIBIKI_SPECIALIST_PASSWORD@"
+Papillon.Users.Groups.Password.validator = "@JIBIKI_VALIDATOR_PASSWORD@"
+
+# Class name of the layout for pages of the application
+Papillon.Presentation.PriorityPackage = "fr.imag.clips.papillon.presentation.xhtmlpivax"
+Papillon.LayoutClassName = "fr.imag.clips.papillon.presentation.PapillonLayout"
+Papillon.LoginCookieName = "PapillonLoginCookie"
+
+
+###
+# Misc
+Papillon.Logging.StoreQueryLogs = true
+
+#+++++++++++++++++++++++++++++++++
+# SAXON TRANSFORMATION HANDLER
+#+++++++++++++++++++++++++++++++++
+Papillon.Saxon.Classpath = "@SAXON8_LIB@"
+
+#+++++++++++++++++++++++++++++++++
+# FOP TRANSFORMATION HANDLER
+#+++++++++++++++++++++++++++++++++
+Papillon.Fop.Classpath = "@FOP_LIB@"
+Papillon.Batik.Classpath = "@BATIK_LIB@"
+Papillon.Xalan.Classpath = "@XALAN_LIB@"
+Papillon.Xerces.Classpath = "@XERCES_LIB@"
+Papillon.Avalon.Classpath = "@AVALON_LIB@"
+Papillon.XmlApi.Classpath = "@XMLAPI_LIB@"
+Papillon.Fo.Xsl = "@FO_PATH@"
+
+#-----------------------------------------------------------------------------
+#                   JDictd server Configuration (RFC 2229)
+#-----------------------------------------------------------------------------
+#
+#
+# is dictd listening? 
+Dictd.Listen = true
+
+# dictd listening port
+Dictd.Port = 2628
+
+# dictd timeout 50000 ~= 15 seconds
+Dictd.Timeout = 500000
+
+#-----------------------------------------------------------------------------
+#                   PAPILLON's Database Manager Configuration
+#-----------------------------------------------------------------------------
+
+DatabaseManager.Databases[] = "papillon"
+DatabaseManager.DefaultDatabase = "papillon"
+DatabaseManager.Debug = "false"
+DatabaseManager.DB.papillon.ClassType = "PostgreSQL"
+DatabaseManager.DB.papillon.JdbcDriver = "org.postgresql.Driver"
+DatabaseManager.DB.papillon.Connection.Url = "@PGSQL_SERVER_URL@"
+
+DatabaseManager.DB.papillon.Connection.User = "@DB_USER@"
+DatabaseManager.DB.papillon.Connection.Password = "@DB_PASSWD@"
+
+DatabaseManager.DB.papillon.Connection.MaxPoolSize = 30
+DatabaseManager.DB.papillon.Connection.AllocationTimeout = 10000
+
+DatabaseManager.DB.papillon.Connection.Logging = false
+
+DatabaseManager.DB.papillon.ObjectId.CacheSize = 20
+DatabaseManager.DB.papillon.ObjectId.MinValue = 1000000
+
+# Version of the DB Layer used in this application.
+jibiki.dblayer.version=@DBLAYER_VERSION@
+
+#
+# Following two lines must be added for PostgreSQL,
+# since oID can't be used for column name
+#
+DatabaseManager.ObjectIdColumnName = "ObjectId"
+DatabaseManager.VersionColumnName = "ObjectVersion"

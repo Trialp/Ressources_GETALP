@@ -1,0 +1,5 @@
+createdb -h bushido.imag.fr -E UNICODE -e papillon
+cp papillon.sql.gz restore.sql.gz
+gunzip restore.sql.gz
+## pg_restore -h bushido.imag.fr -d papillon -Fc restore.sql
+pg_restore -h localhost -d papillon restore.sql

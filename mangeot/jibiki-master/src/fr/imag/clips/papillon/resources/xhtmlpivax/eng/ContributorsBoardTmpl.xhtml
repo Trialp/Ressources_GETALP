@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="en">
+
+<h1>Contributors Board</h1>
+
+<form  action="ContributorsBoard.po" method="get">
+  <table width="90%" border="0" cellspacing="5" cellpadding="5" summary="Formulaire">
+    <tbody>
+	  <tr>
+	    <td><b>Volume:</b></td>
+	    <td>
+		  <select name="VOLUME">
+            <option value="*ALL*" label="*all*">*all*</option>
+            <option id="VolumeOptionTemplate" value="NONE" label="NONE">NONE</option>
+          </select>
+	    </td>
+	  </tr>
+	  <tr>
+            <td style="bgcolor:#4682b4;">
+              From (aaaa/mm/dd)
+              <input id="FromDate" name="FromDate" type="text" size="10" value="" />
+            </td>
+            <td style="bgcolor:#4682b4;">
+              to (aaaa/mm/dd)
+              <input id="ToDate" name="ToDate" type="text" size="10" value="" />
+            </td>
+            <td style="bgcolor:#4682b4;">
+				<input id="LOOKUP" name="LOOKUP" type="submit" value="Lookup"/>
+            </td>
+          </tr>
+    </tbody>
+  </table>
+</form>
+<hr />
+<div id="ContributorsTable" class="hidden">
+<p>The most active contributor is <strong><span id="BestContributor">John Doe</span></strong> with <span id="MaxContributions">X</span> contributions.</p>
+<p>The most active reviewer is <strong><span id="BestReviewer">John Doe</span></strong> with <span id="MaxRevisions">X</span> revisions.</p>
+<table summary="ContributorsBoard">
+<thead>
+<tr>
+	<th>Name</th>
+	<th>Login</th>
+	<th>Finished</th>
+	<th>Reviewed</th>
+	<th>Validated</th>
+</tr>
+</thead>
+<tfoot>
+	<tr>
+		<th colspan="2">Total:</th>
+		<td><span id="TotalFinished">finished</span></td>
+		<td><span id="TotalReviewed">reviewed</span></td>
+		<td><span id="TotalValidated">validated</span></td>
+	</tr>
+</tfoot>
+<tbody>
+<tr id="TemplateRow">
+	<td><b><span id="Name">name</span></b></td>
+	<td><span id="Login">login</span></td>
+	<td><span id="Finished">finished</span></td>
+	<td><span id="Reviewed">reviewed</span></td>
+	<td><span id="Validated">validated</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</body>
+</html>

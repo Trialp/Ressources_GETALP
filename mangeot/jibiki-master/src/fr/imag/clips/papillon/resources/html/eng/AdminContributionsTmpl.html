@@ -1,0 +1,87 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.0 TRANSITIONAL//EN">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="en">
+
+<h1 align="center">Admin <span id="UserName">Name</span>'s XML contributions</h1>
+
+<HR>
+<!-- formulaire de voir mot-->
+<FORM NAME="MainForm" ACTION="AdminContributions.po" METHOD="GET">
+<table WIDTH="600" BORDER="0" CELLSPACING="0" CELLPADDING="10" Summary="Formulaire">
+	<TR>
+        <TD><B><label for="VOLUME">Volume:</label></B></TD>
+        <TD>
+            <SELECT id="VOLUME" NAME="VOLUME" onChange="document.MainForm.submit()">
+            <OPTION ID="VolumeOptionTemplate" VALUE="NONE" LABEL="NONE">NONE</OPTION>
+        </SELECT>
+	<br>
+		<input id="LOOKUP" name="LOOKUP" type="submit" value="Lookup">
+</TD>
+	<TD><label for="HEADWORD">Headword:</label><br>
+	<input id="HEADWORD" name="HEADWORD" size="12" type="text" value="">
+	<br>
+	<label for="PartialMatch">
+	<INPUT id="PartialMatch" name="PartialMatch" type="checkbox" value="PartialMatch">
+	<font size="2">Substring</font></label>
+     </TD>
+	<TD><label for="STATUS">Status:</label><br>
+	<select id="STATUS" name="STATUS">
+		<option value="*ALL*" label="tous">all</option>
+		<option value="not finished" label="not finished">not finished</option>
+		<option value="finished" label="finished">finished</option>
+		<option value="revised" label="revised">revised</option>
+		<!--option value="validated" label="validees">validées</option-->
+    </select>
+     </TD>
+</TR>
+</TABLE>
+</FORM>
+<!--FORM NAME="RemoveContribForm" ACTION="AdminContributions.po" METHOD="GET" onsubmit="return confirm('Are you sure you want to remove your contributions on selected volume?')">
+<table WIDTH="600" BORDER="0" CELLSPACING="0" CELLPADDING="10" Summary="RemoveContrib">
+<TR>
+<TD><b><label for="EMPTY">Remove the contributions on selected volume</label></b></TD>
+        <TD>
+        <INPUT id="EMPTY" NAME="EMPTY" TYPE="submit" VALUE="Remove">
+        </TD>
+</TR>
+</TABLE>
+</FORM-->
+<hr>
+<h2>View the <span id="ContributionsCount">0</span> contributions</h2>
+<table id="ContribList" width="100%" frame="hsides"  border="0" summary="entries" bgcolor="#faecc9">
+  <tr>
+	<th><a id="HeadwordHeaderAnchor" href="AdminContributions.po?SortBy=headword">View</a></th>
+   <th>Entry Id</th>
+   <th><a id="CreationdateHeaderAnchor" href="AdminContributions.po?SortBy=creationdate">Creation</a></th>
+   <th><a id="NewentryHeaderAnchor" href="AdminContributions.po?SortBy=newentry">New</a></th>
+   <th><a id="StatusHeaderAnchor" href="AdminContributions.po?SortBy=status">Status</a></th>
+   <th>Mark</th>
+   <th>View</th>
+   <th>Edit</th>
+   <th>Remove</th>
+  </tr>
+  <tr id="EntryListRow">
+    <td><A HREF="" id="ViewContribAnchor"><SPAN id="ViewContribText">Contrib</SPAN></A></td>
+    <td><span Id="EntryId">EntryId</span></td>
+    <td><span Id="CreationDate">CreationDate</span></td>
+    <td><span Id="IsNewEntry">IsNewEntry</span></td>
+    <td><span Id="Status">Status</span></td>
+    <td><A HREF="" id="MarkFinishedAnchor">Finished</A></td>
+    <td><A HREF="" id="ViewXmlAnchor">XML</A></td>
+    <td><A HREF="" id="EditContribAnchor"><span id="EditContrib">Edit</span></A></td>
+    <td><A HREF="" id="RemoveContribAnchor" onClick="return confirm('Are you sure you want to remove the contribution?')">Remove</A></td>
+  </tr>
+</table>
+<table id="Contributions" width="100%" frame="hsides"  border="0" summary="dicocontent"  bgcolor="#faecc9">       
+<tr id="EntryRow">
+    <td id="EntryCell" valign="top" width="100%"></td>        
+</tr>
+</table>
+</div>
+</body>
+</html>

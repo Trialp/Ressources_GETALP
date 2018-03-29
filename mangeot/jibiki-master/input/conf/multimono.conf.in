@@ -1,0 +1,15 @@
+#
+#  Papillon51
+#
+#  Servlet service configuration file.
+#
+
+Server.ConfDir = "@DEPLOY_PATH@/conf"
+
+Server.LogClassName = com.lutris.logging.Log4jLogger
+Server.Log4j = "@DEPLOY_PATH@/conf/log4j.xml"
+
+#-----------------------------------------------------------------------------
+#            Mime types
+MimeType.ico = image/x-icon
+

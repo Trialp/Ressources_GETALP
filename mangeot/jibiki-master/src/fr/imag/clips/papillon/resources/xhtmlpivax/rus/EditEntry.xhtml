@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title/>
+  <script id="Script" type="text/javascript">
+    <!--
+    //-->
+    </script>
+</head>
+<body>
+    <div id="EditEntryForm" class="editEntry" xml:lang="ru" lang="ru">
+        <form action="HandleEntryModifications.po" method="post" accept-charset="utf-8" enctype="application/x-www-form-urlencoded" id="default">
+            <div>
+                <script type="text/javascript" src="javascript/pivax.js">
+                  <!--                    
+                  // -->
+                </script>
+                <a name="top"/>
+                <input name="VolumeName" id="VolumeName" type="hidden" value=""/>
+                <input name="EntryHandle" id="EntryHandle" type="hidden" value=""/>
+                <input name="Referrer" id="Referrer" type="hidden" value=""/>
+                <input name="AddCall" type="hidden" value=""/>
+                <input name="DelCall" type="hidden" value=""/>
+                <input name="MoveUpCall" type="hidden" value=""/>
+                <input name="MoveDownCall" type="hidden" value=""/>
+                <input name="ChooseCall" type="hidden" value=""/>
+				<input name="HideBlocks" id="HideBlocks" type="hidden" value=""/>
+                
+                <input name="idFieldName" id="idFieldName" type="hidden" value=""/>
+                <input name="handleFieldName" id="handleFieldName" type="hidden" value=""/>
+                <input name="volFieldName" id="volFieldName" type="hidden" value=""/>
+                
+                <!--Interface-->
+                <div id="EditEntryContent"/>
+                
+                <br/>
+                <br/>
+                <div style="text-align:center">
+                    <input name="Update" type="submit" value="Обновить" style="font-weight: bold;"/>
+                    <input name="Save" type="submit" value="Завершить" style="font-weight: bold;"/>
+                    <input id="SaveAsDraft" name="SaveAsDraft" type="submit" value="Save As Draft" style="font-weight: bold;"/>
+					<!--label for="SaveComment">Comment:</label> <input name="SaveComment" type="text" /-->
+                </div>
+                <a name="bottom"/>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

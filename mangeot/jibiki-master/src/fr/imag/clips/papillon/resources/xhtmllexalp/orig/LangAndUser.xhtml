@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Menu</title>
+  </head>
+  <body>
+    <div id="LanguageAndUser"  xml:lang="en-US" lang="en-US" class="menuBlock">
+      <h2 class="menuTitle">
+        <a title="User Information Management" href="javascript:void(0)">User:</a>
+      </h2>
+      <span id="UserLogin">UserLogin</span>
+      <form id="LangForm" action="PapillonBasePO.po">
+        <div>
+        <label for="lang" accesskey="l">
+          <span class="accesskey">L</span>anguage:</label>
+        <span id="LangSelectPlace">
+          <span id="lang" />
+        </span>
+        <noscript><div><input type="submit" value="Go" /></div></noscript>
+      </div>
+      </form>
+      <br/>
+      <span id="LoginAnchor">
+        <a title="Identify yourself to the Papillon website"
+            href="LoginUser.po">Sign In</a><br/>
+      </span>
+      <span id="UserProfileAnchor">
+        <a title="View/Change your user name/password/address..."
+            href="UserProfile.po">User Profile</a><br/>
+      </span>
+      <span id="LogoutAnchor">
+        <a title="Sign out from the Papillon website"
+            href="LoginUser.po?Logout=yes" onclick="return confirm('Are you sure you want to sign out?')">Sign out</a>
+      </span>
+    </div>
+  </body>
+</html>

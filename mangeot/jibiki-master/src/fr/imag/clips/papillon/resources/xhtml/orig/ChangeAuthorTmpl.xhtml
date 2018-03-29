@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="en" xml:lang="en">
+
+<h1><span id="UserName">Name</span>'s Change Author Interface</h1>
+
+<!-- formulaire de voir mot-->
+<form action="ChangeAuthor.po" method="get">
+<table width="100%" border="0" cellspacing="0" cellpadding="10" summary="Formulaire">
+	<tr>
+        <td><b><label for="VOLUME">Volume:</label></b>
+            <select id="VOLUME" name="VOLUME" onchange="document.MainForm.submit()">
+            <option id="VolumeOptionTemplate" value="NONE" label="NONE">NONE</option>
+        </select>
+	</td>
+	<td>&nbsp;</td>
+	<td><label for="STATUS">Status:</label><br/>
+	<select id="STATUS" name="STATUS">
+		<option value="*ALL*" label="tous">all</option>
+		<option value="not finished" label="not finished">not finished</option>
+		<option value="finished" label="finished">finished</option>
+		<option value="revised" label="revised">revised</option>
+    </select>
+     </td>
+	</tr>
+		  <tr>
+			<td><label for="AUTHOR">Author </label>
+				<select id="StrategyAuthor" name="StrategyAuthor">
+                <option value="0" label="is">is</option>
+                <option value="1" label="begins with">begins with</option>
+              </select>
+				<input id="AUTHOR" name="AUTHOR" size="12" type="text"/>
+			</td>
+			<td>&nbsp;</td>
+			<td><label for="REVIEWER">Reviewer:</label>
+				<input id="REVIEWER" name="REVIEWER" size="12" type="text"/>
+			</td>
+		   </tr>
+           <tr>
+            <td style="bgcolor:#4682b4;">
+              Creation date (aaaa/mm/dd) is
+              <select id="StrategyCreationDate" name="StrategyCreationDate">
+                <option value="14" label="≤">≤</option>
+                <option value="13" label="&lt;">&gt;</option>
+                <option value="0" label="=">=</option>
+                <option value="12" label="≥">≥</option>
+                <option value="11" label="&gt;">&gt;</option>
+              </select>
+              <input id="InputCreationDate" name="CreationDate" type="text" size="10" value="" />
+            </td>
+			<td>
+             &nbsp;
+			</td>
+            <td style="bgcolor:#4682b4;">
+              Review date (aaaa/mm/dd) is
+              <select id="StrategyReviewDate" name="StrategyReviewDate">
+                <option value="14" label="≤">≤</option>
+                <option value="13" label="&lt;">&gt;</option>
+                <option value="0" label="=">=</option>
+                <option value="12" label="≥">≥</option>
+                <option value="11" label="&gt;">&gt;</option>
+              </select>
+              <input id="InputReviewDate" name="ReviewDate" type="text" size="10" value="" />
+            </td>
+          </tr>
+         <tr>
+            <td style="bgcolor:#4682b4;">
+             <select id="search1" name="search1">
+                <option value="cdm-headword" label="headword">headword</option>
+                <option value="cdm-headword-variant" label="variant">variant</option>
+                <option value="cdm-pos" label="part-of-speech">part-of-speech</option>
+                <option value="gdef-est-domaine" label="le domaine">domain</option>
+                <option value="cdm-translation" label="translation">translation</option>
+                <option value="cdm-example" label="examples">example</option>
+                <option value="gdef-est-traduction-exemple" label="eg. translations">eg. translation</option>
+                <option value="gdef-est-locution" label="idioms">idiom</option>
+                <option value="gdef-est-traduction-locution" label="idiom translation">idiom translation</option>
+                <option value="AnyContains" label="any part">any part</option>
+              </select><br/>
+              <select id="Strategy1" name="Strategy1">
+                <option value="0" label="=">=</option>
+                <option value="1" label="begins with">begins with</option>
+                <option value="2" label="ends with">ends with</option>
+                <option value="3" label="contains">contains</option>
+                <option value="13" label="&lt;">&lt;</option>
+                <option value="14" label="≤">≤</option>
+                <option value="11" label="&gt;">&gt;</option>
+                <option value="12" label="≥">≥</option>
+              </select><br/>
+                <input id="search1text" name="search1text" type="text" size="15" value="" />
+           </td>
+			<td>
+                and
+			</td>
+            <td style="bgcolor:#4682b4;">
+              <select id="search2" name="search2">
+                <option value="cdm-headword" label="headword">headword</option>
+                <option value="cdm-headword-variant" label="variant">variant</option>
+                <option value="cdm-pos" label="part-of-speech">part-of-speech</option>
+                <option value="gdef-est-domaine" label="le domaine">domain</option>
+                <option value="cdm-translation" label="translation">translation</option>
+                <option value="cdm-example" label="examples">example</option>
+                <option value="gdef-est-traduction-exemple" label="eg. translations">eg. translation</option>
+                <option value="gdef-est-locution" label="idioms">idiom</option>
+                <option value="gdef-est-traduction-locution" label="idiom translation">idiom translation</option>
+                <option value="AnyContains" label="any part">any part</option>
+              </select><br/>
+              <select id="Strategy2" name="Strategy2">
+                <option value="0" label="=">=</option>
+                <option value="1" label="begins with">begins with</option>
+                <option value="2" label="ends with">ends with</option>
+                <option value="3" label="contains">contains</option>
+                <option value="13" label="&lt;">&lt;</option>
+                <option value="14" label="≤">≤</option>
+                <option value="11" label="&gt;">&gt;</option>
+                <option value="12" label="≥">≥</option>
+              </select><br/>
+              <input id="search2text" name="search2text" type="text" size="15" value="" />
+            </td>
+            <td style="bgcolor:#4682b4;">
+				<input id="LOOKUP" name="LOOKUP" type="submit" value="Count"/>
+            </td>
+			</tr>
+</table>
+
+<h2>Change author of the <span id="ContributionsCount">0</span> contributions</h2>
+<table id="ContribList" width="100%" frame="hsides" border="0" summary="entries">
+  <tr>
+   <th>Headword</th>
+   <th>Entry Id</th>
+   <th>Author</th>
+   <th>Creation</th>
+   <th>Reviewer</th>
+   <th>Revision</th>
+   <th>Status</th>
+  </tr>
+  <tr id="EntryListRow">
+    <td><span id="HeadwordList">Contrib</span></td>
+    <td><span id="EntryIdList">EntryId</span></td>
+    <td><span id="AuthorList">Author</span></td>
+    <td><span id="CreationDateList">CreationDate</span></td>
+    <td><span id="ReviewerList">Reviewer</span></td>
+    <td><span id="ReviewDateList">ReviewDate</span></td>
+    <td><span id="Status">Status</span></td>
+  </tr>
+</table>
+<p>
+<label>New author: <input id="NewAuthor" name="NewAuthor" type="text" value=""/></label> &nbsp;
+<input id="ChangeAuthor" name="ChangeAuthor" type="submit" value="Change Author"/></p>
+</form>
+
+</div>
+</body>
+</html>

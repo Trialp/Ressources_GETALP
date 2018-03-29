@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title>INSTALL Papillon for Enhydra5.0</title>
+  <link rel="StyleSheet" href="css/style1.css" type="text/css">
+</head>
+<body>
+<h1>Installing Papillon project with enhydra 5.0</h1>
+<h2>I. Tools to be installed first</h2>
+<p>You may use the Papillon project for different purposes. 
+Depending on the way you will use it, you'll need different tools.</p>
+<h3>Standalone Papillon</h3>
+<p>This is primarily for Papillon developpers. This versions uses enhydra's own web
+server on a local port on your machine.</p>
+<p>For this, you'll need the following tools in order to compile and use the Papillon server on your machine:</p>
+<ul>
+ <li>Enhydra 5.0, correctly installed and configured on you machine,</li>
+ <li>Access to a Postgresql database server, that supports UNICODE encoding, either locally or on another machine  (version 7.2.3 is OK, previous versions won't support unicode chars correctly),</li>
+ <li>The jdbc driver for Postgresql (available with postgresql).
+ <li>Java (Sun jdk 1.3.1 is OK, jdk 1.4 still needs to be tested)</li>
+ <li>Jakarta ant 1.5.1</li>
+ <li>Jakarta-regexp 1.2</li>
+ <li>xalan J 2.0.0</li>
+</ul>
+<p>The sources of these tools and the help on their installation are available 
+via a CVS repository on isis.imag.fr:</p>
+<pre>CVSROOT=':pserver:login@isis.imag.fr:/h/isis/clips/geta/cvsroot'
+export CVSROOT
+cvs login
+cvs checkout ToolsForPapillon
+</pre>
+<h3>Deploying Papillon</h3>
+<p>This is primarily for Papillon server machine. This version uses a apache web server, 
+with enhydra director.</p>
+For this version, you'll need the same things as for the Standalone version, plus:
+<ul>
+	<li>Apache Web server</li>
+	<li>Enhydra director</li>
+</ul>
+<p>Help on the installation of these tools is available via the CVS repository ToolsForPapillon.</p>
+
+<h2>II. Getting the Papillon for Enhydra 5.0 sources</h2>
+<P>The Papillon for enhydra 5.0 sources are available via a cvs repository.</p>
+<pre>CVSROOT=':pserver:login@isis.imag.fr:/h/isis/clips/geta/cvsroot'
+export CVSROOT
+cvs login
+cvs checkout Papillon
+</pre>
+
+<h2>III. Customizing Papillon project</h2>
+<p>Depending on where you installed the different tools to be used, you'll have to configure the Papillon project.</p>
+<p>You'll need to edit the file <span class="courier">"Papillon/papillon.properties"</span> that should define the
+ locations of the different jars used for Papillon configuration. 
+As an example, we give the configuration used on a standard Mac OS X install.</p>
+<p class="source">
+papillon.xalan.jar=/Library/Java/Extensions/xalan-j_2_0_0/bin/xalan.jar<br>
+papillon.xerces.jar=/Library/Java/Extensions/xalan-j_2_0_0/bin/xerces.jar<br>
+papillon.xmlapi.jar=/usr/java/xalan-j_2_4_1/bin/xml-apis.jar<br>
+papillon.regexp.jar=/Library/Java/Extensions/regexp/jakarta-regexp-1.2.jar<br>
+papillon.ant.jar=/Library/Java/Extensions/jakarta-ant-1.5.1/lib/ant.jar<br>
+papillon.pgsql.jar=/usr/local/pgsql/share/java/postgresql.jar<br>
+<br>
+enhydra.root=/usr/java/enhydra5.0<br>
+enhydra.dir=/usr/java/enhydra5.0<br>
+</p>
+<h2>IV. Compiling Papillon project</h2>
+<p>You just have to go to the Papillon directory, then invoke ant</p>
+<p class="source">ant</p>
+<p>You may specify the targets:</p>
+<ul>
+ <li>ant javadocs: to get the javadocs for the Papillon project</li>
+ <li>ant clean: to clean the compiled files</li>
+ <li>ant rebuild: to compile from scratch (same as ant clean; ant)</li>
+</ul>
+<h2>V. Debugging Papillon project</h2>
+<p class="source">cd output<br>
+./dbg-start</p>
+<p>This will launch the http papillon server on port 8999 and the dict server on port 2628 on your machine.</p>
+<p>You can then access to the http server using this address: <br>
+http://yourmachine:8999/ and the dict server with telnet:</p> <p class="source">telnet yourmachine 2628</p>
+<h2>VI. Deploying Papillon server</h2>
+<p>If you want to run Papillon server in a stable configuration, you have to write a start/restart/stop script and install
+it in your stating scripts.</p>
+<p>For MacOsX users, the script have to be put in a directory with its name
+ (the first letter has to be a capital letter) in the directory 
+/System/Library/StartupItems/.</p>
+ <p>Here is an example of startup script for a MacOsX installation:</p>
+ <pre>
+ #!/bin/sh
+
+##
+# Papillon Enhydra Server
+##
+
+. /etc/rc.common
+
+StartService ()
+{
+     ConsoleMessage "Starting Papillon enhydra server: "
+     /Projects/PapillonStable/bin/startPapillon
+}
+
+StopService ()
+{
+    ConsoleMessage "Shutting down Papillon enhydra server: "
+    /Projects/PapillonStable/bin/stopPapillon
+}
+
+RestartService ()
+{
+     ConsoleMessage "Restarting Papillon enhydra server: "
+     /Projects/PapillonStable/bin/stopPapillon
+     /Projects/PapillonStable/bin/startPapillon
+}
+
+RunService "$1"
+</pre>
+<p>For UNIX/LINUX users, the script is generally put in the directory /etc/init.d, and then some links are added
+ in the suitable startup level. For example, on the Papillon main server, we added two links in every directory rcx.d.
+ One called K10papillon and one called S97papillon.</p>
+ <p>Here is an example of startup script for a UNIX/LINUX installation:</p>
+ <pre>
+#!/bin/bash
+
+# source function library
+. /etc/rc.d/init.d/functions
+
+case "$1" in
+  start)
+        echo -n "Starting Papillon enhydra server: "
+        daemon --user archipap /home/papillon/bin/startPapillon 
+        touch /var/lock/subsys/papillon
+        echo
+        ;;
+  stop)
+        echo -n "Shutting down Papillon enhydra server: "
+        daemon --user archipap /home/papillon/bin/stopPapillon 
+        rm -f /var/lock/subsys/papillon
+        echo
+        ;;
+  restart)
+        daemon --user archipap /home/papillon/bin/stopPapillon
+        daemon --user archipap /home/papillon/bin/startPapillon
+        ;;
+  status)
+        ;;
+  *)
+        echo "Usage: papillon {start|stop|restart}"
+        exit 1
+esac
+
+exit 0
+ </pre>
+</body>
+
+</html>

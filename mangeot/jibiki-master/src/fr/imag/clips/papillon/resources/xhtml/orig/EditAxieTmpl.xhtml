@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html>
+<head>
+<title>Consultation of Papillon Lexical Database</title>
+</head>
+<body>
+<div id="EditAxieContent" lang="en">
+    <h1 style="text-align:center"><span id="UserName">Name</span> Edit Axie Interface</h1>
+<form  id="LookupForm" action="EditAxie.po">
+<div id="SemanticCatDiv">
+Select the Semantic Category of the Axie:
+<select name="SemanticCat" id="SemanticCat">
+<option value="entity" label="entity">entity</option>
+<option value="process" label="process">process</option>
+<option value="result" label="result">result</option>
+<option value="state" label="state">state</option>
+<option value="gloss" label="gloss">gloss</option>
+<option value="idiom" label="idiom">idiom</option>
+<option value="citation" label="citation">citation</option>
+<option value="proverb" label="proverb">proverb</option>
+</select>
+</div>
+<div>
+    <table border="1" id="EntryListTable" width="100%" frame="hsides" summary="Entries" >
+<thead id="EntryListTableHead">
+     <tr>
+		<th>Sel</th>
+	    <th>Headword</th>
+		<th>Entry ID</th>
+		<th>PoS</th>
+		<th>Sel</th>
+	    <th>Headword</th>
+		<th>Entry ID</th>
+		<th>PoS</th>
+     </tr>
+    </thead>
+    <tfoot id="EntryListTableFoot">
+     <tr>
+     <td colspan="8"><br/></td>
+     </tr>
+    </tfoot>
+    <tbody>
+  <tr id="EntryListRow" >
+    <td><input type="radio" id="SelectEntry1" name="SelectEntry1"/></td>
+    <td><span id="HeadwordList1">Headword</span></td>
+    <td><a href="" id="SeeEntryAnchor1"><span id="EntryIdList1">EntryId</span></a></td>
+    <td><span id="PosList1">pos</span></td>
+    <td><input type="radio" id="SelectEntry2" name="SelectEntry2"/></td>
+    <td><span id="HeadwordList2">Headword</span></td>
+    <td><a href="" id="SeeEntryAnchor2"><span id="EntryIdList2">EntryId</span></a></td>
+    <td><span id="PosList2">pos</span></td>
+  </tr>
+  <tr id="FormulaRow">
+  <td colspan="4">&nbsp;&nbsp;&nbsp;&nbsp;<span id="Formula1">Formula1</span></td>
+  <td colspan="4">&nbsp;&nbsp;&nbsp;&nbsp;<span id="Formula2">Formula2</span></td>
+  </tr>
+    </tbody>
+</table>
+</div>
+<table width="100%" border="0" summary="LinkTable" id="LinkTable" cellpadding="0">
+<tr valign="top" id="SubmitRow">
+		<td>
+		<input name="Link" id="LinkAxiesButton" type="submit" value="Link"/>
+		<input name="Confirm" id="ConfirmAxiesButton" type="submit" value="Confirm"/>
+		</td>
+</tr>
+<tr>
+		<td>
+		<input type="hidden" name="VOLUMEHIDDEN1" id="VolumeHidden1" value=""/>
+		<input type="hidden" name="VOLUMEHIDDEN2" id="VolumeHidden2" value=""/>
+		</td>
+</tr>
+</table>
+
+<table width="100%" border="0" summary="HeadwordLookupTable" id="HeadwordLookupTable" cellpadding="0">
+<thead>
+	<tr>
+	  <td colspan="2"></td>
+		</tr>
+    </thead>
+<tr valign="top" id="HeadwordLookupRow">
+	<td><b>Headword1:</b> 
+	<input name="HEADWORD1" size="15" type="text" value=""/>
+	<input name="PartialMatch1" type="checkbox" value="PartialMatch"/>Partial match<br/>
+	<br/>
+	<b>Volume1:</b>           
+	 <select name="VOLUME1">
+            <option id="VolumeOptionTemplate1" value="NONE" label="NONE">NONE</option>
+        </select>
+		</td>
+	<td><b>Headword2: </b> 
+	<input name="HEADWORD2" size="15" type="text" value=""/>
+	<input name="PartialMatch2" type="checkbox" value="PartialMatch"/>Partial match<br/>
+	<br/>
+	<b>Volume2:</b>           
+	 <select name="VOLUME2">
+            <option id="VolumeOptionTemplate2" value="NONE" label="NONE">NONE</option>
+        </select>
+		<input name="Lookup" type="submit" value="Lookup"/></td>
+</tr>
+</table>
+</form>
+<div id="EntryDiv"></div>
+</div>
+</body>
+</html>
+

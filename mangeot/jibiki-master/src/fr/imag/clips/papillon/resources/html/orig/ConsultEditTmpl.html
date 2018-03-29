@@ -1,0 +1,95 @@
+<HTML>
+<HEAD>
+	<META http-equiv="content-type" content="text/html; charset=utf-8">
+<TITLE>Consultation and Edition of Papillon Lexical Database</TITLE>
+</HEAD>
+<BODY>
+<DIV id="ConsultEditContent" lang="en"> 
+<h1 align="center"><span id="UserName">Name</span> Consult &amp; Edit interface</h1>
+<div id="SessionTimeout" class="hidden"><p class="note">Sorry, the session timed out, the data has not been saved. You must reedit your contribution!</p></div>
+<div>
+<table name="EntryListTable" id="EntryListTable" width="100%" frame="hsides"  border="0" summary="Entries"  bgcolor="#faecc9">
+<thead bgcolor="#e4c690" id="EntryListTableHead">
+     <tr>
+	  <th>Headword</th>
+		<th>Entry ID</th>
+		<th>Contribution?</th>
+		<th>Part Of Speech</th>
+		<th>&nbsp;</th>
+     </tr>
+    </thead>
+    <tfoot id="EntryListTableFoot">
+     <tr>
+     <td colspan="4"><br></td>
+     </tr>
+    </tfoot>
+    <tbody>
+  <tr id="EntryListRow" bgcolor="#eeeecc">
+    <td><SPAN id="HeadwordList">Headword</SPAN></td>
+    <td><A HREF="" id="SeeEntryAnchor"><SPAN id="EntryIdList">EntryId</SPAN></A></td>
+    <td><A HREF="" id="ContribAnchor"><SPAN id="Contribution">Contribution</SPAN></A></td>
+    <td><SPAN id="PosList">pos</SPAN></td>
+    <td><A HREF="" id="EditEntryAnchor"><span id="EditAnchor">Edit</span><span id="ViewAnchor">View</span></A></td>
+  </tr>
+    <tr id="FormulaRow">
+  <td colspan="5">&nbsp;&nbsp;&nbsp;&nbsp;<span id="Formula">Formula</span></td>
+  </tr>
+    </tbody>
+</table>
+</div>
+<form name="LookupForm" id="LookupForm" action="ConsultEdit.po">
+<div id="UIGenerator"></div>
+<table WIDTH="100%" border="0" summary="EditLexieTable" cellpadding="0"><tr><td>
+<table WIDTH="100%" border="0" name="EditLexieTable" summary="EditLexieTable" id="EditLexieTable" cellpadding="0">
+<tr valign="top" id="ViewLexieRow">
+		<td><input name="Edit" type="Submit" value="Edit"></td>
+</tr>
+<tr valign="top" id="EditLexieRow">
+		<td><input name="Update" type="Submit" value="Update">
+		<span id="Save"><input name="Save" type="Submit" value="Save">
+			<label for="SaveComment">Comment:</label>
+			<input name="SaveComment" type="text"></span>
+		<input name="View" id="ViewLexieButton" type="Submit" value="View"></td>
+</tr>
+<tr><td>
+<input type="hidden" name="VOLUMEHIDDEN" id="VolumeHidden">
+<input type="hidden" name="HANDLEHIDDEN" id="HandleHidden">
+<input type="hidden" name="STEP" id="StepHidden">
+</td></tr>
+</table>
+</td></tr></table>
+<table WIDTH="100%" border="0" name="HeadwordLookupTable" summary="HeadwordLookupTable" id="HeadwordLookupTable" cellpadding="0">
+<thead>
+     <tr>
+	  <td><hr></td>
+     </tr>
+    </thead>
+<tr id="HeadwordLookupRow" valign="top">
+	<TD>
+	<b><label for="HEADWORD">Headword:</label></b> 
+	<input id="HEADWORD" name="HEADWORD" size="15" type="text" value="">
+	<INPUT id="PartialMatch" name="PartialMatch" type="checkbox" value="PartialMatch"><font size="2"><label for="PartialMatch">substring</label></font>
+	</td>
+</tr>
+<tr valign="top" id="VolumeLookupRow">
+	<td>
+	<b><label for="VOLUME">Volume:</label></b>           
+	 <SELECT ID="VOLUME" NAME="VOLUME">
+            <OPTION ID="VolumeOptionTemplate" VALUE="NONE" LABEL="NONE">NONE</OPTION>
+        </SELECT>
+	</td>
+</tr>
+<tr valign="top" id="ButtonsLookupRow">
+	<td>
+		<input name="Create" id="CreateButton" type="Submit" value="Create New Entry">
+		<input name="LookupEdit" id="LookupEditButton" type="Submit" value="Edit">
+		<input name="LookupView" id="LookupViewButton" type="Submit" value="View">
+		</TD>
+</tr>
+</table>
+</form>
+<div class="copyright">© 2003 <a href="mailto:theveninATnii.ac.jp?subject=PapillonServer&amp;body=replace&nbsp;AT&nbsp;by&nbsp;@&nbsp;in&nbsp;the&nbsp;email&nbsp;address">David Thevenin</a> &amp; <a href="mailto:mangeotATnii.ac.jp?subject=PapillonServer&amp;body=replace&nbsp;AT&nbsp;by&nbsp;@&nbsp;in&nbsp;the&nbsp;email&nbsp;address">Mathieu Mangeot</a>, NII. All rights reserved.</div>
+</DIV>
+</BODY>
+</HTML>
+

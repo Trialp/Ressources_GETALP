@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Menu</title>
+  </head>
+  <body>
+    <div id="QueryMenu" lang="de" xml:lang="de" class="menuBlock">
+      <h2 class="menuTitle">
+        <a title="Lookup a word in online dictionaries" href="javascript:void(0)">Suche:</a>
+      </h2>
+     <!-- <form id="ConsultForm" action="Home.po">
+        <div>
+        <input type="hidden" name="RESOURCES" value="*ANY*" />
+        <label for="HeadwordInput" accesskey="w">
+          <span class="accesskey">T</span>erminus:</label>
+        <input type="text" id="HeadwordInput" name="HEADWORD" size="14" maxlength="128" />
+        <br/>
+        <label for="Source" accesskey="s">
+          <span class="accesskey">A</span>usgangssprache:</label>
+
+        <select id="Source" name="SOURCE">
+          <option id="SourceOptionTemplate" value="NONE" label="NONE">NONE</option>
+        </select>
+        <br/>
+        <label for="Target" accesskey="t">
+          <span class="accesskey">Z</span>ielsprache:</label>
+        <select id="Target" name="TARGETS">
+          <option id="AllTargets" value="*ALL*" label="All">alles</option>
+          <option id="TargetOptionTemplate" value="NONE" label="NONENONENONE">NONE</option>
+        </select>
+        <br/>
+        <input type="submit" name="lookup" value="Suche" />
+        </div>
+      </form>-->
+              <form  id="ConsultForm" method="get" action="Home.po" >
+        <div>
+                <div>
+                    <div class="menuColumnSize">
+                        <!--div class="menuVariableName"-->
+                        <div style="float: left; width: 60px;">
+                            <label for="ValueField" accesskey="t" ><span class="accesskey">T</span>erminus:</label>
+                        </div>
+                        <!--div class="menuVariableValue" -->
+                        <div style="float: left; width: 80px;" >
+                            <input type="hidden" id="Facet" name="FACET.0" value="cdm-headword"/>
+                            <input type="hidden" id="Operator" name="OPERATOR.0" value="2"/>
+                            <input id="ValueField" name="FACETVALUE.0" type="text" class="menuVariableValueWidth" />
+                        </div>
+                    </div>
+                    <div class="menuColumnSize">
+                        <!--div class="menuVariableName"-->
+                        <div style="float: left; width: 90px;">
+                            <label for="SourceLang" accesskey="a"><span class="accesskey">A</span>usgangssprache:</label>
+                        </div>
+                        <!--div class="menuVariableValue" -->
+                        <div style="float: left; width: 50px;" >
+                            <select id="SourceLang" name="SOURCE.0" class="menuVariableValueWidth" >
+                                <option id="SourceOptionTemplate" value="NONE" label="NONE">NONE</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="menuColumnSize">
+                        <!--div class="menuVariableName"-->
+                        <div style="float: left; width: 70px;">
+                            <label for="QMTargets" accesskey="z"><span class="accesskey">Z</span>ielsprache:</label>
+                         </div>
+                         <!--div class="menuVariableValue" -->
+                        <div style="float: left; width: 70px;" >
+                            <select id="QMTargets" name="TARGETS" class="menuVariableValueWidth">
+                                <option id="QMAllTargetsOption" label="All languages" value="*ALL*">alles</option>
+                                <option id="TargetTmpl" label="NONE" value="NONE">NONE</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div>
+ 					<div id="VolumesDiv">
+						<div id="VolumesLang">
+							<input type="hidden" id="VolumesInput" name="VOLUMES" value="*ALL*"/>
+						</div>
+					</div>
+                    <input type="hidden" name="XSL" value="Default"/>
+                    <input type="hidden" name="LIMIT" value="5" />
+                    <input type="hidden" name="OFFSET"/>
+                    <input type="hidden" name="action" value="lookup" />
+                    <input type="submit" value="Suche" class="menuGo" />
+                </div>
+                </div>
+            </form>
+      <br/>
+      <a title="Advanced Lookup of a Word" href="AdvancedSearch.po">Expertensuche</a>
+      <br/>
+      <a title="Dictionary List" href="ViewDictionaries.po">Liste der Wörterbücher</a>
+    </div>
+  </body>
+
+</html>

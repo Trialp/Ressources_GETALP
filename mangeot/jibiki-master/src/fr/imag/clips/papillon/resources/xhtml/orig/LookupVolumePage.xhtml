@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+   <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+   <meta content="Mathieu MANGEOT" name="author"/>
+   <meta content="Projet Papillon" name="keywords"/>
+   <meta content="Projet Papillon" name="description"/>
+   <meta content="Enhydra" name="generator"/>
+   <meta content="index, follow" name="robots"/>
+   <title>Projet Papillon</title>
+   <link href="css/papillon-home.css" rel="stylesheet" type="text/css" />
+   <script src="javascript/jquery-1.8.0.min.js" type="text/javascript"><!-- // --></script>
+   <script src="javascript/lookupVolume.js" type="text/javascript"><!-- // --></script>
+  </head>
+  <body>
+  <div id="entete">
+  	<h1>Le projet Papillon</h1>
+  </div>
+  <div id="BrowseVolumeTable">
+	<form onsubmit="query_headword(this.HEADWORD.value); return false;" action="LookupVolume.po">
+	  <div>
+   		<input id="LIMIT" name="LIMIT" type="hidden" value="100"/>
+    		<input id="STATUS" name="STATUS" type="hidden" value="finished"/>
+			<label id="VolumeLabel" accesskey="v" for="VOLUME"><span class="accesskey">V</span>olume:
+    		<select name="VOLUME" title="sélectionner le volume [v]" id="VOLUME">
+    			<option id="VolumeOptionTemplate" label="tmpl" value="tmpl">tmpl</option>
+    		</select>
+			</label>
+			<br />
+ 	     <input id="HEADWORD" name="HEADWORD" type="text" />
+	     <input type="submit" value="go" />
+	   </div>
+	</form>
+	<p>&#xA0;<span class="loadmore">Chargement des vedettes en cours...</span>&#xA0;
+	<span class="loadcontent">Chargement des données en cours...</span></p>
+ <div id="lookupentries"><!-- // --></div> 
+ <div id="lookupcontent">
+ 
+       <div id="ProjectDescription">
+        <h1 xml:lang="fr" lang="fr">Le projet <span class="gray">Papillon</span></h1>
+        <h1 xml:lang="ja" lang="ja"><span class="gray">パピヨン</span>辞書</h1>
+        <h1 xml:lang="en" lang="en">The <span class="gray">Papillon</span> project</h1>
+        <h1 xml:lang="zh-Hans" lang="zh-Hans"><span class="gray">彩 蝶</span> 词 典</h1>
+        <h1 xml:lang="de" lang="de">Das <span class="gray">Papillon</span>-Projekt</h1>
+      </div>
+ 
+ </div>
+	<p style="clear:both;">&#xA0;<span class="loadmore">Chargement des vedettes en cours...</span>&#xA0;
+	<span class="loadcontent">Chargement des données en cours...</span></p>
+</div>
+
+  <div id="copyright">© 2001-2012 <a href="mailto:Mathieu.MangeotATimag.fr?subject=GDEFServer&amp;body=replace AT by @ in the email address">Mathieu Mangeot</a>, GETA-CLIPS. All rights reserved.</div>
+ </body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.0 TRANSITIONAL//EN">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="en">
+
+<h1 align="center">Administrate Users</h1>
+
+<HR>
+<span id="LoggedUsers">0</span> user(s) currently logged:
+<TABLE summary="Logged users">
+<TR>
+	<TH>Name</TH>
+	<TH>Login</TH>
+	<TH>Email</TH>
+</TR>
+<TR id="LoggedTemplateRow">
+	<TD><b><span Id="LoggedName">name</span></b></TD>
+	<TD><span Id="LoggedLogin">login</span></TD>
+	<TD><span Id="LoggedEmail">email</span></TD>
+</TR>
+</TABLE>
+<HR>
+<span id="ExistingUsers">0</span> users currently in the database:
+<TABLE Summary="Existing Users">
+<TR>
+	<TH><a href="AdminUsers.po?SortBy=name">Name</a></TH>
+	<TH><a href="AdminUsers.po?SortBy=login">Login</a></TH>
+	<TH><a href="AdminUsers.po?SortBy=email">Email</a></TH>
+	<TH>Groups</TH>
+    <TH>make admin</TH>
+    <TH>reset pass</TH>
+	<TH>make specialist</TH>
+	<TH>sehen</TH>
+	<TH>remove</TH>
+</TR>
+<TR id="TemplateRow">
+	<TD><b><span Id="Name">name</span></b></TD>
+	<TD><span Id="Login">login</span></TD>
+	<TD><span Id="Email">email</span></TD>
+	<TD><span Id="Groups">groups</span></TD>
+	<TD><A HREF="" id="MakeAdminAnchor">make admin</A></TD>
+	<TD><A HREF="" id="ResetPasswordAnchor">reset pass</A></TD>
+	<TD><A HREF="" id="MakeSpecialistAnchor">make specialist</A></TD>
+	<TD><A HREF="" id="SeeAnchor">sehen</A></TD>
+	<TD><A HREF="" id="RemoveAnchor"  onClick="return confirm('Are you sure you want to remove the user?')">rm</A></TD>
+</TR>
+</TABLE>
+<p>Note: the "reset pass" command resets the password of the user with the login for value. It can be used when a user forgets the password.</p>
+</div>
+</body>
+</html>

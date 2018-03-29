@@ -1,0 +1,92 @@
+- tester LookupVolume et LookupVolumePage
+
+- ajouter le code du GDEF
+	- tester exécuter une commande à distance
+	- tester passer le cookie dans l'URL
+	- tester la liste alphabétique
+	- tester la nouvelle interface
+	- tester le module d'envoi de courriels
+
+- voir pourquoi on ne peut pas éditer mais créer seulement
+- voir pourquoi les feuilles XSL ne marchent pas
+- voir pourquoi le menu quick search ne marche pas
+=================================================
+
+- traiter papillonaxi comme n'importe quelle autre volume pivot.
+- Revoir la partie XSLSheet pour des formes plus sympas...
+- Reporter localisation sur le xhtml et supprimer les fichiers html.
+- Supprimer le traitement spécifique des Axies Papillon
+- Rendre le code indépendant du GDEF (ou mettre les dépendances dans des classes prévue pour).
+
+BUG: - type="NewBlock" appears in the entry element ? and is saved in the database ?
+
+- Dans la gestion des XSL, pour l'instant, il faut que le nom de la xsl soit egal au nom du dictionnaire. Ce n'est plus
+  vraiment nécessaire vu qu'on connait maintenant le dictionnaire concerné par la xsl. Mais le code de Mathieu doit etre adapté.
+- Revoir le DML, le rendre valide, répercuter les nouveautés (liens bilingues inter volumes, nouveau xsl-sheet...)
+- Distinguer l'espace de nom des meta données et les structures de dico Papillon.
+- Revoir les classes Home et consultExpert qui ont beaucoup de code commun...
+- Supprimer les dépendances à FOKS et créer un module spécifique à foks
+- Construire le menu Axie lorsqu'une base a un dictionnaire pivot.
+- Supprimer le volume axies de la page d'édition
+- Corriger le javascript de la page d'édition/contribution (il est modifié par la génération de la page effective)
+- Construire une axie via une page ad-hoc...
+- créer des raccourcis pour la création d'axies/lexies
+- Faire page de sélection de termref/axieref dans une fenêtre spécifique avec mise à jour des champs automatiquement.
+  - En cours: développer la recherche et faire les mise à jour via javascripts...
+- Faire des validations automatiques paramêtrables par les metadata pour remplissage de champs admin à la sauvegarde d'une entrée.
+  - Peut-être simplement définir une classe spécifique pour cela... (que l'on peut désigner dans les metadata)
+  - Et vérifier tous les éléments qui ne sont pas obligatoires, groupes, status, etc... Ces infos sont soit des infos de la partie contribution,
+    soit des infos présentes dans les metadata, mais non obligatoires.
+
+- Que fait le update/save dans l'édition ? En cas de reconnection d'un utilisateur lui présenter les entrées en cours de construction ?
+
+- Gestion des liste... s'inspirer des listes de addressbook au niveau interface ?
+
+- Pb de OutOfMemoryError lorsque l'upload est fait avec une transaction...
+
+- Le d:contribution devrait être le root élément de chaque entrée ? Mais comment exporter dans le format original alors que 
+le root élément est dupliqué dans chaque entrée...
+- Ne pas accumuler les modifications dans la partie d:history de la contrib, mais ne garder que la dernière modif...
+- QUEL EST LE MODÈLE DES CONTRIBUTIONS ?????
+- Les contributions devraient être accessibles à la consultation dès qu'elles ont été revues ???
+
+APRES DISCUSSION AVEC UTILISATEURS:
+- Définir un modèle de spécification de droits sur des parties de dictionnaires/d'entrées
+- Définir un modèle de définition de "triggers", avec déclenchement d'actions, parmi lesquels envoie d'un message, etc...
+
+
+NOTES: 
+- Que fait le HtmlDom dans la base ?
+- De nombreuses infos DML devraient être réunies dans une classe (ex: DML_URI, ...)
+- Attention, si l'utilisateur supprime le dernier élément d'une liste lors de l'édition, on ne pourra plus en recréer un.
+   --> faux... en fait l'élément sera récupéré dans le template.
+- De même les entrées construites contiennent de nombreux champs vides...
+- Pourrait-on générer des interfaces d'édition avec une simple XSL, pour laquelle on pourrait définir des macros, genre LIST-OF...
+
+FAIT:
+- FAIT ? Supprimer la dépendance avec ant dans la section informationfiles.
+- Consultation d'entrées:
+  - FAIT (QueryResult) Definir les concepts d'AXIE/LEXIE SETs résultats d'une recherche qui contiendraient 1 Axies + toutes les lexies directement reliées...
+    - Voir comment on peut afficher ces éléments...
+  - La mise en forme d'un dictionnaire peut se faire soit par des xsl (standard) soit par une classe ad-hoc implémentant l'interface ResultFormatter
+    - La classe en question doit être déclérée dans le metadata
+  - Modification de la transformation des résultats et adaptation des classes de présentation qui l'utilisent
+- Edition d'entrées:
+  - Modifié les noms d'attributs dans les pages xhtml d'interfaces. Les attributs sont préfixés par @ (ex: element.@attr)
+  - Modifié la gestion du passage entrée->interface et interface->entrée afin de le rendre + solide
+- Layout standard et aspect général du site-
+  - Le fichier de configuration d'application contient 2 nouveaux attributs:
+    - Papillon.LayoutClassName = "fr.imag.clips.papillon.presentation.LexALPLayout"
+      Si présent, cet attribut désigne la classe qui sera en charge du layout du site.
+    - Papillon.LoginCookieName = "LexalpLoginCookie" : donne un nom au cookie de l'application afin de permettre à 2 instances 
+      d'applications de cohabiter...
+  - Le layout d'un site est pris en charge par une classe spéciale désignées dans le fichier de configuration. Le layout standard 
+    étant le layout papillon. Ainsi, chaque presentation object rendra un layout qui dépendra de l'instance.
+- Suppression d'un redirect à l'édition, qui servait à faire apparaitre le bloc ajouté; utilisation de location.hash = 'NewBlock' (en javascript)
+- Suppression de la table "contributions" du fichier doml. (cf Mathieu...)
+- Nettoyage du doml static, suppression des erreurs dans le code SQL. Suppression de la table history.
+- Ajout des colonnes dictionaryName et volumeName dans les XslSheets.
+- Bug fixes:
+  - Solved a bug when the language (d:lang) is not specified in the interface template
+  - Solved a bug where half of the childs of an xml element where removed... (when editing it, in certain situations)
+  - Solved a bug where an incorrect node was said to correspond with an interface element id.

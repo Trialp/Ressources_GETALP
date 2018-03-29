@@ -1,0 +1,62 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.0 TRANSITIONAL//EN">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title>Papillon</title>
+</head>
+<body>
+						<DIV id="Formulaire" lang="en">
+							<H1 align="center">Lookup axies</H1>
+							<HR>
+							<!-- formulaire de voir mot-->
+							<FORM action="LookupAxies.po" method="GET" name="MainForm">
+								<TABLE border="0" cellpadding="10" cellspacing="0" summary="Form" width="100%">
+									<TR>
+										<TD>
+											<table summary="form" border="0" cellspacing="5" cellpadding="0">
+												<tr>
+													<td><B><u>Looking for an axie by id</u></B></td>
+													<td width="30"></td>
+													<td><B><u>or linking a specific lexie headword</u></B></td>
+												</tr>
+												<tr>
+													<td></td>
+													<td width="30"></td>
+													<td><B id="Source">Source Language:</B>             <SELECT NAME="SOURCE">
+            <OPTION ID="SourceOptionTemplate" VALUE="NONE" LABEL="NONE">NONE</OPTION>
+        </SELECT><BR>
+													</td>
+												</tr>
+												<tr>
+													<td><B>Axie ID:&nbsp;</B><INPUT name="ENTRYID" size="25" type="text" value="">&nbsp;<INPUT name="LookupAxie" type="submit" value="Nachschlagen"></td>
+													<td width="30"></td>
+													<td><B>Word:&nbsp;</B><INPUT name="HEADWORD" size="25" type="text" value="">&nbsp;<INPUT name="LookupLexie" type="submit" value="Nachschlagen"><br>
+													Partial match: <input type="checkbox" name="Strategy" value="on"></td>
+												</tr>
+											</table>
+										</TD>
+									</TR>
+								</TABLE>
+							</FORM>
+							<hr>
+							<H2>View the axies</H2>
+							<TABLE bgcolor="#faecc9" border="0" frame="hsides" id="ContribList" summary="entries" width="100%">
+								<TR>
+									<TH>Axie ID</TH>
+									<TH>Sem. Cat</TH>
+									<TH>Lexie ids</TH>
+									<TH>View XML</TH>
+								</TR>
+  <tr id="EntryListRow">
+    <td><span Id="AxieId">ID</span></td>
+    <td><span Id="SemCat">SemCat</span></td>
+    <td><span Id="Lexies">Lexies</span></td>
+    <td><A HREF="" id="ViewXmlAnchor">XML</A></td>
+  </tr>
+							</TABLE>
+							<DIV id="Xml">
+								
+							</DIV>
+</div>
+</body>
+</html>

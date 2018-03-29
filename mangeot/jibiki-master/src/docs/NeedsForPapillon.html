@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>Needs for Papillon Application</title>
+  <meta name="GENERATOR" content="amaya 5.1" />
+</head>
+
+<body bgcolor="white">
+<h1 align="center">Needs For Papillon Application</h1>
+
+<p></p>
+
+<h2>Introduction</h2>
+
+<p>This document is a kind of TODO list for the Papillon Application. It
+ranges from emergency needs (eg for demos) to long term developments.</p>
+
+<p>The next Papillon demo is scheduled for the 27 February 2002 at NII and is
+very important. This paper should evolve constantly as we discover new bugs
+or inconsistencies.</p>
+
+<p>The Papillon Home CVS repository is located on the machine isis.imag.fr</p>
+
+<h2>1 Structure of the Site and Information</h2>
+
+<p>Decision have to be taken by a group of people (at least with
+Emmanuel).</p>
+
+<h3>1.1 What kind of information will we put on the site</h3>
+
+<p>Presentation of the project. HTML pages to prepare in various languages at
+least English, Japanese and French. One page exists.</p>
+
+<p>Papillon publications already exist in papillon-docs/ CVS repository</p>
+
+<p>Seminars summaries already exist in papillon-docs/ CVS repository</p>
+
+<h3>1.2 What structure do we want</h3>
+
+<p>Existing sections:</p>
+<ul>
+  <li>Information description of the project 
+    <p>Maybe a summary that Emmanuel sent to the Papillon Committee members +
+    organisation of the project the tasks list</p>
+  </li>
+  <li>Consultation</li>
+  <li>Edition</li>
+  <li>Contacts</li>
+  <li>Help</li>
+</ul>
+
+<p>New proposed sections:</p>
+<ul>
+  <li>Resources Papillon related publications, documents, presentations,
+    Mainly the content of papillon-docs/ CVS repository</li>
+  <li>Partners consortium (NII, GETA, Kasetsart Univ., etc)</li>
+  <li>Sponsors</li>
+</ul>
+
+<p>It could be nice to install the mailing list at imag instead of UNU. The
+archiving tool for the mailing list should run as soon as possible at GETA or
+NII.</p>
+
+<h2>2 Preparation of Existing Lexical Data</h2>
+
+<h3>2.1 Update of the information</h3>
+
+<h4>XML schemata</h4>
+
+<p>Schemata are located in dml/ CVS repository</p>
+
+<p>Verifying the existing XML schemata and updating them (asking the task
+leaders what to do).</p>
+
+<p>to verify the validity of the schemata, there is an online checker see
+http://w3.org/ for that.</p>
+
+<p>Delicate task, difficult to subcontract because decisions have to be
+taken.</p>
+
+<p>==&gt; Done 22 Jan 2002 by MML</p>
+
+<h4>information on the available dictionaries</h4>
+
+<p>Every dictionary in the papillon-data repository needs a readme file that
+corresponds to an existing XML schema. Maybe the XML schemata have to be
+modified a little bit (Done 22 Jan 2002 by MML).</p>
+
+<p>==&gt; Read Administration/guidelines.html of CVS papillon-data
+repository.</p>
+
+<h3>2.2 Preparation of the Data for Purgatory</h3>
+
+<p>Papillon data is located in papillon-data/ CVS repository.</p>
+
+<p>==&gt; Read Administration/guidelines.html of CVS papillon-data
+repository.</p>
+
+<p>Vietnamese-French-English dictionary. Jerome is working on it.</p>
+
+<p>KATE dictionary from Mutsuko</p>
+
+<h3>2.3 Preparation of the Data for Paradise</h3>
+
+<p>Papillon data is located in papillon-data/ CVS repository.</p>
+
+<p>==&gt; Read Administration/guidelines.html of CVS papillon-data
+repository.</p>
+
+<p>It is urgent to prepare a seet of multilingual linked entries for demo
+purposes.</p>
+
+<p>Suggestion: to build a list of 50 entries from Mutsuko' Japanese ones and
+to distribute it.</p>
+
+<p>400 French entries from DiCo. tagging more precisely the entries, but not
+urgent</p>
+
+<p>52 Japanese entries from Mutsu. urgent, converting from Word to XML</p>
+
+<p>Mathieu already began this task with perl scripts.</p>
+
+<p>JMDict japanese-english dictionary from Jim Breen + French part from JM
+Desperrier</p>
+
+<p>FeM</p>
+
+<h2>3 Development of the Papillon Application</h2>
+
+<p>Sources of Papillon applicaiton are located in papillon-enh-src/ CVS
+repository.</p>
+
+<p>The development of the Papillon application needs skills in Web and
+enhydra/java programming.</p>
+
+<h3>3.1 Preparing the Consultation</h3>
+
+<p>The consultation is now OK but only for one language. Work has to be done
+for bilingual consultation for example.</p>
+
+<h4>Modification of the database organisation with Dods</h4>
+
+<p>J'ai un peu reflechi au schema de la base de donnees et je propose de le
+modifier de facon a ce qu'il reflete l'organisation du namespace DML que j'ai
+decrit ds ma these. Pour moi, ca me permet d'etre plus confortable ds
+l'organisation et aussi de valider, invalider et ameliorer des idees de ma
+these Je pensais creer une table pour chaque fichier de DML a savoir :</p>
+
+<p>1 table database ou est stockee la liste des dicos et des utilisateurs
+pour l'instant, il n'y aurait que Papillon mais je pense rajouter d'autres
+dicos pour DicoWeb (FeM, JMDict, etc.) Cles : nom de dico, nom
+d'utilisateur</p>
+
+<p>1 table utilisateurs pour stocker le login, mot de passe, adresse mel,
+preferences, profils, etc. cles: nom d'utilisateur</p>
+
+<p>1 table pour chaque dico ou on stocke les metadonnees et nottament un map
+pour chaque element de CDM. Ex pour le FeM :</p>
+<ul>
+  <li>entry =fem-entry</li>
+  <li>headword=ENTRY</li>
+  <li>pos=FRENCH_CAT</li>
+</ul>
+
+<p>et un lien vers chaque volume cles : langues, elements CDM, metadonnees
+(date d'install, taille, etc...)</p>
+
+<p>1 table pour chaque volume ou on stocke les entrees en XML cles : les
+elements CDM (headword, pos, gloss, translation, etc...)</p>
+
+<p>+ tables d'historiques, de poids, etc.</p>
+
+<p>Pour l'instant, il n'y a qu'une seule table dictionnaire. On peut charger
+des entrees de toutes les langues ds la meme table mais ca cree des pbs de
+visualisation, de tri, de recherche, etc. C'est pour ca que je voulais
+modifier le schema Dods. J'ai pu charger les entrees fra, jpn et msa que
+j'avais mais du coup, c'est tout en bordel. Sans compter le fait qu'il
+faudrait rajouter les axies...</p>
+
+<h3>3.2 Installing language negociation</h3>
+
+<p>Not so difficult, Mathieu already watched. Using the Accept_Languages
+variable in the header of the HTTP requests for localisation. Mybe Enhydra
+has already a function for this (see <a
+href="http://barracuda.enhydra.org">http://barracuda.enhydra.org</a>).</p>
+
+<h3>3.3 Establishing a login session for all the users</h3>
+
+<p>Every user of Papillon Applicaiton has to register once and then to log
+on. Nothing is done for the moment. After the logon, a session has to be
+managed both with cookies and with URL paths. Every user will have an account
+on Papillon server for personal infos, settings, profiles and
+contributions.</p>
+
+<h3>3.4 Porting DicoWeb from Perl to Enhydra</h3>
+
+<p>Updating an existing module for uploading a dictionary. Idea: uploading
+first an XML file describing the dict with the mapping of CDM elements and
+Database keys (possible update of XML schemata).</p>
+
+<p>Updating an existing module for consultation.</p>
+
+<p>Adding the consultation of remote servers and preconsultation and
+postconsultation modules.</p>
+
+<p>Mathieu can take care of this.</p>
+
+<h3>3.5 Installing a mailing list archiving tool</h3>
+
+<p>Where ? GETA or NII ? When ? as soon as possible</p>
+
+<p>Some bugs remain, please ask Gilles Serasset.</p>
+
+<h3>3.6 Installing Papillon Application on NII web site</h3>
+
+<p>The NII op staff has to compile and add the enhydradirector module to
+their apache server to be able to redirect the papillon URLs.</p>
+
+<p>The NII website Apache version is 1.3.12 and version 1.3.22 is needed to
+compile and use enhydradirector module. Temporarily, we can add a link to our
+website.</p>
+
+<h3>3.7 Fixing Bugs</h3>
+
+<p>upload of Paradise dictionaries into the database</p>
+
+<p>It does not work</p>
+
+<p>upload of any file into the site</p>
+
+<p>It does not work + the sections part does not work.</p>
+
+<p>VMSP1 apache server does not put UTF-8 encoding with enhydra director on
+enhydra pages.</p>
+</body>
+</html>

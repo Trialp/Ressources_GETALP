@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Header</title>
+</head>
+<body>
+<!-- When translating this document, make sure the anchor names remain the same as they are refered from outside of this document -->
+<div id="InfoContent" xml:lang="en-US" lang="en-US">
+<h1 style="text-align:center">Information on Pivax Server and UNL Dictionary</h1>
+
+<p style="text-align:center">
+<a href="#UNLdict">UNL Dictionary</a>&nbsp;|&nbsp;
+<a href="#PivaxDB">Pivax Server</a>&nbsp;|&nbsp;
+<a href="#Info">More Information</a>&nbsp;|&nbsp;
+<a href="#Links">Useful Links</a>&nbsp;|&nbsp;
+<a href="#Credits">Credits</a></p>
+
+
+<h2>UNL Dictionary project<a name="UNLdict">&nbsp;</a></h2>
+<p class="standard">This project aims at creating a multilingual lexical-semantic database serving as a dictionary of the artificial pivot language <a href="http://www.undl.org/">UNL</a>  (Universal Networking Language). See <a href="http://www.undl.org/unlsys/unl/unl2005">UNL Specifications</a> to learn more about UNL. The Common UNL Dictionary is an open resource built for the <a href="http://www.unl.fi.upm.es/consorcio/">U++ Consortium</a> with participation of the Russian, French and Spanish UNL centers.  The access will be free
+of charge for non commercial use (GPL and Creative Commons Open Source licenses). Our project,
+initiated by computational linguists, aims at being useful and open to
+all those who are interested in languages and applied semantics.</p>
+
+<p>
+The lexicon of the UNL language consists of <a href="http://www.undl.org/unlsys/uw/uwmanv20.htm">UNL Universal Words</a> (UW). UWs are unique symbols representing complex concepts, similar to lexical senses of words. They are used in UNL semantic graphs and as pivot units for translation and linking natural language words with ontological concepts, Wordnet synsets, etc. Our dictionary includes UWs that follow additional requirements agreed upon by the members of the U++ Consortium to facilitate interoperability between different UNL-aware automatic translation systems.</p> 
+
+<p>The Common UNL Dictionary currently provides:</p>
+<ul> 
+<li>U++ standard compliant UWs</li> 
+<li>Mappings between UWs and words of the English, Russian, French and some other languages,</li>
+<li>Mappings between UWs and synsets of <a href="http://wordnet.princeton.edu">Princeton Wordnet</a>,</li>
+<li>Mappings between UWs and <a href="http://www.ontologyportal.org/">Suggested Upper Merged Ontology (SUMO)</a>,</li>
+<li>Information about the possible meanings of natural language words,</li>
+<li>Basic grammar information for natural language words (part of speech, gender, etc.),</li>
+<li>Optional links between words and dictionaries of MT systems supporting that language.</li>
+</ul>
+<p>The dictionary data is periodically replicated to the resources of ETAP-3 (Russian, English) and ARIANE (French) linguistic processors to guarantee full compatibility between their UNL implementations. </p>
+
+
+
+<h2>Pivax server<a name="PivaxDB">&nbsp;</a></h2>
+<p class="standard">Pivax is a lexical database server able to host multilingual pivot type dictionaries, where individual words are linked with a pivot concept node instead of words of other languages directly. Pivax is a modification of the  <a href="http://www.papillon-dictionary.org/">Papillon server</a> software built on the same <a href="http://jibiki.univ-savoie.fr/">Jibiki platform</a>. </p>
+
+
+<h3>Macrostructure</h3>
+<p class="standard">The structure of a pivax dictionary (macrostructure) is a two-level pivot structure. Each <i>entry</i> of each monolingual volume is linked to an intermediate technical unit called <i>axeme</i>, which stands for a set of all entries describing the same word of a given language or the same semantic concept. Axemes (sets of entries) from one language are linked to axemes (sets of entries) for other languages via interlingual translation links called <i>axie</i>.  Axemes and axies are stored in separate pivot volumes.</p>
+<p>The pivot structure greatly reduces complexity when a new language is added. There is no need to link each new entry wilth all its translations directly. The intermediate axeme level adds possibility to have several parallel dictionary volumes for the same language, e.g. British and American English or different ways of labelling the same semantic concepts.</p>
+
+<h3>Microstructure</h3>
+<p class="standard">The structure of the monolingual natural language entries (Microstructure) is based on the Explanatory and Combinatory Lexicography, part of the Meaning-Text Theory. This theory was created by Igor Mel'cuk and his colleagues in Moscow in the 70s gives the necessary information to go from an abstract meaning to its realisation in a given language. This theory is independent from the languages, thus the same structure is used for all the languages. It is very detailed and is suitable for human and machine usage.</p>
+
+<h2>More Information<a name="Info">&nbsp;</a></h2>
+<h3>Contributing</h3>
+<p class="standard">Our goal is to apply the cooperative LINUX construction paradigm to the building of a multilingual dictionary and to mutualize the efforts of creating dictionary resources. Anybody can contribute to this project by giving entire resources, or by contributing online with correcting existing data or adding new entries. The data is then publicly available. For more information about how to contribute, please read the <a href="Help.po">Help</a> section.</p>
+<p class="standard">In order to avoid time consuming effort, we will create skeleton Pivax dictionary volumes by recuperating and integrating existing data.</p>
+
+<h3>Documentation</h3>
+<p class="standard">For more information, you can read the numerous research papers stored in the <a href="ConsultInformations.po">documentation</a> repository</p>
+
+<!-- h3>Mailing-List</h3>
+<p>You may also access the Papillon <a href="MailingList.po">mailing list archives</a>.</p -->
+
+
+<h2>Useful Links<a name="Links">&nbsp;</a></h2>
+
+<h3>Partners</h3>
+<ul>
+<li><a href="http://clips.imag.fr">GETA-CLIPS</a> laboratory in Grenoble, France</li>
+<li><a href="http://proling.iitp.ru/">IITP RAS</a> computer linguistics laboratory in Moscow, Russia</li>
+<li><a href="http://www.unl.fi.upm.es/english/unlsystem.htm">Spanish UNL center</a> at Universidad Politechnica de Madrid, Spain</li>
+<!-- li><a href="http://www.nii.ac.jp/">NII</a>, National Institute of Informatics in Tokyo, Japan</li -->	
+</ul>
+
+<h3>Parallel UNL-related projects</h3>
+<ul>
+<li><a href="http://www.undl.org/unlexp/">UNL Explorer</a> - dictionary resources of UNDL and Japanese UNL center.</li> 
+<li><a href="http://www.unlweb.net/unlarium/">UNLarium</a> - a different version of UNL.</li>
+</ul>
+
+
+<h3>Related dictionary Projects</h3>
+<ul>
+<li><a href="http://dico.fj.free.fr/">DicoFJ</a>, a Japanese-French dictionary project;</li>
+<li><a href="http://clips.imag.fr/geta/services/fem/">FeM</a> a French-English-Malay dictionary;</li>
+<li><a href="http://www.foks.info/">FOKS</a>, Forgiving Online Kanji Search;</li>
+<li><a href="http://www.csse.monash.edu.au/~jwb/j_jmdict.html">JMdict</a>, Jim Breen Japanese-multilingual dictionary and <a href="http://www.csse.monash.edu.au/~jwb/wwwjdic.html">WWWJDIC</a>, its web interface;</li>
+<li><a href="http://www.informatik.uni-leipzig.de/~duc/Dict/index.html">VietDict</a>, a Vietnamese-French-english dictionary;</li>
+</ul>
+
+<h3>Some UNL en/deconverters</h3>
+<ul>
+<li><a href="http://www.unl.ru">Russian, English</a> - supports Russian and English enconversion.</li> 
+<li><a href="http://www.unl.fi.upm.es/english/lg_test.htm">Spanish</a> - UNL to Spanish deconverter.</li> 
+<li><a href="http://unldeco.imag.fr/unldeco/">French</a> - UNL to French deconverter. login: readunl, password: readunl, may be down due to technical problems.</li>
+</ul>
+
+
+
+
+<h2>Credits<a name="Credits">&nbsp;</a></h2>
+<ul>
+<li><b>Mathieu MANGEOT-NAGATA</b> &amp; <b>Gilles SÉRASSET</b>: main developers of the Papillon/Pivax server.</li>
+<li><b>Spanish UNL center</b>: generation of initial set of U++ standard UWs from Wordnet.</li>
+<li><b>Viacheslav Dikonov</b>: main developer of the Russian-UNL dictionary, general data package maintenance.</li>
+<li><b>Dr. Enya Kong Tang</b>: contributor of the Malay data.</li>
+<li><b>Dr. Hung Vo Trung</b>: contributor of the Vietnamese-UNL data.</li>
+</ul>
+
+
+</div>
+</body>
+</html>

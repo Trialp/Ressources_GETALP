@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+       <title>Papillon</title>   
+<script id="Script" type="text/javascript">
+</script>
+</head>
+<body>
+
+
+
+<div id="Formulaire" lang="slv" xml:lang="slv">
+        <h1 style="text-align:center">Administration des documents d'information</h1>
+
+	<script type="text/javascript">
+    <!--
+            function updateURL (theID, theURL) {
+				document.getElementById(theID).value = theURL;
+			}
+            function updateFileName (theFileName) {
+				if (theFileName.lastIndexOf('.')>0) {
+					theFileName = theFileName.substring(0,theFileName.lastIndexOf('.'));
+				}
+				document.getElementById('title').value = theFileName;
+			}
+          
+            function openUploader(parentId) {
+              // Get the id of the elements to be modified
+              var targetUrl='UploadSimpleFile.po';
+              window.open(targetUrl, parentId,'height=200,width=300,resizable');
+            }
+          
+          // -->
+      </script>
+
+
+<div>&nbsp;<a href="ImportHelp.po">Pomoč</a></div>
+
+<!--form enctype="multipart/form-data" action="AdminInformations.po" method="post" accept-charset="UTF-8"-->
+<form action="AdminInformations.po">
+
+<table width="100%" border="0" cellspacing="5" cellpadding="0" summary="File attributes">
+<tr>	
+	<td><b>Fichier ou URL&nbsp;:</b></td>
+	<td>
+	<input type="button" name="upload" onclick="javascript:openUploader('url')" value="upload"/> or <br />
+	<input id="url" name="url" type="text" size="60" value=""/>
+        </td>
+</tr>
+<tr>
+	<td><b>Auteur&nbsp;:</b></td>
+        
+	<td><input name="author" id="author" type="text" size="30" value=""/></td>
+</tr>
+<tr>
+	<td><b>Section&nbsp;:</b></td>
+        <!-- Warning, make sure the option element contains a Text and only a Text (no other child) -->
+	<td><select name="section">
+            <option id="OptionTemplate" value="NONE" label="NONE">NONE</option>
+        </select></td>
+</tr>
+<tr>
+	<td><b>Titre&nbsp;:&nbsp;* </b></td>
+	<td><input name="title" id="title" type="text" size="30" value=""/></td>
+</tr>
+<tr>
+        <td><b>Jezik&nbsp;:&nbsp;* </b></td>
+	<td><select name="language">
+            <option value="" label="Choisissez...">Choisissez...</option>
+	    <option id="LanguageTemplate" value="NONE" label="NONE">NONE</option>
+            </select></td>
+
+</tr>
+<tr>
+        <td><b>Date de création (jj/mm/aaaa)&nbsp;:</b></td>
+			<td><input name="date" type="text" size="15" value=""/></td>
+</tr>
+<tr>
+        <td><b>Référence&nbsp;:</b></td>
+	<td><input name="Reference" type="text" size="30" value=""/></td>
+
+</tr>
+</table>
+<p>* : nécessaire uniquement pour les documents monolingues sans le fichier de description d'archive <b>info_doc.xml</b></p>
+<table width="100%" border="0" cellspacing="5" cellpadding="0" summary="Form options and action">
+<tr>
+	<td><input name="Add" type="submit" value="ajouter"/></td>
+        <td>    
+    </td>
+</tr>
+</table>
+
+<!-- <INPUT NAME="Remove" TYPE="submit" VALUE="Remove"> -->
+<!-- <FORM ACTION="AdminInformations.po" METHOD="GET">
+	Flush all Files in the database: <INPUT NAME="Flush" TYPE="submit" VALUE="Flush">
+</FORM> 
+<HR> -->
+<h2>Documents stockés dans la base de données&nbsp;:</h2>
+<div><input name="Replace" type="hidden" value=""/></div>
+<table summary="Existing Documents" width="100%"> 
+<tr>
+<th>Titre</th><th>Auteur</th>
+<th>Date</th><th>Référence</th><th>&nbsp;</th><th>&nbsp;</th></tr>
+<tr id="TemplateRow">
+        <td><a id="DocumentAnchor" href="see"><span id="DocumentTitle">TITRE</span></a><span id="NBSpace">&nbsp;&nbsp;</span></td>
+        <td><span id="DocumentAuthor">AUTEUR</span></td>
+        <td><span id="DocumentDate">DATE</span></td>
+        <td><span id="DocumentReference">REFERENCE</span></td>
+	<td><input id="ReplaceButton" name="ReplaceButton" type="submit" value="Remplacer"/></td>
+	<td><a href="" id="RemoveAnchor">Izbri&scaron;i</a></td>
+</tr>
+</table>
+</form>
+</div>
+</body>
+</html>

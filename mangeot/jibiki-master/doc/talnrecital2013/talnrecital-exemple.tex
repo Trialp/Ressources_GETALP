@@ -1,0 +1,188 @@
+%% Exemple de source LaTeX pour un article soumis à TALN
+\documentclass[10pt,a4paper,twoside]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+
+% Package utilisé uniquement pour l'exemple.
+\usepackage{lipsum}
+\usepackage{hyperref}
+
+% faire les \usepackage dont vous avez besoin AVANT le \usepackage{jeptaln2012} 
+% add the \usepackage for you packages BEFORE the \usepackage{jeptaln2012}
+
+\usepackage{talnrecital2013}
+% Insérer les définitions de biblio en français (cf apalike-fr.bst)
+\usepackage[frenchb]{babel}
+
+\title{Bases lexicales multilingues : traitement des acronymes}
+
+\author{Ying Zhang\up{1}\quad Mathieu Mangeot\up{1}\\
+{\small  (1) GETALP-LIG, 41 rue des mathématiques  BP 53 38041 Grenoble Cedex 9
+  \texttt{ying.zhang@imag.fr, mathieu.mangeot@imag.fr} \\ 
+}}
+
+\begin{document}
+
+\maketitle
+
+%% In an English article, use \resumeEn with 2 arguments (french title and french summary)
+\resume{
+Ici, un résumé en français (max. 150 mots).\\
+\lipsum[1]
+}
+
+%% In an English article, use \abstractEn with 1 arguments (english summary)
+\abstract{TALN-RECITAL2013 template (English translation of the article title)}{
+The translation of the title in English is mandatory to enhance visibility of the online version of the papers in international scientific article databases (DBLP, citeseer, etc.). Here an abstract in English (max. 150 words).\\
+\lipsum[2]
+}
+
+\motsClefs{Ici une liste de mots-clés en français}
+{Here a list of keywords in English}
+
+%\motsClefs{Ici une liste de mots-clés en français}
+%{Here a list of keywords in English}
+
+%% Aller à la page suivante si nécessaire
+%\newpage
+%%================================================================
+\section{Introduction}
+
+\subsection{Situation}
+
+L
+
+\subsection{Intérêt}
+
+L
+
+\subsection{Présentation}
+
+L
+
+\section{Problématique}
+
+% reprendre l'explication du cahier des charges des acronymes
+
+L
+
+
+Selon les soumissions déposées, les articles ne devront pas dépasser les tailles suivantes:
+
+\begin{itemize}
+\item 11 à 14 pages pour les articles longs TALN,
+\item 6 à 8 pages pour les articles courts TALN,
+\item jusqu'à 14 pages pour les articles RECITAL,
+
+\end{itemize}
+
+\subsection{Autres éléments de mise en page}
+
+\subsubsection{Les listes}
+
+\begin{itemize}
+\item Une liste à puce
+\item avec plusieurs lignes
+\item pas trop espacées... 
+\end{itemize}
+
+
+\begin{enumerate}
+\item Une liste numérotée
+\item où le 2. succède, étrangement, au 1.
+\item et le trois, au deux... (ce serait pas ambigu cela ?)
+\end{enumerate}
+
+\subsubsection{Figures et tables}
+
+Les figures et les tables seront centrées sur la page avec une légende située en dessous. La légende contiendra le mot clé figure (ou table) en petite capitale, suivi du numéro de la figure ou de la table (numéros indépendants). La figure \ref{image} et la table \ref{table} en sont un exemple. Les équations peuvent figurer "en ligne" ou centrées sur la page, sans légende. Un numéro de renvoie peut figurer à droite de l'équation pour permettre les références dans le texte.
+
+\begin{table}[!h]
+\centering
+	\begin{tabular}{|c|p{4cm}|}
+	\hline
+	Un tableau&\\
+	\hline
+	&Les cellules ainsi que le tableau sont centrés\\
+	\hline
+	\end{tabular}
+\caption{Un tableau}\label{table}
+\end{table}
+
+\subsubsection{Notes et références}
+
+Une note de bas de page\footnote{Que voici !} pourra être rajoutée.
+
+Les renvois à la bibliographie, dont un exemple est \cite{Bernhard07}, sont formatés selon le style <<apalike>> francisé par \cite{apalikefr} (disponible dans les installations latex basées sur texlive). L'url de ce style vous est fournie en bibliographie au cas où vous ne l'ayez pas dans votre installation. Il est aussi disponible sur CTAN.
+
+Les utilisateurs de Word, LibreOffice ou Pages sont encouragés à suivre le style <<apalike>> francisé au plus prêt en utilisant leur propre outil de gestion de bibliographie (Mendeley, Zotero ou Endnote). Ils s'appuieront le cas échéant sur l'exemple ci dessous. Les auteurs citant des infos en ligne (URLs) veilleront à mettre la date de consultation dans la référence.
+
+Le reste de ce document n'a pour but que d'illustrer le format décrit ci-dessus.
+
+\begin{figure}[htbp] 
+\begin{center} 
+\includegraphics{images/atala.png}
+\end{center} 
+\caption{Une image comme figure} \label{image} \
+\end{figure}
+
+\lipsum[4]
+
+
+Il est parfois intéressant de noter que $\forall x \, x \in R \,\Rightarrow\; x \in R$. et ce même si $\sqrt{x^2} = x$. Sans compter que parfois, et même assez souvent, une bonne équation peut être beaucoup plus claire qu'un long discours.
+
+	\[
+        \frac{d}{dx}\left( \int_{0}^{x} f(u)\,du\right)=f(x).
+     \]
+
+
+\lipsum[6-7]
+
+\begin{figure}[htbp] 
+\begin{center} 
+~\\
+~\\
+\framebox[5cm]{étape 1}\\
+ ~~~~~~~~ | \\
+ ~~~~~~~~ | \\
+\framebox[5cm]{étape 2}\\
+~~~~~~~~ | \\
+~~~~~~~~ | \\
+\framebox[5cm]{étape 3}\\
+~~~~~~~~ | \\
+~~~~~~~~ | \\
+\framebox[5cm]{étape 4}\\
+
+\end{center} 
+\caption{Un schéma comme figure} \label{schema} \
+\end{figure}
+
+\lipsum[8]
+
+%%================================================================
+\subsection{Titre de la deuxième sous-partie}
+
+\lipsum[9]
+
+\section{Titre de la deuxième partie}
+
+\lipsum[10-11]
+
+%%================================================================
+\section*{Remerciements (pas de numéro)} 
+
+Paragraphe facultatif
+
+%%================================================================
+%% Note : si l'on préfère éviter de factoriser les crossrefs :
+%% bibtex -min-crossrefs 99 taln-exemple
+%%================================================================
+
+\bibliographystyle{apalike-fr}
+\bibliography{biblio}
+\nocite{TALN2007,LaigneletRioult09,LanglaisPatry07,SeretanWehrli07}
+
+%%================================================================
+\end{document}

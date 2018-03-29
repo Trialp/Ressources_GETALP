@@ -1,0 +1,150 @@
+<HTML>
+<HEAD>
+<TITLE>Consultation of Papillon Lexical Database</TITLE>
+</HEAD>
+<BODY>
+<DIV id="ConsultContent" lang="ja">
+<FORM id="ConsultForm" ACTION="ConsultExpert.po">
+<table WIDTH="100%" border="1" bordercolor="white" bgcolor="#eeeecc" summary="Search form">
+<TR>
+     <!-- Warning, make sure the option element contains a Text and only a Text (no other child) -->
+	<TD><b><label for="SOURCE"><nobr>ソース言語：</nobr></label></b>
+            <!-- SELECT NAME="SOURCE" onChange="UpdateList(document.ConsultForm);" -->
+            <SELECT ID="SOURCE" NAME="SOURCE">
+            <OPTION ID="SourceOptionTemplate" VALUE="NONE" LABEL="NONE">NONE</OPTION>
+        </SELECT><BR>
+		
+ <B><label for="Strategy">方針：</label></B>  <SELECT id="Strategy" NAME="Strategy">
+         <OPTION VALUE="0" LABEL="exact match">適語</OPTION>
+            <OPTION VALUE="1" LABEL="prefix">接頭辞</OPTION>
+            <OPTION VALUE="2" LABEL="suffix">接尾辞</OPTION>
+            <OPTION VALUE="3" LABEL="substring">一部</OPTION>
+            <OPTION VALUE="4" LABEL="case insensitive">大小文字同一視</OPTION>
+            <OPTION VALUE="5" LABEL="insensitive prefix">同一視、接頭辞</OPTION>
+            <OPTION VALUE="6" LABEL="insensitive suffix">同一視、接尾辞</OPTION>
+            <OPTION VALUE="7" LABEL="insensitive substring">同一視、一部</OPTION>
+            <OPTION VALUE="8" LABEL="lemmatize">lemmatize</OPTION>
+            <OPTION VALUE="9" LABEL="FOKS nihongo">FOKS　日本語</OPTION> 
+    </SELECT><br>
+				<a href="http://www.foks.info">FOKSの情報</a>
+        </TD>
+
+
+<!-- Warning, do not modify the content of the TD element --> 
+<TD valign="center"><b><label for="Targets"><nobr>ターゲット言語：</nobr></label></b>
+    <SELECT id="Targets" NAME="TARGETS" size="3" multiple="yes">
+<!-- SELECTED="yes" -->
+            <OPTION VALUE="*ANY*" LABEL="zengengo">全言語</OPTION>
+            <OPTION ID="TargetOptionTemplate" VALUE="NONE" LABEL="NONE">NONE</OPTION>
+    </SELECT>
+</TD>
+<TD valign="center"><b><label for="Resources"><nobr>辞書</nobr></label></b>
+    <SELECT id="Resources" NAME="RESOURCES" size="3" multiple="yes">
+    <!-- SELECTED="yes" -->
+            <OPTION VALUE="*ANY*" LABEL="zenjisho">全辞書</OPTION>
+            <OPTION ID="ResourceOptionTemplate" VALUE="NONE" LABEL="NONE">NONE</OPTION>
+    </SELECT>
+</TD>
+</TR>
+<TR>
+<TD bgcolor="#4682b4"> <SELECT id="search1" NAME="search1">
+            <OPTION VALUE="VocContains" LABEL="mideshigo">見出し語</OPTION>
+            <OPTION VALUE="PosContains" LABEL="hinshi">品詞</OPTION>
+            <OPTION VALUE="PronContains" LABEL="hatsuon">発音</OPTION>
+			<OPTION VALUE="ReadingContains" LABEL="furigana">ふりがな</OPTION>
+            <OPTION VALUE="TransContains" LABEL="honyaku">翻訳</OPTION>
+            <OPTION VALUE="AnyContains" LABEL="any part">いかなる部分</OPTION>
+    </SELECT>
+	<label for="search1text">中身</label> 
+<INPUT id="search1text" NAME="search1text" TYPE="text" SIZE="15" VALUE=""></TD>
+<TD bgcolor="#4682b4"> <SELECT id="search2" NAME="search2">
+            <OPTION VALUE="VocContains" LABEL="mideshigo">見出し語</OPTION>
+            <OPTION VALUE="PosContains" LABEL="hinshi">品詞</OPTION>
+            <OPTION VALUE="PronContains" LABEL="hatsuon">発音</OPTION>
+			<OPTION VALUE="ReadingContains" LABEL="furigana">ふりがな</OPTION>
+            <OPTION VALUE="TransContains" LABEL="honyaku">翻訳</OPTION>
+            <OPTION VALUE="AnyContains" LABEL="any part">いかなる部分</OPTION>
+    </SELECT>
+		<label for="search2text">中身</label> 
+<INPUT id="search2text" NAME="search2text" TYPE="text" SIZE="15" VALUE=""></TD>
+<TD bgcolor="#4682b4"><INPUT name="lookup" VALUE="検索" TYPE="submit"></TD>
+</TR>
+</table>
+</FORM>
+<br>
+<div id="SorryMessage" align="center"><p>すみません、この項目はまだ用意されていません、辞書にご自由に<a href="ConsultEdit.po?STEP=1&amp;InitType=create">書き込んでください</a>。</p>
+<p>メモ：書き込むためには <a href="LoginUser.po">ログイン</a>しなければなりません。</p></div>      
+<table id="EntryListTable" width="100%" frame="hsides"  border="0" summary="entries"  bgcolor="#faecc9">
+	<thead>
+	  <tr>
+		<th><nobr>見出し語</nobr></th>
+		<th><nobr>ID番号</nobr></th>
+		<th><nobr>提案</nobr></th>
+		<th><nobr>品詞</nobr></th>
+		<th><nobr>辞書</nobr></th>
+	  </tr>
+	</thead>
+	<tfoot>
+		<tr>
+			<td colspan="5" align="center"><a href="" id="NextEntriesAnchor">次の見出し語</a></td>
+		</tr>
+	</tfoot>
+	<tbody>
+  <tr id="EntryListRow"  bgcolor="#eeeecc">
+    <td><!-- resultItemStart -->
+    <span class="bodylink"><A HREF="" id="EntryAnchor"><SPAN id="Vocable">Vocable</SPAN></A></span></td>
+    <td><SPAN id="EntryIdList">Vocable</SPAN></td>
+    <td><A HREF="" id="ContribAnchor"><SPAN id="Contribution">Contribution</SPAN></A></td>
+    <td><SPAN id="PosEntry">pos</SPAN></td>
+	<td><SPAN id="DictionaryName">DictName</SPAN>
+    <!-- resultItemEnd --></td>
+  </tr>
+  <tr id="FormulaRow">
+  <td  colspan="5">&nbsp;&nbsp;&nbsp;&nbsp;<span id="Formula">Formula</span></td>
+  </tr>
+  </tbody>
+</table>
+
+<div>
+<table  align="center" summary="Foks Entries" id="FoksEntries" class="result" bgcolor="e6e6fa" cellpadding="1" cellspacing="1" border="0" width="90%">
+<thead>
+<tr>
+	<th class="result">記載</th>
+	<th class="result">ふりがな</th>
+	<th class="result">得点</th>
+	<th class="result">リンク</th>
+</tr>
+</thead>
+<tfoot>
+ <tr>
+  <td colspan="4" align="right"><hr>
+   <div class="copyright">© 2002-2003 <a href="mailto:sbilacATcl.cs.titech.ac.jp?subject=PapillonServer&amp;body=replace&nbsp;AT&nbsp;by&nbsp;@&nbsp;in&nbsp;the&nbsp;email&nbsp;address">Slaven Bilac</a>,  Tokyo Institute of Technology. All rights reserved.</div></td>
+</tr>
+</tfoot>
+<tbody>
+<tr id="FoksRow">
+    <td class="result" align="center" nowrap="nowrap"><span id="FoksEntry">Entry</span></td>
+    <td class="result" align="center" nowrap="nowrap"><span id="FoksWriting">Reading</span></td>
+    <td class="result" align="center" nowrap="nowrap"><span id="FoksGrade">Grade</span></td>
+    <td class="result" align="center" nowrap="nowrap"><a id="FoksHref" href="EditLexie.po">Translation</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<table width="100%" id="VolumeEntries" frame="hsides"  border="0" bordercolor="white" summary="dicocontent">       
+<tr id="StylesheetRow" bgcolor="#eeeecc">
+    <td id="StylesheetCell" ></td>
+</tr>
+<tr id="EntryRow">
+    <td valign="top">
+    <p align="right"><b><span id="resourceName">resource</span></b></p>
+    <p align="justify" id="EntryDiv"> </p>
+    <p align="right"><a href="#_top"><img src="media/top.gif" alt="top" height="16" width="16" border="0"></a></p><hr width="100%">
+    </td>        
+</tr>
+ </table>
+</DIV>
+</BODY>
+</HTML>
+

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Меню</title>
+  </head>
+  <body>
+    <div id="AdvancedSearchForm" lang="ru" xml:lang="ru">
+      <form id="SearchForm" action="">
+        <div>Найти статьи где:<br/>
+        <!-- MULTIPLE VALUES: VOLUMES, TARGETS, -->
+          <input type="hidden" name="idFieldName" id="idFieldName"/>
+          <input type="hidden" name="langFieldName" id="langFieldName"/>
+        <input type="hidden" name="VOLUMES" value="" id="Volumes"/>
+        <input type="hidden" id="Targets" name="TARGETS" value=""/>
+        <!-- multiple selection: dictionaries to search into -->
+        <input type="hidden" id="Dictionaries" name="DICTIONARIES"/>
+
+        <div id="criterion">
+        <select id="Facet" name="FACET">
+          <option value="cdm-headword">Заглавное слово</option>
+          <option value="cdm-entry-id">ID статьи</option>
+          <option value="cdm-definition">Определение</option>
+          <option value="cdm-example">Контекст</option>
+          <option value="axi-reflexie">Акси</option>
+        </select> 
+        <select id="Operator" name="OPERATOR">
+            <option value="4">содержит</option>
+            <option value="2">соответствует</option>
+            <option value="6">начинается на</option>
+            <option value="5">кончается на</option>
+        </select>
+        <input type="text" id="ValueField" name="FACETVALUE" size="14" maxlength="128" />
+        <label for="SourceLang" accesskey="i"><span class="accesskey">в</span>:</label>
+        <select id="SourceLang" name="SOURCE">
+            <option id="AllSourcesOption" value="*ALL*">Все языки</option>
+            <option id="SourceOptionTemplate" value="NONE">НЕ УКАЗАНО</option>
+        </select>
+        </div>
+        <input type="hidden" name="XSL" value="Стандарт" id="Xsl"/>
+        <input type="submit" name="lookup" value="Найти"/>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

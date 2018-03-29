@@ -1,0 +1,105 @@
+# Transition de la base de données officielle de Papillon à la nouvelle base
+# On va récupérer certaines tables. Les autres (notamment les dictionnaires) 
+# seront reconstruites via l'interface web.
+
+#  Dumper la base actuelle: [SUR LA MACHINE BD ANCIENNE]
+pg_dump -Fc papillon > papillon.pgdump
+
+# Création de la base papillon
+createdb -E UNICODE -O papillon -e papillon
+
+# Création des tables dans leurs nouvelles formes.
+psql -U papillon papillon < build/Dods_Generated_Sources/static/SQLcreate.sql
+
+# restoration des tables
+pg_restore --table=objectid --data-only papillon.pgdump | psql -U papillon papillon
+pg_restore --table=users --data-only papillon.pgdump | psql -U papillon papillon
+
+# Les documents d'informations ont un nouveau champs, owner, NON NULL
+# Mais la base original a une valeur nulle dans ce champs. On spécifie un
+# owner particulier... (changer "serasset" par l'owner voulu...)
+pg_restore --table=informationdocument --data-only papillon.pgdump | sed -e 's/\([^\t]*\t[^\t]*\t[^\t]*\t[^\t]*\t[^\t]*\t[^\t]*\t[^\t]*\t\)\\N/\1serasset/' | psql -U papillon papillon
+pg_restore --table=informationfiles --data-only papillon.pgdump | psql -U papillon papillon
+
+# Query Logs
+pg_restore --table=querylogs --data-only papillon.pgdump  | psql -U papillon papillon
+
+# Messages
+pg_restore --table=messages --data-only papillon.pgdump  | psql -U papillon papillon
+
+# XSL sheets
+pg_restore --table=xslsheets --data-only papillon.pgdump  | psql -U papillon papillon
+
+# Table d'accès au japonais: foksentry
+pg_restore --table=foksentry --data-only papillon.pgdump  | psql -U papillon papillon
+
+# PB avec les contributions. 
+# Liste des tables statiques :
+ Schema |        Name         | Type  |  Owner
+--------+---------------------+-------+----------
+ public | contributions       | table | papillon      PB
+ public | dictionaries        | table | papillon      A recharger
+ public | foksentry           | table | papillon      OK
+ public | groups              | table | papillon      vide
+ public | history             | table | papillon      vide
+ public | informationdocument | table | papillon      OK
+ public | informationfiles    | table | papillon      OK
+ public | messages            | table | papillon      OK
+ public | objectid            | table | papillon      OK
+ public | papillonaxi         | table | papillon      Pourquoi statique ? A recharger...
+ public | querylogs           | table | papillon      OK
+ public | users               | table | papillon      OK
+ public | volumes             | table | papillon      A recharger
+ public | xslsheets           | table | papillon      OK
+ 
+ 
+PASSAGE DE BOOLEENS À CHAR(1)
+-----------------------------
+
+ALTER TABLE informationfiles RENAME column isindexfile to isindex;
+ALTER TABLE informationfiles add column isindexfile char(1);
+UPDATE informationfiles SET isindexfile = 'N';
+UPDATE informationfiles SET isindexfile = 'Y' where isindex;
+ALTER TABLE informationfiles alter column isindexfile set not null;
+ALTER TABLE informationfiles alter column isindexfile set default 'N';
+ALTER TABLE informationfiles DROP COLUMN isindex;
+
+alter TABLE xslsheets RENAME column defaultxsl TO def;
+ALTER TABLE xslsheets add column defaultxsl char(1);
+update xslsheets set defaultxsl ='N';
+update xslsheets set defaultxsl ='Y' where def;
+ALTER TABLE xslsheets ALTER column defaultxsl set not null;
+ALTER TABLE xslsheets ALTER column defaultxsl set default 'N';
+alter TABLE xslsheets DROP COLUMN def;
+ 
+; GS: Faut-il faire de même avec "contributions" cette table est obsolète...
+; MM: OUI, pas encore obsolète !
+alter table contributions RENAME newentry TO newe;
+alter table contributions add column newentry char(1);
+update contributions set newentry = 'N';
+update contributions set newentry = 'Y' where newe;
+alter table contributions alter column newentry set not null;
+alter table contributions alter column newentry set default 'N';
+alter table contributions drop COLUMN newe;
+
+alter table volumes RENAME reverse TO reve;
+alter table volumes add column reverse char(1);
+update volumes set reverse = 'N';
+update volumes set reverse = 'Y' where reve;
+alter table volumes alter column reverse set not null;
+alter table volumes alter column reverse set default 'N';
+alter table volumes drop COLUMN reve;
+
+NOUVEAUX CHANGEMENTS DANS LA TABLE CONTRIBUTIONS
+; MM: nouveau changement de nom de colonne !
+alter table contributions add column originalid varchar(255);
+; MM: There may be an automatic way to rebuild the originalid from the 
+; originalhandle and the volume name but I didn't find it. 
+; My problem is that the table names change. The following instruction
+; is OK for the GDEF estonian volume only. You must do it for all the volumes.
+update contributions set originalid=idxgdefest.value where contributions.originalhandle=idxgdefest.entryid and idxgdefest.key='cdm-entry-id';
+alter table contributions drop column originalhandle;
+
+; encore un changement : on vire la colonne entryHandle 
+alter table contributions drop column entryhandle
+

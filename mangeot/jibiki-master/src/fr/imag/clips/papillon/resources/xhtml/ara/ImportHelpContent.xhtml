@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>Papillon</title>
+</head>
+
+<body>
+
+<div id="ImportHelpContent" lang="fr">
+
+  <h1 style="text-align:center">Aide pour l'ajout de documents d'information</h1>
+
+<p>
+<a href="AdminInformations.po">Retour</a> à la page d'aministration des documents d'information
+</p>
+
+<p>Il est possible d'ajouter sur le serveur Papillon des documents monolingues ou multilingues de n'importe quel type.
+Les fichiers de type archive (TAR ou ZIP) peuvent être multilingues, tandis que les fichiers simples (HTML, PDF, RTF, GIF, etc.)
+sont obligatoirement monolingues.<br/>
+Un fichier compréssé avec Gzip est d'abord décompacté; le fichier ainsi obtenu n'est pas ajouté
+ directement, mais traité exactement comme si il avait été envoyé sous forme non compréssée.</p>
+
+<h2>1. Ajout d'archives (.tar, .zip, .tar.gz)</h2>
+<h3>1.1. Processus</h3>
+<p>L'archive est décompactée et son contenu est analysé, puis ajouté. Il peut s'agir d'un unique répertoire archivé, auquel cas
+ le terme "racine" désigne le contenu de ce répertoire. Il est possible de placer à la racine de l'archive un fichier au format XML
+ nommé <b>info_doc.xml</b> qui remplace la saisie des informations du formulaire d'ajout de documents.
+Ce fichier de decription info_doc.xml de l'archive précise&nbsp;:</p>
+<ul>
+  <li>la section dans laquelle vous souhaitez placer le document,</li>
+  <li>le nom du ou des auteurs du document,</li>
+  <li>le titre du document dans chacune des langues disponibles,</li>
+  <li>la date de création du document (optionnel),</li>
+  <li>des réféfrences si c'est une publication (optionnel).</li>
+</ul>
+<p>Si des informations ont été entrées dans le formulaire, elles sont ignorées et remplacées par celles contenues dans info_doc.xml.<br/>
+Le format du fichier info_doc.xml est défini par le Schéma XML <a href="XMLSchema.po">info_doc.xsd</a></p>
+<p>ATTENTION: les documents HTML ne doivent pas contenir d'entité caract&egrave;re hexadecimale comme &amp;#x8A93; car le parseur Tidy semble ne pas les reconna&icirc;tre.</p>
+<h3>1.2. Différents types d'archives</h3>
+<p>There are three types of archives, wich are treated differently:</p>
+<p>La distinction est faite entre trois types d'archives qui sont traitées différemment&nbsp;:</p>
+<ul>
+  <li>une archive multilingue HTML est constituée d'un mini-site HTML dans plusieurs langues.</li>
+  <li>une archive multilingue non HTML contient plusieurs versions d'un document simple non HTML (par exemple un document PDF ou RTF) dans différentes langues.</li>
+  <li>une archive monolingue dont le contenu est libre.</li>
+</ul>
+<p>Pour les deux types de documents multilingues, l'archive doit comporter à sa racine le fichier info_doc.xml puis, pour chaque langue, un répertoire portant
+le code &agrave; trois lettres ISO 639-2/T de cette langue. Les langues actuellement acceptées sont&nbsp;:<br/>
+deu (allemand), eng (anglais), esp (espagnol), fra (français), hun (hongrois), ita (italien), jpn (japonais), lao (lao), msa (malais), tha (thaï),
+ vie (vietnamien), etc.<br/>
+Aucun autre fichier, à l'exception du fichier info_doc.xml,et aucun autre répertoire ne doivent être pésents à la racine de l'archive,
+sinon le document est considérée comme monolingue.</p>
+<h4>1 Multilingual HTML archives</h4>
+<h4>1 Archives multilingues HTML</h4>
+<p>Chaque répertoire portant le nom d'une langue doit au moins contenir un fichier index nommé index.htm(l)
+ou default.htm(l), qui sera le point d'entrée dans le document pour cette langue. Si le fichier info_doc.xml est absent, vous pouvez remplir le champ <b>Auteur</b> du formulaire; les titres du document dans
+les différentes langues sont récupérés dans la balise &lt;title&gt; des fichiers index.</p>
+<br/>
+Exemple&nbsp;:<br/>
+<img src="media/html_archive.jpg" alt="Multilingual HTML archive"/><br/>
+<h4>2 Archives multilingues non HTML</h4>
+<p>Chaque répertoire portant le nom d'une langue doit contenir exactement un fichier, la version du document
+ dans cette langue. La présence du fichier info_doc.xml est obligatoire.</p>
+<br/>
+Exemple&nbsp;:<br/>
+<img src="media/media_archive.jpg" alt="Multilingual non-HTML archive"/><br/>
+<h4>3 Archives monolingues</h4>
+<p>S'il s'agit d'un ensemble de pages HTML, un fichier index doit être placé à la racine de l'archive.
+ Si le fichier info_doc.xml est absent, vous devez obligatoirement remplir le champ <b>Titre</b> du 
+ formulaire et indiquer la langue du document.</p>
+<br/>
+Exemple&nbsp;:<br/>
+<img src="media/mono_archive.jpg" alt="Monolingual archive"/><br/>
+<h2>2. Ajout de fichiers non archivés</h2>
+<p>Vous devez donner le titre du document et indiquer sa langue dans le formulaire.</p>
+<p><a href="AdminInformations.po">Retour</a> à la page d'aministration des documents d'information.</p>
+</div>
+</body>
+</html>

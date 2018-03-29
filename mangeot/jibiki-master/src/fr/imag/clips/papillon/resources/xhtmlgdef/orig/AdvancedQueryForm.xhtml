@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Menu</title>
+        <script type="text/javascript">
+            
+            //
+            function addOrRemoveCriterion(caller, action) {
+            document.getElementById('Action').value = action + caller;
+            document.getElementById("SearchForm").submit();
+            }
+            
+        </script>
+    </head>
+    <body>
+        <div id="AdvancedSearchForm" lang="fr" xml:lang="fr">
+		<script type="text/javascript">
+		<!--
+function selectedValue(selBox) {
+    return selBox.options[selBox.selectedIndex].value;
+}
+
+function validAdvancedSearchForm(form) {
+		var nbcrit = form.CRITERIA_NB.value;
+		nbcrit = parseInt(nbcrit) - 1;
+		for (var i=0; i<=nbcrit; i++) {
+			var select  = form.elements['FACET.'+i];
+			var textBox  = form.elements['FACETVALUE.'+i];
+			if (selectedValue(select) == 'gdef-est-traduction') {
+				textBox.value = 'fra.' + textBox.value;
+				var strategy = form.elements['OPERATOR.'+i];
+				if (strategy.value=='0') {
+					textBox.value = textBox.value + '.';
+					strategy.value=6;
+				}
+			}
+		}
+    return true;
+}
+-->
+</script>
+        <select id='selectdefault' style="display:none;">
+            <option value="0">est exactement</option>
+            <option value="6">commence par</option>
+            <option value="5">finit par</option>
+        </select>
+        <select id='selectexact' style="display:none;">
+            <option value="0">est exactement</option>
+        </select>
+        <select id='selectcontains' style="display:none;">
+            <option value="4">contient</option>
+        </select>
+        <select id="domaine" name="domaine" style="display:none;">
+            <option value="aiand.">aiand.</option><option value="aj.">aj.</option>
+            <option value="anat.">anat.</option><option value="antr.">antr.</option>
+            <option value="arheol.">arheol.</option><option value="arhit.">arhit.</option>
+            <option value="astr.">astr.</option><option value="aut.">aut.</option>
+            <option value="bibl.">bibl.</option><option value="biol.">biol.</option>
+            <option value="bot.">bot.</option><option value="ehit.">ehit.</option>
+            <option value="el.">el.</option><option value="etn.">etn.</option>
+            <option value="farm.">farm.</option><option value="film.">film.</option>
+            <option value="filos.">filos.</option><option value="folkl.">folkl.</option>
+            <option value="fot.">fot.</option><option value="füsiol.">füsiol.</option>
+            <option value="füüs.">füüs.</option><option value="geod.">geod.</option>
+            <option value="geogr.">geogr.</option><option value="geol.">geol.</option>
+            <option value="hüdr.">hüdr.</option><option value="info.">info.</option>
+            <option value="jah.">jah.</option><option value="jur.">jur.</option>
+            <option value="kal.">kal.</option><option value="keem.">keem.</option>
+            <option value="ker.">ker.</option><option value="kirikl.">kirikl.</option>
+            <option value="kirj.">kirj.</option><option value="kul.">kul.</option>
+            <option value="kunst">kunst</option><option value="lenn.">lenn.</option>
+            <option value="lgv.">lgv.</option><option value="loog.">loog.</option>
+            <option value="maj.">maj.</option><option value="mat.">mat.</option>
+            <option value="med.">med.</option><option value="meh.">meh.</option>
+            <option value="mer.">mer.</option><option value="mes.">mes.</option>
+            <option value="meteor.">meteor.</option><option value="mets.">mets.</option>
+            <option value="min.">min.</option><option value="mull.">mull.</option>
+            <option value="muus.">muus.</option><option value="mäend.">mäend.</option>
+            <option value="müt.">müt.</option><option value="nahat.">nahat.</option>
+            <option value="paberit.">paberit.</option><option value="paleont.">paleont.</option>
+            <option value="pat.">pat.</option><option value="ped.">ped.</option>
+            <option value="pol.">pol.</option><option value="psühh.">psühh.</option>
+            <option value="puidut.">puidut.</option><option value="põll.">põll.</option>
+            <option value="raad.">raad.</option><option value="raudt.">raudt.</option>
+            <option value="rel.">rel.</option><option value="side">side</option>
+            <option value="sotsiol.">sotsiol.</option><option value="sport">sport</option>
+            <option value="stat.">stat.</option><option value="sõj.">sõj.</option>
+            <option value="zool.">zool.</option><option value="teater">teater</option>
+            <option value="teed.">teed.</option><option value="tehn.">tehn.</option>
+            <option value="tekst.">tekst.</option><option value="trük.">trük.</option>
+            <option value="vet.">vet.</option>
+        </select>
+            <form id="SearchForm" action="" onsubmit="return validAdvancedSearchForm(this);">
+                <div style="display:block; padding:5px;">
+                    <input type="hidden" name="action" id="actionJS" value="advancedLookup" />
+                    <table border="0" cellpadding="0" cellspacing="0" summary="Search Form" width="100%">
+                        <tr valign="top">
+                            <td style="vertical-align: middle;">
+                                <div><h2 style='display: inline; font-family: "garamond", serif;'>GDEF</h2> : recherche avancée</div>
+                                <div id="DictionarySelection" style="padding:5px; display: none;">
+                                    <!-- MULTIPLE VALUES: TARGETS, DICTIONARIES -->
+                                    <select id="Dictionaries" name="DICTIONARIES" multiple="multiple">
+                                        <option id="dictionaryTmpl" label="tous dictionnaires" value="*All*">tous dictionnaires</option>
+                                    </select>
+                                    <select style="display:none;" id="Volumes" name="VOLUMES">
+                                        <option value="GDEF_est_fra">GDEF_est_fra</option>
+                                       
+                                    </select>
+                                    <select name="templatevolume">
+                                         <option id="volumeTmpl" label="tous volumes" value="*All*">tous volumes</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td style="vertical-align: middle;">
+                                <b>Chercher</b>
+                                </td>
+                            <td style="vertical-align: middle;">
+                                <div id="CriteriaZone" style=" padding:5px;">
+                                    <!-- ADVANCEDQUERYFORM SCRIPT  -->
+                                    <script src="javascript/AdvancedQueryFormAjax.js" type="text/javascript"><!-- // --></script>
+                                    <script type="text/javascript">
+                                        <!--
+                                         function adjustAdvancedSearchForm(select) {
+                                         var criteriaNumber='';
+                                         if (select.name.lastIndexOf(".") != -1) {
+                                         criteriaNumber = select.name.substring(select.name.lastIndexOf("."));
+                                         }
+                                         var selvalue = selectedValue(select);
+                                         var operator = document.getElementById('Operator'+criteriaNumber);
+                                         var textbox = document.getElementById('ValueField'+criteriaNumber);
+                                         //   operator.options.length = 0;
+                                         if (selvalue == 'cdm-example' || selvalue == 'gdef-est-locution' || selvalue == 'gdef-est-traduction-exemple' || selvalue == 'gdef-est-traduction-locution') {
+                                         var select2 = document.getElementById("selectcontains");
+                                         operator.innerHTML = select2.innerHTML;
+                                         }
+                                         else if (selvalue == 'gdef-est-domaine') {
+                                         var select2 = document.getElementById("selectexact");
+                                         operator.innerHTML = select2.innerHTML;
+                                         }
+                                         else {
+                                         var select2 = document.getElementById("selectdefault");
+                                         operator.innerHTML = select2.innerHTML;
+                                         }
+                                         if (selvalue == 'gdef-est-domaine') {
+                                         textbox.setAttribute('name', 'toto');
+                                         textbox.setAttribute('style', 'display:none;');
+                                         var domaine = document.getElementById('domaine').cloneNode(true);
+                                         domaine.setAttribute('name', 'FACETVALUE'+criteriaNumber);
+                                         domaine.setAttribute('id', 'domaineCopy' + criteriaNumber);
+                                         domaine.setAttribute('style', '');
+                                         var parent = textbox.parentNode;
+                                         parent.insertBefore(domaine,textbox);
+                                         }
+                                         else {
+                                         textbox.setAttribute('style', '');
+                                         textbox.setAttribute('name', 'FACETVALUE'+criteriaNumber);
+                                         var domaineCopy = document.getElementById('domaineCopy'+ criteriaNumber);
+                                         if (domaineCopy != null) {
+                                         textbox.parentNode.removeChild(domaineCopy);
+                                         }
+                                         }
+                                         }
+                                         // -->								</script>
+                                    <table id="tableShowHideElement" style="display: none;" >
+                                        <tr id="rowShowHideTemplate" ><td>cdm-headword</td></tr>
+                                    </table>
+                                    <input type="hidden" id="NumberOfCriteria" name="CRITERIA_NB"/>
+                                    <div id="criterion" style="display:block; margin-left: 10px;">
+                                        <img id="minus" onclick='addOrRemoveCriterion(this.id, "-");' src="media/minus.jpg" alt="-" width="15"/>
+                                        <img id="plus" onclick='addOrRemoveCriterion(this.id, "+");' src="media/plus.jpg" alt="+" width="15"/>
+                                        <select id="Facet" name="FACET" onchange="adjustAdvancedSearchForm(this)">
+                                            <option selected="selected" value="cdm-headword">le mot-vedette</option>
+                                            <option value="cdm-headword-variant">la variante</option>
+                                            <option value="gdef-est-particule">la particule</option>
+											<option value="gdef-est-traduction">la traduction française</option>
+											<option value="gdef-est-domaine">le domaine de spécialité</option>
+                                            <option value="cdm-example">un exemple</option>
+                                            <option value="gdef-est-locution">une locution</option>
+                                            <option value="gdef-est-traduction-exemple">la trad. d'1 exemple</option>
+                                            <option value="gdef-est-traduction-locution">la trad. d'1 locution</option>
+										</select>
+                                            <select id="Operator" name="OPERATOR" >
+                                            <option value="0">est exactement</option>
+                                            <!--option value="2" label="like">like</option-->
+                                            <!--option value="6" label="starts with">starts with</option-->
+                                             <!--option value="4" label="contains">contains</option-->
+                                            <!--option value="10" label="greater than">greater than</option>
+                                            <option value="11" label="lower than">lower than</option-->
+                                            <option value="6">commence par</option>
+                                            <option value="5">finit par</option>
+                                            </select>
+                                        <input type="text" id="ValueField" name="FACETVALUE" size="14" maxlength="128"/>
+                                        <span style="display:none;"><span style="display:none;">
+                                            <!--
+                                             <label id="SourceLangLabel" for="SourceLang" accesskey="i" >
+                                             <span class="accesskey">I</span>n:</label>
+                                             -->
+                                            <select id="SourceLang" name="SOURCE">
+                                                <option value="All"  selected="selected">Toutes</option>
+                                            </select>
+                                            <select name="allsources">
+                                                 <option id="SourceOptionTemplate" value="NONE" label="NONE">NONE</option>
+                                            </select>
+                                        </span></span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td  style="vertical-align: middle;">
+                                <div id="TargetLanguagesSelection" style="display: none;">
+                                    <b>langues cibles</b><br/>
+                                    <select id="Targets" name="TARGETS" multiple="multiple">
+                                        <option value="*All*" selected="selected">Toutes</option>
+                                        <option id="TargetTmpl" value="*All*">Toutes</option>
+                                    </select>
+                                </div>
+                                <input type="submit" value="➡" />
+                                <input type="hidden" id="LIMIT" name="LIMIT" value="100" />
+                            </td>
+                            <td style="visibility:hidden;">
+                                <div id="QuickLink" class="quick_search">
+                                    <b>Recherche rapide</b><br/>
+                                    <a id="MyFinishedContributions" class="quick_link" href="">Mes contributions finies</a><br/>
+                                    <a id="MyNotFinishedContributions" class="quick_link" href="">Mes contributions non finies</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="display:none; padding: 5px;">
+                    <b>Affiche </b>
+                    <select id="LIMITSelect" name="LIMIT">
+                        <option label="10" value="10">10</option>
+                        <option label="20" value="20">20</option>
+                        <option label="50" value="50">50</option>
+                        <option label="100" value="100">100</option>
+                        <!--option label="all" value="0">tous les</option-->
+                    </select>
+                    <b>résultats par page avec la forme</b>
+                    <select id="Xsl" name="XSL">
+                        <option label="par défaut" value="">par défaut</option>
+                        <option id="XslTmpl" label="par défaut" value="">défaut</option>
+                    </select>
+                    <input type="hidden" id="Offset" name="OFFSET" />
+                    <input type="hidden" id="Action" name="ACTION" value=""/>
+                    <input type="submit" value="Go" />
+                </div>
+            </form>
+            <script type="text/javascript">
+                <!--
+                 function adjustAllAdvancedSearchForm() {
+                 var form = document.getElementById('SearchForm');
+                 var nbcrit = form.CRITERIA_NB.value;
+                 nbcrit = parseInt(nbcrit) - 1;
+                 for (var i=0; i<=nbcrit; i++) {
+                 var select  = form.elements['FACET.'+i];
+                 adjustAdvancedSearchForm(select);
+                 }
+                 return true;
+                 }
+                 
+                 addLoadEvent(adjustAllAdvancedSearchForm);
+                 // -->
+            </script>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="fr">
+
+<h1>Administration des groupes</h1>
+
+
+<form action="AdminGroups.po" method="get">
+<table width="600" border="0" cellspacing="0" cellpadding="10" summary="Add new group">
+<tr>
+	<th colspan="2">Ajouter un nouveau groupe</th>
+</tr>
+<tr>	
+	<td><b>Nom:</b></td>
+	<td><input name="GroupName" type="text" size="30" value=""/></td>
+</tr>
+<tr>
+    <td><b>Mot de passe:</b></td>     
+    <td><input name="GroupPassword" type="password" size="10" value=""/></td>
+</tr>
+<tr>
+    <td><b>Retaper mot de passe:</b></td>     
+    <td><input name="GroupPasswordConfirm" type="password" size="10" value=""/></td>
+</tr>
+<tr>
+	<td colspan="2"><input name="AddGroup" type="submit" value="Ajouter"/></td>
+</tr>
+</table>
+</form>
+
+
+<span id="ExistingGroups">0</span> groupes actuellement dans la base:
+<table summary="Existing Users">
+<tr>
+	<th>Nom</th>
+	<th>Admin</th>
+	<th>supprimer</th>
+</tr>
+<tr id="GrpTemplateRow">
+	<td><b><span id="GrpName">nom</span></b></td>
+	<td><span id="GrpAdmins">admins</span></td>
+	<td><a href="" id="GrpRemoveAnchor" onclick="return confirm('Etes vous sûr de vouloir supprimer ce groupe?')">rm</a></td>
+</tr>
+</table>
+</div>
+</body>
+</html>

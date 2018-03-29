@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title>Edition of Papillon Entry</title>
+</head>
+<body>
+    <div id="EditEntryInitContent" lang="en"> 
+        <h1 class="title"><span id="UserName">Name</span> edition interface</h1>
+        <script type="text/javascript">
+            <!-- 
+                // Open a new interface window to create the new entry 
+                function create() {
+                    href = 'LexalpEditEntryInit.po?action=createAnyway&VOLUME=' + document.getElementById('VOLUME').value + '&Headword=' +  document.getElementById('Headword').value;
+                    window.open(href,'EditEntry');
+                }
+            //-->
+        </script>
+        <div class="hidden">Create <input type="text" name="Headword" id="Headword"/> in 
+            <select id="VOLUME" name="VOLUME">
+                <option id="VolumeOptionTemplate" value="NONE" label="NONE">NONE</option>
+            </select>
+            <input name="action" id="CreateAnywayButton" type="submit" value="create anyway" onclick="create()"/>
+        </div>
+        <div class="QueryForm" id="QueryForm" >
+        </div>
+        <div id="QueryResultForm">
+        </div>
+    </div>
+</body>
+</html>
+

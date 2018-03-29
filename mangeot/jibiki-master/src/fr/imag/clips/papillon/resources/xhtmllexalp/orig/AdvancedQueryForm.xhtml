@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Menu</title>
+    <script type="text/javascript">
+    
+        //
+        function addOrRemoveCriterion(caller, action) {
+            document.getElementById('Action').value = action + caller;
+            document.getElementById("SearchForm").submit();
+        }
+
+    </script>
+  </head>
+  <body>
+   <script type="text/javascript">
+                     </script>
+    <div id="AdvancedSearchForm" lang="en" xml:lang="en">
+      <form id="SearchForm" action="">
+        <div style="display:block; padding:5px;">
+		<input type="hidden" name="action" id="actionJS" value="advancedLookup" />
+          <table border="0" cellpadding="0" cellspacing="0" summary="Search Form" width="100%">
+            <tr valign="top">
+              <td>
+                <div id="DictionarySelection" style="padding:5px; display: none;">
+                  <b>Find entries in: </b>
+                  <br/>
+                  <!-- MULTIPLE VALUES: TARGETS, DICTIONARIES -->
+                  <select id="Dictionaries" name="DICTIONARIES" multiple="multiple">
+                    <option id="dictionaryTmpl" label="All dictionaries" value="*All*">All dictionaries</option>
+                  </select>
+				  <select style="display:none;" id="Volumes" name="VOLUMES" multiple="multiple">
+                    <option id="volumeTmpl" label="All volumes" value="*All*">All volumes</option>
+                  </select>
+                </div>
+              </td>
+              <td>
+                <div id="CriteriaZone" style=" padding:5px;">
+                <!-- HIDDEN ELEMENTS  -->
+                    <table id="tableShowHideElement" style="display: none;" >
+                        <tr id="rowShowHideTemplate" ><td>cdm-headword</td></tr>
+                    </table>
+                    <div id="tmp" style="display: none;" >
+                    </div>
+                  <input type="hidden" id="NumberOfCriteria" name="CRITERIA_NB"/>
+                  <div id="criterion" style="display:block; margin-left: 0px;">
+                    <img id="minus" onclick="addOrRemoveCriterion(this.id, '-');" src="media/minus.jpg" alt="-" width="15"/>
+                    <img id="plus" onclick="addOrRemoveCriterion(this.id, '+');" src="media/plus.jpg" alt="+" width="15"/>
+                    <select id="Facet" name="FACET" onchange="hideOrNotSourceLang(value, name); getSelector(value, name);" >
+                      <option value="cdm-headword" label="Term">Term</option>
+                      <option value="cdm-definition" label="Definition">Definition</option>
+                      <option value="cdm-pos" label="Grammar">Grammar</option>
+                      <option value="lexalp-phraseological-unit" label="Phraseological unit">Phraseological unit</option>
+                      <option value="cdm-context" label="Context">Context</option>
+                      <option value="cdm-note" label="Note">Note</option>
+                      <option value="lexalp-source" label="Source">Source</option>
+                      <option value="lexalp-legal-system" label="Legal system">Legal system</option>
+                      <option value="lexalp-domain" label="Domain number">Domain number</option>
+                      <option value="lexalp-usage" label="Geographical usage">Geographical usage</option>
+                      <option value="axi-reflexie" label="Axie">Axie</option>
+                      <option value="cdm-modification-author" label="Modified by">Modified by</option>
+                      <option value="cdm-contribution-author" label="Created by">Created by</option>
+                      <option value="cdm-modification-date" label="Date">Date</option>
+                      <option value="lexalp-harmonising-status" label="Harmonising status">Harmonising status</option>
+                      <option value="cdm-entry-id" label="Entry Id">Entry Id</option>
+                      <!--<option value="cdm-contribution-id" label="Entry Id">Contribution Id</option>-->
+                    </select>
+                    <select id="Operator" name="OPERATOR" >
+                        <option value="4" label="contains">contains</option>
+                        <option value="2" label="is">is</option>
+                        <option value="6" label="starts with">starts with</option>
+                        <option value="5" label="ends with">ends with</option>
+                        <option value="10" label="greater than">greater than</option>
+                        <option value="11" label="lower than">lower than</option>
+                    </select>
+                    <span>
+                        <input type="text" id="ValueField" name="FACETVALUE" size="20" maxlength="128"/>   
+                    </span>
+                    <span style="visibility: visible;">
+                        <!--
+                        <label id="SourceLangLabel" for="SourceLang" accesskey="i" >
+                        <span class="accesskey">I</span>n:</label>
+                        -->
+                        <label style="padding-left: 1em;">source language:</label>
+                        <select id="SourceLang" name="SOURCE">
+                            <option value="All" label="All">all languages</option>
+                            <option id="SourceOptionTemplate" value="NONE" label="NONE">NONE</option>
+                        </select>
+                    </span>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div id="TargetLanguagesSelection" class="quick_search">
+                  <b>Show targets:</b><br/>
+                  <select id="Targets" name="TARGETS" multiple="multiple" style="width: 120px;">
+                    <option id="TargetTmpl" label="All languages" value="*All*">All languages</option>
+                  </select>
+                </div>
+ 				<input type="submit" value="➡" />
+				<input type="hidden" id="LIMIT" name="LIMIT" value="100" />
+             </td>
+               <td>
+                    <div id="QuickLink" class="quick_search">
+                        <b>Quick search:</b><br/>
+                        <a id="MyFinishedContributions" class="quick_link" href="">My finished contributions</a><br/>
+                        <a id="MyNotFinishedContributions" class="quick_link" href="">My unfinished contributions</a>
+                    </div>
+                </td>
+            </tr>
+          </table>
+          </div>
+          <div style="display:none; padding: 5px;">
+            <b>Display </b>
+            <select id="LIMITSelect" name="LIMIT">
+              <option label="10" value="5">5</option>
+              <option label="10" value="10">10</option>
+              <option label="20" value="20">20</option>
+              <option label="50" value="50">50</option>
+              <option label="100" value="100">100</option>
+              <option label="all" value="0">all</option>
+            </select>
+            <b>results per page using form:</b>
+            <select id="Xsl" name="XSL">
+              <option label="Default" value="">Default</option>
+              <option id="XslTmpl" label="Default" value="">Default</option>
+            </select>
+            <input type="hidden" id="Action" name="ACTION" value=""/>
+            <input type="submit" value="Go" />
+          </div>
+      </form>
+    </div>
+  </body>
+</html>

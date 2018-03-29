@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ar" xml:lang="ar" dir="rtl">
+  <head>
+    <link href="css/papillon-home.css" rel="StyleSheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="Mathieu MANGEOT &amp; Gilles Sérasset" />
+    <meta name="keywords" content="multilingual dictionary, papillon project, lexical database, French, English, Japanese" />  
+    <meta name="description" content="Papillon project aims at creating a multilingual lexical database covering among others English,
+	 French, Japanese, Lao, Thaï and Chinese. The access is free. Our project aims at being useful and open to all those who are
+	  interested in these languages." />
+    <meta name="robots" content="index, follow" />
+    <title>مشروع مصطلح</title>
+    <link rel="stylesheet" href="css/autocomplete.css" type="text/css" media="screen"/>
+    <script src="javascript/jquery-1.8.0.min.js" type="text/javascript"><!-- // --></script>
+    <script src="javascript/jquery.dimensions.js" type="text/javascript"><!-- // --></script>
+    <script src="javascript/autocomplete.js" type="text/javascript"><!-- // --></script>
+     <script src="javascript/functions.js" type="text/javascript"><!-- // --></script>
+   <script type="text/javascript">
+	<!--
+        //
+            $(document).ready(function(){
+	    setAutoComplete('ValueField', 'SourceLang', 'results', 
+                'JSONHeadwordList.po', 'headword=', 'lang=');
+	});
+    //-->
+    </script>
+    <script id="Script" type="text/javascript">
+       <!--
+        //
+        function init() {
+        
+            //// Launch ajax function to get select elements depending on cdm elements
+            
+            // Get all select elements
+            var selectCollection = document.getElementsByTagName('select');
+            for(var i=0; i < selectCollection.length; i++){
+                
+                // Launch ajax function only for select cdm element (name=FACET.*)
+                if (selectCollection[i].name.match(/FACET\./)) {
+                    getSelector(selectCollection[i].value, selectCollection[i].name);
+                }
+            }
+            
+        }
+        //-->
+    </script>
+  </head>
+  <body onload="javascript:init();">
+    <script src="javascript/AdvancedQueryFormAjax.js" type="text/javascript"><!-- // --></script>
+    <div class="headerBlock">
+	<div id="LangFormHolder" style="float:right; "></div>
+	<div id="BannerPlaceHolder" style="display:none;">
+		<div id="BannerContent">
+		     <div id="projectTitle">
+        <!--img alt="The Papillon Project" src="media/header.jpg" /-->
+مشروع <span class="projectName">مصطلح</span>
+      </div>
+		</div>
+	</div>
+      <div id="headerMenu" class="headerMenu">
+  <div class="popupMenu"><a href="Home.po">الرئيسية</a></div>
+  <div class="popupMenu"><a href="Information.po">معلومات</a>
+    <ul>
+    	<li><a href="Information.po#Presentation">تعريف</a></li>
+    	<li><a href="Information.po#Access">طرق الدخول</a></li>
+    	<li><a href="Information.po#Info">معلومات إضافية</a></li>
+    	<li><a href="Information.po#Links">روابط مفيدة</a></li>
+    	<li><a href="Information.po#Credits">المسؤولون</a></li>
+    </ul>
+  </div>
+  <div class="popupMenu"><a href="Contacts.po">إتصل بنا</a>
+    </div>
+  <div class="popupMenu"><a href="Help.po">مساعدة</a></div>
+</div>
+</div>
+	<p style="clear:both;"></p>
+    <div id="MenuColumn" class="menuColumn">
+	<div id="UserMenuHolder">
+    </div>
+	<div id="QueryMenuHolder">
+	</div>
+    <div id="LexiesManagementHolder">
+    </div>
+    <div id="ReviewerMenuHolder">
+	</div>
+     <div id="ValidatorMenuHolder">
+    </div>
+    <div id="AdministrationMenuHolder">
+    </div>
+	</div>
+    <div id="MainColumn" class="mainColumn" />
+    <!--div id="NewsColumn" class="menuColumn" /-->
+    <div class="copyright">
+        Last update: 30 oct. 2012.<br/>
+        Platform: © 2001-2012, GETA-CLIPS, GETALP-LIG. all rights reserved.<br/>
+        Data: <a rel="licence" href="http://creativecommons.org/licenses/by-sa/2.0/">
+		<img alt="Creative Commons License" style="border-width:0" src="http://creativecommons.org/images/public/somerights20.png" />
+		Creative Commons licence (Attribution-Share Alike 2.0 France)</a> 2012.
+		</div>
+<!-- Piwik -->
+<script type="text/javascript" src="http://papillon.imag.fr/piwik/piwik.js"></script>
+<script type="text/javascript">
+<!--
+try {
+	var piwikTracker = Piwik.getTracker('http://papillon.imag.fr/piwik/piwik.php', 1);
+	piwikTracker.trackPageView();
+	piwikTracker.enableLinkTracking();
+} 
+catch( err ) {}
+// -->
+</script><noscript><p><img src="http://papillon.imag.fr/piwik/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
+<!-- End Piwik Tag -->
+  </body>
+</html>
+

@@ -1,0 +1,55 @@
+/* 
+ * Stylesheet for Lexalp Web site
+ * Style sheet for the xhtml Lexalp pages
+ * $Id$
+ *------
+ * $Log$
+ * Revision 1.1.2.1  2007/07/23 20:09:39  serasset
+ * *** empty log message ***
+ *
+ *
+ */
+
+@media print {
+    
+	body { font-size: 10pt;
+    }
+	#logo { width: 70px;
+    }
+    #projectTitle { font-size: 11pt;
+    }
+    .quickLinks { 
+    display: none;
+    }
+    .menuColumn { 
+    display: none;
+    }
+    .action_list { 
+    display: none;
+    }
+    h1 {font-size: 11pt;
+    }
+    h1.title { 
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+
+    }
+    .entry { font-size: 8pt;
+    background : white;
+    }
+    .mainColumn { margin-left: 0px;
+    color: rgb(0, 0, 0);
+    }
+    /*.entry { border: 1px solid rgb(0, 0, 0);
+    }*/
+    .translation { border: 1px dashed rgb(137, 137, 137);
+    padding: 2px;
+    margin-left: 10px;
+    margin-right: 5px;
+    margin-top: 10px;
+    }
+    a,a:link,a:visited,a:hover,a:active { font-style: italic;
+    color: rgb(0, 0, 0);
+    text-decoration: underline;
+    }
+}

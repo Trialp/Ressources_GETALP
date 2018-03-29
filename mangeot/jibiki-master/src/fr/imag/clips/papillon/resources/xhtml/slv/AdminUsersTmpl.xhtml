@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="slv">
+
+<h1>Administration des utilisateurs</h1>
+
+
+<span id="LoggedUsers">0</span> utilisateur(s) actuellement en ligne:
+<table summary="Logged users">
+<tr>
+	<th>Ime</th>
+	<th>Uporabni&scaron;ko ime</th>
+	<th>E-naslov</th>
+</tr>
+<tr id="LoggedTemplateRow">
+	<td><b><span id="LoggedName">Ime</span></b></td>
+	<td><span id="LoggedLogin">uporabni&scaron;ko ime</span></td>
+	<td><span id="LoggedEmail">e-naslov</span></td>
+    <th><a href="AdminUsers.po?SortBy=creationDate">Creation date</a></th>
+    <th><a href="AdminUsers.po?SortBy=modificationDate">Modification date</a></th>
+</tr>
+</table>
+
+<span id="ExistingUsers">0</span> utilisateurs actuellement dans la base:
+<table summary="Existing Users">
+<tr>
+	<th><a href="AdminUsers.po?SortBy=name">Ime</a></th>
+	<th><a href="AdminUsers.po?SortBy=login">Uporabni&scaron;ko ime</a></th>
+	<th><a href="AdminUsers.po?SortBy=email">E-naslov</a></th>
+    <td><span id="CreationDate">date création</span></td>
+    <td><span id="ModificationDate">date modif</span></td>
+	<th>Skupine</th>
+    <th>faire admin</th>
+    <th>réinitialiser mdp</th>
+	<th>faire specialiste</th>
+	<th>prikaži</th>
+	<th>izbri&scaron;i</th>
+</tr>
+<tr id="TemplateRow">
+	<td><b><span id="Name">Ime</span></b></td>
+	<td><span id="Login">uporabni&scaron;ko ime</span></td>
+	<td><span id="Email">e-naslov</span></td>
+	<td><span id="Groups">skupine</span></td>
+	<td><a href="" id="MakeAdminAnchor">faire admin</a></td>
+	<td><a href="" id="ResetPasswordAnchor">réinitialiser mdp</a></td>
+	<td><a href="" id="MakeSpecialistAnchor">faire strokovnjak</a></td>
+	<td><a href="" id="SeeAnchor">Prikaži</a></td>
+	<td><a href="" id="RemoveAnchor" onclick="return confirm('Etes-vous sûr de vouloir supprimer l'uporabnik?')">rm</a></td>
+</tr>
+</table>
+<p>Note: la commande "réinitialiser mdp" affecte la valeur du login comme mot de passe. Elle pourra être utile à un uporabnik qui a oublié son mot de passe.</p>
+</div>
+</body>
+</html>

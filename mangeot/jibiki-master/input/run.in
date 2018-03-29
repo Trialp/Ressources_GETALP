@@ -1,0 +1,95 @@
+#!/bin/sh
+
+#
+# Minimal startup script
+#
+
+set -e
+cd "`dirname $0`"
+
+#Default values
+MULTISERVER_CONF="./conf/multiserver.conf"
+EXEC=nohup
+
+while [ $# -gt 0 ]; do
+  case "$1" in 
+   --debug ) MULTISERVER_CONF="./conf/monoserver.conf" ; shift 1 ;;
+   --multimono ) MULTISERVER_CONF="./conf/multimono.conf" ; shift 1 ;;
+   --exec ) EXEC=exec ; shift 1 ;;
+   --help | -h ) echo "Usage: $0 [--help] [--debug] [--exec]"
+   				 echo "  --help : display this help message and exits."; 
+   				 echo "  --debug : Run the server directly as HTTP on port 8999."; 
+   				 echo "  --exec : use exec instead of nohup to run the server."; 
+				 exit ;;
+   * ) echo "Unrecognized option $arg, use $0 --help for details." ; exit ;;
+  esac
+done
+
+JAVA="@JAVA_PATH@/bin/java"
+ENHYDRA_LIB="@ENHYDRA_PATH@/lib/enhydra.jar"
+
+# Check for java
+if [ ! -x $JAVA ] ; then
+    echo "Error: Cannot find Java VM."
+    exit 1
+fi
+
+# Check for the Enhydra classes
+if [ ! -r $ENHYDRA_LIB ] ; then
+    echo "Error: Cannot find Enhydra classes."
+    exit 1
+fi
+
+#
+# Build up classpath.
+#
+CLASSPATH=@ENHYDRA_PATH@/lib/admin.jar
+CLASSPATH=$CLASSPATH:@ENHYDRA_PATH@/lib/bcel.jar
+CLASSPATH=$CLASSPATH:@ENHYDRA_PATH@/lib/core.jar
+CLASSPATH=$CLASSPATH:@ENHYDRA_PATH@/lib/debugger.jar
+CLASSPATH=$CLASSPATH:@ENHYDRA_PATH@/lib/enhydra.jar
+CLASSPATH=$CLASSPATH:@ENHYDRA_PATH@/lib/gnu-regexp.jar
+CLASSPATH=$CLASSPATH:@ENHYDRA_PATH@/lib/jtidy.jar
+CLASSPATH=$CLASSPATH:@ENHYDRA_PATH@/lib/log4j.jar
+CLASSPATH=$CLASSPATH:@ENHYDRA_PATH@/lib/servlet.jar
+CLASSPATH=$CLASSPATH:@ENHYDRA_PATH@/lib/tomcat.jar
+CLASSPATH=$CLASSPATH:@ENHYDRA_PATH@/lib/util.jar
+#CLASSPATH=$CLASSPATH:@ENHYDRA_PATH@/lib/xercesImpl.jar
+CLASSPATH=$CLASSPATH:@ENHYDRA_PATH@/lib/xhtml.jar
+#CLASSPATH=$CLASSPATH:@ENHYDRA_PATH@/lib/xml-apis.jar
+CLASSPATH=$CLASSPATH:@ENHYDRA_PATH@/lib/xmlc.jar
+CLASSPATH=$CLASSPATH:@ENHYDRA_PATH@/dods/lib/dbmanager-api.jar
+CLASSPATH=$CLASSPATH:@ENHYDRA_PATH@/dods/lib/dbmanager.jar
+CLASSPATH=$CLASSPATH:@ENHYDRA_PATH@/dods/lib/stdcaches.jar
+CLASSPATH=$CLASSPATH:@ENHYDRA_PATH@/dods/lib/stdconnection.jar
+CLASSPATH=$CLASSPATH:@ENHYDRA_PATH@/dods/lib/stdtransaction.jar
+#CLASSPATH=$CLASSPATH:@ENHYDRA_PATH@/lib/dom/xmlc-chtml.jar
+#CLASSPATH=$CLASSPATH:@ENHYDRA_PATH@/lib/dom/xmlc-voicexml.jar
+#CLASSPATH=$CLASSPATH:@ENHYDRA_PATH@/lib/dom/xmlc-wml.jar
+CLASSPATH=$CLASSPATH:@ENHYDRA_PATH@/lib/xhtml.jar
+
+#CLASSPATH=$(@ENHYDRA_PATH@/bin/setclass)${PS}$(@ENHYDRA_PATH@/bin/setdomclass)
+export CLASSPATH
+
+#APPCP=@ANT_LIB@
+APPCP=@XALAN_LIB@
+APPCP=$APPCP:@XERCES_LIB@
+APPCP=$APPCP:@XMLAPI_LIB@
+APPCP=$APPCP:@XSLTC_LIB@
+APPCP=$APPCP:@PGSQL_JDBC_DRIVER@
+#APPCP=$APPCP:@SAXON8_LIB@
+APPCP=$APPCP:@FOP_LIB@
+APPCP=$APPCP:@AVALON_LIB@
+APPCP=$APPCP:@BATIK_LIB@
+APPCP=$APPCP:@JAVAMAIL_LIB@
+APPCP=$APPCP:${ENHYDRA_LIB}:${CLASSPATH}
+
+echo APPCP = $APPCP
+
+$EXEC ${JAVA} \
+	-cp "${APPCP}" \
+	-Dfile.encoding=UTF8 \
+	-Denhydra.home=@ENHYDRA_PATH@ \
+	com.lutris.multiServer.MultiServer \
+	"${MULTISERVER_CONF}"
+

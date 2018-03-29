@@ -1,0 +1,12 @@
+In order to export entries to a pdf file for a specific domain:
+ 1. Dump the lexalp term bank database (pg_dump lexalp | gzip > xxxxxxx.dump.gz)
+ 2. Copy the dump file on the local machine (using scp)
+ 3. Import the db on the local machine and launch your local lexalp server
+ 4. Go to the export page (available as admin only), and select "export volume (finished contributions)" with parameter "ALL"
+ 5. Create a file (named fusionTermes.xml) containing the entries from ita, fra, deu, slv (in that order), without forgeting to suppress the intermediary </volume><volume ...>
+ 6. Create a file (named fusion.xml) containing the entries from axi, ita, fra, deu, slv in that order), also remove the </volume><volume...> 
+    Note: I created a script to create these 2 files, but it only work if <volume...> elements are on one line (which is not the case (especially for axies...)
+ 7. Edit the script.sh file
+    the first line should use the option "tout", other should contain option "specifique" (option "tout" make a long computation that only has to be done once...)
+
+si plantage au milieu d'une génération de pdf, c'est qu'il y a 2 fois le même id. Dans ce cas, éditer le fichier temp_2.et et supprimer les duplications d'entrées.

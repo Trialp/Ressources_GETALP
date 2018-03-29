@@ -1,0 +1,17 @@
+#!/bin/bash
+AUTHOR=$1
+
+head -1 LexALP_ita*.xml | perl -pe 's/^.*(<volume [^>]*>).*$/$1/' > fusionTermes.xml
+grep $AUTHOR LexALP_ita*.xml | perl -pe 's/<\?xml [^>]*>//' | perl -pe 's/<volume [^>]*>//' | perl -pe 's/<\/volume>//' >> fusionTermes.xml
+grep $AUTHOR LexALP_fra*.xml | perl -pe 's/<\?xml [^>]*>//' | perl -pe 's/<volume [^>]*>//' | perl -pe 's/<\/volume>//' >> fusionTermes.xml
+grep $AUTHOR LexALP_deu*.xml | perl -pe 's/<\?xml [^>]*>//' | perl -pe 's/<volume [^>]*>//' | perl -pe 's/<\/volume>//' >> fusionTermes.xml
+grep $AUTHOR LexALP_slv*.xml | perl -pe 's/<\?xml [^>]*>//' | perl -pe 's/<volume [^>]*>//' | perl -pe 's/<\/volume>//' >> fusionTermes.xml
+tail -1 LexALP_slv*.xml | perl -pe 's/^.*(<\/volume>).*$/$1/' >> fusionTermes.xml
+
+head -3 LexALP_ita*.xml | perl -pe 's/^.*(<volume [^>]*>).*$/$1/' | grep \<volume > fusion.xml
+grep $AUTHOR LexALP_axi*.xml | perl -pe 's/<\?xml [^>]*>//' | perl -pe 's/<volume [^>]*>//' | perl -pe 's/<\/volume>//' >> fusion.xml
+grep $AUTHOR LexALP_ita*.xml | perl -pe 's/<\?xml [^>]*>//' | perl -pe 's/<volume [^>]*>//' | perl -pe 's/<\/volume>//' >> fusion.xml
+grep $AUTHOR LexALP_fra*.xml | perl -pe 's/<\?xml [^>]*>//' | perl -pe 's/<volume [^>]*>//' | perl -pe 's/<\/volume>//' >> fusion.xml
+grep $AUTHOR LexALP_deu*.xml | perl -pe 's/<\?xml [^>]*>//' | perl -pe 's/<volume [^>]*>//' | perl -pe 's/<\/volume>//' >> fusion.xml
+grep $AUTHOR LexALP_slv*.xml | perl -pe 's/<\?xml [^>]*>//' | perl -pe 's/<volume [^>]*>//' | perl -pe 's/<\/volume>//' >> fusion.xml
+tail -1 LexALP_slv*.xml | perl -pe 's/^.*(<\/volume>).*$/$1/' >> fusion.xml

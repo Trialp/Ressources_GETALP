@@ -1,0 +1,15 @@
+WGET="wget --save-cookies=cookies.txt --load-cookies=cookies.txt --keep-session-cookies"
+#SERVER=tokyo.imag.fr
+SERVER=localhost
+LOGIN_URL=http://${SERVER}:8999/LoginUser.po
+POST_DATA=--post-data="Login=serasset&Password=sylvie38&Submit=Submit"
+
+
+$WGET $POST_DATA --output-document=/dev/null $LOGIN_URL
+for term in a%C3%A9roport droit ester principe pr%C3%A9caution lac nature faune permanente
+do
+  $WGET --output-document=/dev/null "http://${SERVER}:8999/Home.po?FACET.0=cdm-headword&OPERATOR.0=2&FACETVALUE.0=${term}&SOURCE.0=fra&TARGETS=*ALL*&XSL=Default&NB_RESULT_PER_PAGE=5&OFFSET=&action=lookup"
+done
+
+
+#13504/27123

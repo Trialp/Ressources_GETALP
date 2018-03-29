@@ -1,0 +1,1317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:fo="http://www.w3.org/1999/XSL/Format" version="1.0">
+    <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
+
+    <xsl:template match="/volume">
+
+       <fo:block break-before="page" space-before="10mm" space-after="10mm" font-size="18pt"
+              display-align="center" text-align="center" text-align-last="center"
+              start-indent="18mm" end-indent="18mm" width="130mm" height="20mm"
+              background-color="#EEEEEE" border-style="outset" border-color="#888888"
+              padding-top="5pt" padding-bottom="5pt">
+                        <fo:inline>Italian index</fo:inline></fo:block>
+                      
+        <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1 : CONSERVATION OF NATURE AND LANDSCAPE PROTECTION</fo:inline>
+        </fo:block>
+        <!--
+        <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.1 : Conservation of nature</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='1.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+        <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.2 : Landscape protection</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='1.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            
+            -->
+        <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.3 : Protected areas</fo:inline>
+        </fo:block>
+        
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='1.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <!--
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.4 : Protection of fauna and flora</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='1.4']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+        <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.5 : Environmental protection</fo:inline>
+        </fo:block>
+        
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.5.0 : Environmental policy</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='1.5.0']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.5.1 : Soil protection</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='1.5.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.5.2 : Waste</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='1.5.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.5.3 : Pollution</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='1.5.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+           
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.6 : Water protection</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='1.6']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.7 : Environmental impact assessment</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='1.7']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.8 : Natural disasters</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='1.8']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+           <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2 : TRANSPORT</fo:inline>
+        </fo:block>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.0 : Transport policy</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='2.0']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.1 : Rail transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='2.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.2 : Road transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='2.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.3 : Air transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='2.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.4 : Sea transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='2.4']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.5 : Inland navigation</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='2.5']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.6 : Combined transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='2.6']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.7 : Passenger transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='2.7']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.8 : Transport of goods</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='2.8']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.9 : Transport networks</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='2.9']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.10 : Transport safety</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='2.10']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.11 : Contract of carriage</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='2.11']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+                <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3 : REGIONAL ECONOMIC DEVELOPMENT</fo:inline>
+        </fo:block>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.1 : Regional policy</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='3.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.2 : Industry</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='3.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.3 : Trade</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='3.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.4 : Handicraft</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='3.4']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.5 : Tourism</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='3.5']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.6 : Employment</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='3.6']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.7 : Co-operation</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='3.7']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.8 : Energy</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='3.8']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4 : RURAL AREAS</fo:inline>
+        </fo:block>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4.1 : Agriculture</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='4.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4.2 : Forests</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='4.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4.3 : Zootechnics</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='4.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4.4 : Hunting, fisheries and fish farming</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='4.4']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4.5 : Natural hazards</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='4.5']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 5 : URBAN SPACE</fo:inline>
+        </fo:block>
+             <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 5.1 : Town planning</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='5.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+             <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 5.2 : Urban areas</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='5.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+             <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 5.3 : Building</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='5.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+             <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 6 : GENERAL TERMS</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='6']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+             <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Unknown domain</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='ita' and domain='']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+
+   --> 
+   
+		<fo:block space-before="10mm" space-after="10mm" font-size="18pt"
+              display-align="center" text-align="center" text-align-last="center"
+              start-indent="18mm" end-indent="18mm" width="130mm" height="20mm"
+              background-color="#EEEEEE" border-style="outset" border-color="#888888"
+              padding-top="5pt" padding-bottom="5pt">
+                        <fo:inline>French index</fo:inline></fo:block>
+                  
+        <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1 : CONSERVATION OF NATURE AND LANDSCAPE PROTECTION</fo:inline>
+        </fo:block>
+        <!--
+        <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.1 : Conservation of nature</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='1.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+      
+        <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.2 : Landscape protection</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='1.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            
+            -->
+        <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.3 : Protected areas</fo:inline>
+        </fo:block>
+       
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='1.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+             <!--
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.4 : Protection of fauna and flora</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='1.4']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+          
+        <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.5 : Environmental protection</fo:inline>
+        </fo:block>
+        
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.5.0 : Environmental policy</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='1.5.0']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.5.1 : Soil protection</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='1.5.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.5.2 : Waste</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='1.5.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.5.3 : Pollution</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='1.5.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+           
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.6 : Water protection</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='1.6']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.7 : Environmental impact assessment</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='1.7']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.8 : Natural disastersn</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='1.8']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+           <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2 : TRANSPORT</fo:inline>
+        </fo:block>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.0 : Transport policy</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='2.0']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.1 : Rail transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='2.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.2 : Road transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='2.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.3 : Air transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='2.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.4 : Sea transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='2.4']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.5 : Inland navigation</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='2.5']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.6 : Combined transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='2.6']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.7 : Passenger transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='2.7']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.8 : Transport of goods</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='2.8']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.9 : Transport networks</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='2.9']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.10 : Transport safety</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='2.10']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.11 : Contract of carriage</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='2.11']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+                <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3 : REGIONAL ECONOMIC DEVELOPMENT</fo:inline>
+        </fo:block>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.1 : Regional policy</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='3.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.2 : Industry</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='3.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.3 : Trade</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='3.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.4 : Handicraft</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='3.4']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.5 : Tourism</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='3.5']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.6 : Employment</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='3.6']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.7 : Co-operation</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='3.7']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.8 : Energy</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='3.8']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4 : RURAL AREAS</fo:inline>
+        </fo:block>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4.1 : Agriculture</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='4.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4.2 : Forests</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='4.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4.3 : Zootechnics</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='4.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4.4 : Hunting, fisheries and fish farming</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='4.4']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4.5 : Natural hazards</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='4.5']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 5 : URBAN SPACE</fo:inline>
+        </fo:block>
+             <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 5.1 : Town planning</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='5.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+             <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 5.2 : Urban areas</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='5.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+             <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 5.3 : Building</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='5.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+             <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 6 : GENERAL TERMS</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='6']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+             <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Unknown domain</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='fra' and domain='']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            
+            -->
+            
+
+
+
+        <fo:block space-before="10mm" space-after="10mm" font-size="18pt"
+              display-align="center" text-align="center" text-align-last="center"
+              start-indent="18mm" end-indent="18mm" width="130mm" height="20mm"
+              background-color="#EEEEEE" border-style="outset" border-color="#888888"
+              padding-top="5pt" padding-bottom="5pt">
+                        <fo:inline>German index</fo:inline></fo:block>
+                      
+        <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1 : CONSERVATION OF NATURE AND LANDSCAPE PROTECTION</fo:inline>
+        </fo:block>
+        <!--
+        <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.1 : Conservation of nature</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='1.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+          
+        <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.2 : Landscape protection</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='1.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+             -->
+        <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.3 : Protected areas</fo:inline>
+        </fo:block>
+      
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='1.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+             <!-- 
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.4 : Protection of fauna and flora</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='1.4']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+        		 
+        <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.5 : Environmental protection</fo:inline>
+        </fo:block>
+        
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.5.0 : Environmental policy</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='1.5.0']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.5.1 : Soil protection</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='1.5.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.5.2 : Waste</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='1.5.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.5.3 : Pollution</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='1.5.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+           
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.6 : Water protection</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='1.6']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.7 : Environmental impact assessment</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='1.7']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.8 : Natural disastersn</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='1.8']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+           <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2 : TRANSPORT</fo:inline>
+        </fo:block>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.0 : Transport policy</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='2.0']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.1 : Rail transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='2.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.2 : Road transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='2.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.3 : Air transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='2.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.4 : Sea transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='2.4']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.5 : Inland navigation</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='2.5']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.6 : Combined transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='2.6']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.7 : Passenger transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='2.7']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.8 : Transport of goods</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='2.8']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.9 : Transport networks</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='2.9']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.10 : Transport safety</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='2.10']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.11 : Contract of carriage</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='2.11']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+                <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3 : REGIONAL ECONOMIC DEVELOPMENT</fo:inline>
+        </fo:block>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.1 : Regional policy</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='3.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.2 : Industry</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='3.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.3 : Trade</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='3.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.4 : Handicraft</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='3.4']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.5 : Tourism</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='3.5']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.6 : Employment</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='3.6']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.7 : Co-operation</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='3.7']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.8 : Energy</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='3.8']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4 : RURAL AREAS</fo:inline>
+        </fo:block>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4.1 : Agriculture</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='4.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4.2 : Forests</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='4.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4.3 : Zootechnics</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='4.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4.4 : Hunting, fisheries and fish farming</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='4.4']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4.5 : Natural hazards</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='4.5']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 5 : URBAN SPACE</fo:inline>
+        </fo:block>
+             <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 5.1 : Town planning</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='5.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+             <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 5.2 : Urban areas</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='5.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+             <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 5.3 : Building</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='5.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+             <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 6 : GENERAL TERMS</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='6']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+             <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Unknown domain</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='deu' and domain='']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            
+            
+            -->
+            
+            
+       <fo:block space-before="10mm" space-after="10mm" font-size="18pt"
+              display-align="center" text-align="center" text-align-last="center"
+              start-indent="18mm" end-indent="18mm" width="130mm" height="20mm"
+              background-color="#EEEEEE" border-style="outset" border-color="#888888"
+              padding-top="5pt" padding-bottom="5pt">
+                        <fo:inline>Slovene index</fo:inline></fo:block>
+                      
+        <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1 : CONSERVATION OF NATURE AND LANDSCAPE PROTECTION</fo:inline>
+        </fo:block>
+        
+        <!--
+        <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.1 : Conservation of nature</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='1.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+       
+        <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.2 : Landscape protection</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='1.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            
+            -->
+        <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.3 : Protected areas</fo:inline>
+        </fo:block>
+ 
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='1.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+               <!--   
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.4 : Protection of fauna and flora</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='1.4']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+          
+        <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.5 : Environmental protection</fo:inline>
+        </fo:block>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.5.0 : Environmental policy</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='1.5.0']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.5.1 : Soil protection</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='1.5.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.5.2 : Waste</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='1.5.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.5.3 : Pollution</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='1.5.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+           
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.6 : Water protection</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='1.6']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.7 : Environmental impact assessment</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='1.7']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.8 : Natural disastersn</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='1.8']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+           <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2 : TRANSPORT</fo:inline>
+        </fo:block>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.0 : Transport policy</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='2.0']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.1 : Rail transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='2.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.2 : Road transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='2.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.3 : Air transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='2.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.4 : Sea transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='2.4']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.5 : Inland navigation</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='2.5']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.6 : Combined transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='2.6']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.7 : Passenger transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='2.7']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.8 : Transport of goods</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='2.8']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.9 : Transport networks</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='2.9']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.10 : Transport safety</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='2.10']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.11 : Contract of carriage</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='2.11']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+                <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3 : REGIONAL ECONOMIC DEVELOPMENT</fo:inline>
+        </fo:block>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.1 : Regional policy</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='3.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.2 : Industry</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='3.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.3 : Trade</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='3.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.4 : Handicraft</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='3.4']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.5 : Tourism</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='3.5']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.6 : Employment</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='3.6']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.7 : Co-operation</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='3.7']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.8 : Energy</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='3.8']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4 : RURAL AREAS</fo:inline>
+        </fo:block>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4.1 : Agriculture</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='4.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4.2 : Forests</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='4.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4.3 : Zootechnics</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='4.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4.4 : Hunting, fisheries and fish farming</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='4.4']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4.5 : Natural hazards</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='4.5']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 5 : URBAN SPACE</fo:inline>
+        </fo:block>
+             <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 5.1 : Town planning</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='5.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+             <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 5.2 : Urban areas</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='5.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+             <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 5.3 : Building</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='5.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+             <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 6 : GENERAL TERMS</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='6']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+             <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Unknown domain</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='slv' and domain='']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            
+            
+        <fo:block space-before="10mm" space-after="10mm" font-size="18pt"
+              display-align="center" text-align="center" text-align-last="center"
+              start-indent="18mm" end-indent="18mm" width="130mm" height="20mm"
+              background-color="#EEEEEE" border-style="outset" border-color="#888888"
+              padding-top="5pt" padding-bottom="5pt">
+                        <fo:inline>English index</fo:inline></fo:block>
+                      
+        <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1 : CONSERVATION OF NATURE AND LANDSCAPE PROTECTION</fo:inline>
+        </fo:block>
+        <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.1 : Conservation of nature</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='1.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+        
+        <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.2 : Landscape protection</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='1.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+        <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.3 : Protected areas</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='1.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.4 : Protection of fauna and flora</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='1.4']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            
+        <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.5 : Environmental protection</fo:inline>
+        </fo:block>
+        
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.5.0 : Environmental policy</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='1.5.0']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.5.1 : Soil protection</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='1.5.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.5.2 : Waste</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='1.5.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.5.3 : Pollution</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='1.5.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+           
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.6 : Water protection</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='1.6']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.7 : Environmental impact assessment</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='1.7']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 1.8 : Natural disastersn</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='1.8']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+           <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2 : TRANSPORT</fo:inline>
+        </fo:block>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.0 : Transport policy</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='2.0']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.1 : Rail transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='2.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.2 : Road transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='2.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.3 : Air transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='2.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.4 : Sea transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='2.4']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.5 : Inland navigation</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='2.5']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.6 : Combined transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='2.6']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.7 : Passenger transport</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='2.7']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.8 : Transport of goods</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='2.8']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.9 : Transport networks</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='2.9']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.10 : Transport safety</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='2.10']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 2.11 : Contract of carriage</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='2.11']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+                
+                <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3 : REGIONAL ECONOMIC DEVELOPMENT</fo:inline>
+        </fo:block>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.1 : Regional policy</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='3.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.2 : Industry</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='3.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.3 : Trade</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='3.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.4 : Handicraft</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='3.4']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.5 : Tourism</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='3.5']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.6 : Employment</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='3.6']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.7 : Co-operation</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='3.7']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 3.8 : Energy</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='3.8']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4 : RURAL AREAS</fo:inline>
+        </fo:block>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4.1 : Agriculture</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='4.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4.2 : Forests</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='4.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4.3 : Zootechnics</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='4.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4.4 : Hunting, fisheries and fish farming</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='4.4']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 4.5 : Natural hazards</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='4.5']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+            <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 5 : URBAN SPACE</fo:inline>
+        </fo:block>
+             <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 5.1 : Town planning</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='5.1']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+             <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 5.2 : Urban areas</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='5.2']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+             <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 5.3 : Building</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='5.3']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+             <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Domain 6 : GENERAL TERMS</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='6']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+             <fo:block text-align="justify" font-size="14pt" space-before="5mm" space-after="5mm">
+            <fo:inline>Unknown domain</fo:inline>
+        </fo:block>
+        <xsl:apply-templates select="d:contribution/d:data/entry[@lang='eng' and domain='']"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"/>
+-->
+    </xsl:template>
+
+
+    <xsl:template match="entry">
+        <fo:block margin-left="0.25em">
+
+            <fo:block text-align="justify" text-align-last="justify" hyphenate="false">
+                <xsl:value-of select="term"/>
+                <fo:leader leader-pattern="dots" margin-left="0.5em" leader-length.optimum="0%"/>
+                <fo:inline keep-together.within-line="always">
+                    <fo:leader leader-pattern="dots" leader-length.optimum="0em"
+                        margin-right="0.5em"/>
+                    <fo:basic-link>
+                        <xsl:attribute name="internal-destination">
+                            <xsl:value-of select="@id"/>
+                        </xsl:attribute>
+                        <fo:page-number-citation>
+                            <xsl:attribute name="ref-id">
+                                <xsl:value-of select="@id"/>
+                            </xsl:attribute>
+                        </fo:page-number-citation>
+                    </fo:basic-link>
+                </fo:inline>
+            </fo:block>
+        </fo:block>
+    </xsl:template>
+
+
+</xsl:stylesheet>

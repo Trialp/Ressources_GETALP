@@ -1,0 +1,52 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.0 TRANSITIONAL//EN">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="en">
+
+<h1 align="center">Administrate Groups</h1>
+
+<hr>
+<form action="AdminGroups.po">
+<table WIDTH="600" BORDER="0" CELLSPACING="0" CELLPADDING="10" Summary="Add new group">
+<TR>
+	<TH colspan="2">Add a new group</TH>
+</TR>
+<TR>	
+	<TD><B>Name:</B></TD>
+	<TD><INPUT NAME="GroupName" TYPE="text" SIZE="30" VALUE=""></TD>
+</TR>
+<TR>
+    <TD><B>Password:</B></TD>     
+    <TD><INPUT NAME="GroupPassword" TYPE="password" SIZE="10" VALUE=""></TD>
+</TR>
+<TR>
+    <TD><B>Retype Password:</B></TD>     
+    <TD><INPUT NAME="GroupPasswordConfirm" TYPE="password" SIZE="10" VALUE=""></TD>
+</TR>
+<TR>
+	<TD COLSPAN="2"><INPUT NAME="AddGroup" TYPE="submit" VALUE="Add"></TD>
+</TR>
+</TABLE>
+</FORM>
+
+<hr>
+<span id="ExistingGroups">0</span> group(s) currently in the database:
+<table Summary="Existing Groups">
+<tr>
+	<TH>Name</TH>
+	<TH>Admin</TH>
+	<TH>remove</TH>
+</tr>
+<tr id="GrpTemplateRow">
+	<TD><b><span Id="GrpName">name</span></b></TD>
+	<TD><span Id="GrpAdmins">admins</span></TD>
+	<TD><A HREF="" id="GrpRemoveAnchor"  onClick="return confirm('Are you sure you want to remove the group?')">rm</A></TD>
+</tr>
+</table>
+</div>
+</body>
+</html>

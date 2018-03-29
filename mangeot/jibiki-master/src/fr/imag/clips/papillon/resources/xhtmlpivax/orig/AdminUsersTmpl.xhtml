@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="en">
+
+<h1>Administrate Users</h1>
+
+
+<span id="LoggedUsers">0</span> user(s) currently logged:
+<table summary="Logged users">
+<tr>
+	<th>Name</th>
+	<th>Login</th>
+	<th>Email</th>
+</tr>
+<tr id="LoggedTemplateRow">
+	<td><b><span id="LoggedName">name</span></b></td>
+	<td><span id="LoggedLogin">login</span></td>
+	<td><span id="LoggedEmail">email</span></td>
+</tr>
+</table>
+
+<span id="ExistingUsers">0</span> users currently in the database:
+<table summary="Existing Users">
+<tr>
+	<th><a href="AdminUsers.po?SortBy=name">Name</a></th>
+	<th><a href="AdminUsers.po?SortBy=login">Login</a></th>
+	<th><a href="AdminUsers.po?SortBy=email">Email</a></th>
+	<th>Groups</th>
+    <th>make admin</th>
+    <th>reset pass</th>
+	<th>make specialist</th>
+	<th>see</th>
+	<th>remove</th>
+</tr>
+<tr id="TemplateRow">
+	<td><b><span id="Name">name</span></b></td>
+	<td><span id="Login">login</span></td>
+	<td><span id="Email">email</span></td>
+	<td><span id="Groups">groups</span></td>
+    <td><span id="CreationDate">date création</span></td>
+    <td><span id="ModificationDate">date modif</span></td>
+	<td><a href="" id="MakeAdminAnchor">make admin</a></td>
+	<td><a href="" id="ResetPasswordAnchor">reset pass</a></td>
+	<td><a href="" id="MakeSpecialistAnchor">make specialist</a></td>
+	<td><a href="" id="SeeAnchor">See</a></td>
+	<td><a href="" id="RemoveAnchor" onclick="return confirm('Are you sure you want to remove the user?')">rm</a></td>
+</tr>
+</table>
+<p>Note: the "reset pass" command resets the password of the user with the login for value. It can be used when a user forgets the password.</p>
+</div>
+</body>
+</html>

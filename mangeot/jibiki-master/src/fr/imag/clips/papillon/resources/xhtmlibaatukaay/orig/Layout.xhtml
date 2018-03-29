@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+  <head>
+    <link href="css/ibaatukaay.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="Mouhamadou Khoulé" />
+    <meta name="keywords" content="dictionnaire, multilingue, projet iBaatukaay, base lexicale, Wolof, Pulaar, bambara,.." />  
+    <meta name="description" content="Le projet ibaatukaay: dictionnaire des langues nationales du Sénégal : Wolof, Pulaar, bambara,.." />
+    <meta name="robots" content="index, follow" />
+    <title>Le projet ibaatukaay: wolof, pulaar, bambara,..</title>
+    <link rel="stylesheet" href="css/autocomplete.css" type="text/css" media="screen"/>
+    <script src="javascript/jquery-1.8.0.min.js" type="text/javascript"><!-- // --></script>
+    <script src="javascript/jquery.dimensions.js" type="text/javascript"><!-- // --></script>
+    <script src="javascript/autocomplete.js" type="text/javascript"><!-- // --></script>
+     <script src="javascript/functions.js" type="text/javascript"><!-- // --></script>
+     <script src="javascript/lookupVolume.js" type="text/javascript"><!-- // --></script>
+  <script type="text/javascript">
+  <!--
+        //
+            $(document).ready(function(){
+      setAutoComplete('ValueField', 'SourceLang', 'results', 
+                'JSONHeadwordList.po', 'headword=', 'lang=');
+  });
+    //-->
+    </script>
+    <script id="Script" type="text/javascript">
+       <!--
+        //
+        function init() {
+        
+            //// Launch ajax function to get select elements depending on cdm elements
+            
+            // Get all select elements
+            var selectCollection = document.getElementsByTagName('select');
+            for(var i=0; i < selectCollection.length; i++){
+                
+                // Launch ajax function only for select cdm element (name=FACET.*)
+                if (selectCollection[i].name.match(/FACET\./)) {
+                    getSelector(selectCollection[i].value, selectCollection[i].name);
+                }
+            }
+            
+        }
+        //-->
+    </script>
+  </head>
+  <body onload="javascript:init();">
+    <script src="javascript/AdvancedQueryFormAjax.js" type="text/javascript"><!-- // --></script>
+    <div class="headerBlock">
+  <div id="headerMenu" class="headerMenu">
+  <table style="margin:auto; width:90%">
+  <tbody>
+   <tr>
+  <td class="popupMenu"><a href="Home.po">Accueil</a></td>
+   <td class="popupMenu"><a href="Download.po">Téléchargements</a><!--ul>
+      <li><a href="Information.po#Bambara">Dictionnaire bambara</a></li>
+      <li><a href="Information.po#Haoussa">Dictionnaire haoussa</a></li>
+      <li><a href="Information.po#Kanouri">Dictionnaire kanouri</a></li>
+      <li><a href="Information.po#Tamajaq">Dictionnaire tamajaq</a></li>
+      <li><a href="Information.po#Zarma">Dictionnaire zarma</a></li>
+    </ul--></td>
+  <td class="popupMenu"><a href="Help.po">Aide</a></td>
+  <td class="popupMenu"><a href="Contacts.po">Contacts</a>
+    </td>
+    <td class="popupMenu userProfileMenu"><div id="UserMenuHolder" style="display: inline;" />
+      <ul class="second-level-menu">
+    <li><div id="LexiesManagementHolder" style="display: inline;"/></li>
+    <li><div id="ReviewerMenuHolder"  style="display: inline;" /></li>
+     <li><div id="ValidatorMenuHolder"  style="display: inline;"/></li>
+    <li><div id="AdministrationMenuHolder"  style="display: inline;"/></li></ul>
+   </td>
+   <td class="popupMenu popupMenuEnd"><div id="LangFormHolder" style="display:none;" ><!-- // --></div>
+       <a class="lang" href="?lang=eng">Anglais</a>
+      <!-- <a class="lang" href="?lang=wol">wolof</a>-->
+   </td>
+</tr>
+</tbody>
+</table>
+    </div>
+    </div>
+  <p style="clear:both;"></p>
+  <div id="BannerPlaceHolder" style="display:block;">
+    <div id="BannerContent">
+         <div id="projectTitle">
+        Le projet <span class="projectName">ibaatukaay</span>
+      </div>
+    <div id="QueryMenuHolder"></div>
+    <div class="cellVolumeLookup"><a href="ConsultPage.po">Recherche par volume</a></div>
+    <div class="cellAdvancedLookup"><a href="AdvancedLookup.po">Recherche avancée</a></div>
+    </div>
+  </div>
+  <div id="partieCentrale">
+  <div id="MenuColumn" class="menuColumn">
+  </div>
+    <div id="MainColumn" class="mainColumn"></div>
+    <!--div id="NewsColumn" class="menuColumn" /-->
+  </div>
+    <div class="copyright">
+        Mise à jour : 3 mars 2016. Plate-forme : © 2001-2016, GETA-CLIPS, GETALP-LIG. Licence LGPL. Données : © 2016, projet iBaatukaay et partenaires. Licence Creative Commons By.
+  </div>
+
+<!-- Piwik -->
+<script type="text/javascript">
+    <!--
+    var _paq = _paq || [];
+    _paq.push(["trackPageView"]);
+    _paq.push(["enableLinkTracking"]);
+    (function() {
+    var u="//totoro.imag.fr/piwik/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", 5]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
+    g.type="text/javascript"; g.async=true; g.defer=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+    })();
+ //    -->
+</script>
+<noscript><p><img src="//totoro.imag.fr/piwik/piwik.php?idsite=5" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" xml:lang="en" lang="en">    
+<script type="text/javascript">
+ <!-- 
+        // Open a new window 
+        function exportVolume() {
+            href = 'Export.po?VOLUME=' + document.getElementById('VOLUME').value + '&EXPORT=go';
+            //window.open(href,'Export');
+            window.location.href = href;
+        }
+        
+        // Open a new window 
+        function exportMyFinished() {
+            href = 'Export.po?VOLUME=' + document.getElementById('VOLUME').value + '&EXPORTMYFINISHED=go';
+            //window.open(href,'Export');
+            window.location.href = href;
+        }
+        
+        // Open a new window 
+        function exportMyUnfinished() {
+            href = 'Export.po?VOLUME=' + document.getElementById('VOLUME').value + '&EXPORTMYUNFINISHED=go';
+            //window.open(href,'Export');
+            window.location.href = href;
+        }
+    //-->
+    </script>
+   <h1 style="text-align:center">Export Volume</h1>
+    <p>Please be patient. This process may take few minutes.</p>
+
+<table width="600" border="0" cellspacing="0" cellpadding="10" summary="Formulaire">
+<tr>
+	<td>
+        <b>Volume: </b>
+		<select id='VOLUME' name="VOLUME">
+            <option value="*ALL*" label="*ALL*">ALL</option>
+            <option id="VolumeOptionTemplate" value="NONE" label="NONE">NONE</option>
+        </select>
+	</td>
+	<td>
+        <input name="EXPORT" type="submit" value="Export volume (finished contributions)" onclick="exportVolume()"/>
+        <input name="EXPORTMYFINISHED" type="submit" value="Export my finished contributions" onclick="exportMyFinished()"/>
+        <input name="EXPORTMYUNFINISHED" type="submit" value="Export my unfinished contributions" onclick="exportMyUnfinished()"/>
+    </td>
+</tr>
+</table>
+<p>See the <a id="RepositoryAnchor" href="">export repository</a> </p>
+</div>
+</body>
+</html>
+

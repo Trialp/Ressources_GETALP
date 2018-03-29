@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+       <title>Papillon</title>   
+</head>
+<body>
+
+<!-- <div id="InformationsFilePlace">
+
+</div> -->
+<div id="InformationsFileListPlace" lang="slv" xml:lang="slv">
+<h1>Consulter la documentation</h1>
+<p>Les membres du projet peuvent <a href="AdminInformations.po">ajouter des documents</a> à ces sections.</p>
+
+<form id="ConsultInformationsForm" action="ConsultInformations.po">
+<table summary="Documents form" width="100%">
+<tr>
+<td>Auteur(s)&nbsp;:
+     <input name="AuthorContains" type="text" size="15" value=""/></td>
+<!-- TD bgcolor="#4682b4"><font  color="#ffffff">Date:</font><INPUT NAME="DateContains" TYPE="text" SIZE="15" VALUE=""></TD -->
+<td>Titre&nbsp;:
+     <input name="TitleContains" type="text" size="15" value=""/></td>
+<td>Référence&nbsp;:
+     <input name="RefContains" type="text" size="15" value=""/></td>
+<!-- The any  contains is not yet implemented because we need to query informationFile instead of informationDocument -->
+<!--TD bgcolor="#4682b4"><font  color="#ffffff">Any part:</font><INPUT NAME="AnyContains" TYPE="text" SIZE="14" VALUE=""></TD-->
+</tr>
+<tr>
+<td colspan="3">
+<input value="Go" type="submit"/>
+</td>
+</tr>
+</table>
+<table summary="Documents index" width="100%">
+<tr id="SectionRowTemplate">
+    <td class="headerRow" colspan="3"><span id="SectionHeader">SECTION</span></td>
+</tr>
+<tr class="cellRow" id="documentRowTemplate">
+    <td><b><span id="DocumentAuthor">AUTEUR</span>
+    (<span id="CreationDate">DATE</span>)</b>
+    <i><a id="DocumentAnchor" href="see"><span id="DocumentTitle">TITRE</span></a></i>
+    <span id="Reference">Référence</span><span id="NBSpace">&nbsp;&nbsp;</span></td>
+</tr>
+</table>
+</form>
+</div>
+</body>
+</html>

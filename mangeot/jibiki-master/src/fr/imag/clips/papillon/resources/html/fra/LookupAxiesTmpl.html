@@ -1,0 +1,62 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.0 TRANSITIONAL//EN">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title>Papillon</title>
+</head>
+<body>
+						<DIV id="Formulaire" lang="en">
+							<H1 align="center">Rechercher des axies</H1>
+							<HR>
+							<!-- formulaire de voir mot-->
+							<FORM action="LookupAxies.po" method="GET" name="MainForm">
+								<TABLE border="0" cellpadding="10" cellspacing="0" summary="Form" width="100%">
+									<TR>
+										<TD>
+											<table summary="form" border="0" cellspacing="5" cellpadding="0">
+												<tr>
+													<td><B><u>Rechercher une axie par son id</u></B></td>
+													<td width="30"></td>
+													<td><B><u>ou reliant une lexie avec  mot-vedette</u></B></td>
+												</tr>
+												<tr>
+													<td></td>
+													<td width="30"></td>
+													<td><B id="Source">Langue source&nbsp;:</B>             
+													<SELECT NAME="SOURCE">
+            											<OPTION ID="SourceOptionTemplate" VALUE="NONE" LABEL="NONE">NONE</OPTION>
+       												 </SELECT><BR>
+													</td>
+												</tr>
+												<tr>
+													<td><B>ID de l'axie&nbsp;:</B><INPUT name="ENTRYID" size="25" type="text" value="">&nbsp;<INPUT name="LookupAxie" type="submit" value="Rechercher"></td>
+													<td width="30"></td>
+													<td><B>Mot&nbsp;:</B><INPUT name="HEADWORD" size="25" type="text" value="">&nbsp;<INPUT name="LookupLexie" type="submit" value="Rechercher"><br>
+													sous-chaîne&nbsp;:<input type="checkbox" name="Strategy" value="on"></td>
+												</tr>
+											</table>
+										</TD>
+									</TR>
+								</TABLE>
+							</FORM>
+							<hr>
+							<H2>Voir les axies</H2>
+							<TABLE bgcolor="#faecc9" border="0" frame="hsides" id="ContribList" summary="entries" width="100%">
+								<TR>
+									<TH>ID de l'axie</TH>
+									<TH>Cat. Sem.</TH>
+									<TH>IDs des lexies</TH>
+									<TH>Voir le XML</TH>
+								</TR>
+  <tr id="EntryListRow">
+    <td><span Id="AxieId">ID</span></td>
+    <td><span Id="SemCat">SemCat</span></td>
+    <td><span Id="Lexies">Lexies</span></td>
+    <td><A HREF="" id="ViewXmlAnchor">XML</A></td>
+  </tr>
+							</TABLE>
+							<DIV id="Xml">
+							</DIV>
+</div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>Pivax Help</title>
+</head>
+
+<body>
+
+<div id="HelpContent" lang="ru" xml:lang="ru">
+<h1 style="text-align:center">How to use the PIVAX server</h1>
+
+<p style="text-align:center">
+<a href="#LookupHelp">Lookup</a> | 
+<a href="#OnlineEditHelp">Online Editing</a> | 
+<a href="#OfflineEditHelp">Offline Editing</a> | 
+<a href="#ContribManHelp">Manage Contributions</a> | 
+<a href="#AccessHelp">Access Methods</a> | 
+<a href="#MiscHelp">Misc</a></p>
+
+<h2>Lookup<a name="LookupHelp"> </a></h2>
+<p>In order to lookup a word or a concept in the dictionaries available at the Pivax server,
+use the lookup menu on the left in the following way:</p>
+<ul>
+<li>Step 1: enter the word or concept you are looking for in the <b>Word</b> field;</li>
+<li>Step 2: specify the language of the word entered or a semantic resource in the <b>Source</b> field;</li>
+<li>Step 3: choose the desired target language or a semantic resource in the <b>Target</b> field. You can choose <b>All languages</b> to get all possible information about the word or concept;</li>
+<li>Step 4: push the <b>Go</b> button to find translations or mappings to supported semantic resources.</li>
+</ul>
+<p>Please note that some language volumes in the existing dictionaries have only very few entries.
+The system may be unable to find the translation to the desired language, if it does not exist in the database.
+The current interface has been built mainly for experimental purposes.
+</p>
+
+<h2>Online Editing<a name="OnlineEditHelp"> </a></h2>
+<h3>Editing a monolingual entry (Lexie)</h3>
+<p>You have to be <a href="Register.po">registered</a> and <a href="LoginUser.po">logged</a> to edit entries online.</p>
+<p> the <a href="ConsultEdit.po">Online Editor Interface</a> is for testers only. In order to implement the editor properly, we developed the most complete interface with all possible fields and options for specialist lexicographers. Thanks to the generic nature of the editor we will be able to develop a simplified version for non-specialist users as well.</p>
+<p>You can add entries and then look them up through the <a href="Home.po">Consultation interface</a>.</p>
+
+<h3>Editing an intermediate link (Axeme)</h3>
+<p>You have to be <a href="Register.po">registered</a> and <a href="LoginUser.po">logged</a> to edit links online.</p>
+<p> the <a href="EditAxeme.po">Online Editor Interface</a> is for testers only. In the Pivax database architecture axemes are used as intermediate units between dictionary entries (lexies) and translation links (axies). Axemes can also serve as monolingual equivalence links connecting several dictionary entries that describe the same word or concept within one language or semantic resource.</p> 
+<p>If you want to create a monolingual equivalence link (axeme) between two entries (lexies) from different dictionary volumes for the same language, both lexies must exist in the same Pivax dictionary. If one or both entries do not exist, you must first create them using the <a href="ConsultEdit.po">monolingual entry editing interface</a>. Once your two lexies are created, you can add a monoligual equivalence link (an axeme) between them.</p>
+
+
+<h3>Editing a translation link (Axie)</h3>
+<p>You have to be <a href="Register.po">registered</a> and <a href="LoginUser.po">logged</a> to edit links online.</p>
+<p> the <a href="EditAxie.po">Online Editor Interface</a> is for testers only. In Pivax axies are links that connect monolingual sets of equivalent dictionary entries, represented by intermediate links (axemes). Axies represent possible translations between languages and/or semantic resources, while axemes are used withing the same language or resource.</p> 
+<p>If you want to create a translation link (axie) between two axemes, both axemes must exist in the same Pivax dictionary. If the entries do not exist, you must first create them with the previous <a href="ConsultEdit.po">monolingual entry editor interface</a>. Then, once your two lexies are created, you can create a translation link (an axie) between them.</p>
+
+<p><i>Please, note that while the pivax server and its database remain in testing status, online contributions may not be kept or integrated into the database!</i></p>
+
+
+<h2>Offline Editing<a name="OfflineEditHelp"> </a></h2>
+<p>You can write entries locally on your computer and then upload them to the database.</p>
+<p>To write entries, we recommend specialized XML editing tools like XML Spy available at <a href="http://www.xmlspy.com/">www.xmlspy.com</a>. XMLSpy uses XML schemata to validate the data. It will downolad
+our XML schemata automatically to validate your files.</p>
+<p>The Pivax XML schemata and examples are located at: <a href="http://www-clips.imag.fr/geta/services/dml">www-clips.imag.fr/geta/services/dml/</a>.</p>
+<p>To check the validity of your entries online, you can use the W3C XML Schema
+validator: <a href="http://www.w3.org/XML/Schema">www.w3.org/XML/Schema</a>.</p>
+
+<h2>Manage Contributions<a name="ContribManHelp"> </a></h2>
+
+<h3>Management of your own Contributions</h3>
+<p>You have to be <a href="Register.po">registered</a> and <a href="LoginUser.po">logged</a> to manage your contributions online.</p>
+<p>You do so by accessing the <a href="AdminContributions.po">Contribution Administration Interface</a>. With this interface, you can see or delete your existing contributions.</p>
+
+<h3>Reviewing Contributions</h3>
+<p>You have to be <a href="Register.po">registered</a> and <a href="LoginUser.po">logged</a> to acces the reviewing interface.</p>
+<p>You have to be part of the specialist group to validate any contribution ie to integrate it definitely into the database.</p>
+<p>You can review the contributions online by accessing the <a href="ReviewContributions.po">Contribution Reviewing Interface</a>.</p>
+
+<h2>Access methods<a name="AccessHelp"> </a></h2>
+<h3>Web</h3>
+<p class="standard">The more complete way to access the Pivax server is online via a web browser. Note, that popular browsers render the same web pages in a slightly different way. In order to optimize lexical database navigation and get the most out of this site, please, use one of the following browsers:</p>
+<p>Software that works well</p>
+<ul>
+<li>Chimera</li>
+<li>Mozilla</li>
+<li>Netscape navigator 7.0 and later</li>
+<li>OmniWeb 4.1</li>
+<li>Opera</li>
+<li>Safari</li>
+</ul>
+<p>Software that poses problems</p>
+<ul>
+<li><b>Amaya:</b> The last version seems to deal with japanese characters but it is not
+the case for thai characters.</li>
+<li><b>iCab:</b> The &quot;option&quot; element of the HTML forms is not implemented correctly.
+It does not know display properly non-latin characters
+in the option fields. Note that this problem should not occur if you choose a language in latin characters as preferred interface language.</li>
+<li><b>Internet Explorer:</b> The &quot;option&quot; element of the HTML forms is not implemented correctly. It does not display properly non-ascii characters
+in the option fields. Note that this problem should not occur if you choose a language in ascii characters as preferred interface language.</li>
+</ul>
+
+
+
+
+<!-- h3>Mobile phones</h3 -->
+<!-- p class="standard">An experimental interface is available for AU mobile phones: <a href="HomeAU.po">http://www.papillon-dictionary.org/HomeAU.po</a>. It is written in Tiny XHTML. You can lookup a word and its translation on Papillon server via your mobile.</p -->
+
+<h3>Dictd protocol</h3>
+<p class="standard">The Pivax server implements the <a href="http://www.dict.org">dictd protocol</a>. You can use any dictd client, e.g <a href="http://www.omnigroup.com/applications/omnidictionary/">OmniDictionary</a>. A basic method could be a telnet on www.aximag.fr on port 2628. Please contact us for feedback.</p>
+
+ 
+<h2>Misc<a name="MiscHelp"> </a></h2>
+<p>If you need more help, please read existing <a href="ConsultInformations.po">publications</a>,  or send an email to
+<a href="mailto:mangeotATnii.ac.jp?subject=PapillonServer&amp;body=replace AT by @ in the email address">Mathieu Mangeot-Nagata</a>.</p>
+</div>
+</body>
+</html>

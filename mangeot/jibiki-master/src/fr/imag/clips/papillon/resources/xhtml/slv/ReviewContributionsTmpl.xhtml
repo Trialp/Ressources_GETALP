@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   <title>Papillon Review interface</title>
+</head>
+<body>
+<div id="Formulaire" lang="slv" xml:lang="slv">
+
+<h1>Interface de <span id="UserName">Name</span> pour réviser les contributions</h1>
+
+<!-- formulaire de voir mot-->
+<form  action="ReviewContributions.po" method="get">
+<table width="600" border="0" cellspacing="0" cellpadding="10" summary="Formulaire">
+<tr>
+        <td><b><label for="VOLUME">Glosar&nbsp;:</label></b>
+            <select id="VOLUME" name="VOLUME">
+            <option id="VolumeOptionTemplate" value="NONE" label="NONE">NONE</option>
+        </select>
+	</td>
+	<td>&nbsp;</td>
+	<td><label for="STATUS">Statut&nbsp;:</label><br/>
+	<select id="STATUS" name="STATUS">
+		<option value="*ALL*" label="tous">tous</option>
+		<option value="not finished" label="non finie">non finie</option>
+		<option value="finished" label="finie">finie</option>
+		<option value="revised" label="revisee">révisée</option>
+    </select>
+     </td>
+</tr>
+		  <tr>
+			<td><label for="AUTHOR">Auteur&nbsp;:</label>
+				<input id="AUTHOR" name="AUTHOR" size="12" type="text"/>
+			</td>
+			<td>&nbsp;</td>
+			<td><label for="REVIEWER">Réviseur&nbsp;:</label><br/>
+				<input id="REVIEWER" name="REVIEWER" size="12" type="text"/>
+			</td>
+           </tr>
+           <tr>
+            <td style="bgcolor:#4682b4;">
+              La date de création (aaaa/mm/jj) est
+              <select id="StrategyCreationDate" name="StrategyCreationDate">
+                <option value="14" label="≤">≤</option>
+                <option value="13" label="&lt;">&gt;</option>
+                <option value="0" label="=">=</option>
+                <option value="12" label="≥">≥</option>
+                <option value="11" label="&gt;">&gt;</option>
+              </select>
+              <input id="InputCreationDate" name="CreationDate" type="text" size="10" value="" />
+            </td>
+			<td>
+             &nbsp;
+			</td>
+            <td style="bgcolor:#4682b4;">
+              La date de révision (aaaa/mm/jj) est
+              <select id="StrategyReviewDate" name="StrategyReviewDate">
+                <option value="14" label="≤">≤</option>
+                <option value="13" label="&lt;">&gt;</option>
+                <option value="0" label="=">=</option>
+                <option value="12" label="≥">≥</option>
+                <option value="11" label="&gt;">&gt;</option>
+              </select>
+              <input id="InputReviewDate" name="ReviewDate" type="text" size="10" value="" />
+            </td>
+          </tr>
+          <tr>
+            <td style="bgcolor:#4682b4;">
+              <input id="search1text" name="search1text" type="text" size="15" value="" />
+			  je
+				<select id="Strategy1" name="Strategy1">
+                <option value="0" label="exactement">exactement</option>
+                <option value="1" label="prefixe de">préfixe de</option>
+                <option value="2" label="suffixe de">suffixe de</option>
+                <option value="3" label="sous-chaine de">sous-chaîne de</option>
+                <option value="4" label="exact hors casse de">exact hors casse de</option>
+                <option value="5" label="prefix hors casse de">préfixe hors casse de</option>
+                <option value="6" label="suffixe hors casse de">suffixe hors casse de</option>
+                <option value="7" label="sous-chaine hors casse de">sous-chaîne hors casse de</option>
+              </select>
+              <select id="search1" name="search1">
+                <option value="cdm-headword" label="le mot-vedette">le mot-vedette</option>
+                <option value="cdm-pos" label="la categorie">vrsta</option>
+				<option value="cdm-pronunciation" label="la prononciation">la prononciation</option>
+                <option value="cdm-reading" label="la transcription">la transcription</option>
+                <option value="cdm-translation" label="la traduction">la traduction</option>
+                <option value="cdm-example" label="les exemples">les exemples</option>
+                <option value="AnyContains" label="tout l'article">tout l'article</option>
+              </select>
+            </td>
+			<td>
+              et
+			</td>
+             <td style="bgcolor:#4682b4;">
+              <input id="search2text" name="search2text" type="text" size="15" value="" />
+			  je
+			  <select id="Strategy2" name="Strategy2">
+                <option value="0" label="exactement">exactement</option>
+                <option value="1" label="prefixe de">préfixe de</option>
+                <option value="2" label="suffixe de">suffixe de</option>
+                <option value="3" label="sous-chaine de">sous-chaîne de</option>
+                <option value="4" label="exact hors casse de">exact hors casse de</option>
+                <option value="5" label="prefix hors casse de">préfixe hors casse de</option>
+                <option value="6" label="suffixe hors casse de">suffixe hors casse de</option>
+                <option value="7" label="sous-chaine hors casse de">sous-chaîne hors casse de</option>
+              </select>
+              <select id="search2" name="search2">
+                <option value="cdm-headword" label="le mot-vedette">le mot-vedette</option>
+                <option value="cdm-pos" label="la categorie">vrsta</option>
+				<option value="cdm-pronunciation" label="la prononciation">la prononciation</option>
+                <option value="cdm-reading" label="la transcription">la transcription</option>
+                <option value="cdm-translation" label="la traduction">la traduction</option>
+                <option value="cdm-example" label="les exemples">les exemples</option>
+                <option value="AnyContains" label="tout l'article">tout l'article</option>
+              </select>
+            </td>
+            <td style="bgcolor:#4682b4;">
+				<input id="LOOKUP" name="LOOKUP" type="submit" value="Chercher"/>
+				<input name="RESET" type="submit" value="Initialiser" />
+            </td>
+          </tr>
+</table>
+</form>
+
+<h2>Voir les <span id="ContributionsCount">0</span> contributions</h2>
+<table id="ContribList" width="100%" frame="hsides" border="0" summary="entries" >
+ <thead>
+  <tr>
+   <th>Glosar</th>
+   <th><a id="AuthorHeaderAnchor" href="ReviewContributions.po?SortBy=AUTHOR_SORT">Auteur</a></th>
+   <th><a id="HeadwordHeaderAnchor" href="ReviewContributions.po?SortBy=HEADWORD_SORT">Prikaži</a></th>
+   <th><a id="CreationdateHeaderAnchor" href="ReviewContributions.po?SortBy=CREATION_DATE_SORT">Création</a></th>
+   <th><a id="StatusHeaderAnchor" href="ReviewContributions.po?SortBy=STATUS_SORT">Statut</a></th>
+   <th>XML</th>
+   <th>Uredi</th>
+   <th>Supprimer</th>
+   <th><a id="ReviewerHeaderAnchor" href="ReviewContributions.po?SortBy=REVIEWER_SORT">Réviseur</a></th>
+   <th><a id="ReviewdateHeaderAnchor" href="ReviewContributions.po?SortBy=REVIEW_DATE_SORT">Révision</a></th>
+   <th>Action</th>
+  </tr>
+		  <tr>
+			<td colspan="11" align="center"><a href="" id="PreviousEntriesAnchor">&lt;&lt; Articles précédents &lt;&lt;</a></td>
+		  </tr>
+        </thead>
+	    <tfoot>
+		  <tr>
+			<td colspan="11" align="center"><a href="" id="NextEntriesAnchor">&gt;&gt; Articles suivants &gt;&gt;</a></td>
+		  </tr>
+		  <tr>
+			<td colspan="11" align="left"><p>Note : Les contributions de <span class="copyentry">ce style</span> sont des copies d'articles existants</p></td>
+		  </tr>
+	    </tfoot>
+ <tbody>
+  <tr id="EntryListRow">
+    <td><span id="VolumeName">Glosar</span></td>
+    <td><span id="Author">Auteur</span></td>
+    <td><a href="" id="ViewContribAnchor"><span id="ViewContribText">Contrib</span></a></td>
+    <td><span id="CreationDate">Date</span></td>
+    <td><span id="Status">Statut</span></td>
+    <td><a href="" id="ViewXmlAnchor">Prikaži</a></td>
+    <td><a href="" id="EditContribAnchor"><span id="EditMessage">Uredi</span></a></td>
+    <td><a href="" id="RemoveContribAnchor" onclick="return confirm('Êtes-vous sûr[e] de vouloir supprimer la contribution ?')"><span id="RemoveMessage">Izbri&scaron;i</span></a></td>
+    <td><span id="Reviewer">Réviseur</span></td>
+    <td><span id="ReviewDate">Date</span></td>
+    <td><a href="" class="hidden" id="ReviseContribAnchor">Réviser</a>
+		<a href="" class="hidden" id="ValidateContribAnchor">Valider</a>
+		<a href="" class="hidden" id="IntegrateContribAnchor">Intégrer</a></td>
+  </tr>
+ </tbody>
+</table>
+<table id="Contributions" width="100%" frame="hsides" border="0" summary="dicocontent" >       
+<tr id="EntryRow">
+    <td id="EntryCell" valign="top" ></td>        
+</tr>
+</table>
+
+</div>
+</body>
+</html>

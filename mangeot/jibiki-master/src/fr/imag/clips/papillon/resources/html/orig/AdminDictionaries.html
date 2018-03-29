@@ -1,0 +1,71 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.0 TRANSITIONAL//EN">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="en">
+
+<center><h1>Manage the XML Dictionaries</h1></center>
+
+<HR>
+<!-- formulaire de voir mot-->
+
+<FORM ACTION="AdminDictionaries.po" METHOD="GET">
+<table WIDTH="600" BORDER="0" CELLSPACING="0" CELLPADDING="10" Summary="Formulaire">
+<TR>	
+	<TD valign="top"><B>Url:&nbsp;</B></TD>
+	<TD><INPUT NAME="url" TYPE="text" SIZE="64" VALUE="">
+<p class="note">NB: The Dictionary Metadata file must be valid against the &lt;dictionary-metadata&gt; element of the DML schema. The latest version of the schema can be found at: <a href="http://www-clips.imag.fr/geta/services/dml/dml.xsd">www-clips.imag.fr/geta/services/dml/dml.xsd</a>.</p></TD>
+</TR>
+<TR>
+    <TD><B>Load Also Volumes Metadata: &nbsp;</B></TD>     
+    <TD><INPUT  NAME="AddVolumes" TYPE="checkbox" VALUE="Load volumes"></TD>
+</TR>
+<TR>
+    <TD><B>Load Also Volumes Metadata and Entries: &nbsp;</B></TD>     
+    <TD><INPUT  NAME="AddVolumesAndEntries" TYPE="checkbox" VALUE="Load Volumes and Entries"></TD>
+</TR>
+<TR>
+	<TD COLSPAN="2"><INPUT NAME="Add" TYPE="submit" VALUE="Add"></TD>
+</TR>
+</TABLE>
+</FORM>
+<HR>
+Dictionaries currently in the database:
+<TABLE Summary="Existing Dictionaries">
+<TR>
+	<TH>name</TH>
+	<TH>category</TH>
+	<TH>type</TH>
+	<TH>sources</TH>
+	<TH>targets</TH>
+  <TH>domain</TH>
+ <TH>legal</TH>
+ <TH>Metadata</TH>
+ <TH>&nbsp;|&nbsp;</TH>
+ <TH>Metadata</TH>
+ <TH>All</TH>
+</TR>
+<TR id="TemplateRow">
+	<TD><b><span Id="Name">Name</span></b></TD>
+	<TD><span Id="Category">Cat</span></TD>
+	<TD><span Id="Type">Type</span></TD>
+	<TD><span Id="Sources">Src</span></TD>
+	<TD><span Id="Targets">Trg</span></TD>
+	<TD><span Id="Domain">domain</span></TD>
+	<TD><span Id="Legal">legal</span></TD>
+	<TD><A HREF="" id="SeeAnchor">See</A></TD>
+	<TD>&nbsp;|&nbsp;</TD>
+	<TD><A HREF="" id="RemoveAnchor" onClick="return confirm('Are you sure you want to remove the metadata?')">rm</A></TD>
+    	<TD><A HREF="" id="RemoveAllAnchor" onClick="return confirm('Are you sure you want to remove the metadata and the entries?')">rm</A></TD>
+</TR>
+</TABLE> 
+<div>
+<div id="Xml">
+</div>
+</div>
+</div>
+</body>
+</html>

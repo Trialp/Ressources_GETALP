@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Menu</title>
+  </head>
+  <body>
+    <div id="QueryMenu" lang="fr" xml:lang="fr" style="display: inline;">
+       <!--<form id="ConsultForm" action="Home.po">
+        <div>
+        <input type="hidden" name="RESOURCES" value="*ANY*" />
+        <label for="HeadwordInput" accesskey="w">
+          <span class="accesskey">W</span>ord:</label>
+        <input type="text" id="HeadwordInput" name="HEADWORD" size="14" maxlength="40" />
+        <br/>
+        <label for="Source" accesskey="s">
+          <span class="accesskey">S</span>ource:</label>
+
+        <select id="Source" name="SOURCE">
+          <option id="SourceOptionTemplate" value="NONE" label="NONE">NONE</option>
+        </select>
+        <br/>
+        <label for="Target" accesskey="t">
+          <span class="accesskey">T</span>arget:</label>
+        <select id="Target" name="TARGETS">
+          <option id="AllTargets" value="*ALL*" label="All">All</option>
+          <option id="TargetOptionTemplate" value="NONE" label="NONENONENONE">NONE</option>
+        </select>
+        <br/>
+        <input type="submit" name="lookup" value="Go" />
+        </div>
+      </form>-->
+               <form  id="ConsultForm" method="get" action="Home.po" onsubmit="filterVolumes();"  style="display:inline;">
+        <div style="display:inline;">
+                <div  style="display:inline;">
+                    <div class="menuColumnSize"  style="display:inline;">
+                        <div class="menuVariableName"  style="display:inline;">
+                            <label for="ValueField" accesskey="c" ><span class="accesskey">C</span>hercher</label>
+                        </div>
+                        <div class="menuVariableValue"  style="display:inline;">
+                            <input type="hidden" id="Facet" name="FACET.0" value="cdm-headword"/>
+                            <input type="hidden" id="Operator" name="OPERATOR.0" value="0"/>
+                            <input id="ValueField" name="FACETVALUE.0" size="15" type="text" class="menuVariableValueWidth" />
+                        </div>
+                    </div>
+                    <div class="menuColumnSize"  style="display:inline;">
+                        <div class="menuVariableName"  style="display:inline;">
+                            <label for="SourceLang" accesskey="e"><span class="accesskey">e</span>n</label>
+                        </div>
+                        <div class="menuVariableValue"  style="display:inline;">
+                            <select id="SourceLang" name="SOURCE.0" class="menuVariableValueWidth" >
+                                <option id="SourceOptionTemplate" value="NONE" label="NONE">NONE</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="menuColumnSize"  style="display:inline;">
+                        <div class="menuVariableName"  style="display:inline;">
+                            <label for="ShowType" accesskey="i"><span class="accesskey">a</span>ffichage</label>
+                        </div>
+                        <div class="menuVariableValue"  style="display:inline;">
+                            <select id="ShowType" name="showType" class="menuVariableValueWidth" >
+                                <option id="ShowClassique" value="ShowClassique" label="ShowClassique" selected="selected">Affichage classique</option>
+                                <option id="ShowRow" value="ShowRow" label="ShowRow">Affichage en style Pivax</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="menuColumnSize"  style="display:none;">
+                        <div class="menuVariableName"  style="display:inline;">
+                            <label for="QMTargets" accesskey="i">C<span class="accesskey">i</span>ble&nbsp;:</label>
+                         </div>
+                        <div class="menuVariableValue"  style="display:inline;">
+                            <select id="QMTargets" name="TARGETS" class="menuVariableValueWidth">
+                                <option id="QMAllTargetsOption"  label="All languages" value="*ALL*" selected="selected">Toutes les langues</option>
+                                <option id="TargetTmpl" label="NONE" value="NONE">NONE</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div  style="display:inline;">
+ 					<div id="VolumesDiv"  style="display:inline;">
+						<div id="VolumesLang"  style="display:inline;">
+							<input type="hidden" id="VolumesInput" name="VOLUMES" value="*ALL*"/>
+						</div>
+					</div>
+                    <input type="hidden" name="XSL" value="Default"/>
+                    <input type="hidden" name="LIMIT" value="5" />
+                    <input type="hidden" name="OFFSET"/>
+                    <input type="hidden" name="action" value="lookup" />
+                    <input type="submit" value="➡" class="menuGo" />
+                </div>
+                </div>
+            </form>
+    </div>
+  </body>
+</html>

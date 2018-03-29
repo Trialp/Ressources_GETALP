@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="de">
+	<script type="text/javascript">
+    <!--
+            function updateField(idField, idFieldValue) {
+              if (idField != '') {
+                theIdField = document.getElementById(idField);
+                theIdField.value = idFieldValue;
+              }
+            }
+          
+            function openUploader(parentId) {
+              // Get the id of the elements to be modified
+              var targetUrl='UploadFile.po';
+              window.open(targetUrl, parentId,'height=200,width=300,resizable');
+            }
+          
+          // -->
+      </script>
+   <h1 style="text-align:center">Verwaltung der XSL-Seiten</h1>
+
+
+<!-- formulaire de voir mot-->          
+
+<form accept-charset="UTF-8" action="AdminXsl.po" method="get">
+<table width="600" border="0" cellspacing="0" cellpadding="0" summary="Formulaire">
+<tr>	
+	<td><b>Name:&nbsp;</b></td>
+	<td><input name="name" type="text" size="64" value=""/></td>
+</tr>
+<tr>	
+	<td><b>W&ouml;rterbuchname:&nbsp;</b></td>
+	<td><input name="dictionaryName" type="text" size="64" value=""/></td>
+</tr>
+<tr>	
+	<td><b>Volumename:&nbsp;</b></td>
+	<td><input name="volumeName" type="text" size="64" value=""/></td>
+</tr>
+<tr>
+	<td><b>Beschreibung:&nbsp; </b></td>
+	<td><input name="description" type="text" size="64" value=""/></td>
+</tr>
+<tr>
+	<td><b>Datei or URL: &nbsp;</b></td>
+	<td><input type="button" name="upload" onclick="javascript:openUploader('url')" value="hochladen"/> oder 
+	<input name="url" id="url" type="text" size="64" value=""/></td>
+</tr>
+<tr>
+    <td><b>ist standard: &nbsp;</b></td>     
+    <td><input name="defaultxsl" type="checkbox" value="Default StyleSheet"/></td>
+</tr>
+<tr>
+    <td><b>ist extern: &nbsp;</b></td>     
+    <td><input name="externalxsl" type="checkbox" value="External StyleSheet"/></td>
+</tr>
+<tr>
+	<td colspan="2"><input name="Add" type="submit" value="hinzuf&uuml;gen"/></td>
+</tr>
+</table>
+</form> 
+
+<table summary="Existing XSL Sheets">
+<tr><th colspan="4">gegenwärtig in der Datenbank vorhandene XSL-Seiten:</th></tr>
+<tr id="TemplateRow">
+	<td><span id="XslName">name</span> [<span id="XslDictionaryName">dictionary</span>/<span id="XslVolumeName">Volume</span>] 
+      (<span id="XslDesc">description</span>) </td>
+    <td><b><span id="XslDefault">standard</span></b></td>
+    <td><b><span id="XslExternal">extern</span></b></td>
+	<td><a href="" id="SeeAnchor">sehen</a></td>
+	<td><a href="" id="RemoveAnchor" onclick="return confirm('Wollen Sie die XSL-Seite beseitigen?')">beseitigen</a></td>
+	<td><a href="" id="DefaultAnchor">standard machen</a></td>
+    <td><a href="" id="ExternalAnchor">extern machen</a><a href="" id="NoExternalAnchor">intern machen</a></td>
+</tr>
+</table>
+<div>
+<div id="Xml">
+</div>
+</div>
+</div>
+</body>
+</html>

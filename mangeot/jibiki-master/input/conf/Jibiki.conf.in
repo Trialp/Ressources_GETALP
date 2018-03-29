@@ -1,0 +1,242 @@
+#
+#  Papillon51
+#  Enhydra Application
+#
+#  Simple Enhydra application configuration file.
+#
+
+#
+# Comma separated CLASSPATH directories and files used by this application.
+# You must rebuild the jar after every change to the app.
+#
+Server.ClassPath[] = "@DEPLOY_PATH@/lib/Papillon.jar"
+#Server.ClassPath[] = "@DEPLOY_PATH@/output/../classes"
+
+#
+# The fully qualified name of the application class.
+#
+Server.AppClass = fr.imag.clips.papillon.Papillon
+
+#
+# Prefix used to derive presentation object class
+# names and paths from URLs.
+# Assumes run from the output directory for debugging.
+#
+Server.PresentationPrefix = "fr/imag/clips/papillon/presentation"
+
+#
+# Flag to indicate that application classes and resources should be reloaded
+# automatically if ANY file in the CLASSPATH changes.  NOTE:  This is a
+# debugging option and may slow down the performance of your application.
+# The CLASSPATH should NOT contain any directories (or underlying directories)
+# that contain constantly changing files, i.e. a log file.  For example, do
+# NOT include the application's output directory in the CLASSPATH because it
+# contains the application log files in the underlying log directory.
+#
+Server.AutoReload = false
+#Server.XMLC.DeferredParsing = true
+
+#
+# Maximum number of minutes a user session can last.
+#
+SessionManager.Lifetime = 720
+
+#
+# Maximum number of minutes a user may be idle before being logged off.
+#
+SessionManager.MaxIdleTime = 120
+
+#
+# Flag to indicate that SessionManager will be held in memory
+# during restart application (default is false).
+#
+#SessionManager.MemoryPersistence = true
+
+#
+# The session home implementation to use.  May
+# be one of {BASIC, PAGE_TO_DISK, PAGE_TO_DB, CUSTOM}.
+#
+#SessionManager.SessionHome.Mode = BASIC
+
+#
+# Maximum number of concurrent sessions.
+#
+#SessionManager.SessionHome.MaxSessions = 100
+
+#
+# PAGE_TO_* settings
+# ------------------
+# The following settings are required by all paged (DISK, DB) implementations.
+#
+
+# The maximum number of sessions that will be held in memory simultaneously.
+#SessionManager.SessionHome.PageThreshold = 50
+
+# The maximum amount of time that a session will remain in memory
+# in an inactive (passive) state.  If this amount of time is exceeded
+# then the session is paged out.  The value is in seconds.
+#SessionManager.SessionHome.PageTimeThreshold = 60
+
+# The maximum amout of time that a thread will wait for a
+# session to be paged back into memory.  In milliseconds.
+#SessionManager.SessionHome.PageWait = 5000
+
+#
+# Flag to indicate that sessions should be paged and reloaded
+# during application restart (default is false).
+# This parameter has no effect if use MemoryPersistence = true.
+# Important: Don't use same directory for pageDir key in 
+# PAGE_TO_DISK settings for different applications.
+#
+#SessionManager.SessionHome.SaveOnRestart = true
+
+#
+# PAGE_TO_DISK settings
+# ---------------------
+#
+# The directory where sessions will be paged.  This setting is required
+# when using PAGE_TO_DISK.
+#SessionManager.SessionHome.PageDir = /tmp/page
+
+#
+# PAGE_TO_DB session home settings
+# --------------------------------
+# NOTE: to use PAGE_TO_DB you'll need your database properly configured.
+#
+# If the following is not specified then sessions are paged to the default database.
+#SessionManager.SessionHome.DatabaseName = _enter_db_name_here
+
+# If the following is not specified then session data is written
+# to the table "PersistenSession"
+#SessionManager.SessionHome.DBTableName = PersistentSession
+
+#
+# CUSTOM session home settings
+# ----------------------------
+# The following settings are required when using custom session home interfaces.
+#
+#SessionManager.SessionUserTable.Class =
+#SessionManager.SessionHome.Class =
+
+
+
+
+#
+# If the URL "/" for this application is accessed, the user will be
+# redirected to this URL. This should be a relative URL.
+#
+Application.DefaultUrl = "Home.po"
+Application.Prefix = "@APPLICATION_PREFIX@"
+#
+PresentationManager.CacheFiles = true
+#
+
+# The information files admin directories. 
+# CAUTION: WHEN YOU CHANGE THESE OPTIONS, IT APPLIES ONLY TO NEWLY IMPORTED FILES. Hence, older files 
+# will still refer to the old directory... Moreover, the change will only be taken into account after an 
+# application restart.
+# Absolute path to the temporary directory (where files are expanded and processed, then discarded)
+Papillon.Informations.tmpDir = "/tmp/"
+# Absolute path to the information section base dir.
+Papillon.Informations.baseDir = "/opt/www/html/static/"
+Papillon.Informations.relativeDir = "/static/"
+# Relative path to the media directory (the directory that contains gifs, jpgs, etc. that are added 
+# while importing a file). This directory is relative to the server's information section base Dir. 
+Papillon.Informations.mediaDir = "info_media/"
+
+#####
+# Javamail
+#
+# in order to send emails with ssl, you must 
+# - 1 create an ssl-cert and import it:
+# > keytool -import -alias papillon-server -file papillon-server.cer
+# - 2 uncomment the following variables: 
+javax.net.ssl.trustStore = "/home/papillon/.keystore"
+javax.net.ssl.trustStorePassword = "@TRUSTSTORE_PASSWORD@"
+# - 3 set the following variables to true
+Papillon.javamail.mailhost.ssl = true
+Papillon.javamail.from = "papillon-server@papillon-dictionary.org"
+Papillon.javamail.mailhost.address = "@MAILHOST_ADDRESS@"
+# if the server needs auth, set the following variable to true and uncomment the following variables
+Papillon.javamail.mailhost.auth = true
+Papillon.javamail.mailhost.user = "@MAILHOST_USER@"
+Papillon.javamail.mailhost.password = "@MAILHOST_PASSWORD@"
+
+#####
+# Groups passwords
+#
+Papillon.Users.Groups.Password.admin = "@JIBIKI_ADMIN_PASSWORD@"
+Papillon.Users.Groups.Password.specialist = "@JIBIKI_SPECIALIST_PASSWORD@"
+Papillon.Users.Groups.Password.validator = "@JIBIKI_VALIDATOR_PASSWORD@"
+
+# Class name of the layout for pages of the application
+Papillon.Presentation.PriorityPackage = "fr.imag.clips.papillon.presentation.xhtmljibiki"
+Papillon.LayoutClassName = "fr.imag.clips.papillon.presentation.PapillonLayout"
+Papillon.LoginCookieName = "JibikiLoginCookie"
+
+
+###
+# Misc
+Papillon.Logging.StoreQueryLogs = true
+
+#+++++++++++++++++++++++++++++++++
+# SAXON TRANSFORMATION HANDLER
+#+++++++++++++++++++++++++++++++++
+Papillon.Saxon.Classpath = "@SAXON8_LIB@"
+
+#+++++++++++++++++++++++++++++++++
+# FOP TRANSFORMATION HANDLER
+#+++++++++++++++++++++++++++++++++
+Papillon.Fop.Classpath = "@FOP_LIB@"
+Papillon.Batik.Classpath = "@BATIK_LIB@"
+Papillon.Xalan.Classpath = "@XALAN_LIB@"
+Papillon.Xerces.Classpath = "@XERCES_LIB@"
+Papillon.Avalon.Classpath = "@AVALON_LIB@"
+Papillon.XmlApi.Classpath = "@XMLAPI_LIB@"
+Papillon.Fo.Xsl = "@FO_PATH@"
+
+#-----------------------------------------------------------------------------
+#                   JDictd server Configuration (RFC 2229)
+#-----------------------------------------------------------------------------
+#
+#
+# is dictd listening? 
+Dictd.Listen = false
+
+# dictd listening port
+Dictd.Port = 2628
+
+# dictd timeout 50000 ~= 15 seconds
+Dictd.Timeout = 500000
+
+#-----------------------------------------------------------------------------
+#                   PAPILLON's Database Manager Configuration
+#-----------------------------------------------------------------------------
+
+DatabaseManager.Databases[] = "papillon"
+DatabaseManager.DefaultDatabase = "papillon"
+DatabaseManager.Debug = "false"
+DatabaseManager.DB.papillon.ClassType = "PostgreSQL"
+DatabaseManager.DB.papillon.JdbcDriver = "org.postgresql.Driver"
+DatabaseManager.DB.papillon.Connection.Url = "@PGSQL_SERVER_URL@"
+
+DatabaseManager.DB.papillon.Connection.User = "@DB_USER@"
+DatabaseManager.DB.papillon.Connection.Password = "@DB_PASSWD@"
+
+DatabaseManager.DB.papillon.Connection.MaxPoolSize = 30
+DatabaseManager.DB.papillon.Connection.AllocationTimeout = 10000
+
+DatabaseManager.DB.papillon.Connection.Logging = false
+
+DatabaseManager.DB.papillon.ObjectId.CacheSize = 20
+DatabaseManager.DB.papillon.ObjectId.MinValue = 1000000
+
+# Version of the DB Layer used in this application.
+jibiki.dblayer.version=@DBLAYER_VERSION@
+
+#
+# Following two lines must be added for PostgreSQL,
+# since oID can't be used for column name
+#
+DatabaseManager.ObjectIdColumnName = "ObjectId"
+DatabaseManager.VersionColumnName = "ObjectVersion"

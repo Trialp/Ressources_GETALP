@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title>Dictionary Entries Indexing in Papillon Database</title>
+  <link rel="StyleSheet" href="css/style1.css" type="text/css">
+</head>
+<body>
+<h1>Description of the dictionary entries indexing in the Papillon database</h1>
+<h2>Introduction</h2>
+<p>This paper describes how the dictionary entries are stored and indexed in the Papillon database.</p>
+<h2>The tables schema</h2>
+<ul>
+ <li>The <em>dictionaries</em> table stores information about the dictionaries;</li>
+ <li>The <em>volumes</em> table stores information about the volumes;</li>
+ <li>The <em>volumeentry</em> tables store the entries of each volume. 
+ Each volume is stored in an independent table. 
+ All the tables have the same structure;</li>
+ <li>The <em>papillonaxi</em> table is a special table. It stores the axies or interlingual links of the Papillon axi volume;</li>
+ <li>The <em>foksentry</em> table is a special table. It stores the entries of the FOKS module dictionary. This table is directly indexed;</li>
+ <li>Each <em>index</em> table is associated with one volumentry table and there is also one index table for the papillonaxi table. 
+ The keys of the entries stored in the volumenentry tables (like headword, pronunciation, translations, etc) are stored in the index tables. 
+ Only these tables have an internal database index.
+ These  have an index table associated with them;</li>
+ <li>The <em>contributions</em> table stores all the contributions made on the database (entries and axies).</li>
+ <li>There are other tables used for the management of the database: users, groups, messages, xslsheets, querylogs, informationdocument, informationfiles,
+  history.</li>
+</ul>
+<h2>The <em>dictionaries</em> table</h2>
+<p>Here is the schema of the table:</p>
+<pre>
+    fullName VARCHAR(255) DEFAULT '' NOT NULL   ,
+    name VARCHAR(255) DEFAULT '' NOT NULL   ,
+    category VARCHAR(255) DEFAULT '' NOT NULL   ,
+    type VARCHAR(255) DEFAULT '' NOT NULL   ,
+    domain VARCHAR(255) DEFAULT '' NOT NULL   ,
+    legal VARCHAR(255) DEFAULT '' NOT NULL   ,
+    sourceLanguages VARCHAR(255) DEFAULT '' NOT NULL   ,
+    targetLanguages VARCHAR(255) DEFAULT '' NOT NULL   ,
+    xmlCode TEXT DEFAULT '' NOT NULL   ,
+</pre>
+<ul>
+<li><em>fullName</em> is the full name of the dictionary. It is a free Unicode string with up to 255 characters.</li>
+<li><em>name</em> is the short name of the dictionary. It has to be composed with only these characters: [a-zA-Z_-].
+ The max length is also 255 characters.</li>
+ <li>For <em>category</em>, see the dml schema.</li>
+ <li>For <em>type</em>, see the dml schema.</li>
+ <li>For <em>domain</em>, see the dml schema.</li>
+ <li>For <em>legal</em>, see the dml schema.</li>
+ <li><em>sourceLanguages</em> stores the source languages of the dictionary. 
+ It stores the ISO 639-2T 3 letter codes of the languages separated by a blank space.</li>
+ <li><em>targetLanguages</em> same as upper.</li>
+ <li><em>xmlCode</em> stores the metadata xml file describing the dict in a simple text string.</li>
+</ul>
+
+<h2>The <em>volumes</em> table</h2>
+<p>Here is the schema of the table:</p>
+<pre>
+    name VARCHAR(255) DEFAULT '' NOT NULL   ,
+    dictname VARCHAR(255) DEFAULT '' NOT NULL   ,
+    dbname VARCHAR(255) DEFAULT '' NOT NULL   ,
+    location VARCHAR(255) DEFAULT '' NOT NULL   ,
+    sourceLanguage VARCHAR(255) DEFAULT '' NOT NULL   ,
+    targetLanguages VARCHAR(255) DEFAULT '' NOT NULL   ,
+    volumeRef VARCHAR(255) DEFAULT '' NOT NULL   ,
+    xmlCode TEXT DEFAULT '' NOT NULL   ,
+    xmlSchema TEXT DEFAULT ''    ,
+    templateEntry TEXT DEFAULT ''    ,
+</pre>
+<ul>
+<li><em>dictname</em> is the short name of the dictionary. It has to be composed with only these characters: [a-zA-Z_\-]. 
+The max length is 255 characters. It has to be the same as the <em>name</em> field in the <em>dictionaries</em> database.</li>
+<li><em>name</em> is the short name of the volume. It has to be composed with only these characters: [a-zA-Z_\-]. 
+The max length is also 255 characters.</li>
+<li><em>dbname</em> is the name of the volumeentry table used to store the entries of the volume. 
+It has to be composed with only these lowercase characters: [a-z]. 
+The max length depends of the database.</li>
+<li>For <em>location</em>, see the dml schema.</li>
+ <li><em>sourceLanguage</em> stores the ISO 639-2T 3 letter code of the source language of the dictionary.</li>
+ <li><em>targetLanguages</em> stores the source languages of the dictionary. 
+ It stores the ISO 639-2T 3 letter codes of the languages separated by a blank space.</li>
+ <li><em>xmlCode</em> stores the metadata xml file describing the dict in a simple text string.</li>
+ <li><em>xmlSchema</em> stores the Xml Schema file describing the dict structure in a simple text string.</li>
+ <li><em>templateEntry</em> stores the xml file representing an empty entry of the volume.
+ It is then used as a template when building a new entry for a new contribution for example.</li>
+</ul>
+
+<h2>The <em>volumeentry</em> tables</h2>
+<p>Here is the schema of the tables:</p>
+<pre>
+    headword TEXT DEFAULT ''    ,
+    id VARCHAR(255) DEFAULT ''    ,
+    pos VARCHAR(255) DEFAULT ''    ,
+    pronunciation VARCHAR(255) DEFAULT ''    ,
+    reading VARCHAR(255) DEFAULT ''    ,
+    translation TEXT DEFAULT ''    ,
+    key1 VARCHAR(255) DEFAULT ''    ,
+    key2 VARCHAR(255) DEFAULT ''    ,
+    xmlCode TEXT DEFAULT '' NOT NULL   ,
+</pre>
+<ul>
+<li><em>headword</em> store the headwords of the entry as Unicode strings surrounded by the '#' character. 
+If there is more than one headword, they are concatenated alltogether lie for example: #color#colour#.</li>
+<li><em>id</em> stores the unique id of the entry or nothing if there is no id. 
+See the dml schema for a description of which character can be inserted in an id.</li>
+<li>For <em>pos</em>, see the dml schema.</li>
+<li>For <em>pronunciation</em>, see the dml schema.</li>
+<li>For <em>reading</em>, see the dml schema.</li>
+<li>For <em>translation</em>, see the dml schema.</li>
+<li><em>key1</em> is used to store a supplementary key of the entry.</li>
+<li><em>key2</em> is used to store a supplementary key of the entry.</li>
+ <li><em>xmlCode</em> stores the metadata xml file describing the dict in a simple text string.</li>
+</ul>
+
+<p>the name of these tables is built from the volume name they represent: 
+The name is lowercased and then, only the [a-z] characters are kept, all the other characters are discarded.
+ Example: The <em>Papillon_eng</em> volume is stored in the <em>papilloneng</em>table.</p>
+
+
+<h2>The <em>papillonaxi</em> table</h2>
+<p>Here is the schema of the table:</p>
+<pre>
+    id VARCHAR(255) DEFAULT ''    ,
+    semanticCat VARCHAR(255) DEFAULT ''    ,
+    key1 VARCHAR(255) DEFAULT ''    ,
+    key2 VARCHAR(255) DEFAULT ''    ,
+    xmlCode TEXT DEFAULT '' NOT NULL   ,
+    lexies BYTEA  NOT NULL   ,
+    synonyms VARCHAR(255) DEFAULT ''    ,
+</pre>
+<p>for more info, see the papillon_axi.xsd schema.</p>
+
+
+<h2>The <em>foksentry</em> table</h2>
+<p>Here is the schema of the table:</p>
+<pre>
+    headword VARCHAR(255) DEFAULT ''    ,
+    reading VARCHAR(255) DEFAULT ''    ,
+    id INTEGER     ,
+    score REAL     ,
+</pre>
+<p>for more info, read the FOKS project description, or go to: <a href="http://www.foks.info/">http://www.foks.info/</a>.</p>
+
+<h2>The <em>index</em> tables</h2>
+<p>Here is the schema of the tables:</p>
+<pre>
+    key VARCHAR(255) DEFAULT ''    ,
+    entryId VARCHAR(255) DEFAULT '' NOT NULL   ,
+</pre>
+<ul>
+<li>The <em>key<em> is used to store a key of the entry in Unicode, like the headwords, the pronunciations, the readings, the writings, etc.
+Each key is stored in a separate record. The keys referring to the same entry will have the same entryid number.</li>
+<li>The <em>entryid<em> is used to store the handle of the associated volumeentry record unique id.</li>
+</ul>
+
+<p> the name of the tables are built by concatenating the string "idx" with the name of the volumenentry table associated.
+For example, the volume <em>Papillon_eng</em> is stored in the <em>volumeentry</em> table called <em>papilloneng</em>
+ and the index table called <em>idxpapilloneng</em>.</p>
+
+</body>
+</html>

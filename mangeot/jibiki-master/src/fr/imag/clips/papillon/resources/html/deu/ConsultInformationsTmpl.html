@@ -1,0 +1,49 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.0 TRANSITIONAL//EN">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+       <title>Papillon</title>   
+</head>
+<body>
+
+<!-- <div id="InformationsFilePlace">
+
+</div> -->
+<div id="InformationsFileListPlace" lang="de">
+<h1 align="center">Informationsdateien zu Rate ziehen</h1>
+<p>Mitglieder des Papillon-Projektes dürfen dieser Sektion <a href="AdminInformations.po">Dokumente hinzufügen</a>.</p>
+
+<FORM id="ConsultInformationsForm" ACTION="ConsultInformations.po">
+<TABLE Summary="Documents form" width="100%">
+<TR>
+<TD bgcolor="#4682b4"><font  color="#ffffff">Autor(en):</font>
+     <INPUT NAME="AuthorContains" TYPE="text" SIZE="15" VALUE=""></TD>
+<!-- TD bgcolor="#4682b4"><font  color="#ffffff">Date:</font><INPUT NAME="DateContains" TYPE="text" SIZE="15" VALUE=""></TD -->
+<TD bgcolor="#4682b4"><font  color="#ffffff">Titel:</font>
+     <INPUT NAME="TitleContains" TYPE="text" SIZE="15" VALUE=""></TD>
+<TD bgcolor="#4682b4"><font  color="#ffffff">Referenz:</font>
+     <INPUT NAME="RefContains" TYPE="text" SIZE="15" VALUE=""></TD>
+<!-- The any  contains is not yet implemented because we need to query informationFile instead of informationDocument -->
+<!--TD bgcolor="#4682b4"><font  color="#ffffff">Any part:</font><INPUT NAME="AnyContains" TYPE="text" SIZE="14" VALUE=""></TD-->
+</TR>
+<TR>
+<TD COLSPAN="3">
+<INPUT VALUE="Starten" TYPE="submit">
+</TD>
+</TR>
+</TABLE>
+<TABLE Summary="Documents index" width="100%">
+<TR id="SectionRowTemplate">
+    <TD class="headerRow" colspan="3"><SPAN id="SectionHeader">SEKTION</SPAN></TD>
+</TR>
+<TR class="cellRow" id="documentRowTemplate">
+    <TD><b><SPAN id="DocumentAuthor">AUTOR</SPAN>
+    (<SPAN id="CreationDate">DATUM</SPAN>)</b>
+    <i><A id="DocumentAnchor" HREF="see"><SPAN id="DocumentTitle">TITEL</SPAN></A></i>
+    <SPAN id="Reference">Referenz</SPAN><SPAN id="NBSpace">&nbsp;&nbsp;</SPAN></TD>
+</TR>
+</TABLE>
+</FORM>
+</div>
+</body>
+</html>

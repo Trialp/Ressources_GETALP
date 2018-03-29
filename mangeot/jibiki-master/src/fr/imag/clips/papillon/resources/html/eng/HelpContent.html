@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Papillon</title>
+</head>
+
+<body>
+
+<div id="HelpContent" lang="en">
+<table summary="HelpContent" width="100%" height="100%" border="0" cellpadding="5" cellspacing="5">
+<tr>
+<td>
+<h1 align="center">Help</h1>
+
+<p align="center">
+<a href="#Lookup">Lookup</a>&nbsp;|&nbsp;
+<a href="#Browsing">Browsing</a>&nbsp;|&nbsp;
+<a href="#OnLineEdition">On-line Edition</a>&nbsp;|&nbsp;
+<a href="#OffLineEdition">Off line Edition</a>&nbsp;|&nbsp;
+<a href="#Contributions">Contributions</a>&nbsp;|&nbsp;
+<a href="#Misc">Misc</a></p>
+
+
+<h2><a name="Lookup"></a>Lookup</h2>
+<p>In order to lookup a word in the dictionaries available on the Papillon server,
+use the left lookup menu in the following way:</p>
+<ul>
+<li>Step 1: enter the word you are looking for;</li>
+<li>Step 2: specify the language of the word entered;</li>
+<li>Step 3: choose the target language in order to obtain the translation of the word entered;</li>
+<li>Step 4: push the "go" button.</li>
+</ul>
+<p class="standard">Please note that some available dictionaries have only very few entries.
+In particular, the Papillon dictionary is in consutruction. You will not obtain the translation in the desired language in any case.
+The current interface has been built mainly for experimental purposes.
+</p>
+<p class="standard">The left lookup menu proposes basic lookup. For more specific searches like case instensitive, substring, etc, please use the <a href="ConsultExpert.po">advanced interface</p>.
+
+<h2>Browsing</h2>
+<p>In order to navigate optimally on this site, we will specify here below which software is suitable</p>
+<h3>Software that works fine</h3>
+<ul>
+<li><b>Chimera</b>;</li>
+<li><b>Mozilla 1.0</b> and latest versions;</li>
+<li><b>Netscape navigator 7.0</b> and latest versions;</li>
+<li><b>OmniWeb 4.1</b> and latest versions;</li>
+<li><b>Opera 6.0</b> and latest versions;</li>
+<li><b>Safari 1.0</b> and latest versions.</li>
+</ul>
+<h3>Software that poses problems</h3>
+<ul>
+<li><b>Amaya:</b> The last version seems to deal with japanese characters but it is not
+the case for thai characters.</li>
+<li><b>iCab:</b> The "label" attribute of the "option" element of the HTML forms is not implemented correctly. It does not know display properly non-latin characters
+in the option fields. Note that this problem should not occur if you choose a language in latin characters as preferred interface language.</li>
+<li><b>Internet Explorer:</b> experiments the same type of problem with the "label".</li>
+<h3>Other problems</h3>
+<p class="standard">The Papillon website is entirely encoded in Unicode UTF-8. If you experience problems while viewing the pages eg: you see question marks "?" or squares instead of Chinese or Japanese characters, please verify that your browser encoding is set to Unicode UTF-8.</p>
+<p class="standard">If the problem persists, your computer might not have Unicode fonts installed properly. Try to find and install a braod converage Unicode font such as "Arial Unicode MS".</p>
+</ul>
+
+<h2><a name="OnLineEdition"></a>Online Edition</h2>
+<h3>Edition of a monolingual entry (Lexie)</h3>
+<p>You have to be <a href="Register.po">registered</a> and <a href="LoginUser.po">logged</a> to edit online entries.</p>
+<p>Furthermore, the editor works with cookies. Please check if your browser accepts them.</p>
+<p> the <a href="ConsultEdit.po">Online Edition Interface</a> is for tests only. In order to implement the editor properly, we developped the most complete interface with all the details. Thus, this first version implements an interface for specialists lexicographers with all the information. Thanks to the editor which is generic and the fact that now the complete interface is ready for use, we will be able to develop more easily simplified versions of that first interface in a degraded mode for non-specialist users.</p>
+<p>You can add entries and then look them up through the <a href="Home.po">Consultation interface</a>.
+Nevertheless, these contributions may not be kept or integrated into the database yet.</p>
+
+<h3>Edition of a translation link (Axie)</h3>
+<p>You have to be <a href="Register.po">registered</a> and <a href="LoginUser.po">logged</a> to edit online links.</p>
+<p> the <a href="EditAxie.po">Online Edition Interface</a> is for tests only. In order to create translation links (axies) between two entries (lexies) of different languages, these two lexies must exist in the Papillon dictionary (and only this dictionary). If the entries do not exist, you must first create them with the previous <a href="ConsultEdit.po">monolingual entry edition interface</a>. Then, once your two lexies are created, you can create a translation link (an axie) between them.</p>
+<p>Nevertheless, these contributions may not be kept or integrated into the database yet.</p>
+
+<h2><a name="OffLineEdition"></a>Offline Edition</h2>
+<p>You can write entries locally on your computer and then upload them to the database.</p>
+<p>To write entries, we recommend the tool XML Spy for PC available at <a
+href="http://www.xmlspy.com/">www.xmlspy.com</a> for a 30 days free evaluation
+version. XMLSpy is using XML schemata to validate the data. It will downolad
+automatically our XML schemata to validate your files.</p>
+<p>The Papillon XML schemata and examples are located at: <a
+href="http://www-clips.imag.fr/geta/services/dml">www-clips.imag.fr/geta/services/dml/</a>.</p>
+<p>To check the validity of your entries online, you can use the W3C XML Schema
+validator: <a
+href="http://www.w3.org/XML/Schema">www.w3.org/XML/Schema</a>.</p>
+
+
+<h2><a name="Contributions"></a>Contributions</h2>
+<h3>Management</h3>
+<p>You have to be <a href="Register.po">registered</a> and <a href="LoginUser.po">logged</a> to manage your contributions online.</p>
+<p>You do so by accessing the <a href="AdminContributions.po">Contribution Administration Interface</a>. With this interface, you can see or delete your existing contributions.</p>
+
+<h3>Reviewing the Contributions</h3>
+<p>You have to be <a href="Register.po">registered</a> and <a href="LoginUser.po">logged</a> to acces the reviewing interface.</p>
+<p>You have to be part of the specialist group to validate any contribution ie to integrate it definitely into the database.</p>
+<p>You can review the contributions online by accessing the <a href="ReviewContributions.po">Contribution Reviewing Interface</a>.</p>
+ 
+<h2><a name="Misc"></a>Misc</h2>
+<p>If you need more help, please read the papillon <a href="ConsultInformations.po">publications</a>,  or send an email to
+<a href="mailto:mangeotATnii.ac.jp?subject=PapillonServer&amp;body=replace&nbsp;AT&nbsp;by&nbsp;@&nbsp;in&nbsp;the&nbsp;email&nbsp;address">Mathieu Mangeot-Nagata</a>.</p>
+</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

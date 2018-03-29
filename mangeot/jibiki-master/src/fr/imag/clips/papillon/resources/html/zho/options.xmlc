@@ -1,0 +1,12 @@
+-html:encoding utf-8
+-urlmapping "index.html" "Home.po"
+-urlmapping "infos/" "Infos.po"
+-urlmapping "consult/" "Home.po"
+-urlmapping "edit/" "Edit.po"
+-urlmapping "contacts/" "Contacts.po"
+-urlmapping "help/" "Help.po"
+-urlmapping "mailing-list/" "MailingList.po"
+-info
+-generate both 
+-create-get-tag-methods 
+-methods

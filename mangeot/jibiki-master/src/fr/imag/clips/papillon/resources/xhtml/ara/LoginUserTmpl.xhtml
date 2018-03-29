@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   <title>مصطلح</title>
+</head>
+<body>
+<div id="Formulaire" lang="ar" xml:lang="ar">
+<h1>صفحة إنشاء حساب جديد</h1>
+<p id="LoginOKMessage" style="display:none;padding: 5px; background-color: yellow;">Connexion réussie !</p>
+<p id="WrongPasswordMessage" style="display:none;padding: 5px; background-color: yellow;">Mot de passe incorrect !</p>
+<p id="UserUnknownMessage" style="display:none;padding: 5px; background-color: yellow;">Utilisateur inconnu !</p>
+<p id="UserLoggedOutMessage" style="display:none;padding: 5px; background-color: yellow;">Utilisateur déconnecté !</p>
+<form action="LoginUser.po" method="post">
+<div><input name="Destination" type="hidden" value="" id="Destination"/></div>
+<!-- login user -->
+<table width="100%" border="0" cellspacing="0" cellpadding="10" summary="Formulaire">
+<tr valign="top">	
+	<td><input id="Login" name="Login" type="text" size="10" value=""/></td>
+	<td><label for="Login" accesskey="m"><span class="accesskey">(m)</span> <b>إسم الم ستخدم</b></label></td>
+</tr>
+<tr>
+    <td><input id="Password" name="Password" type="password" size="10" value=""/></td>
+	<td><label for="Password" accesskey="s"><span class="accesskey">(s)</span> <b>كلمة السر</b></label></td>
+</tr>
+<tr>
+    <td><input id="RememberLogin" name="RememberLogin" type="checkbox" value="on"/></td>
+    <td><label for="RememberLogin">تذكر دخولي على هذا الحاسوب</label></td>     
+</tr>
+<tr>
+	<td colspan="2"><input name="Submit" type="submit" value="Login"/></td>
+</tr>
+</table>
+</form>
+    <div style="text-align:center">إذا كنت مستخدما جديدا أنشئ  
+<a href="Register.po"> حسابًا </a>أولا</div>
+    <div style="text-align:center">إذا نسيت كلمة السر من فضلك<a href="RetrieveAccount.po"> إضغط هنا !</a></div>
+</div>
+</body>
+</html>

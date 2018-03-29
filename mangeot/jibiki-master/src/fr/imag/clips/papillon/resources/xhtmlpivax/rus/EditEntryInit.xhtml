@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title>Редактор словарных статей Pivax</title>
+</head>
+<body>
+    <div id="EditEntryInitContent" lang="ru"> 
+        <h1 class="title"><span id="UserName">Пользователь</span> интерфейс редактирования</h1>
+        <script type="text/javascript">
+            <!-- 
+                // Open a new interface window to create the new entry 
+                function create() {
+                    href = 'EditEntryInit.po?action=createAnyway&VOLUME=' + document.getElementById('VOLUME').value + '&Headword=' +  document.getElementById('Headword').value;
+                    window.open(href,'EditEntry');
+                }
+            //-->
+        </script>
+        <div class="hidden">Создать <input type="text" name="Headword" id="Headword"/> в <select id="VOLUME" name="VOLUME">
+                <option id="VolumeOptionTemplate" value="NONE" label="NONE">НЕ УКАЗАНО</option>
+            </select>
+            <input name="action" id="CreateAnywayButton" type="submit" value="создать все равно" onclick="create()"/>
+        </div>
+        <div class="QueryForm" id="QueryForm">
+        </div>
+        <div id="QueryResultForm">
+        </div>
+    </div>
+</body>
+</html>

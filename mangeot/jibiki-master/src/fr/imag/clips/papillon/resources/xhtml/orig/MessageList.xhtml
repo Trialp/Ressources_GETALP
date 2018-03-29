@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <title>Papillon's mailing list</title>
+  </head>
+  <body>
+    <div id="Discussion" lang="en">
+      <form action="MailingList.po" method="post">
+        <div>
+          <input type="hidden" name="limit" value="" id="CurrentLimit" />
+          <input type="hidden" name="offset" value="" id="CurrentOffset" />
+          <table width="100%" border="1" style="bordercolor:white; bgcolor:#eeeecc" summary="Search form">
+            <tr>
+              <th colspan="3">Find messages where...</th>
+            </tr>
+            <tr>
+              <td style="bgcolor:#4682b4; font-color:#ffffff">Sender contains:</td>
+              <td style="bgcolor:#4682b4; font-color:#ffffff">Subject contains:</td>
+              <td style="bgcolor:#4682b4; font-color:#ffffff">Message contains:</td>
+            </tr>
+            <tr>
+              <td>
+                <input name="authorcontains" type="text" size="23" value="" id="AuthorContains" />
+              </td>
+              <td>
+                <input name="subjectcontains" type="text" size="23" value="" id="SubjectContains" />
+              </td>
+              <td>
+                <input name="messagecontains" type="text" size="23" value="" id="MessageContains" />
+              </td>
+            </tr>
+            <tr>
+              <td>Sort by:&nbsp;
+<select name="sort">
+  <option label="date" value="date" id="SortByDate">date</option>
+                  <option label="author" value="author" id="SortByAuthor">sender</option>
+                  <option label="subject" value="subject" id="SortBySubject">subject</option>
+                </select>
+              </td>
+              <td colspan="2">
+                <input value="Go" type="submit" />
+              </td>
+            </tr>
+          </table>
+          <table width="100%" summary="">
+            <tr>
+              <td align="left">
+Clic on the <img alt="@" src="media/arobas.png" height="15" /> button to see the sender's address.
+</td>
+              <td align="right">
+                <input id="ButtonPrevious" value="previous" type="image" name="previous" src="media/previous.gif" alt="previous messages" style="height:15; valign:middle" />
+                <span id="messageRange">0-0</span>
+                <input id="ButtonNext" value="next" type="image" name="next" src="media/next.gif" alt="next messages" style="height:15; valign:middle" />
+              </td>
+            </tr>
+          </table>
+        </div>
+      </form>
+      <table width="100%" frame="hsides" border="0" style="bordercolor:white" summary="messages">
+        <tr style="height:35" class="headerRow">
+          <th>
+            <b>Date</b>
+          </th>
+          <th colspan="2">
+            <b>Sender</b>
+          </th>
+          <th>
+            <b>Suject</b>
+          </th>
+          <th>
+            <b>Answers</b>
+          </th>
+        </tr>
+        <tr id="TemplateRow" class="cellRow">
+          <td>
+            <span id="Date">date</span>
+          </td>
+          <td>
+            <span id="Author">Author</span>
+          </td>
+          <td>
+            <form method="post" action="">
+              <div>
+              <input type="image" src="media/arobas.png" id="AuthorInput" value="" name=""
+                  onclick="alert( this.name + '@' + this.value);return false;" /></div>
+            </form>
+          </td>
+          <td>
+            <a href="" id="SubjectAnchor">
+              <span id="Subject">Subject</span>
+            </a>
+          </td>
+          <td>
+            <a href="" id="ThreadAnchor">
+              <span id="Threads">0</span>
+            </a>
+          </td>
+        </tr>
+      </table>
+
+    </div>
+  </body>
+
+</html>
+

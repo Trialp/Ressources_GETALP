@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="slv">
+
+    <h1 style="text-align:center">Gestion des dictionnaires XML</h1>
+	<script type="text/javascript">
+    <!--
+            function updateField(idField, idFieldValue) {
+              if (idField != '') {
+                theIdField = document.getElementById(idField);
+                theIdField.value = idFieldValue;
+              }
+            }
+          
+            function openUploader(parentId) {
+              // Get the id of the elements to be modified
+              var targetUrl='UploadFile.po';
+              window.open(targetUrl, parentId,'height=200,width=300,resizable');
+            }
+          
+          // -->
+      </script>
+<!-- formulaire de voir mot-->
+
+<form action="AdminDictionaries.po" method="get">
+<table width="600" border="0" cellspacing="0" cellpadding="10" summary="Formulaire">
+<tr>	
+	<td colspan="3"><b>Fichiere ou URL: &nbsp;</b><input type="button" name="upload" onclick="javascript:openUploader('url')" value="charger"/> 
+	ou bien <input name="url" id="url" type="text" size="64" value=""/>
+<p class="note">NB: Le fichier des métadonnées du dictionnaire doit être être conforme à l'élément &lt;dictionary-metadata&gt;  du schéma DML. On trouvera la dernière version du schéma à l'adresse: <a href="http://www-clips.imag.fr/geta/services/dml/dml.xsd">www-clips.imag.fr/geta/services/dml/dml.xsd</a>.</p>
+</td>
+</tr>
+<tr>
+    <td><label>Charger aussi les volumes des métadonnées:&nbsp;    
+    <input name="AddVolumes" type="checkbox" value="Load volumes"/></label></td>
+    <td><label>Charger aussi les volumes des métadonnées and Entries:&nbsp;     
+    <input name="AddVolumesAndEntries" type="checkbox" value="Charger les volumes et les entrées"/></label></td>
+    <td><label>Log les contributions: &nbsp;
+    <input name="LogContributions" type="checkbox" value="LogContributions"/></label></td>
+</tr>
+<tr>
+	<td colspan="3"><input name="Add" type="submit" value="ajouter"/></td>
+</tr>
+</table>
+</form>
+
+Dictionnaires actuellement dans la base:
+<table summary="Existing Dictionaries">
+<tr>
+	<th>Ime</th>
+	<th>vrsta</th>
+	<th>Tip</th>
+	<th>izvirni jeziki</th>
+	<th>ciljni jeziki</th>
+  <th>področje</th>
+ <th>pravno obvestilo</th>
+ <th>Metadonnées</th>
+ <th>&nbsp;|&nbsp;</th>
+ <th>Metadonnées</th>
+ <th>Tout</th>
+</tr>
+<tr id="TemplateRow">
+	<td><b><span id="Name">Ime</span></b></td>
+	<td><span id="Category">Vrsta</span></td>
+	<td><span id="Type">Tip</span></td>
+	<td><span id="Sources">Izvirni jezik</span></td>
+	<td><span id="Targets">Ciljni jezik</span></td>
+	<td><span id="Domain">področje</span></td>
+	<td><span id="Legal">pravno obvestilo</span></td>
+	<td><a href="" id="SeeAnchor">Prikaži</a></td>
+	<td>&nbsp;|&nbsp;</td>
+	<td><a href="" id="RemoveAnchor" onclick="return confirm('Etes-vous sûr de vouloir supprimer les métadonnées?')">rm</a></td>
+    	<td><a href="" id="RemoveAllAnchor" onclick="return confirm('Etes-vous sûr de vouloir supprimer les métadonnées et les entrées?')">rm</a></td>
+</tr>
+</table> 
+<div>
+<div id="Xml">
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="de">
+
+    <h1 style="text-align:center">Verwaltung der XML-W&ouml;rterb&uuml;cher</h1>
+	<script type="text/javascript">
+    <!--
+            function updateField(idField, idFieldValue) {
+              if (idField != '') {
+                theIdField = document.getElementById(idField);
+                theIdField.value = idFieldValue;
+              }
+            }
+          
+            function openUploader(parentId) {
+              // Get the id of the elements to be modified
+              var targetUrl='UploadFile.po';
+              window.open(targetUrl, parentId,'height=200,width=300,resizable');
+            }
+          
+          // -->
+      </script>
+<!-- formulaire de voir mot-->
+
+<form action="AdminDictionaries.po" method="get">
+<table width="600" border="0" cellspacing="0" cellpadding="10" summary="Formulaire">
+<tr>	
+	<td colspan="3"><b>Datei oder URL: &nbsp;</b><input type="button" name="upload" onclick="javascript:openUploader('url')" value="hochladen"/> 
+	oder <input name="url" id="url" type="text" size="64" value=""/>
+<p class="note">Bermerkung: Die Datei der W&ouml;rterb&uuml;chermetadaten mu&szlig; sich an das &lt;dictionary-metadata&gt;-Element des DML-Schemas halten.
+ Die letzte Version des Schemas wird gefunden in : <a href="http://www-clips.imag.fr/geta/services/dml/dml.xsd">www-clips.imag.fr/geta/services/dml/dml.xsd</a>.</p>
+</td>
+</tr>
+<tr>
+    <td><label>Auch Volumes-Metadaten hochladen:&nbsp;    
+    <input name="AddVolumes" type="checkbox" value="Load volumes"/></label></td>
+    <td><label>Auch Volumes-Metadaten und Eintr&auml;ge hochladen:&nbsp;     
+    <input name="AddVolumesAndEntries" type="checkbox" value="Load Volumes and Entries"/></label></td>
+    <td><label>Log contributions: &nbsp;
+    <input name="LogContributions" type="checkbox" value="LogContributions"/></label></td>
+</tr>
+<tr>
+	<td colspan="3"><input name="Add" type="submit" value="Hinzuf&uuml;gen"/></td>
+</tr>
+</table>
+</form>
+
+derzeitig in der Datenbank gespeicherte W&ouml;rterb&uuml;cher:
+<table summary="Existing Dictionaries">
+<tr>
+	<th>Name</th>
+	<th>Kategorie</th>
+	<th>Typ</th>
+	<th>Ausgangssprachen</th>
+	<th>Zielsprachen</th>
+  <th>Fachgebiet</th>
+ <th>rechtliche Hinweise</th>
+ <th>Metadaten</th>
+ <th>&nbsp;|&nbsp;</th>
+ <th>Metadaten</th>
+ <th>Alles</th>
+</tr>
+<tr id="TemplateRow">
+	<td><b><span id="Name">Name</span></b></td>
+	<td><span id="Category">Cat</span></td>
+	<td><span id="Type">Type</span></td>
+	<td><span id="Sources">Src</span></td>
+	<td><span id="Targets">Trg</span></td>
+	<td><span id="Domain">domain</span></td>
+	<td><span id="Legal">legal</span></td>
+	<td><a href="" id="SeeAnchor">Sehen</a></td>
+	<td>&nbsp;|&nbsp;</td>
+	<td><a href="" id="RemoveAnchor" onclick="return confirm('Are you sure you want to remove the metadata?')">l&ouml;schen</a></td>
+    	<td><a href="" id="RemoveAllAnchor" onclick="return confirm('Are you sure you want to remove the metadata and the entries?')">l&ouml;schen</a></td>
+</tr>
+</table> 
+<div>
+<div id="Xml">
+</div>
+</div>
+</div>
+</body>
+</html>

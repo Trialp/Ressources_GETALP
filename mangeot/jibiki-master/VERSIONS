@@ -1,0 +1,29 @@
+TAG: XALAN27_NEWDISPLAY_NO_OPTIMIZED_STATUS
+  Tags the RC1 status of the newdisplay architecture.
+
+BRANCH: XALAN27_NEWDISPLAY
+  Branched used to change the architecture of the display of entries, base on xalan 2.7.1, with xslt extension functions.
+
+TAG: MERGED_LEXALP_DRI_20070115 2007/01/15
+  Tag representing jibiki after merging of diffs from DRI instance and Lexalp instance.
+
+BRANCH: RELEASE_DRI_INRIA_0_1 2006/12/06
+  Branch for installation on the inria DRI server.
+
+TAG: RELEASE_DRI_INRIA 2006/11/21
+  Version exported for installation on the INRIA dri server.
+
+TAG: GDEF_1_0
+
+
+TAG: JIBIKI_BEFORE_MERGE 2006/03/01
+  Represent the trunk release in GDEF/Mathieu's version before merge with the Lexalp branch
+
+TAG: LEXALP_1_1
+
+TAG: PRE_LEXALP_1_1
+
+TAG: PAPILLON_5_1_b1 2005/02/05
+  Represent the trunk release of the Papillon project, with XPaths and multiple keys.
+  
+CREATION OF THE VERSIONS FILE: 2005/05/20

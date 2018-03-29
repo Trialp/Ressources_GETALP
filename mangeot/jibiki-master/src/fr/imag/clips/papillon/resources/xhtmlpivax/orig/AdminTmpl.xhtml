@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <title>Papillon</title>
+</head>
+<body>
+<div id="HomeContent" lang="en">
+<h1>Managing Caches and Archives</h1>
+ 
+
+<!-- Begining administration form -->
+<form action="Admin.po" method="get">
+<h3>Administative Message</h3>
+<div><label for="AdminMessage">Text: </label>
+<input name="AdminMessage" id="AdminMessage" type="text"/>
+<br/>
+(will be displayed by all http responses)<br/>
+<input name="AdminMessageSubmit" type="submit" value="Set"/>
+</div>
+<h3>Papillon mailing list archive</h3>
+<table width="600" border="0" cellspacing="0" cellpadding="0" summary="Formulaire">
+  <tr>
+    <td><b>Folder:</b></td> 
+    <td><input name="Folder" type="text" size="64" value=""/></td> 
+  </tr>
+<!--  <TR>
+    <TD WIDTH="25%"><B>Database URL&nbsp;:<br/>(not available)</B></TD> 
+    <TD WIDTH="75"><INPUT NAME="DbUrl" TYPE="text" SIZE="64" VALUE=""></TD> 
+  </TR>-->
+  <tr>
+    <td><b>&nbsp;Action:</b></td> 
+    <td>
+	<input name="Flush" type="submit" value="Flush"/>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input name="Update" type="submit" value="Update"/>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     	<input name="Reload" type="submit" value="Flush &amp; Reload"/></td> 
+  </tr>
+</table>
+
+<h3>Edition Interface Description Cache</h3>
+<table width="600" border="0" cellspacing="0" cellpadding="0" summary="Formulaire">
+  <tr>
+    <td><b>&nbsp;Action:</b></td> 
+    <td><input name="ResetInterfaceDescriptionCache" type="submit" value="Reset"/></td> 
+  </tr>
+</table>
+
+
+<h3>XslSheet transformers Cache</h3>
+<table width="600" border="0" cellspacing="0" cellpadding="0" summary="Formulaire">
+  <tr>
+    <td><b>&nbsp;Action:</b></td> 
+    <td><input name="ResetXslSheetTransformersCache" type="submit" value="Reset"/></td> 
+  </tr>
+</table>
+
+
+<h3>Languages Cache</h3>
+<table width="600" border="0" cellspacing="0" cellpadding="0" summary="Formulaire">
+  <tr>
+    <td><b>&nbsp;Action:</b></td> 
+    <td><input name="ResetLanguagesCache" type="submit" value="Reset"/></td> 
+  </tr>
+</table>
+<hr/>
+
+<h3>News Cache</h3>
+<table width="600" border="0" cellspacing="0" cellpadding="0" summary="Formulaire">
+  <tr>
+    <td><b>&nbsp;Action:</b></td> 
+    <td><input name="ResetNewsCache" type="submit" value="Reset"/></td> 
+  </tr>
+</table>
+<hr/>
+
+<!--h3 style="text-align:center">HTML DOM Caches</h3>
+<table width="600" border="0" cellspacing="0" cellpadding="0" summary="Formulaire">
+  <tr>
+    <td><b>&nbsp;Action:</b></td> 
+    <td><label for="HTMLDomCaches">Cache activated:</label>
+	<input id="HTMLDomCaches" name="HTMLDomCaches" type="checkbox" value="HTMLDomCaches"/>
+		&nbsp;&nbsp;
+		<input name="SetHTMLDomCaches" type="submit" value="Validate"/>
+	</td> 
+  </tr>
+</table>
+<hr/-->
+
+<h3 style="text-align:center">Data edition</h3>
+<table width="600" border="0" cellspacing="0" cellpadding="0" summary="Formulaire">
+  <tr>
+    <td><b>&nbsp;Action:</b></td> 
+    <td><label for="EditData">Edition activated:</label>
+	<input id="EditData" name="EditData" type="checkbox" value="EditData"/>
+		&nbsp;&nbsp;
+		<input name="SetEditData" type="submit" value="Validate"/>
+	</td> 
+  </tr>
+</table>
+<hr/>
+
+<h3 style="text-align:center">Index</h3>
+<table width="600" border="0" cellspacing="0" cellpadding="0" summary="Formulaire">
+  <tr>
+    <td><b>&nbsp;Action:</b></td> 
+ 	<td><b>Volumes:</b>
+            <select name="VOLUME">
+            <option id="all" value="*all*" label="all">all</option>
+            <option id="VolumeOptionTemplate" value="NONE" label="NONE">NONE</option>
+        </select>
+		 <input id="ReConstructionIndex" name="ReConstructionIndex" type="submit" value="ReConstruction"/>
+	</td>  
+ </tr>
+
+</table>
+
+<h3 style="text-align:center">Page Expire Time</h3>
+<table width="600" border="0" cellspacing="0" cellpadding="0" summary="Formulaire">
+    <tr>
+        <td><b>Expire time (in seconds):</b></td>
+        <td>
+            <input id="PageExpireTime" name="PageExpireTime" type="text" value=""/>
+            &nbsp;&nbsp;
+            
+            <input id="SetPageExpireTime" name="SetPageExpireTime" type="submit" value="SetPageExpireTime"/></td>
+    </tr>
+</table>
+
+
+<h3 style="text-align:center">Status</h3>
+<table width="600" border="0" cellspacing="0" cellpadding="0" summary="Formulaire">
+  <tr>
+    <td><b>&nbsp;Action:</b></td> 
+    <td><input id="ModifiedStatus" name="ModifiedStatus" type="submit" value="ModifiedStatus"/></td>  
+  </tr>
+</table>
+
+<h3 style="text-align:center">Standardization</h3>
+<table width="600" border="0" cellspacing="0" cellpadding="0" summary="Formulaire">
+  <tr>
+    <td><b>&nbsp;Action:</b></td> 
+    <td><input id="Standardization" name="Standardization" type="submit" value="Standardization"/></td>  
+  </tr>
+</table>
+
+<table width="600" border="0" cellspacing="0" cellpadding="0" summary="Formulaire">
+  <tr>
+    <td><b>&nbsp;Action:</b></td>
+    <td><input id="NormalizeHeadword" name="NormalizeHeadword" type="submit" value="NormalizeHeadword"/></td>
+  </tr>
+</table>
+
+</form>
+</div>
+  </body>
+</html>  

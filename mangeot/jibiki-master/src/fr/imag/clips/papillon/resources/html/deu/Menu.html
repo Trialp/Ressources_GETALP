@@ -1,0 +1,260 @@
+<HTML>
+<HEAD>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <TITLE>Menu</TITLE>
+</HEAD>
+<BODY>
+<DIV id="Menu" lang="de">
+					<table WIDTH="160" border="0" summary="Menu" cellspacing="2" cellpadding="2">
+						<tr>
+							<td>
+								<form name="LangForm" id="LangForm" action="PapillonBasePO.po">
+								<table WIDTH="100%" summary="Menu" border="1" cellspacing="0" cellpadding="3" bgcolor="#ffffff">
+									<tr>
+										<td>
+								<table width="100%" border="0" summary="User" cellspacing="0" cellpadding="3" bgcolor="#e4c690">
+										<tr>
+												<td bgcolor="white"><span class="menutitle"><a title="User Information Management" 
+												onclick="javascript:alert('Benutzer Informations-Management')" href="javascript:void(0)">Benutzer:</a></span>&nbsp;<span id="UserLogin">BenutzerLogin</span></td>
+										</tr>
+										<tr>
+													<td>
+														<table summary="Language" width="100%" border="0" cellspacing="0" cellpadding="4">
+															<tr>
+																<td align="right" bgcolor="#e4c690" width="10"></td>
+																<td bgcolor="#e4c690" valign="top"><label for="lang" accesskey="l"><span class="accesskey">S</span>prache:</label></td>
+																<td bgcolor="#e4c690" align="left" valign="top">  
+																  <span id="LangSelectPlace"></span>
+																	<noscript><input type="submit" value="Starten"></noscript></td>
+															</tr>
+															<tr>
+																<td align="right" bgcolor="#e4c690" width="10"></td>
+																<td colspan="2" bgcolor="#e4c690">
+																<span class="menulink" id="LoginAnchor"><a title="Se loguer sous un compte"
+																 href="LoginUser.po">Login</a></span>
+																<span class="menulink" id="UserProfileAnchor"><a title="Changer son profil utilisateur"
+																 href="UserProfile.po">Benutzer Profil</a></span></td>
+															</tr>
+															<tr>
+																<td align="right" bgcolor="#e4c690" width="10"></td>
+																<td colspan="2" bgcolor="#e4c690">
+																<span class="menulink" id="LogoutAnchor"><A title="Se déloguer" 
+																 href="LoginUser.po?Logout=yes"  onClick="return confirm('Are you sure you want to logout?')">Ausloggen</A></span><br>
+															</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+						</form>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<FORM name="ConsultForm" id="ConsultForm" action="Home.po">
+								<table WIDTH="100%"  summary="Lookup" border="1" cellspacing="0" cellpadding="3" bgcolor="#ffffff">
+									<tr>
+										<td>
+            <INPUT TYPE="hidden" name="RESOURCES" VALUE="*ANY*">
+
+								<table WIDTH="100%"  summary="Lookup" border="0" cellspacing="0" cellpadding="3" bgcolor="#e4c690">
+										<tr>
+												<td bgcolor="white"><span class="menutitle"><a title="Lookup and translation of a word"  onclick="javascript:alert('Nachschlagen und übersetzen eines Wortes')" href="javascript:void(0)">Nachschlagen:</a></span></td>
+										</tr>
+										<tr>
+												<td>
+											<table WIDTH="100%"  summary="Lookup" border="0" cellspacing="1" cellpadding="0">
+												<tr>
+													<td align="right" bgcolor="#e4c690"><label for="HeadwordInput" accesskey="w"><span class="accesskey">W</span>ort:</label></td>
+													<td bgcolor="#e4c690" width="2"></td>
+													<td bgcolor="#e4c690"><input type="text" id="HeadwordInput" name="HEADWORD" size="14" maxLength="40"></td>
+												</tr>
+												<tr>
+													<td align="right" bgcolor="#e4c690"><label for="Source" accesskey="s"><span class="accesskey">Q</span>uelle:</label></td>
+													<td bgcolor="#e4c690" width="2"></td>
+													<td bgcolor="#e4c690">
+<SELECT id="Source" name="SOURCE">
+<OPTION ID="SourceOptionTemplate" VALUE="NONE" LABEL="NONE">Nichts</OPTION>
+</SELECT></td>
+												</tr>
+												<tr>
+													<td align="right" bgcolor="#e4c690"><label for="Target" accesskey="t"><span class="accesskey">Z</span>iel:</label></td>
+													<td bgcolor="#e4c690" width="2"></td>
+													<td bgcolor="#e4c690">
+													<SELECT id="Target" name="TARGETS">
+	<OPTION id="AllTargets" VALUE="*ALL*" LABEL="All">Alles</OPTION>
+	<OPTION ID="TargetOptionTemplate" VALUE="NONE" LABEL="NONENONENONE">Nichts</OPTION>
+ </SELECT></td>
+												</tr>
+												<tr>
+													<td bgcolor="#e4c690"></td>
+													<td bgcolor="#e4c690" width="2"></td>
+													<td bgcolor="#e4c690"><input type="submit" name="lookup" value="Starten"></td>
+												</tr>
+												<tr>
+													<td colspan="3" bgcolor="#e4c690"><span class="menulink"><a title="Advanced Lookup of a Word" href="ConsultExpert.po">Fortgeschrittenes Nachschlagen</a></span></td>
+												</tr> 
+												<tr>
+													<td colspan="3" bgcolor="#e4c690"><span class="menulink"><a title="Dictionary List" href="ViewDictionaries.po">Wörterbuch-Liste</a></span></td>
+												</tr>
+											</table>
+												</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+						</form>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<table WIDTH="100%" border="1" id="LexieMenuTable" summary="LexieMenuTable" cellspacing="0" cellpadding="3" bgcolor="#ffffff">
+									<tr>
+										<td>
+											<table WIDTH="100%" summary="LexieMenuTable" border="0" cellspacing="0" cellpadding="3" bgcolor="#e4c690">
+												<tr>
+													<td bgcolor="white"><span class="menutitle"><a title="Management of a lexie (entry) in a dictionary" onclick="javascript:alert('Management eines Lexies Eintrages in einem Wörterbuch')" href="javascript:void(0)">Lexie:</a></span></td>
+												</tr>
+												<tr>
+													<td>
+														<table WIDTH="100%"  summary="LexieMenuTable" border="0" cellspacing="0" cellpadding="0">
+															<tr>
+																<td align="right" bgcolor="#e4c690" width="10"></td>
+																<td bgcolor="#e4c690"><span class="menulink"><a title="Lookup a lexie" href="ConsultEdit.po?STEP=1&amp;InitType=view">Ansicht</a></span></td>
+															</tr>
+															<tr>
+																<td align="right" bgcolor="#e4c690" width="10"></td>
+																<td bgcolor="#e4c690"><span class="menulink"><a title="Edit an existing lexie" href="ConsultEdit.po?STEP=1&amp;InitType=edit">Bearbeiten</a></span></td>
+															</tr>
+															<tr>
+																<td align="right" bgcolor="#e4c690" width="10"></td>
+																<td bgcolor="#e4c690"><span class="menulink"><a title="Create a new lexie" href="ConsultEdit.po?STEP=1&amp;InitType=create">Erstellen</a></span></td>
+															</tr>	
+															<tr>
+																<td align="right" bgcolor="#e4c690" width="10"></td>
+																<td bgcolor="#e4c690"><span class="menulink"><a title="My contributions" href="AdminContributions.po">Meine Beiträge</a></span></td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<table WIDTH="100%" border="1" cellspacing="0"  id="AxieMenuTable" summary="AxieMenuTable" cellpadding="3" bgcolor="#ffffff">
+									<tr>
+										<td>
+											<table WIDTH="100%" summary="AxieMenuTable" border="0" cellspacing="0" cellpadding="3" bgcolor="#e4c690">
+												<tr>
+													<td bgcolor="white"><span class="menutitle"><a title="Edition of axies (interlingual links between lexies)" onclick="javascript:alert('Bearbeiten von Axies (zwischensprachliche Verknüpfungen Zwischen Lexies)')" href="javascript:void(0)">Axie:</a></span></td>
+												</tr>
+												<tr>
+													<td>
+														<table WIDTH="100%" summary="AxieMenuTable" border="0" cellspacing="0" cellpadding="0">
+															<tr>
+																<td align="right" bgcolor="#e4c690" width="10"></td>
+																<td bgcolor="#e4c690"><span class="menulink"><a title="Lookup an existing axie" href="LookupAxies.po">Ansicht</a></span> </td>
+															</tr>
+															<tr>
+																<td align="right" bgcolor="#e4c690" width="10"></td>
+																<td bgcolor="#e4c690"><span class="menulink"><a title="Build a new axie" href="EditAxie.po">Erstellen</a></span></td>
+															</tr>
+															<tr>
+																<td align="right" bgcolor="#e4c690" width="10"></td>
+																<td bgcolor="#e4c690"><span class="menulink"><a title="My contributions" href="AdminContributions.po?VOLUME=Papillon_axi">Meine Beiträge</a></span></td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<table WIDTH="100%" border="1" cellspacing="0" cellpadding="3" id="ReviewMenuTable" summary="ReviewMenuTable" bgcolor="#ffffff">
+									<tr>
+										<td>
+											<table WIDTH="100%" summary="ReviewMenuTable" border="0" cellspacing="0" cellpadding="3" bgcolor="#e4c690">
+												<tr>
+													<td bgcolor="white"><span class="menutitle"><a title="Reviewing Dictionaries Contributions" onclick="javascript:alert('Überarbeiten von Wörterbuch-Beiträgen')" href="javascript:void(0)">Überarbeiten:</a></span></td>
+												</tr>
+												<tr>
+												  <td>
+														<table WIDTH="100%"  summary="ReviewMenuTable" border="0" cellspacing="0" cellpadding="0">
+															<tr>
+																<td align="right" bgcolor="#e4c690" width="10"></td>
+																<td bgcolor="#e4c690"><span class="menulink"><a title="Reviewing Dictionaries Contributions" href="ReviewContributions.po">Beiträge</a></span></td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<table WIDTH="100%" border="1" cellspacing="0" cellpadding="3"  id="AdminMenuTable" summary="AdminMenuTable" bgcolor="#ffffff">
+									<tr>
+										<td>
+											<table WIDTH="100%" summary="AdminMenuTable" border="0" cellspacing="0" cellpadding="3" bgcolor="#e4c690">
+												<tr>
+													<td bgcolor="white"><span class="menutitle"><a title="Administration of Papillon Server" onclick="javascript:alert('Administration des Papillon-Servers')" href="javascript:void(0)">Administration:</a></span></td>
+												</tr>
+												<tr>
+													<td>
+														<table WIDTH="100%" summary="AdminMenuTable" border="0" cellspacing="0" cellpadding="0">
+															<tr>
+																<td align="right" bgcolor="#e4c690" width="10"></td>
+																<td bgcolor="#e4c690"><span class="menulink"><a title="Management of the dictionaries on Papillon Server" href="AdminDictionaries.po">Wörterbücher</a></span></td>
+															</tr>
+															<tr>
+																<td align="right" bgcolor="#e4c690" width="10"></td>
+																<td bgcolor="#e4c690"><span class="menulink"><a title="Management of the volumes on Papillon Server" href="AdminVolumes.po">Bände</a></span></td>
+															</tr>
+															<tr>
+																<td align="right" bgcolor="#e4c690" width="10"></td>
+																<td bgcolor="#e4c690"><span class="menulink"><a title="Management of the entries on Papillon Server" href="AdminEntries.po">Einträge</a></span></td>
+															</tr>
+															<tr>
+																<td align="right" bgcolor="#e4c690" width="10"></td>
+																<td bgcolor="#e4c690"><span class="menulink"><a title="Management of the stylesheets on Papillon Server" href="AdminXsl.po">Stylesheets</a></span></td>
+															</tr>
+															<tr>
+																<td align="right" bgcolor="#e4c690" width="10"></td>
+																<td bgcolor="#e4c690"><span class="menulink"><a title="Management of the users on Papillon Server" href="AdminUsers.po">Benutzer</a></span></td>
+															</tr>
+															<tr>
+																<td align="right" bgcolor="#e4c690" width="10"></td>
+																<td bgcolor="#e4c690"><span class="menulink"><a title="Management of the various data caches of Papillon Server" href="Admin.po">Daten-Cache</a></span></td>
+															</tr>
+															<tr>
+																<td align="right" bgcolor="#e4c690" width="10"></td>
+																<td bgcolor="#e4c690"><span class="menulink"><a title="Get System Properties" href="GetSystemProperties.po">System-Eigenschaften</a></span></td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+</DIV>
+</BODY>
+</HTML>

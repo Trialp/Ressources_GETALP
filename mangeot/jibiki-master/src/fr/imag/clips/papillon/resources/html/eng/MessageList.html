@@ -1,0 +1,67 @@
+<HTML>
+<HEAD>
+<TITLE>Papillon's mailing list</TITLE>
+</HEAD>
+<BODY>
+<DIV id="Discussion" lang="en">
+<FORM ACTION="MailingList.po" METHOD="GET">
+<INPUT TYPE="HIDDEN" NAME="limit" VALUE="" ID="CurrentLimit">
+<INPUT TYPE="HIDDEN" NAME="offset" VALUE="" ID="CurrentOffset">
+<table WIDTH="100%" border="1" bordercolor="white" bgcolor="#eeeecc" summary="Search form">
+<TR><TH COLSPAN="3">Find messages where...</TH></TR>
+<TR>
+<TD bgcolor="#4682b4"><font  color="#ffffff">Sender contains:</font></TD>
+<TD bgcolor="#4682b4"><font  color="#ffffff">Subject contains:</font></TD>
+<TD bgcolor="#4682b4"><font  color="#ffffff">Message contains:</font></TD>
+</TR>
+<TR>
+<TD><INPUT NAME="authorcontains" TYPE="text" SIZE="23" VALUE="" ID="AuthorContains"></TD>
+<TD><INPUT NAME="subjectcontains" TYPE="text" SIZE="23" VALUE="" ID="SubjectContains"></TD>
+<TD><INPUT NAME="messagecontains" TYPE="text" SIZE="23" VALUE="" ID="MessageContains"></TD>
+</TR>
+<TR>
+<TD>Sort by:&nbsp;
+<SELECT Name="sort">
+  <OPTION Label="date" Value="date" Id="SortByDate">date</OPTION>
+  <OPTION Label="author" Value="author" Id="SortByAuthor">sender</OPTION>
+  <OPTION Label="subject" Value="subject" Id="SortBySubject">subject</OPTION></SELECT>
+</TD>
+<TD COLSPAN="2">
+<INPUT VALUE="Go" TYPE="submit">
+</TD>
+</TR>
+</table>
+<table width="100%" summary=""><tr><td align="left">
+Clic on the <img  alt="@" src="media/arobas.png" height="15"> button to see the sender's address.
+</td>
+<td ALIGN="right">
+<INPUT ID="ButtonPrevious" VALUE="previous" TYPE="image" name="previous" src="media/previous.gif" alt="previous messages" height="15" VALIGN="MIDDLE">
+<SPAN id="messageRange">0-0</SPAN>
+<INPUT ID="ButtonNext" VALUE="next" TYPE="image" name="next" src="media/next.gif" alt="next messages" height="15" VALIGN="MIDDLE">
+</td></tr></table>
+</form>
+<table WIDTH="100%" frame="hsides"  border="0" bordercolor="white" summary="messages">
+  <tr height="35" class="headerRow">
+    <th><b>Date</b></th>
+    <th colspan="2"><b>Author</b></th>
+    <th><b>Suject</b></th>
+    <th><b>Answers</b></th>
+  </tr>
+  <tr id="TemplateRow" class="cellRow">
+    <td><span id="Date">date</span></td>
+    <td><SPAN id="Author">Author</SPAN></td>
+    <td>
+    <FORM method="POST">
+    <INPUT TYPE="image" SRC="media/arobas.png" height="15" id="AuthorInput" value="" name="" 
+           onClick="alert( this.name + '@' + this.value);return false;">
+    </FORM></td>
+    <td><A HREF="" id="SubjectAnchor"><SPAN id="Subject">Subject</SPAN></A></td>
+    <td><A HREF="" id="ThreadAnchor"><SPAN id="Threads">0</SPAN></A></td>
+  </tr>
+</table>
+
+</DIV>
+</BODY>
+
+</HTML>
+

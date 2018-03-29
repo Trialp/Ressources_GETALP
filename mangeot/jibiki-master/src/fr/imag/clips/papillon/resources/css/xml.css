@@ -1,0 +1,78 @@
+/*
+ * Stylesheet for Papillon Web site 
+ *
+ * Style sheet for the xhtml Papillon pages
+ * $Id$
+ * ---------------------------------------------------
+ *
+ * $Log$
+ * Revision 1.2  2005/01/15 17:43:19  mangeot
+ * Added cvs Id and Log on the files
+ * 
+ *
+ * ---------------------------------------------------
+ * do not write .css at the top of the file
+ * do not write font-size : 12 pt; but : 1em or : 100%;
+ * do not write div.foo_one but div.foo-one even if _ is in the tag
+ *
+ * for font size, use pixels px instead of pt or em.
+ * 
+ * use span instead of div
+ */
+
+@page { 
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em 
+}
+p	{
+	text-align: left;
+}	
+.cheuvron {
+	font-weight:bold;
+	color: blue;
+	background: white;
+}
+.deuxp {
+	font-weight: bold;
+	color:#CC9966;			
+}
+.nom-balise{
+	font-weight: normal;
+	color: maroon;
+	background: white;
+}
+.espace-noms {
+	font-weight: bold;
+	color:#CC9966;					
+}
+.xmlcomment {
+	font-weight: normal;
+	color: grey;					
+}
+.attribut{
+	color: red;
+	backgroud: white;
+}
+.guillemet{
+	color: blue;
+	font-weight: normal;
+}
+
+.egal{
+	color: blue;				
+	font-weight: normal;
+}
+.valeur-attribut{
+	color:black;					
+	font-weight: normal;
+
+}
+.valeur-balise{
+	color:black;
+	font-weight: normal;
+}	
+.declaration-esp{
+	color:blue;
+}

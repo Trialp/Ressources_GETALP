@@ -1,0 +1,1078 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Papillon</title>
+</head>
+
+<body>
+
+<div id="ApiContent" lang="en" xml:lang="en">
+<h1 style="text-align:center">jibiki REST Application Programming Interface</h1>
+<h2>Summary</h2>
+
+<ul>
+    <li><a href="#Get_api_dictionaries"><code>GET api/*/</code></a> Get a list of dictionaries metadata</li>
+    <li><a href="#Get_api_dictionary"><code>GET api/[dictionary]</code></a> Get a dictionary metadata</li>
+    <li><a href="#Post_api_dictionary"><code>POST api/[dictionary]</code></a> Create a new dictionary</li>
+    <li><a href="#Put_api_dictionary"><code>PUT api/[dictionary]</code></a> Modify an existing dictionary</li>
+    <li><a href="#Delete_api_dictionary"><code>DELETE api/[dictionary]</code></a> Delete an existing dictionary</li>
+    <li><a href="#Get_api_volume"><code>GET api/[dictionary]/[lang]</code></a> Get a volume metadata</li>
+    <li><a href="#Post_api_volume"><code>POST api/[dictionary]/[lang]</code></a> Create a new volume</li>
+    <li><a href="#Put_api_volume"><code>PUT api/[dictionary]/[lang]</code></a> Modify an existing volume</li>
+    <li><a href="#Delete_api_volume"><code>DELETE api/[dictionary]/[lang]</code></a> Delete an existing volume</li>
+    <li><a href="#Get_api_contribution"><code>GET api/[dictionary]/[lang]/[contribid]</code></a> Get a contribution</li>
+    <li><a href="#Post_api_contribution"><code>POST api/[dictionary]/[lang]/[contribid]</code></a> Create a new contribution</li>
+    <li><a href="#Put_api_contribution"><code>PUT api/[dictionary]/[lang]/[contribid]</code></a> Modify an entire contribution</li>
+    <li><a href="#Put_api_contribution_part"><code>PUT api/[dictionary]/[lang]/[contribid]</code></a> Modify part of an existing contribution</li>
+    <li><a href="#Delete_api_contribution"><code>DELETE api/[dictionary]/[lang]/[contribid]</code></a> Delete an existing contribution</li>
+    <li><a href="#Get_api_entry"><code>GET api/[dictionary]/[lang]/[criteria]/[string]</code></a> Get entries</li>
+    <li><a href="#Get_api_entry"><code>GET api/[dictionary]/[lang]/[criteria]/[string]/[key]</code></a> Get entries</li>
+    <li><a href="#Criteria"><code>List of search criteria</code></a></li>
+    <li><a href="#Strategy"><code>List of search strategy</code></a></li>
+    <li><a href="#Authentication"><code>Authentication methods</code></a></li>
+</ul>
+
+<h3 id="Get_api_dictionaries">List of available dictionaries</h3>
+
+<table class="api">
+ <tbody>
+    <tr><td>URL</td><td><a href="api/">api/</a></td></tr>
+    <tr><td>Method</td><td>GET</td></tr>
+    <tr><td>ContentType</td><td>application/xml</td></tr>
+    <tr><td rowspan="2">Returns</td><td>200 OK &amp; XML (list of dictionaries metadata)</td></tr>
+    <tr><td>401 Unauthorized (wrong credentials)</td></tr>
+ </tbody>
+</table>
+
+<p id="NoteAvailableDictionaries">Note: available dictionaries are:</p>
+    <ul>
+        <li>dictionaries with public access</li>
+        <li>dictionaries with restricted access and the user is <a href="#Authentication">logged</a></li>
+        <li>dictionaries with private access and the user is <a href="#Authentication">logged</a> and <ul>
+            <li>in the admin group or</li>
+            <li>in the dictionary admin group or</li>
+            <li>in the dictionary validator group or</li>
+            <li>in the dictionary specialist group or</li>
+            <li>in the dictionary reader group.</li>
+        </ul>
+        </li>
+    </ul>
+
+<p>Example of query:</p>
+<pre class="api">
+    curl "api/"
+</pre>
+<p>Answer:</p>
+<pre class="api">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;d:dictionary-metadata-list xmlns:d="http://www-clips.imag.fr/geta/services/dml"&gt;
+    &lt;d:dictionary-metadata-files xmlns:d="http://www-clips.imag.fr/geta/services/dml"&gt;
+        &lt;dictionary-metadata xmlns="http://www-clips.imag.fr/geta/services/dml"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            category="bilingual"
+            creation-date="13/07/2002 00:00:00"
+            fullname="Lexique franco-japonais sur l'armement"
+            installation-date="13/07/2002 15:04:00"
+            name="Armement"
+            owner="GETALP"
+            type="monovolume"
+            xsi:schemaLocation="http://www-clips.imag.fr/geta/services/dml http://www-clips.imag.fr/geta/services/dml/dml.xsd">
+        [...]
+        &lt;/dictionary-metadata>
+    &lt;/d:dictionary-metadata-files>
+    &lt;d:dictionary-metadata-files xmlns:d="http://www-clips.imag.fr/geta/services/dml"&gt;
+    &lt;dictionary-metadata
+       xmlns="http://www-clips.imag.fr/geta/services/dml"
+       xmlns:d="http://www-clips.imag.fr/geta/services/dml"
+       xmlns:xlink="http://www.w3.org/1999/xlink"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       category="bilingual"
+       creation-date="13/07/2002 00:00:00"
+       fullname="Lexique franco-japonais sur l'armement"
+       installation-date="13/07/2002 15:04:00"
+       name="Armement"
+       owner="GETALP"
+       type="monovolume"
+       xsi:schemaLocation="http://www-clips.imag.fr/geta/services/dml http://www-clips.imag.fr/geta/services/dml/dml.xsd"&gt;
+    [...]
+    &lt;/dictionary-metadata>
+    &lt;/d:dictionary-metadata-files>
+&lt;/d:dictionary-metadata-list&gt;
+</pre>
+
+<h3 id="Get_api_dictionary">Description of a dictionary</h3>
+
+<table class="api">
+ <tbody>
+    <tr><td>URL</td><td>api/[dictionary]/</td></tr>
+    <tr><td>Method</td><td>GET</td></tr>
+    <tr><td>ContentType</td><td>application/xml</td></tr>
+     <tr><td rowspan="3">Returns</td><td>200 OK &amp; XML (dictionary metadata)</td></tr>
+     <tr><td>401 Unauthorized (wrong credentials)</td></tr>
+     <tr><td>404 Not Found</td></tr>
+ </tbody>
+</table>
+
+<p>See <a href="#NoteAvailableDictionaries">the previous note</a> for available dictionaries</p>
+
+<p>Example of query:</p>
+<pre class="api">
+    curl -u user:password "api/MyDict/"
+</pre>
+
+<p>Answer:</p>
+<pre class="api">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;d:dictionary-metadata-files xmlns:d="http://www-clips.imag.fr/geta/services/dml"&gt;
+        &lt;dictionary-metadata
+            xmlns="http://www-clips.imag.fr/geta/services/dml"
+            xmlns:d="http://www-clips.imag.fr/geta/services/dml"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            category="bilingual"
+            creation-date="13/07/2002 00:00:00"
+            fullname="My dictionary"
+            installation-date="13/07/2002 15:04:00"
+            name="MyDict"
+            owner="GETALP"
+            type="monovolume"
+            xsi:schemaLocation="http://www-clips.imag.fr/geta/services/dml http://www-clips.imag.fr/geta/services/dml/dml.xsd"&gt;
+            &lt;languages&gt;
+                &lt;source-language d:lang="fra"/>
+                &lt;source-language d:lang="jpn"/>
+                &lt;target-language d:lang="fra"/>
+                &lt;target-language d:lang="jpn"/>
+            &lt;/languages>
+            &lt;contents>general vocabulary&lt;/contents>
+            &lt;domain>general&lt;/domain>
+            &lt;source>Mathieu Mangeot - NII&lt;/source>
+            &lt;authors>MML&lt;/authors>
+            &lt;legal>all rights belong to NII&lt;/legal>
+            &lt;access>private&lt;/access>
+            &lt;comments/>
+            &lt;administrators>
+                &lt;user-ref name="toto"/>
+            &lt;/administrators>
+            &lt;volumes>
+                &lt;volume-metadata-ref source-language="fra" xlink:href="Armement_fra-metadata.xml"/>
+                &lt;volume-metadata-ref source-language="jpn" xlink:href="Armement_jpn-metadata.xml"/>
+            &lt;/volumes>
+            &lt;xsl-stylesheet name="Armement" xlink:href="Armement-view.xsl"/>
+        &lt;/dictionary-metadata>
+    &lt;/d:dictionary-metadata-files&gt;
+</pre>
+
+
+<h3 id="Post_api_dictionary">Creating a dictionary</h3>
+
+<table class="api">
+    <tbody>
+        <tr><td>URL</td><td>api/[dictionary]</td></tr>
+        <tr><td>Method</td><td>POST</td></tr>
+        <tr><td>ContentType</td><td>application/xml</td></tr>
+        <tr><td rowspan="6">Returns</td><td>201 Created &amp; XML (dict metadata)</td></tr>
+        <tr><td>400 Bad Request (XML not valid)</td></tr>
+        <tr><td>401 Unauthorized (wrong credentials)</td></tr>
+        <tr><td>409 Conflict (dictionary already existing)</td></tr>
+        <tr><td>415 Unsupported Media Type (content-type not XML)</td></tr>
+        <tr><td>422 Unprocessable Entity (XML not semantically correct)</td></tr>
+    </tbody>
+</table>
+
+<p>The data to be sent with the POST command is the XML of the dictionary metadata and optionally the XSL stylesheet associated to the dictionary.</p>
+<p>Note: the user has to be <a href="#Authentication">logged</a> and in the admin group.</p>
+
+<p>Example of query:</p>
+<pre class="api">
+    curl -X POST \
+    -u user:password \
+    -H "Accept: application/xml" \
+    -H "Content-Type: application/xml;charset=UTF-8" \
+    -d '&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;d:dictionary-metadata-files xmlns:d="http://www-clips.imag.fr/geta/services/dml"&gt;
+    &lt;dictionary-metadata
+       xmlns="http://www-clips.imag.fr/geta/services/dml"
+       xmlns:d="http://www-clips.imag.fr/geta/services/dml"
+       xmlns:xlink="http://www.w3.org/1999/xlink"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       category="bilingual"
+       creation-date="2015-05-14T07:44:55+02:00"
+       fullname="Dictionnaire japonais-français par Gustave Cesselin"
+       installation-date="2015-05-14T07:44:55+02:00"
+       last-modification-date="2015-05-14T07:45:53+02:00"
+       name="Cesselin"
+       owner="mangeot"
+       type="monodirectional"
+       xsi:schemaLocation="http://www-clips.imag.fr/geta/services/dml http://www-clips.imag.fr/geta/services/dml/dml.xsd"&gt;
+    [...]
+    &lt;/dictionary-metadata&gt;
+    &lt;xsl:stylesheet&gt;
+    [...]
+    &lt;/xsl:stylesheet&gt;
+    &lt;xsl:stylesheet&gt;
+    [...]
+    &lt;/xsl:stylesheet&gt;
+    &lt;/d:dictionary-metadata-files&gt;
+    '\
+    "api/Cesselin"
+</pre>
+
+<p>Answer is the data sent</p>
+
+
+<h3 id="Put_api_dictionary">Modifying a dictionary</h3>
+
+<table class="api">
+    <tbody>
+        <tr><td>URL</td><td>api/[dictionary]</td></tr>
+        <tr><td>Method</td><td>PUT</td></tr>
+        <tr><td>ContentType</td><td>application/xml</td></tr>
+        <tr><td rowspan="6">Returns</td><td>201 Created &amp; XML (dict metadata)</td></tr>
+        <tr><td>400 Bad Request (XML not valid)</td></tr>
+        <tr><td>401 Unauthorized</td></tr>
+        <tr><td>404 Not Found (dictionary not found)</td></tr>
+        <tr><td>415 Unsupported Media Type (content-type not XML)</td></tr>
+        <tr><td>422 Unprocessable Entity (XML not semantically correct)</td></tr>
+    </tbody>
+</table>
+
+<p>The data to be sent with the PUT command is the XML of the dictionary metadata and optionally the XSL stylesheet associated to the dictionary.</p>
+<p>Note: the user has to be <a href="#Authentication">logged</a> and in the admin group.</p>
+
+<p>Example of query:</p>
+<pre class="api">
+    curl -X PUT \
+    -u user:password \
+    -H "Accept: application/xml" \
+    -H "Content-Type: application/xml;charset=UTF-8" \
+    -d '&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;d:dictionary-metadata-files xmlns:d="http://www-clips.imag.fr/geta/services/dml"&gt;
+    &lt;dictionary-metadata
+        xmlns="http://www-clips.imag.fr/geta/services/dml"
+        xmlns:d="http://www-clips.imag.fr/geta/services/dml"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        category="bilingual"
+        creation-date="2015-05-14T07:44:55+02:00"
+        fullname="Dictionnaire japonais-français par Gustave Cesselin"
+        installation-date="2015-05-14T07:44:55+02:00"
+        last-modification-date="2015-05-14T07:45:53+02:00"
+        name="Cesselin"
+        owner="mangeot"
+        type="monodirectional"
+        xsi:schemaLocation="http://www-clips.imag.fr/geta/services/dml http://www-clips.imag.fr/geta/services/dml/dml.xsd">
+    [...]
+    &lt;/dictionary-metadata>
+    &lt;xsl:stylesheet>
+    [...]
+    &lt;/xsl:stylesheet>
+    &lt;/d:dictionary-metadata-files&gt;
+    '\
+    "api/Cesselin"
+</pre>
+
+<p>Answer is the data sent</p>
+
+<h3 id="Delete_api_dictionary">Deleting a dictionary</h3>
+
+<table class="api">
+    <tbody>
+        <tr><td>URL</td><td>api/[dictionary]</td></tr>
+        <tr><td>Method</td><td>DELETE</td></tr>
+        <tr><td rowspan="3">Returns</td><td>204 No Content &amp; XML (contribution)</td></tr>
+        <tr><td>401 Unauthorized</td></tr>
+        <tr><td>404 Not Found</td></tr>
+    </tbody>
+</table>
+
+<p>Note: the user has to be <a href="#Authentication">logged</a> and in the admin group.</p>
+
+<p>Example of query:</p>
+<pre class="api">
+    curl -X DELETE \
+    -u user:password \
+    "<a href="api/Cesselin">api/Cesselin</a>"
+</pre>
+
+<p>Answer is not significant</p>
+
+<h3 id="Get_api_volume">Description of a volume</h3>
+
+<table class="api">
+ <tbody>
+    <tr><td>URL</td><td>api/[dictionary]/[lang]/</td></tr>
+    <tr><td>Method</td><td>GET</td></tr>
+    <tr><td>ContentType</td><td>application/xml</td></tr>
+    <tr><td rowspan="3">Returns</td><td>200 OK &amp; XML (volume metadata)</td></tr>
+    <tr><td>401 Unauthorized (wrong credentials)</td></tr>
+    <tr><td>404 Not Found</td></tr>
+ </tbody>
+</table>
+
+<p>See <a href="#NoteAvailableDictionaries">the previous note</a> for available dictionaries</p>
+
+<p>Example of query:</p>
+<pre class="api">
+    curl -u user:password "api/MyDict/fra/"
+</pre>
+
+<p>Answer:</p>
+<pre class="api">
+    curl -X POST \
+    -u user:password \
+    -H "Accept: application/xml" \
+    -H "Content-Type: application/xml;charset=UTF-8" \
+    -d '&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;d:volume-metadata-files xmlns:d="http://www-clips.imag.fr/geta/services/dml"&gt;
+    &lt;volume-metadata xmlns="http://www-clips.imag.fr/geta/services/dml"
+        xmlns:d="http://www-clips.imag.fr/geta/services/dml"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        category="bilingual"
+        creation-date="2015-05-14T07:44:55+02:00"
+        fullname="Dictionnaire japonais-français par Gustave Cesselin"
+        installation-date="2015-05-14T07:44:55+02:00"
+        last-modification-date="2015-05-14T07:45:53+02:00"
+        name="Cesselin"
+        owner="mangeot"
+        type="monodirectional"
+        xsi:schemaLocation="http://www-clips.imag.fr/geta/services/dml http://www-clips.imag.fr/geta/services/dml/dml.xsd">
+    [...]
+    &lt;/volume-metadata>
+    &lt;d:template-entry>
+    [...]
+    &lt;/d:template-entry>
+    &lt;d:template-interface>
+    [...]
+    &lt;/d:template-interface>
+    &lt;xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;
+    [...]
+    &lt;/xs:schema>
+    &lt;xsl:stylesheet>
+    [...]
+    &lt;/xsl:stylesheet>
+    &lt;/d:volume-metadata-files>
+    '\
+    "api/Cesselin/jpn"
+</pre>
+
+
+<h3 id="Post_api_volume">Creating a volume</h3>
+
+<table class="api">
+    <tbody>
+        <tr><td>URL</td><td>api/[dictionary]/[lang]</td></tr>
+        <tr><td>Method</td><td>POST</td></tr>
+        <tr><td>ContentType</td><td>application/xml</td></tr>
+        <tr><td rowspan="7">Returns</td><td>201 Created &amp; XML (volume metadata)</td></tr>
+        <tr><td>400 Bad Request (XML not valid)</td></tr>
+        <tr><td>401 Unauthorized</td></tr>
+        <tr><td>404 Not Found (dictionary not found)</td></tr>
+        <tr><td>409 Conflict (volume already existing)</td></tr>
+        <tr><td>415 Unsupported Media Type (content-type not XML)</td></tr>
+        <tr><td>422 Unprocessable Entity (XML not semantically correct)</td></tr>
+    </tbody>
+</table>
+
+<p>The data to be sent with the POST command is the XML of the volume metadata, the template entry, and optionally, the XML schema, the template interface and the XSL stylesheet associated to the dictionary.</p>
+<p>Note: the user has to be <a href="#Authentication">logged</a> and in the admin group.</p>
+
+<p>Example of query:</p>
+<pre class="api">
+    curl -X POST \
+    -u user:password \
+    -H "Accept: application/xml" \
+    -H "Content-Type: application/xml;charset=UTF-8" \
+    -d '&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;d:volume-metadata-files xmlns:d="http://www-clips.imag.fr/geta/services/dml"&gt;
+    &lt;volume-metadata xmlns="http://www-clips.imag.fr/geta/services/dml" xmlns:d="http://www-clips.imag.fr/geta/services/dml" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" category="bilingual" creation-date="2015-05-14T07:44:55+02:00" fullname="Dictionnaire japonais-français par Gustave Cesselin" installation-date="2015-05-14T07:44:55+02:00" last-modification-date="2015-05-14T07:45:53+02:00" name="Cesselin" owner="mangeot" type="monodirectional" xsi:schemaLocation="http://www-clips.imag.fr/geta/services/dml http://www-clips.imag.fr/geta/services/dml/dml.xsd">
+    [...]
+    &lt;/volume-metadata>
+    &lt;d:template-entry>
+    [...]
+    &lt;/d:template-entry>
+    &lt;d:template-interface>
+    [...]
+    &lt;/d:template-interface>
+    &lt;xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;
+    [...]
+    &lt;/xs:schema>
+    &lt;xsl:stylesheet>
+    [...]
+    &lt;/xsl:stylesheet>
+    &lt;/d:volume-metadata-files>
+    '\
+    "api/Cesselin/jpn"
+</pre>
+
+<p>Answer is the data sent</p>
+
+<h3 id="Put_api_volume">Modifying a volume</h3>
+
+<table class="api">
+    <tbody>
+        <tr><td>URL</td><td>api/[dictionary]/[lang]</td></tr>
+        <tr><td>Method</td><td>PUT</td></tr>
+        <tr><td>ContentType</td><td>application/xml</td></tr>
+        <tr><td rowspan="6">Returns</td><td>201 Created &amp; XML (volume metadata)</td></tr>
+        <tr><td>400 Bad Request (XML not valid)</td></tr>
+        <tr><td>401 Unauthorized</td></tr>
+        <tr><td>404 Not Found (dictionary or volume not found)</td></tr>
+        <tr><td>415 Unsupported Media Type (content-type not XML)</td></tr>
+        <tr><td>422 Unprocessable Entity (XML not semantically correct)</td></tr>
+    </tbody>
+</table>
+
+<p>The data to be sent with the PUT command is the XML of the volume metadata, the template entry, and optionally, the XML schema, the template interface and the XSL stylesheet associated to the dictionary.</p>
+<p>Note: the user has to be <a href="#Authentication">logged</a> and in the admin group.</p>
+
+<p>Example of query:</p>
+<pre class="api">
+    curl -X PUT \
+    -u user:password \
+    -H "Accept: application/xml" \
+    -H "Content-Type: application/xml;charset=UTF-8" \
+    -d '&lt;?xml version="1.0" encoding="UTF-8"?>
+    &lt;d:volume-metadata-files xmlns:d="http://www-clips.imag.fr/geta/services/dml"&gt;
+    &lt;volume-metadata xmlns="http://www-clips.imag.fr/geta/services/dml" xmlns:d="http://www-clips.imag.fr/geta/services/dml" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" category="bilingual" creation-date="2015-05-14T07:44:55+02:00" fullname="Dictionnaire japonais-français par Gustave Cesselin" installation-date="2015-05-14T07:44:55+02:00" last-modification-date="2015-05-14T07:45:53+02:00" name="Cesselin" owner="mangeot" type="monodirectional" xsi:schemaLocation="http://www-clips.imag.fr/geta/services/dml http://www-clips.imag.fr/geta/services/dml/dml.xsd">
+    [...]
+    &lt;/volume-metadata>
+    &lt;d:template-entry>
+    [...]
+    &lt;/d:template-entry>
+    &lt;d:template-interface>
+    [...]
+    &lt;/d:template-interface>
+    &lt;xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;
+    [...]
+    &lt;/xs:schema>
+    &lt;xsl:stylesheet>
+    [...]
+    &lt;/xsl:stylesheet>
+    &lt;/d:volume-metadata-files>
+    '\
+    "api/Cesselin/jpn"
+</pre>
+
+<p>Answer is the data sent</p>
+
+
+<h3 id="Delete_api_volume">Deleting a volume</h3>
+
+<table class="api">
+    <tbody>
+        <tr><td>URL</td><td>api/[dictionary]/[lang]</td></tr>
+        <tr><td>Method</td><td>DELETE</td></tr>
+        <tr><td rowspan="3">Returns</td><td>204 No Content &amp; XML (contribution)</td></tr>
+        <tr><td>401 Unauthorized</td></tr>
+        <tr><td>404 Not Found</td></tr>
+    </tbody>
+</table>
+
+<p>Note: the user has to be <a href="#Authentication">logged</a> and in the admin group.</p>
+
+<p>Example of query:</p>
+<pre class="api">
+    curl -X DELETE \
+    -u user:password \
+    "<a href="api/Cesselin/jpn">api/Cesselin/jpn</a>"
+</pre>
+
+<p>Answer is not significant</p>
+
+
+<h3 id="Get_api_contribution">Requesting a contribution</h3>
+
+<p>Note: a contribution is an entry with its metadata (status, author, dates, etc.). A contribution is unique, wether an entry
+can have multiple values depending of its status.</p>
+
+<table class="api">
+ <tbody>
+    <tr><td>URL</td><td>api/[dictionary]/[lang]/[contributionId]</td></tr>
+    <tr><td>Method</td><td >GET</td></tr>
+    <tr><td rowspan="2">ContentType</td><td>application/xml</td></tr>
+    <tr><td>application/json</td></tr>
+    <tr><td rowspan="3">Returns</td><td >200 OK &amp; contribution (XML or json)</td></tr>
+    <tr><td>401 Unauthorized</td></tr>
+    <tr><td>404 Not Found</td></tr>
+ </tbody>
+</table>
+
+<p>Example of query:</p>
+<pre class="api">curl -X GET \
+    -H "Accept: application/xml" \
+    "<a href="api/FeM/fra/fra.abandonner.8814938.c">api/FeM/fra/fra.abandonner.8814938.c</a>"
+</pre>
+<p>Answer:</p>
+<pre class="api">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;volume name="FeM_fra" source-language="fra" target-languages="eng msa"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://www-clips.imag.fr/geta/services/dml/fem.xsd">
+&lt;d:contribution 
+	d:contribid="fra.abandonner.8814938.c" 
+	d:originalcontribid="" 
+	xmlns:d="http://www-clips.imag.fr/geta/services/dml" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www-clips.imag.fr/geta/services/dml  
+	http://www-clips.imag.fr/geta/services/dml/dml.xsd">
+	&lt;d:metadata>
+		&lt;d:author>automatic&lt;/d:author>&lt;
+		&lt;d:creation-date>2009/05/07 13:59:57&lt;/d:creation-date>
+	...	
+	&lt;d:data>
+		&lt;entry id="fra.abandonner.8814938.e">
+			&lt;headword>abandonner&lt;/headword>&lt;hom/>
+			&lt;prnc>aban-done-&lt;/prnc>
+			&lt;aux/>
+			&lt;body>
+				&lt;sense-list>
+					&lt;sense>
+					&lt;pos-list>v.tr.&lt;/pos-list>
+					...
+	&lt;/d:data>
+&lt;/d:contribution>
+&lt;/volume>
+</pre>
+
+
+<h3 id="Put_api_contribution">Modifying an entire contribution</h3>
+
+<table class="api">
+ <tbody>
+    <tr><td>URL</td><td>api/[dictionary]/[lang]/[entryId]</td></tr>
+    <tr><td>Method</td><td>PUT</td></tr>
+    <tr><td>ContentType</td><td>application/xml</td></tr>
+    <tr><td rowspan="5">Returns</td><td>201 Created &amp; XML (contribution)</td></tr>
+    <tr><td>400 Bad Request (XML not valid)</td></tr>
+    <tr><td>401 Unauthorized</td></tr>
+    <tr><td>404 Not Found</td></tr>
+    <tr><td>415 Unsupported Media Type (content-type not XML)</td></tr>
+ </tbody>
+</table>
+
+<p>The data to be sent with the PUT command is the XML of the contribution (volume + metadata + entry) or
+    the entry only (see the example).</p>
+<p>Note 1: the entry XML code must be complete with volume and contribution tags.</p>
+<p>Note 2: the user has to be <a href="#Authentication">logged</a> and in the specialist group.</p>
+
+<p>Example of query:</p>
+<pre class="api">
+curl -X PUT \
+    -u user:password \
+    -H "Accept: application/xml" \
+    -H "Content-Type: application/xml;charset=UTF-8" \
+    -d '&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;article id="jpn.ケース.14723001.e">
+  &lt;forme>
+    &lt;vedette>
+      &lt;vedette-romaji>kēsu&lt;/vedette-romaji>
+      &lt;vedette-hiragana>けえす&lt;/vedette-hiragana>
+      &lt;vedette-jpn>ケース&lt;/vedette-jpn>
+    &lt;/vedette>
+    &lt;cat-gram>名&lt;/cat-gram>
+  &lt;/forme>
+  &lt;sémantique>
+    &lt;sens>
+      &lt;texte-sens>boite, cas, ciasse&lt;/texte-sens>
+    &lt;/sens>
+  &lt;/sémantique>
+&lt;/article>
+'\
+    "api/Cesselin/jpn/jpn.ケース.14723001.e"
+</pre>
+<p>Answer:</p>
+<pre class="api">
+&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;d:contribution
+    xmlns:d="http://www-clips.imag.fr/geta/services/dml"
+    d:contribid="jpn.ケース.14723001.c"
+    d:originalcontribid="jpn.ケース.14723001.c">
+  &lt;d:metadata>
+    &lt;d:author>automatic&lt;/d:author>
+    &lt;d:groups/>
+    &lt;d:creation-date>2015/07/15 23:16:14&lt;/d:creation-date>
+    &lt;d:status>finished&lt;/d:status>
+    &lt;d:previous-classified-finished-contribution/>
+  &lt;/d:metadata>
+  &lt;d:data>
+    &lt;article id="jpn.ケース.14723001.e">
+      &lt;forme>
+        &lt;vedette>
+          &lt;vedette-romaji>kēsu&lt;/vedette-romaji>
+          &lt;vedette-hiragana>けえす&lt;/vedette-hiragana>
+          &lt;vedette-jpn>ケース&lt;/vedette-jpn>
+        &lt;/vedette>
+        &lt;cat-gram>名&lt;/cat-gram>
+      &lt;/forme>
+      &lt;sémantique>
+         &lt;sens>
+          &lt;texte-sens>boite, cas, ciasse&lt;/texte-sens>
+        &lt;/sens>
+      &lt;/sémantique>
+    &lt;/article>
+  &lt;/d:data>
+&lt;/d:contribution>
+</pre>
+
+
+<h3 id="Put_api_contribution_part">Modifying part of a contribution</h3>
+
+<table class="api">
+    <tbody>
+        <tr><td>URL</td><td>api/[dictionary]/[lang]/[contributionId]/[string]</td></tr>
+        <tr><td>Method</td><td>PUT</td></tr>
+        <tr><td>ContentType</td><td>application/xml</td></tr>
+        <tr><td rowspan="4">Returns</td><td>201 Created &amp; XML (contribution)</td></tr>
+        <tr><td>400 Bad Request (XPath not valid)</td></tr>
+        <tr><td>401 Unauthorized</td></tr>
+        <tr><td>404 Not Found</td></tr>
+    </tbody>
+</table>
+
+<p>The data to be sent with the PUT command is the xpath of the element or attribute to be modified.<br/>
+[string] is the new value.</p>
+<p>Note: the user has to be <a href="#Authentication">logged</a>.</p>
+
+<p>Example of query:</p>
+<pre class="api">
+curl -X PUT \
+    -u user:password \
+    -H "Accept: application/xml" \
+    -H "Content-Type: application/xml;charset=UTF-8" \
+    -d '/volume/d:contribution/d:data/article/vedette-jpn/text()'\
+    "api/Cesselin/jpn/jpn.ケース.14723001.c/ケース"
+</pre>
+<p>Answer:</p>
+<pre class="api">
+&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;volume>
+&lt;d:contribution
+    xmlns:d="http://www-clips.imag.fr/geta/services/dml"
+    d:contribid="jpn.ケース.14723001.c"
+    d:originalcontribid="jpn.ケース.14723001.c">
+  &lt;d:metadata>
+    &lt;d:author>automatic&lt;/d:author>
+    &lt;d:groups/>
+    &lt;d:creation-date>2015/07/15 23:16:14&lt;/d:creation-date>
+    &lt;d:status>finished&lt;/d:status>
+    &lt;d:previous-classified-finished-contribution/>
+  &lt;/d:metadata>
+  &lt;d:data>
+    &lt;article id="jpn.ケース.14723001.e">
+      &lt;forme>
+        &lt;vedette>
+          &lt;vedette-romaji>kēsu&lt;/vedette-romaji>
+          &lt;vedette-hiragana>けえす&lt;/vedette-hiragana>
+          &lt;vedette-jpn>ケース&lt;/vedette-jpn>
+        &lt;/vedette>
+        &lt;cat-gram>名&lt;/cat-gram>
+      &lt;/forme>
+      &lt;sémantique>
+         &lt;sens>
+          &lt;texte-sens>boite, cas, ciasse&lt;/texte-sens>
+        &lt;/sens>
+      &lt;/sémantique>
+    &lt;/article>
+  &lt;/d:data>
+&lt;/d:contribution>
+&lt;/volume>
+</pre>
+
+
+<h3 id="Post_api_contribution">Creating entries or contributions</h3>
+
+<table class="api">
+ <tbody>
+    <tr><td>URL</td><td>api/[dictionary]/[lang]/[entryId]</td></tr>
+    <tr><td>Method</td><td>POST</td></tr>
+    <tr><td>ContentType</td><td>application/xml</td></tr>
+    <tr><td rowspan="5">Returns</td><td>201 Created &amp; XML (contribution)</td></tr>
+    <tr><td>400 Bad Request (XML not valid)</td></tr>
+    <tr><td>401 Unauthorized</td></tr>
+    <tr><td>409 Conflict (entry already existing)</td></tr>
+    <tr><td>415 Unsupported Media Type (content-type not XML)</td></tr>
+ </tbody>
+</table>
+
+<p>The data to be sent with the POST command is the XML of the entries or contributions (entry + metadata).</p>
+<p>Note 1: the XML code of the entries or contributions must be complete with the volume tag.</p>
+<p>Note 2: the user has to be <a href="#Authentication">logged</a> and in the validator group.</p>
+
+<p>Examples of query:</p>
+<pre class="api">
+curl -X POST \
+    -u user:password \
+    -H "Accept: application/xml" \
+    -H "Content-Type: application/xml;charset=UTF-8" \
+    -d '&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;volume>
+&lt;article id="jpn.ケース.14723001.e">
+  &lt;forme>
+    &lt;vedette>
+      &lt;vedette-romaji>kēsu&lt;/vedette-romaji>
+      &lt;vedette-hiragana>けえす&lt;/vedette-hiragana>
+      &lt;vedette-jpn>ケース&lt;/vedette-jpn>
+    &lt;/vedette>
+    &lt;cat-gram>名&lt;/cat-gram>
+  &lt;/forme>
+  &lt;sémantique>
+    &lt;sens>
+      &lt;texte-sens>boite, cas, ciasse&lt;/texte-sens>
+    &lt;/sens>
+  &lt;/sémantique>
+&lt;/article>
+&lt;/volume>
+'\
+    "api/Cesselin/jpn/jpn.ケース.14723001.e"
+</pre>
+<pre class="api">
+    curl -X POST \
+    -u user:password \
+    -H "Accept: application/xml" \
+    -H "Content-Type: application/xml;charset=UTF-8" \
+    -d '@myfilename.xml'\
+    "api/Cesselin/jpn/jpn.ケース.14723001.e"
+</pre>
+<p>Note: filename.xml is an XML file containing the entry.</p>
+
+<p>Answer:</p>
+<pre class="api">
+&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;volume>
+&lt;d:contribution
+    xmlns:d="http://www-clips.imag.fr/geta/services/dml"
+    d:contribid="jpn.ケース.14723001.c"
+    d:originalcontribid="jpn.ケース.14723001.c">
+  &lt;d:metadata>
+    &lt;d:author>automatic&lt;/d:author>
+    &lt;d:groups/>
+    &lt;d:creation-date>2015/07/15 23:16:14&lt;/d:creation-date>
+    &lt;d:status>finished&lt;/d:status>
+    &lt;d:previous-classified-finished-contribution/>
+  &lt;/d:metadata>
+  &lt;d:data>
+    &lt;article id="jpn.ケース.14723001.e">
+      &lt;forme>
+        &lt;vedette>
+          &lt;vedette-romaji>kēsu&lt;/vedette-romaji>
+          &lt;vedette-hiragana>けえす&lt;/vedette-hiragana>
+          &lt;vedette-jpn>ケース&lt;/vedette-jpn>
+        &lt;/vedette>
+        &lt;cat-gram>名&lt;/cat-gram>
+      &lt;/forme>
+      &lt;sémantique>
+         &lt;sens>
+          &lt;texte-sens>boite, cas, ciasse&lt;/texte-sens>
+        &lt;/sens>
+      &lt;/sémantique>
+    &lt;/article>
+  &lt;/d:data>
+&lt;/d:contribution>
+&lt;/volume>
+</pre>
+
+
+<h3 id="Delete_api_contribution">Deleting a contribution</h3>
+
+<table class="api">
+ <tbody>
+    <tr><td>URL</td><td>api/[dictionary]/[lang]/[contributionId]</td></tr>
+    <tr><td>Method</td><td>DELETE</td></tr>
+    <tr><td rowspan="3">Returns</td><td>204 No Content &amp; XML (contribution)</td></tr>
+    <tr><td>401 Unauthorized</td></tr>
+    <tr><td>404 Not Found</td></tr>
+ </tbody>
+</table>
+
+<p>Note: the user has to be <a href="#Authentication">logged</a> and in the admin group.</p>
+
+<p>Example of query:</p>
+<pre class="api">
+curl -X DELETE \
+    -u user:password \
+    "<a href="api/Cesselin/jpn/jpn.ケース.14723001.c">api/Cesselin/jpn/jpn.ケース.14723001.c</a>"
+</pre>
+
+<p>Answer is not significant</p>
+
+
+<h3 id="Get_api_entry">Querying entries</h3>
+
+<table class="api">
+ <tbody>
+    <tr><td>URL</td><td colspan="2">api/[dictionary]/[lang]/[criteria]/[string]</td></tr>
+    <tr><td>URL</td><td colspan="2">api/[dictionary]/[lang]/[criteria]/[string]/[key]</td></tr>
+    <tr><td rowspan="2">ContentType</td><td  colspan="2">application/xml</td></tr>
+    <tr><td colspan="2">application/json</td></tr>
+    <tr><td>Method</td><td colspan="2">GET</td></tr>
+    <tr><td rowspan="4">Querystring</td><td>strategy=</td><td>strategy</td></tr>
+    <tr><td>count=</td><td>count</td></tr>
+    <tr><td>startIndex=</td><td>startIndex</td></tr>
+    <tr><td>orderBy=</td><td>asc / desc</td></tr>
+    <tr><td rowspan="3">Returns</td><td colspan="2">200 OK &amp; XML or JSON (entry handle, key value or full XML)</td></tr>
+    <tr><td colspan="2">401 Unauthorized</td></tr>
+    <tr><td colspan="2">404 Not Found</td></tr>
+ </tbody>
+</table>
+
+<p>The searches with the [key] part give the value of the key for the corresponding entries.
+For example, searching an entry with <i>api/*/eng/cdm-headword/trial/cdm-pos</i> will give a list of 
+parts-of-speech for the "trial" entry.</p>
+
+<p>Several keys can be used at once. They have to be separated with the "|" pipe symbol.
+For example, searching an entry with <i>api/*/jpn/cdm-headword|cdm-reading/ぜんとう/</i> will give a list of
+handles for entries with headwords or readings matching "ぜんとう".</p>
+
+<p>It is possible to query all the dictionaries by putting a <b>*</b> instead of the name of the dictionary.
+It is also possible to do the same for the [lang] and [key] part of the URL.</p>
+
+<p>Several strings can be queried at once. They have to be separated with the "|" pipe symbol.
+For example, searching an entry with <i>api/*/eng/cdm-headword/trial|essay/</i> will give a list of
+handles for entries with headwords matching "trial" or "essay".</p>
+
+<p>The <b>handle</b> criteria is special as it does not give a list of entry handles but the full entry XML
+ content.</p>
+
+<p>Example of query:</p>
+<pre class="api">
+curl -X GET \
+    -H "Accept: application/xml" \
+    "<a href="api/FeM/fra/cdm-headword/abandon?strategy=EQUAL">api/FeM/fra/cdm-headword/abandon?strategy=EQUAL</a>"
+</pre>
+<p>Answer:</p>
+<pre class="api">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;entry-list xmlns="http://www-clips.imag.fr/geta/services/dml">
+	&lt;entry dictionary="FeM" lang="fra"&gt;
+		&lt;criteria value='cdm-headword'&gt;abandon&lt;/criteria&gt;
+		&lt;handle&gt;8814938&lt;/handle&gt;
+	&lt;/entry&gt;
+&lt;/entry-list&gt;
+</pre>
+
+<p>Example of query:</p>
+<pre class="api">
+curl -X GET \
+    -H "Accept: application/xml" \
+    "<a href="api/FeM/fra/cdm-headword/abandonner/cdm-pos">api/FeM/fra/cdm-headword/abandonner/cdm-pos</a>"
+</pre>
+<p>Answer:</p>
+<pre class="api">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;entry-list xmlns="http://www-clips.imag.fr/geta/services/dml">
+	&lt;entry dictionary="FeM" lang="fra"&gt;
+		&lt;criteria value='cdm-headword'&gt;abandonner&lt;/criteria&gt;
+		&lt;handle&gt;8814938&lt;/handle&gt;
+		&lt;key value='cdm-pos'&gt;v.t.&lt;/key&gt;
+	&lt;/entry&gt;
+&lt;/entry-list&gt;
+</pre>
+
+<p>Example of query:</p>
+<pre class="api">
+curl -X GET \
+    -H "Accept: application/xml" \
+    "<a href="api/FeM/fra/handle/8814938">api/FeM/fra/handle/8814938</a>"
+</pre>
+<p>Answer:</p>
+<pre class="api">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;volume name="FeM_fra" source-language="fra" target-languages="eng msa"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://www-clips.imag.fr/geta/services/dml/fem.xsd">
+&lt;d:contribution 
+	d:contribid="fra.abandonner.8814938.c" 
+	d:originalcontribid="" 
+	xmlns:d="http://www-clips.imag.fr/geta/services/dml" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www-clips.imag.fr/geta/services/dml  
+	http://www-clips.imag.fr/geta/services/dml/dml.xsd">
+	&lt;d:metadata>
+		&lt;d:author>automatic&lt;/d:author>&lt;
+		&lt;d:creation-date>2009/05/07 13:59:57&lt;/d:creation-date>
+	...	
+	&lt;d:data>
+		&lt;entry id="fra.abandonner.8814938.e">
+			&lt;headword>abandonner&lt;/headword>&lt;hom/>
+			&lt;prnc>aban-done-&lt;/prnc>
+			&lt;aux/>
+			&lt;body>
+				&lt;sense-list>
+					&lt;sense>
+					&lt;pos-list>v.tr.&lt;/pos-list>
+					...
+	&lt;/d:data>
+&lt;/d:contribution>
+&lt;/volume>
+</pre>
+
+<p>Example of query:</p>
+<pre class="api">
+curl -X GET \
+    -H "Accept: application/json" \
+    "<a href="api/Cesselin/jpn/cdm-headword/テーブル/?strategy=EQUAL">api/Cesselin/jpn/cdm-headword/テーブル/?strategy=EQUAL</a>"
+</pre>
+
+<p>Answer:</p>
+<pre class="api">
+{"entry-list": {
+  "entry": {
+    "handle": "19734730",
+    "criteria": {
+      "content": "テーブル",
+      "name": "cdm-headword",
+      "value": "テーブル",
+      "strategy": "EQUAL"
+    },
+    "dictionary": "Cesselin",
+    "lang": "jpn"
+  },
+  "xmlns": "http://www-clips.imag.fr/geta/services/dml"
+}}
+</pre>
+
+<h4 id="Criteria">Criteria and keys</h4>
+
+<p>Criteria only are one of the following:</p>
+
+<table class="api">
+ <tbody>
+    <tr><td>handle</td><td>unique entry handle specific to the server database</td></tr>
+    <tr><td>previous</td><td>previous entry following the volume lexicographic order</td></tr>
+    <tr><td>next</td><td>previous entry following the volume lexicographic order</td></tr>
+ </tbody>
+</table>
+
+<p>For the above criteria, the string must be an entry handle.</p>
+
+<p>Criteria and keys are one of the following:</p>
+
+<table class="api">
+ <tbody>
+    <tr><td>cdm-entry-id</td><td>entry id</td></tr>
+    <tr><td>cdm-headword</td><td>entry headword</td></tr>
+    <tr><td>cdm-headword-variant</td><td>entry headword variant</td></tr>
+    <tr><td>cdm-reading</td><td>entry headword reading (ex: japanese kana)</td></tr>
+    <tr><td>cdm-writing</td><td>entry headword transcription (ex: pinyin for Chinese)</td></tr>
+    <tr><td>cdm-pronunciation</td><td>entry headword pronunciation (Usually in IPA but it depends on the resource)</td></tr>
+    <tr><td>cdm-pos</td><td>entry part-of-speech (can be "n", "noun", etc. It depends on the resource)</td></tr>
+    <tr><td>cdm-translation</td><td>entry headword translation in another language</td></tr>
+    <tr><td>cdm-example</td><td>entry examples</td></tr>
+    <tr><td>cdm-idiom</td><td>entry idioms</td></tr>
+    <tr><td>cdm-contribution-id</td><td>contribution id</td></tr>
+    <tr><td>cdm-contribution-author</td><td>contribution author</td></tr>
+    <tr><td>cdm-contribution-creation-date</td><td>contribution creation date</td></tr>
+    <tr><td>cdm-contribution-finition-date</td><td>contribution finition date</td></tr>
+    <tr><td>cdm-contribution-status</td><td>contribution status</td></tr>
+ </tbody>
+</table>
+
+<p>Note: criteria and keys depend on the resource. A criteria or a key might not be available for one specific resource.
+Other criteria and keys not in the list may exist only for one specific resource.</p>
+
+<p>cdm stands for Common Dictionary Markup</p>
+
+<p>Keys only are one of the following:</p>
+
+<table class="api">
+ <tbody>
+    <tr><td>entries</td><td>XML code of the 100 first entries satisfying the criteria</td></tr>
+    <tr><td>pivax</td><td>UNL translations of a word via axemes and axies</td></tr>
+ </tbody>
+</table>
+
+<h4 id="Strategy">Strategy</h4>
+<p>Strategy is one of the following:</p>
+
+<table class="api">
+ <tbody>
+    <tr><td>EQUAL</td><td>indexed search</td></tr>
+    <tr><td>CASE_SENSITIVE_STARTS_WITH</td><td>indexed search</td></tr>
+    <tr><td>CASE_SENSITIVE_ENDS_WITH</td><td>sequential search</td></tr>
+    <tr><td>CASE_SENSITIVE_CONTAINS</td><td>sequential search</td></tr>
+    <tr><td>CASE_INSENSITIVE_EQUAL</td><td>indexed search</td></tr>
+    <tr><td>CASE_INSENSITIVE_STARTS_WITH</td><td>indexed search</td></tr>
+    <tr><td>CASE_INSENSITIVE_ENDS_WITH</td><td>sequential search</td></tr>
+    <tr><td>CASE_INSENSITIVE_CONTAINS</td><td>sequential search</td></tr>
+    <tr><td>NOT_EQUAL</td><td>indexed search</td></tr>
+    <tr><td>GREATER_THAN</td><td>indexed search</td></tr>
+    <tr><td>GREATER_THAN_OR_EQUAL</td><td>indexed search</td></tr>
+    <tr><td>LESS_THAN</td><td>indexed search</td></tr>
+    <tr><td>LESS_THAN_OR_EQUAL</td><td>indexed search</td></tr>
+ </tbody>
+</table>
+
+<p>Default strategy is <code>CASE_INSENSITIVE_STARTS_WITH</code></p>
+
+<ul>
+	<li>All the answers are in XML and encoded in UTF-8.</li>
+	<li><em>lang</em> is the ISO 639-2/T 3 letter code of the language (eg: 'eng' for English,'esp' for Spanish,'fra' for French, etc.)</li>
+	<li>All parameters are case sensitive (dictionary, contributionId, string, etc.)</li>
+</ul>
+ 
+ <h3>Querying entries using link (for pivax data)</h3>
+
+<table class="api">
+ <tbody>
+    <tr><td>URL</td><td colspan="2">api/[dictionary]/[lang]/link/[headword]</td></tr>
+    <tr><td>Method</td><td colspan="2">GET</td></tr>
+    <tr><td rowspan="2">ContentType</td><td>application/xml</td></tr>
+    <tr><td>application/json</td></tr>
+    <tr><td rowspan="3">Returns</td><td colspan="2">200 OK &amp; XML (entryId, headword)</td></tr>
+    <tr><td colspan="2">401 Unauthorized</td></tr>
+    <tr><td colspan="2">404 Not Found</td></tr>
+ </tbody>
+</table>
+
+<p>Example of query:</p>
+<pre class="api">
+    curl -X GET \
+    -H "Accept: application/xml" \
+    "<a href="api/CommonUNLDict/fra/link/manger">api/CommonUNLDict/fra/link/manger</a>"
+</pre>
+<p>Answer:</p>
+<pre class="api">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;entry-list>
+	&lt;entry dictionary="CommonUNLDict" lang="eng">
+		&lt;entryId>eng.eat.v&lt;/entryId>
+		&lt;headword>eat&lt;/headword>
+	&lt;/entry>
+	&lt;entry dictionary="CommonUNLDict" lang="fra">
+		&lt;entryId>fra.manger.v&lt;/entryId>
+		&lt;headword>manger&lt;/headword>
+	&lt;/entry>
+		&lt;entry dictionary="CommonUNLDict" lang="unl">
+		&lt;entryId>eat(icl>consume>do,agt>living_thing,obj>concrete_thing,ins>thing)&lt;/entryId>
+		&lt;headword>eat&lt;/headword>
+	&lt;/entry>
+&lt;/entry-list>
+</pre>
+
+<h3 id="Authentication">Authentication methods</h3>
+<p>Authentication method is one of the following:</p>
+
+<table class="api">
+    <tbody>
+        <tr><td>BasicAuth</td><td>login and password are encoded in base 64 and sent to the server in the request header.
+        This method is not secure because the encryption method is easy to decrypt.</td></tr>
+        <tr><td>Authentication cookie</td><td>cookies are sent to the server in the request header. In order to ask for an authentication cookie, please visit the <a href="LoginUser.po">login page</a>.</td></tr>
+        <tr><td rowspan="3">Querystring</td><td>login=login</td></tr>
+        <tr><td>password=password</td></tr>
+        <tr><td>This method is not secure at all : login and password are sent in cleartext.
+            They will even be registered on the web server logs!</td></tr>
+    </tbody>
+</table>
+
+
+<h2>Misc</h2>
+<p>If you need more help, send an email to
+<a href="mailto:mathieu.mangeotATimag.fr?subject=jibikiServer&amp;body=replace&nbsp;AT&nbsp;by&nbsp;@&nbsp;in&nbsp;the&nbsp;email&nbsp;address">Mathieu Mangeot</a>.</p>
+</div>
+</body>
+</html>

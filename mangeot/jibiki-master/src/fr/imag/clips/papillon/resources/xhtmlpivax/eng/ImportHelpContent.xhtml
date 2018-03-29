@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>Papillon</title>
+</head>
+
+<body>
+
+<div id="ImportHelpContent" lang="en">
+
+  <h1 style="text-align:center">Help for Information Documents Addition</h1>
+
+<p>
+<a href="AdminInformations.po">Back</a> to Information Documents Administration Page
+</p>
+
+<p>It is possible to add on the Papillon server monolingual or multilingual documents of any type. 
+Archive files (TAR or ZIP files) may be multilingual, while simple files (HTML, PDF, RTF, GIF, etc.) are monlingual.<br/>
+When a GZipped file is sent to be added, it is first unpacked; the file obtained is not directly added but treated exactly as if it was sent in its unpacked form.</p>
+
+<h2>1. Addition of archive files (.tar, .zip)</h2>
+<h3>1.1. Addition Process</h3>
+<p>The archive is unpacked; its contents is analyzed, and then added. It can be a single compressed folder.
+In that case, the term "root" indicates its contents. You can put on the archive root an XML file 
+named <b>info_doc.xml</b> wich avoids having to fill the import form. This info_doc.xml description file indicates:</p>
+<ul>
+  <li>the section where you wish to put the document,</li>
+  <li>the author(s) name(s),</li>
+  <li>the title of the document in each available language,</li>
+  <li>the creation date of the document (optional),</li>
+  <li>some reference text if it is a publication (optional).</li>
+</ul>
+<p>If information have been entered in the form, it is ignored and replaced by those contained in info_doc.xml.<br/>
+The format of info_doc.xml is defined by the XML Schema <a href="XMLSchema.po">info_doc.xsd</a>.</p>
+<p>ATTENTION: for HTML files, do not use any hexadecimal character entities like &amp;#x8A93; as the Tidy parser seems not able to recognize them.</p>
+<h3>1.2. Different archives types</h3>
+<p>There are three types of archives, wich are treated differently:</p>
+<ul>
+  <li>A multilingual HTML archive consists of a mini HTML site in several languages.</li>
+  <li>A multilingual non-HTML archive contains several version of a same non-HTML document (for example a PDF or a RTF document) in different languages.</li>
+  <li>A monolingual archive has a free content (it should not have the same format as a multilingual archive).</li>
+</ul>
+<p>A multilingual archive must have on its root the info_doc.xml file and then, for each language, a folder bearing the ISO 639-2/T 3 letter code 
+corresponding to this language.The languages currently accepted are: <b>deu</b> (German), <b>eng</b> (English), <b>esp</b> (Spanish), <b>fra</b> (French), <b>hun</b> (Hungarian), <b>ita</b> (Italian), <b>jpn</b> (Japanese), <b>lao</b> (Lao), <b>msa</b> (Malay), <b>tha</b> (Thai), <b>vie</b> (Vietnamese), etc.<br/>
+No other folder should be on the archive root, otherwise the document will be treated as a monolingual one.</p>
+<h4>1 Multilingual HTML archives</h4>
+<p>Each folder bearing a language name must at least contain a file named index.htm(l) or default.htm(l) that will be the entry point for this language. If there's no info_doc.xml file, you can fill in the <b>Author</b> field of the form; the document's titles for each language will be retrieved from the &lt;title&gt; tag of the index files.<br/>
+<br/>
+Example:<br/>
+<img src="media/html_archive.jpg" alt="Multilingual HTML archive"/></p>
+<h4>2 Multilingual non-HTML archives</h4>
+<p>Each folder bearing a language name must contain exactly one file, wich is the version of the document in this language. The information file info_doc.xml is required.<br/>
+<br/>
+Example:<br/>
+<img src="media/media_archive.jpg" alt="Multilingual non-HTML archive"/></p>
+<h4>3 Monolingual archives</h4>
+<p>If it consists of a set of HTML page, a file named index.htm(l) or default.htm(l) is required on the archive root.
+If there is no info_doc.xml, you must fill in the <b>Title</b> field of the form and indicate the language of the document.<br/>
+<br/>
+Example:<br/>
+<img src="media/mono_archive.jpg" alt="Monolingual archive"/></p><br/>
+<h2>2. Addition of simple files</h2>
+<p>You have to type a title and select the language of the document.</p>
+<p>
+<a href="AdminInformations.po">Back</a> to Information Documents Administration Page
+</p>
+
+</div>
+</body>
+</html>

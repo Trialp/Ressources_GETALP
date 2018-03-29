@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Consultation of Papillon Lexical Database</title>
+  </head>
+  <body>
+    <div id="ConsultContent"  xml:lang="fr" lang="fr">
+      <form id="ConsultForm" action="ConsultExpert.po">
+        <table width="100%" style="border:1; bordercolor:white; bgcolor:#eeeecc;" summary="Search form">
+          <tr>
+            <td>
+              <b><label for="SOURCE">Source&nbsp;:</label></b>
+              <select id="SOURCE" name="SOURCE">
+                <option id="SourceOptionTemplate" value="NONE" label="NONE">NONE</option>
+              </select>
+            </td>
+            <td valign="middle">
+              <b><label for="Targets">Cibles&nbsp;:</label></b>
+              <select id="Targets" name="TARGETS" size="3" multiple="multiple">
+                <option value="*ANY*" label="ANY">Toutes</option>
+                <option id="TargetOptionTemplate" value="NONE" label="NONE">NONE</option>
+              </select>
+            </td>
+            <td valign="middle">
+              <b><label for="Resources">Dictionnaires&nbsp;:</label></b>
+              <select id="Resources" name="RESOURCES" size="3" multiple="multiple">
+                <option value="*ANY*" label="ANY">Tous</option>
+                <option id="ResourceOptionTemplate" value="NONE" label="NONE">NONE</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td style="bgcolor:#4682b4;">
+              <input id="search1text" name="search1text" type="text" size="15" value="" /> est			  
+               <select id="Strategy1" name="Strategy1">
+                <option value="0" label="exactement">exactement</option>
+                <option value="1" label="prefixe de">préfixe de</option>
+                <option value="2" label="suffixe de">suffixe de</option>
+                <option value="3" label="sous-chaine de">sous-chaîne de</option>
+                <option value="4" label="exact hors casse de">exact hors casse de</option>
+                <option value="5" label="prefix hors casse de">préfixe hors casse de</option>
+                <option value="6" label="suffixe hors casse de">suffixe hors casse de</option>
+                <option value="7" label="sous-chaine hors casse de">sous-chaîne hors casse de</option>
+                <option value="8" label="lemme de">lemme de</option>
+                <option value="9" label="foks japonais de">FOKS Japonais de</option>
+              </select>
+              <select id="search1" name="search1">
+                <option value="cdm-headword" label="le mot-vedette">le mot-vedette</option>
+                <option value="cdm-pos" label="la categorie">la catégorie</option>
+				<option value="cdm-pronunciation" label="la prononciation">la prononciation</option>
+                <option value="cdm-reading" label="la transcription">la transcription</option>
+                <option value="cdm-translation" label="la traduction">la traduction</option>
+                <option value="cdm-example" label="les exemples">les exemples</option>
+                <option value="AnyContains" label="tout l'article">tout l'article</option>
+              </select><br /><a href="http://www.foks.info">foks info</a>
+            </td>
+			<td> et </td>
+             <td style="bgcolor:#4682b4;">
+              <input id="search2text" name="search2text" type="text" size="15" value="" /> est
+               <select id="Strategy2" name="Strategy2">
+                <option value="0" label="exactement">exactement</option>
+                <option value="1" label="prefixe de">préfixe de</option>
+                <option value="2" label="suffixe de">suffixe de</option>
+                <option value="3" label="sous-chaine de">sous-chaîne de</option>
+                <option value="4" label="exact hors casse de">exact hors casse de</option>
+                <option value="5" label="prefix hors casse de">préfixe hors casse de</option>
+                <option value="6" label="suffixe hors casse de">suffixe hors casse de</option>
+                <option value="7" label="sous-chaine hors casse de">sous-chaîne hors casse de</option>
+                <option value="8" label="lemme de">lemme de</option>
+                <option value="9" label="foks japonais de">FOKS Japonais de</option>
+              </select>
+              <select id="search2" name="search2">
+                <option value="cdm-headword" label="le mot-vedette">le mot-vedette</option>
+                <option value="cdm-pos" label="la categorie">la catégorie</option>
+				<option value="cdm-pronunciation" label="la prononciation">la prononciation</option>
+                <option value="cdm-reading" label="la transcription">la transcription</option>
+                <option value="cdm-translation" label="la traduction">la traduction</option>
+                <option value="cdm-example" label="les exemples">les exemples</option>
+                <option value="AnyContains" label="tout l'article">tout l'article</option>
+             </select>
+            </td>
+            <td style="bgcolor:#4682b4;">
+				<input id="LOOKUP" name="LOOKUP" type="submit" value="Chercher"/>
+				<input id="RESET" name="RESET" type="submit" value="Initialiser"/>
+            </td>
+          </tr>
+        </table>
+      </form>
+      <br />
+      <div id="SorryMessage" style="align:center;">Désolé, cet article n'existe pas encore, Vous pouvez contribuer en <a href="ConsultEdit.po?STEP=1&amp;InitType=create">l'ajoutant</a> au dictionnaire !</div>
+      <div id="ReverseLookupMessage" class="hidden" style="align: center"><p style="align: center">Aucun article trouvé en consultation directe. Ces articles ont été trouvés en consultation renversée. Les traductions peuvent ne pas correspondre.</p></div>      
+      <table id="EntryListTable" width="100%" frame="hsides" style="border:0; bgcolor:#faecc9" summary="entries">
+        <thead>
+		 <tr>
+			<td colspan="5"><span id="EntryNumber">0</span> articles trouvés&nbsp;:</td>
+		 </tr>
+          <tr>
+			<th>Mot-vedette</th>
+			<th>Idf</th>
+			<th>Auteur</th>
+			<th>Classe gram.</th>
+			<th>Dictionnaire</th>
+          </tr>
+		  <tr>
+			<td colspan="5" align="center"><a href="" id="PreviousEntriesAnchor">&lt;&lt; Articles précédents &lt;&lt;</a></td>
+		  </tr>
+        </thead>
+	    <tfoot>
+		  <tr>
+			<td colspan="5" align="center"><a href="" id="NextEntriesAnchor">&gt;&gt; Articles suivants &gt;&gt;</a></td>
+		  </tr>
+	    </tfoot>
+         <tbody>
+          <tr id="EntryListRow" style="bgcolor:#eeeecc">
+  <!-- resultItemStart -->
+            <td>
+              <span class="bodylink">
+                <a href="" id="EntryAnchor">
+                  <span id="Vocable">Vocable</span>
+                </a>
+              </span>
+            </td>
+            <td>
+              <span id="EntryIdList">Vocable</span>
+            </td>
+            <td>
+                <span id="AuthorList">ListAuteur</span>
+            </td>
+            <td>
+              <span id="PosEntry">pos</span>
+            </td>
+            <td>
+              <span id="DictionaryName">NomDico</span>
+            </td>
+    <!-- resultItemEnd -->
+          </tr>
+          <tr id="FormulaRow">
+            <td colspan="5">&nbsp;&nbsp;&nbsp;&nbsp;<span id="Formula">Formule</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div>
+        <table summary="Foks Entries" id="FoksEntries" class="result" style="align:center;bgcolor:e6e6fa;" cellpadding="1" cellspacing="1" border="0" width="90%">
+          <thead>
+            <tr>
+              <th class="result">Entrée</th>
+              <th class="result">Écriture</th>
+              <th class="result">Grade</th>
+              <th class="result">Traduction</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td colspan="4" align="right">
+                <hr />
+                <div class="copyright">© 2002-2003 <a href="mailto:sbilacATcl.cs.titech.ac.jp?subject=PapillonServer&amp;body=replace&nbsp;AT&nbsp;by&nbsp;@&nbsp;in&nbsp;the&nbsp;email&nbsp;address">Slaven Bilac</a>,  Tokyo Institute of Technology. All rights reserved.</div>
+              </td>
+            </tr>
+          </tfoot>
+          <tbody>
+            <tr id="FoksRow">
+              <td class="result" align="center" style="nowrap:nowrap">
+                <span id="FoksEntry">Entrée</span>
+              </td>
+              <td class="result" align="center" style="nowrap:nowrap">
+                <span id="FoksWriting">Ecriture</span>
+              </td>
+              <td class="result" align="center" style="nowrap:nowrap">
+                <span id="FoksGrade">Grade</span>
+              </td>
+              <td class="result" align="center" style="nowrap:nowrap">
+                <a id="FoksHref" href="EditLexie.po">Tranduction</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <table width="100%" id="VolumeEntries" frame="hsides" border="0" style="bordercolor:white" summary="dicocontent">
+        <tr id="StylesheetRow" style="bgcolor:#eeeecc">
+          <td id="StylesheetCell"></td>
+        </tr>
+        <tr id="EntryRow">
+          <td valign="top">
+            <p style="text-align:right">
+				<span class="hidden" id="DeleteButton"><a id="DeleteHref" href="ReviewContributions.po">Supprimer</a></span>
+              <b>
+                <span id="resourceName">resource</span>
+              </b>
+            </p>
+            <p style="text-align:justify" id="EntryDiv"></p>
+            <p style="text-align:right">
+              <a href="#_top">
+                <img src="media/top.gif" alt="top" height="16" width="16" />
+              </a>
+            </p>
+            <hr />
+          </td>
+      </tr>
+      </table>
+    </div>
+  </body>
+</html>

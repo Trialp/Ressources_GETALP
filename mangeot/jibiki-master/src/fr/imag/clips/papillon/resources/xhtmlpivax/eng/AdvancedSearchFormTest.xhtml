@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Menu</title>
+    <script type="text/javascript">
+    
+        //
+        function addOrRemoveCriterion(caller, action) {
+            document.getElementById('Action').value = action + caller;
+            document.getElementById("SearchForm").submit();
+        }
+
+    </script>
+  </head>
+  <body>
+   <script type="text/javascript">
+                     </script>
+    <div id="AdvancedSearchFormTest" lang="fr" xml:lang="fr">
+      <form id="SearchFormTest" action="">
+        <div style="display:block; padding:5px;">
+          <table border="0" cellpadding="0" cellspacing="0" summary="Search Form" width="100%">
+            <tr valign="top">
+              <td>
+                <div id="WordSearch" style="padding:5px; ">
+                  <b>Word :</b>
+                  <br/>
+					<input type="text" id="ValueWord" name="VALUEWORD" size="14" maxlength="128"/>
+                </div>
+              </td>
+              <td>
+              	<div id="Source" style="padding:5px; ">
+                  <b>Langue Source :</b>
+                  <br/>
+					<select id="SourceLang" name="SOURCE.0" class="menuVariableValueWidth" >
+                        <option id="SourceOptionTemplate" value="NONE" label="NONE">NONE</option>
+                    </select>
+                </div>
+              </td>
+              <td>
+                <div id="CriteriaZone" style=" padding:5px;">
+                  <b>Liens des entrées</b>
+                  <div id="criterion" style="display:block; margin-left: 10px;">
+                    <img id="minus" onclick="addOrRemoveCriterion(this.id, '-');" src="media/minus.jpg" alt="-" width="15"/>
+                    <img id="plus" onclick="addOrRemoveCriterion(this.id, '+');" src="media/plus.jpg" alt="+" width="15"/>
+                    <select id="Facet" name="FACET" onchange="hideOrNotSourceLang(value, name);" >
+                      <option value="weight" label="Poids">Poids</option>
+                      <option value="dictionnary" label="Dictionnaire">Dictionnaire</option>
+                      <option value="target" label="Langue Cible">Langue Cible</option>
+                    </select>
+                    <select id="Operator" name="OPERATOR" >
+                      <option value="0" label="est">est</option>
+                      <option value="1" label="plus grand que">plus grand que</option>
+                      <option value="2" label="plus petit que">plus petit que</option>
+                    </select>
+                    <input type="text" id="ValueField" name="FACETVALUE" size="14" maxlength="128"/>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+          </div>
+          <div style="display:block; padding: 5px;">
+            <b>Affiche </b>
+            <select id="NumberOfResultPerPage" name="NB_RESULT_PER_PAGE">
+              <option label="10" value="10">10</option>
+              <option label="20" value="20">20</option>
+              <option label="50" value="50">50</option>
+              <option label="100" value="100">100</option>
+              <!--option label="all" value="0">tous les</option-->
+            </select>
+            <b>résultats par page avec la forme </b>
+            <select id="Xsl" name="XSL">
+              <option label="par défaut" value="">par défaut</option>
+              <option id="XslTmpl" label="par défaut" value="">défaut</option>
+            </select>
+            <input type="hidden" id="Offset" name="OFFSET" />
+            <input type="hidden" id="Action" name="ACTION" value=""/>
+            <input type="submit" value="Go" />
+          </div>
+      </form>
+    </div>
+  </body>
+</html>

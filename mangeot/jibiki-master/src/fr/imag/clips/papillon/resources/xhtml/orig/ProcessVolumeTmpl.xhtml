@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" xml:lang="en" lang="en">
+
+   <h1 style="text-align:center">Process Volume</h1>
+	
+
+<!-- formulaire de voir mot-->
+<form action="ProcessVolume.po" method="get">
+<table width="600" border="0" cellspacing="0" cellpadding="10" summary="Formulaire">
+<tr>
+	<td><b><label for="VOLUME">Volume:</label></b></td>
+	<td>
+		<select id="VOLUME" name="VOLUME">
+            <option id="VolumeOptionTemplate" value="NONE" label="NONE">NONE</option>
+        </select>
+	</td>
+	<td><b><label for="STATUS">Status:</label></b></td>
+	<td>
+	<select id="STATUS" name="STATUS">
+		<option value="*ALL*" label="all">all</option>
+		<option value="not finished" label="not finished">not finished</option>
+		<option value="finished" label="finished">finished</option>
+		<option value="revised" label="revised">revised</option>
+		<option value="validated" label="validated">validated</option>
+		<option value="replaced" label="replaced">replaced</option>
+		<option value="deleted" label="deleted">deleted</option>
+    </select>
+	</td>
+</tr>
+         <tr>
+            <td style="bgcolor:#4682b4;">
+             <select id="search1" name="search1">
+                <option value="cdm-headword" label="headword">headword</option>
+                <option value="cdm-headword-variant" label="variant">variant</option>
+                <option value="cdm-pos" label="part-of-speech">part-of-speech</option>
+                <option value="gdef-est-domaine" label="domain">domain</option>
+                <option value="cdm-translation" label="translation">translation</option>
+                <option value="cdm-example" label="examples">example</option>
+                <option value="gdef-est-traduction-exemple" label="eg. translations">eg. translation</option>
+                <option value="gdef-est-locution" label="idioms">idiom</option>
+                <option value="gdef-est-traduction-locution" label="idiom translation">idiom translation</option>
+                <option value="cdm-contribution-author" label="author">author</option>
+                <option value="cdm-contribution-reviewer" label="reviewer">reviewer</option>
+                <option value="cdm-contribution-creation-date" label="creation date">creation date</option>
+                <option value="cdm-contribution-revision-date" label="revision date">revision date</option>
+                <option value="AnyContains" label="any part">any part</option>
+              </select><br/>
+              <select id="Strategy1" name="Strategy1">
+                <option value="0" label="=">=</option>
+                <option value="1" label="begins with">begins with</option>
+                <option value="2" label="ends with">ends with</option>
+                <option value="3" label="contains">contains</option>
+                <option value="13" label="&lt;">&lt;</option>
+                <option value="14" label="≤">≤</option>
+                <option value="11" label="&gt;">&gt;</option>
+                <option value="12" label="≥">≥</option>
+              </select>
+			  </td>
+			  <td>
+                <input id="search1text" name="search1text" type="text" size="15" value="" />
+           </td>
+			<td>and</td>
+            <td style="bgcolor:#4682b4;">
+              <select id="search2" name="search2">
+                <option value="cdm-headword" label="headword">headword</option>
+                <option value="cdm-headword-variant" label="variant">variant</option>
+                <option value="cdm-pos" label="part-of-speech">part-of-speech</option>
+                <option value="gdef-est-domaine" label="le domaine">domain</option>
+                <option value="cdm-translation" label="translation">translation</option>
+                <option value="cdm-example" label="examples">example</option>
+                <option value="gdef-est-traduction-exemple" label="eg. translations">eg. translation</option>
+                <option value="gdef-est-locution" label="idioms">idiom</option>
+                <option value="gdef-est-traduction-locution" label="idiom translation">idiom translation</option>
+                <option value="cdm-contribution-author" label="author">author</option>
+                <option value="cdm-contribution-reviewer" label="reviewer">reviewer</option>
+                <option value="cdm-contribution-creation-date" label="creation date">creation date</option>
+                <option value="cdm-contribution-review-date" label="revision date">revision date</option>
+                <option value="AnyContains" label="any part">any part</option>
+              </select><br/>
+              <select id="Strategy2" name="Strategy2">
+                <option value="0" label="=">=</option>
+                <option value="1" label="begins with">begins with</option>
+                <option value="2" label="ends with">ends with</option>
+                <option value="3" label="contains">contains</option>
+                <option value="13" label="&lt;">&lt;</option>
+                <option value="14" label="≤">≤</option>
+                <option value="11" label="&gt;">&gt;</option>
+                <option value="12" label="≥">≥</option>
+              </select>
+			  </td>
+			  <td>
+              <input id="search2text" name="search2text" type="text" size="15" value="" />
+            </td>
+</tr>
+<tr>
+	<td><label for="STYLESHEET"><b>Stylesheet:</b></label></td>
+	<td>
+		<select id="STYLESHEET" name="STYLESHEET">
+            <option id="XslOptionTemplate" value="NONE" label="NONE">NONE</option>
+        </select>
+	</td>
+	<td></td>
+	<td><input id="CONVERT" name="CONVERT" type="submit" value="Convert"/></td>
+</tr>
+</table>
+</form>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="fr">
+<h1>Gestion des Volumes XML</h1>
+
+	<script type="text/javascript">
+    <!--
+            function updateField(idField, idFieldValue) {
+              if (idField != '') {
+                theIdField = document.getElementById(idField);
+                theIdField.value = idFieldValue;
+              }
+            }
+          
+            function openUploader(parentId) {
+              // Get the id of the elements to be modified
+              var targetUrl='UploadFile.po';
+              window.open(targetUrl, parentId,'height=200,width=300,resizable');
+            }
+          
+          // -->
+      </script>
+
+<form action="AdminVolumes.po" method="get">
+<table width="600" border="0" cellspacing="0" cellpadding="10" summary="Upload Metadata">
+<tr>
+     <!-- Warning, make sure the option element contains a Text and only a Text (no other child) -->
+	<td colspan="2"><label>Dictionary:
+		<select name="Dictionary">
+            <option id="DictionaryOptionTemplate" value="NONE" label="NONE">NONE</option>
+        </select></label>
+	</td>
+</tr>
+<tr>	
+	<td colspan="2"><b>Fichier ou URL&nbsp;:&nbsp;</b>
+	<input type="button" name="upload" onclick="javascript:openUploader('URL')" value="charger"/> ou bien
+	<input name="URL" id="URL" type="text" size="64" value=""/></td>
+</tr>
+<tr>
+    <td><label>Charger aussi les entrées&nbsp;: &nbsp;   
+    <input name="AddVolumesAndEntries" type="checkbox" value="Charger les volumes et les entrées"/></label></td>
+    <td><label>Logguer les contributions&nbsp;: &nbsp;
+    <input name="LogContributions" type="checkbox" value="LogContributions"/></label></td>
+</tr>
+<tr>
+	<td colspan="2"><input name="Add" type="submit" value="ajouter"/></td>
+</tr>
+</table>
+<p class="note">Après avoir chargé les données, ne pas oublier de <a href="Admin.po">réindexer</a> le volume!</p>
+<p class="note">NB: Le fichier des métadonnées du dictionnaire doit être être conforme à l'élément &lt;dictionary-metadata&gt;  du schéma DML. On trouvera la dernière version du schéma à l'adresse: <a href="http://www-clips.imag.fr/geta/services/dml/dml.xsd">www-clips.imag.fr/geta/services/dml/dml.xsd</a>.</p>
+</form>
+
+<hr/>
+<form action="AdminVolumes.po" method="get">
+<table width="600" border="0" cellspacing="0" cellpadding="10" summary="Upload XML File">
+<tr>
+	<td><b>Volume:</b></td>
+        <td>
+            <select name="Volume">
+            <option id="VolumeOptionTemplate" value="NONE" label="NONE">NONE</option>
+        </select></td>
+	<td><b>Object:</b></td>
+        <td>
+            <select name="Object">
+            <option value="Metadata" label="Metadata File">Fichier des métadonnées</option>
+            <option value="Schema" label="XML Schema">Schéma XML</option>
+            <option value="Template" label="Template Entry">Patron d'entrée</option>
+            <option value="Interface" label="Interface">Fichier d'interface</option>
+        </select></td>
+				</tr>
+<tr>	
+	<td valign="top"><b>Fichier ou URL:&nbsp;</b></td>
+	<td colspan="3"><input type="button" name="upload" onclick="javascript:openUploader('URLObject')" value="charger"/> ou bien
+	<input name="URLObject" id="URLObject" type="text" size="80" value=""/></td>
+</tr>
+<tr>
+<td>
+<input name="Add" type="submit" value="charger"/>
+</td>
+</tr>
+</table>
+</form>
+
+<hr/>
+<form action="AdminVolumes.po" method="get">
+<table width="600" border="0" cellspacing="0" cellpadding="10" summary="Upload XML File">
+<tr>
+	<td><b>Volume:</b></td>
+    <td>
+        <select name="VolumeTransformation">
+            <option value="All" label="All">Tous les volumes</option>
+            <option id="VolumeOptionTemplateTransformation" value="NONE" label="NONE">NONE</option>
+        </select>
+    </td>
+    <td/><td/>
+</tr>
+<tr>	
+	<td valign="top"><b>Fichier ou URL:&nbsp;</b></td>
+	<td colspan="3">
+	<input type="button" name="upload" onclick="javascript:openUploader('URLObjectTransformation')" value="charger"/> ou bien 
+	<input name="URLObjectTransformation" id="URLObjectTransformation" type="text" size="80" value=""/>
+	</td>
+</tr>
+</table>
+<div><input name="Transformation" type="submit" value="Lancer transformation"/></div>
+</form>
+
+<hr/>
+Volumes actuellement dans la base:
+<table summary="Existing Volumes">
+<tr>
+	<th>Dict</th>
+	<th>Volume</th>
+	<th>Table</th>
+	<th>Srce</th>
+	<th>Entrées</th>
+	<th>Schéma</th>
+	<th>Patron</th>
+	<th>Interface</th>
+	<th>&nbsp;|&nbsp;</th>
+	<th>Metadonnées</th>
+  <th>Tout</th>
+</tr>
+<tr id="TemplateRow">
+	<td><span id="Dictname">dict</span></td>
+	<td><a href="" id="SeeMetadataAnchor"><b><span id="Name">nom</span></b></a></td>
+	<td><span id="Dbname">table</span></td>
+	<td><span id="Source">lg source</span></td>
+	<td align="right"><span id="Entries">entrées</span></td>
+	<td align="center"><a href="" id="SeeSchemaAnchor"><span id="SeeSchema">Voir</span></a></td>
+	<td align="center"><a href="" id="SeeTemplateAnchor"><span id="SeeTemplate">Voir</span></a></td>
+	<td align="center"><a href="" id="SeeInterfaceAnchor"><span id="SeeInterface">Voir</span></a></td>
+	<td>&nbsp;|&nbsp;</td>
+	<td align="center"><a href="" id="RemoveMetadataAnchor" onclick="return confirm('Etes-vous sur de vouloir supprimer les  metadonnées?')">rm</a></td>
+	<td align="center"><a href="" id="RemoveAllAnchor" onclick="return confirm('Etes-vous sur de vouloir supprimer les  metadonnées et les entrées?')">rm</a></td>
+</tr>
+</table>
+<div>
+<div id="Xml">
+</div>
+</div>
+</div>
+</body>
+</html>

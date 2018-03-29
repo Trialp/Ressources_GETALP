@@ -1,0 +1,54 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title>Papillon</title>
+</head>
+<body>
+<div id="Formulaire" lang="en">
+
+<center><h1>Manage the XSLSheets</h1></center>
+
+<HR>
+<!-- formulaire de voir mot-->          
+
+<FORM accept-charset="UTF-8" ACTION="AdminXsl.po" METHOD="GET">
+<table WIDTH="600" BORDER="0" CELLSPACING="0" CELLPADDING="0" Summary="Formulaire">
+<TR>	
+	<TD><B>Name:&nbsp;</B></TD>
+	<TD><INPUT NAME="name" TYPE="text" SIZE="64" VALUE=""></TD>
+</TR>
+<TR>
+	<TD><B>Description:&nbsp; </B></TD>
+	<TD><INPUT NAME="description" TYPE="text" SIZE="64" VALUE=""></TD>
+</TR>
+<TR>
+	<TD><B>URL: &nbsp;</B></TD>
+	<TD><INPUT NAME="url" TYPE="text" SIZE="64" VALUE=""></TD>
+</TR>
+<TR>
+    <TD><B>Is Default: &nbsp;</B></TD>     
+    <TD><INPUT  NAME="type" TYPE="checkbox" VALUE="Default StyleSheet"></TD>
+</TR>
+<TR>
+	<TD COLSPAN="2"><INPUT NAME="Add" TYPE="submit" VALUE="Add"></TD>
+</TR>
+</TABLE>
+</FORM> 
+<HR>
+<TABLE Summary="Existing XSL Sheets">
+<TR><TH COLSPAN="4">XSL sheets currently in the database:</TH></TR>
+<TR id="TemplateRow">
+	<TD WIDTH="65%"><span Id="XslName">Name</span> (<span id="XslDesc">description</span>) <B><span id="XslDefault">default</span></B></TD>
+	<TD WIDTH="10%"><A HREF="" id="SeeAnchor">sehen</A></TD>
+	<TD WIDTH="10%"><A HREF="" id="RemoveAnchor" onClick="return confirm('Are you sure you want to remove the Xsl Sheet?')">Remove</A></TD>
+	<TD WIDTH="15%"><A HREF="" id="DefaultAnchor">Make Default</A></TD>
+</TR>
+</TABLE>
+<div>
+<div id="Xml">
+</div>
+</div>
+</div>
+</body>
+</html>

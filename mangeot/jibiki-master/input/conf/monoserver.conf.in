@@ -1,0 +1,37 @@
+#
+#  Papillon51
+#
+#  Servlet service configuration file.
+#
+
+Server.ConfDir = "@DEPLOY_PATH@/conf"
+
+Server.LogClassName = com.lutris.logging.Log4jLogger
+Server.Log4j = "@DEPLOY_PATH@/conf/log4j.xml"
+
+#-----------------------------------------------------------------------------
+#            Mime types
+MimeType.ico = image/x-icon
+
+
+#
+# Specify only one application (no graphical administration).
+#
+Application.@APPLICATION@.ConfFile = @APPLICATION@.conf
+Application.@APPLICATION@.Description = "@APPLICATION@"
+Application.@APPLICATION@.Running = yes
+Application.@APPLICATION@.defaultSessionTimeOut = 30
+
+#
+# Open up a port.
+#
+Connection.http.Type = http
+Connection.http.Port = 8999
+
+#
+# Connect the port to the application.
+#
+Channel.http.channel.Servlet = @APPLICATION@
+Channel.http.channel.Url = @APPLICATION_PREFIX@
+Channel.http.channel.Enabled = yes
+

@@ -1,0 +1,8 @@
+-html:encoding utf-8
+-urlmapping "engfra/" "Motamot.po?SrcTrg=engfra"
+-urlmapping "engjpn/" "Motamot.po?SrcTrg=engjpn"
+-urlmapping "frajpn/" "Motamot.po?SrcTrg=frajpn"
+-info
+-generate both
+-create-get-tag-methods
+-methods

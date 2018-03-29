@@ -1,0 +1,9 @@
+Generate Font metrics
+
+java -cp /Library/Java/Extensions/fop-0.93/build/fop.jar:/Library/Java/Extensions/fop-0.93/lib/avalon-framework-4.2.0.jar:/Library/Java/Extensions/fop-0.93/lib/commons-logging-1.0.4.jar:/Library/Java/Extensions/fop-0.93/lib/commons-io-1.1.jar org.apache.fop.fonts.apps.TTFReader -ttcname Arial /Library/Fonts/arialbd.ttf arialbd.xml
+
+java -cp /Library/Java/Extensions/fop-0.93/build/fop.jar:/Library/Java/Extensions/fop-0.93/lib/avalon-framework-4.2.0.jar:/Library/Java/Extensions/fop-0.93/lib/commons-logging-1.0.4.jar:/Library/Java/Extensions/fop-0.93/lib/commons-io-1.1.jar org.apache.fop.fonts.apps.TTFReader -ttcname Arial /Library/Fonts/arialbi.ttf arialbi.xml
+
+java -cp /Library/Java/Extensions/fop-0.93/build/fop.jar:/Library/Java/Extensions/fop-0.93/lib/avalon-framework-4.2.0.jar:/Library/Java/Extensions/fop-0.93/lib/commons-logging-1.0.4.jar:/Library/Java/Extensions/fop-0.93/lib/commons-io-1.1.jar org.apache.fop.fonts.apps.TTFReader -ttcname Arial /Library/Fonts/ariali.ttf ariali.xml
+
+java -cp /Library/Java/Extensions/fop-0.93/build/fop.jar:/Library/Java/Extensions/fop-0.93/lib/avalon-framework-4.2.0.jar:/Library/Java/Extensions/fop-0.93/lib/commons-logging-1.0.4.jar:/Library/Java/Extensions/fop-0.93/lib/commons-io-1.1.jar org.apache.fop.fonts.apps.TTFReader -ttcname Arial /Library/Fonts/arial.ttf arial.xml

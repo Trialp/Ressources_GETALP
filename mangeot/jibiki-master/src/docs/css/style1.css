@@ -1,0 +1,101 @@
+/***************************************************
+ * Stylesheet for Papillon documentation
+ ***************************************************/
+html {
+	margin: 0 0 0 1em;
+}
+
+body {
+	background: white;
+	color: black;
+	font-family: "Gill Alternate One Monotype", "Helvetica", "Gill Sans", sans-serif;
+	text-align: justify;
+	text-indent: 0;
+	margin: 1em 2em 1em 25%;
+	line-height: 1.3;
+	font-size: small;
+}
+
+p {
+	margin: 0;
+}
+
+h1 {
+	text-align: center;
+	text-indent: -33%;	/* Au centre par rapport a la page */
+	margin: 2.4em 0 4.5em 0;
+	font-size: x-large;
+}
+
+h2 {				/* Le titre de niveau 2 est aligne sur la marge et il apparaît en majuscules */
+	text-align: left;
+	text-indent: -33%;
+	margin: 2.4em 0 1.1em 0;
+	font-size: larger;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+h3 {
+	text-align: left;
+	text-indent: -25%;
+	margin: 2.4em 0 1.1em 0;
+	font-size: larger;
+	font-weight: bold;
+}
+
+ol, ul {
+	margin: 1em 0 1em 2em;
+}
+
+li {
+	margin: 0;
+
+}
+
+p.source {		
+	text-align: left;	
+  background: #DFDFDF;
+	font-family: "courier", fixed;
+	font-size: smaller;
+	margin: 0 1em 1em -10%;
+}
+
+pre {			
+	text-align: left;
+  background: #DFDFDF;
+	font-family: "courier", fixed;
+	font-size: smaller;
+	margin: 0 1em 1em -10%;
+}
+
+.note_en_marge {			/* N'importe quelle balise de la classe "Note en marge" */
+	text-align: justify;
+	text-indent: 0;
+	float: left;
+	width: 30%;
+	margin: 0 0 0 -33%;
+	font-size: smaller;
+}
+
+.acronyme { 				/* N'importe quelle balise de la classe acronyme */
+        background: #BFBFBF;
+}
+
+/* Apparence des liens, on ne veut pas qu'il changent de couleur meme s'ils ont deja ete
+   visites */
+a:link { 
+        text-decoration: none; 
+        cursor: hand; 
+        color: rgb(0,52,102);
+}
+a:visited { 
+        text-decoration: none; 
+        cursor: hand; 
+        color: rgb(0,52,102); 
+}
+/* De plus, on souhaite qu'ils se modifient quand on passe dessus (un souligné apparait). */
+a:hover { 
+        text-decoration: underline;
+        cursor: hand; 
+}

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+  <head>
+    <link href="css/dilaf.css" rel="StyleSheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="Mathieu MANGEOT &amp; Chantal Enguehard" />
+    <meta name="keywords" content="dictionnaire, multilingue, projet dilaf, base lexicale, français, bambara, fulfulde, hausa, tamajak, zarma" />  
+    <meta name="description" content="Le projet DiLAF : dictionnaire langues africaines-français : bambara, fulfulde, haoussa, tamachek, zarma" />
+    <meta name="robots" content="index, follow" />
+    <title>Le projet DiLAF : bambara, haoussa, kanouri, tamajaq, zarma - français</title>
+    <link rel="stylesheet" href="css/autocomplete.css" type="text/css" media="screen"/>
+    <script src="javascript/jquery-1.8.0.min.js" type="text/javascript"><!-- // --></script>
+    <script src="javascript/jquery.dimensions.js" type="text/javascript"><!-- // --></script>
+    <script src="javascript/autocomplete.js" type="text/javascript"><!-- // --></script>
+     <script src="javascript/functions.js" type="text/javascript"><!-- // --></script>
+     <script src="javascript/lookupVolume.js" type="text/javascript"><!-- // --></script>
+  <script type="text/javascript">
+	<!--
+        //
+            $(document).ready(function(){
+	    setAutoComplete('ValueField', 'SourceLang', 'results', 
+                'JSONHeadwordList.po', 'headword=', 'lang=');
+	});
+    //-->
+    </script>
+    <script id="Script" type="text/javascript">
+       <!--
+        //
+        function init() {
+        
+            //// Launch ajax function to get select elements depending on cdm elements
+            
+            // Get all select elements
+            var selectCollection = document.getElementsByTagName('select');
+            for(var i=0; i < selectCollection.length; i++){
+                
+                // Launch ajax function only for select cdm element (name=FACET.*)
+                if (selectCollection[i].name.match(/FACET\./)) {
+                    getSelector(selectCollection[i].value, selectCollection[i].name);
+                }
+            }
+            
+        }
+        //-->
+    </script>
+  </head>
+  <body onload="javascript:init();" style="margin:0;padding:0;">
+    <script src="javascript/AdvancedQueryFormAjax.js" type="text/javascript"><!-- // --></script>
+    <div class="headerBlock">
+	<div id="LangFormHolder" style="display:none;"></div>
+    <div id="projectTitle" style="background-color: #F35E44; color: #FEFFD2; display: table; width:100%">
+        <!--img alt="The Papillon Project" src="media/header.jpg" /-->
+        <div style="display:table-cell; vertical-align:middle;">
+            <div style="font-size:3em;"><a href="Home.po" style="color: #FEFFD2;text-decoration:none;">DiLAF</a></div>
+            <div style="font-size:0.8em;"><a href="Home.po" style="color: #FEFFD2;text-decoration:none;">Dictionnaires mis en ligne par les Universités de Grenoble et Nantes</a></div>
+        </div>
+        <div id="Description_Default" class="projectName" style="display:table-cell;vertical-align:middle;width: 50%; padding: 0.3em;">
+            <h1 style="color: #FEFFD2;"><a href="Home.po" style="color: #FEFFD2;text-decoration:none;">Site gratuit</a></h1>
+            <h2 style="color: #FEFFD2;"><a href="Home.po" style="color: #FEFFD2;text-decoration:none;">dictionnaires langue&#xA0;africaine-français</a></h2>
+        </div>
+	   </div>
+  <div id="headerMenu" class="headerMenu">
+  <table style="margin:auto; width:90%; padding-top:.5em">
+  <tbody>
+   <tr>
+  <td class="popupMenu"><a href="Home.po">Accueil</a></td>
+  <td class="popupMenu"><a href="Information.po">Informations<!--Questions fréquentes--></a><ul>
+      <li><a href="Information.po#Bambara">Dictionnaire bambara</a></li>
+      <li><a href="Information.po#Haoussa">Dictionnaire haoussa</a></li>
+      <li><a href="Information.po#Kanouri">Dictionnaire kanouri</a></li>
+      <li><a href="Information.po#Tamajaq">Dictionnaire tamajaq</a></li>
+      <li><a href="Information.po#Zarma">Dictionnaire zarma</a></li>
+  </ul></td>
+  <td class="popupMenu"><a href="Project.po">Projet</a><ul>
+    	<li><a href="Project.po#Objectif">Objectif</a></li>
+    	<li><a href="Project.po#Financement">Financement</a></li>
+    	<li><a href="Project.po#Partenaires">Partenaires</a></li>
+    	<li><a href="Project.po#Publications">Publications</a></li>
+    	<li><a href="Project.po#Methodologie">Méthodologie</a></li>
+    </ul>
+  </td>
+  <td class="popupMenu"><a href="Help.po">Aide</a></td>
+  <td class="popupMenu"><a href="Contacts.po">Contacts</a>
+    </td>
+</tr>
+</tbody>
+</table>
+    </div>
+    </div>
+	<p style="clear:both;"></p>
+	<div id="BannerPlaceHolder">
+	  <div id="BannerContent">
+  	   <!--div id="projectTitle"-->
+        <!--img alt="The Papillon Project" src="media/header.jpg" /-->
+        <!--div id="Description_Default" class="projectName">
+			<h1>Site gratuit</h1>
+			<h2>dictionnaires langue&#xA0;africaine-français</h2>
+		</div>
+	   </div-->
+	  </div>
+	</div>
+	<div id="partieCentrale">
+	<div id="MenuColumn" class="menuColumn">
+	</div>
+    <div id="MainColumn" class="mainColumn"></div>
+    <!--div id="NewsColumn" class="menuColumn" /-->
+	</div>
+    <div class="copyright">
+        Mise à jour : 26 novembre 2013. Plate-forme : © 2001-2013, GETA-CLIPS, GETALP-LIG. Licence LGPL. Données : © 2013, projet DiLAF et partenaires. Licence Creative Commons By.
+	<div id="UserMenuHolder" style="display: inline;">
+    </div>
+	</div>
+	<div id="MenuColumnHidden">
+	<div id="QueryMenuHolder" style="display: none;">
+	</div>
+    <div id="LexiesManagementHolder" style="display: none;">
+    </div>
+    <div id="ReviewerMenuHolder">
+	</div>
+     <div id="ValidatorMenuHolder">
+    </div>
+    <div id="AdministrationMenuHolder">
+    </div>
+	</div>
+
+<!-- Piwik -->
+<script type="text/javascript">
+    <!--
+    var _paq = _paq || [];
+    _paq.push(["trackPageView"]);
+    _paq.push(["enableLinkTracking"]);
+    (function() {
+    var u="//totoro.imag.fr/piwik/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", 4]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
+    g.type="text/javascript"; g.async=true; g.defer=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+    })();
+ //    -->
+</script>
+<noscript><p><img src="//totoro.imag.fr/piwik/piwik.php?idsite=4" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
+  </body>
+</html>

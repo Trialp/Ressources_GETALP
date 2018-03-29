@@ -1,0 +1,10 @@
+Papillon.Informations.sections.deu[] = "Allgemeine Informationen",
+                                       "Papillon-Entwicklung",
+                                       "Papillon-Wörterbücher",
+                                       "Papillon-Workshop 2001, Grenoble" ,
+                                       "Papillon-Workshop 2002, Tokyo" ,
+                                       "Papillon-Workshop 2003, Sapporo",
+                                       "Publikationen zum Papillon-Projekt",
+                                       "Andere in Zusammenhang stehende Publikationen",
+                                       "How To",
+                                       "Verschiedenes"
